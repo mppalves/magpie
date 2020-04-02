@@ -21,7 +21,7 @@ q14_yield_crop(j2,kcr,w) ..
 * sum(ct,(i14_yields(ct,j2,"pasture",w)
 * *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));
 
- * model hash ID 2b6bbb2913486ce8498891cb1057c91bfaac3a14
+* model hash ID 2b6bbb2913486ce8498891cb1057c91bfaac3a14
  q14_inlsu(j2,lnp1)..  v14_inlsu(j2,lnp1) =e= sum(in_lsu_p, vm_lsu(j2) * f14_w1(in_lsu_p,lnp1));
  q14_inEnv(j2,lnp1)..  v14_inEnv(j2,lnp1) =e= sum(in_env_p, f14_nn_input(j2,in_env_p) * f14_w1(in_env_p,lnp1));
  q14_z1(j2,lnp1)..  v14_z1(j2,lnp1) =e= v14_inlsu(j2,lnp1) + v14_inEnv(j2,lnp1) + f14_b1(lnp1);
