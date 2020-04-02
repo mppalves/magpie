@@ -30,7 +30,7 @@ $include "./modules/14_yields/input/f14_pasture_yields_hist.csv"
 $offdelim;
 
 * model hash ID 2b6bbb2913486ce8498891cb1057c91bfaac3a14
-table f14nn_input(j,in_env_p) a
+table f14_nn_input(j,in_env_p) a
 $ondelim
 $include "./modules/14_yields/input/environment_cell.csv"
 $offdelim
