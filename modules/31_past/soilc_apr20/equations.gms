@@ -35,4 +35,26 @@ q31_cost_prod_past(i2) ..
 *' For all following time steps, factor requriements `s31_fac_req_past` are set
 *' to zero.
 
+* model hash ID af93162731dc499d3190e4be7b1e533bd6fe7e24
+q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, vm_lsu(j2) * f31_w1(in_lsu_s,lns1));
+q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum(in_env_s, f31_nn_input(j2,in_env_s) * f31_w1(in_env_s,lns1));
+q31_z1(j2,lns1)..  v31_z1(j2,lns1) =e= v31_inlsu(j2,lns1) + v31_inEnv(j2,lns1) + f31_b1(lns1);
+q31_a1(j2,lns1)..  v31_a1(j2,lns1) =e= log(1 + system.exp(v31_z1(j2,lns1)));
+q31_z2(j2,lns2)..  v31_z2(j2,lns2) =e= sum(lns1, v31_a1(j2,lns1) * f31_w2(lns1,lns2) + f31_b2(lns2));
+q31_a2(j2,lns2)..  v31_a2(j2,lns2) =e= log(1 + system.exp(v31_z2(j2,lns2)));
+q31_z3(j2,lns3)..  v31_z3(j2,lns3) =e= sum(lns2, v31_a2(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
+q31_a3(j2,lns3)..  v31_a3(j2,lns3) =e= log(1 + system.exp(v31_z3(j2,lns3)));
+q31_z4(j2,lns4)..  v31_z4(j2,lns4) =e= sum(lns3, v31_a3(j2,lns3) * f31_w4(lns3,lns4) + f31_b4(lns4));
+q31_a4(j2,lns4)..  v31_a4(j2,lns4) =e= log(1 + system.exp(v31_z4(j2,lns4)));
+q31_z5(j2,lns5)..  v31_z5(j2,lns5) =e= sum(lns4, v31_a4(j2,lns4) * f31_w5(lns4,lns5) + f31_b5(lns5));
+q31_a5(j2,lns5)..  v31_a5(j2,lns5) =e= log(1 + system.exp(v31_z5(j2,lns5)));
+q31_z6(j2,lns6)..  v31_z6(j2,lns6) =e= sum(lns5, v31_a5(j2,lns5) * f31_w6(lns5,lns6) + f31_b6(lns6));
+q31_a6(j2,lns6)..  v31_a6(j2,lns6) =e= log(1 + system.exp(v31_z6(j2,lns6)));
+q31_z7(j2,lns7)..  v31_z7(j2,lns7) =e= sum(lns6, v31_a6(j2,lns6) * f31_w7(lns6,lns7) + f31_b7(lns7));
+q31_a7(j2,lns7)..  v31_a7(j2,lns7) =e= log(1 + system.exp(v31_z7(j2,lns7)));
+q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns7,lns8), v31_a7(j2,lns7) * f31_w8(lns7,lns8) + f31_b8(lns8));
+q31_maxlsu(j2)..  vm_lsu(j2) =l= 2;
+q31_minlsu(j2)..  vm_lsu(j2) =g= -2;
+q31_rlsu(j2)..  v31_rlsu(j2) =g= vm_lsu(j2) * s31_mean + s31_std;
+
 *** EOF constraints.gms ***

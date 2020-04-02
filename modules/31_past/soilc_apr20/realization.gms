@@ -18,6 +18,7 @@
 *' related degradation of pastures.
 
 *####################### R SECTION START (PHASES) ##############################
+$Ifi "%phase%" == "sets" $include "./modules/31_past/soilc_apr20/sets.gms"
 $Ifi "%phase%" == "declarations" $include "./modules/31_past/soilc_apr20/declarations.gms"
 $Ifi "%phase%" == "input" $include "./modules/31_past/soilc_apr20/input.gms"
 $Ifi "%phase%" == "equations" $include "./modules/31_past/soilc_apr20/equations.gms"
