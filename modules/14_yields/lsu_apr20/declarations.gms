@@ -20,6 +20,58 @@ equations
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
 ;
 
+* model hash ID 2b6bbb2913486ce8498891cb1057c91bfaac3a14
+variables
+vm_lsu(j)
+v14_inlsu(j,lnp1)
+v14_inEnv(j,lnp1)
+v14_z1(j,lnp1)
+v14_a1(j,lnp1)
+v14_z2(j,lnp2)
+v14_a2(j,lnp2)
+v14_z3(j,lnp3)
+v14_a3(j,lnp3)
+v14_z4(j,lnp4)
+v14_a4(j,lnp4)
+v14_z5(j,lnp5)
+v14_a5(j,lnp5)
+v14_z6(j,lnp6)
+v14_a6(j,lnp6)
+v14_z7(j,lnp7)
+v14_a7(j,lnp7)
+;
+equations
+q14_inlsu(j,lnp1)
+q14_inEnv(j,lnp1)
+q14_rlsu(j)
+q14_maxlsu(j)
+q14_minlsu(j)
+q14_past_yld(j)
+q14_z1(j,lnp1)
+q14_a1(j,lnp1)
+q14_z2(j,lnp2)
+q14_a2(j,lnp2)
+q14_z3(j,lnp3)
+q14_a3(j,lnp3)
+q14_z4(j,lnp4)
+q14_a4(j,lnp4)
+q14_z5(j,lnp5)
+q14_a5(j,lnp5)
+q14_z6(j,lnp6)
+q14_a6(j,lnp6)
+q14_z7(j,lnp7)
+q14_a7(j,lnp7)
+;
+positive variables
+v14_past_yld(j)
+v14_rlsu(j)
+;
+scalars
+s14_mean lsu conversion factor /1.12500723594219/
+s14_std lsu conversion factor /0.733845338253695/
+;
+
+
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
  ov_yld(t,j,kve,w,type)          Yields (variable because of technical change) (tDM per ha per yr)
