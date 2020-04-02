@@ -29,97 +29,97 @@ $ondelim
 $include "./modules/14_yields/input/f14_pasture_yields_hist.csv"
 $offdelim;
 
-* model hash ID af93162731dc499d3190e4be7b1e533bd6fe7e24
-table f31nn_input(j,in_env_s)
+* model hash ID 2b6bbb2913486ce8498891cb1057c91bfaac3a14
+table f14nn_input(j,in_env_p)
 $ondelim
-$include "./modules/31_past/input/environment_cell.csv"
+$include "./modules/14_yields/input/environment_cell.csv"
 $offdelim
 ;
-table f31_w1(in_types_s,lns1)
+table f14_w1(in_types_p,lnp1)
 $ondelim
-$include "./modules/31_past/input/s_weights_1.csv"
+$include "./modules/14_yields/input/p_weights_1.csv"
 $offdelim
 ;
-table f31_w2(lns1,lns2)
+table f14_w2(lnp1,lnp2)
 $ondelim
-$include "./modules/31_past/input/s_weights_2.csv"
+$include "./modules/14_yields/input/p_weights_2.csv"
 $offdelim
 ;
-table f31_w3(lns2,lns3)
+table f14_w3(lnp2,lnp3)
 $ondelim
-$include "./modules/31_past/input/s_weights_3.csv"
+$include "./modules/14_yields/input/p_weights_3.csv"
 $offdelim
 ;
-table f31_w4(lns3,lns4)
+table f14_w4(lnp3,lnp4)
 $ondelim
-$include "./modules/31_past/input/s_weights_4.csv"
+$include "./modules/14_yields/input/p_weights_4.csv"
 $offdelim
 ;
-table f31_w5(lns4,lns5)
+table f14_w5(lnp4,lnp5)
 $ondelim
-$include "./modules/31_past/input/s_weights_5.csv"
+$include "./modules/14_yields/input/p_weights_5.csv"
 $offdelim
 ;
-table f31_w6(lns5,lns6)
+table f14_w6(lnp5,lnp6)
 $ondelim
-$include "./modules/31_past/input/s_weights_6.csv"
+$include "./modules/14_yields/input/p_weights_6.csv"
 $offdelim
 ;
-table f31_w7(lns6,lns7)
+table f14_w7(lnp6,lnp7)
 $ondelim
-$include "./modules/31_past/input/s_weights_7.csv"
+$include "./modules/14_yields/input/p_weights_7.csv"
 $offdelim
 ;
-table f31_w8(lns7,lns8)
+table f14_w8(lnp7,lnp8)
 $ondelim
-$include "./modules/31_past/input/s_weights_8.csv"
+$include "./modules/14_yields/input/p_weights_8.csv"
 $offdelim
 ;
-parameter f31_b1(lns1)
+parameter f14_b1(lnp1)
 /
 $ondelim
-$include "./modules/31_past/input/s_bias_1.csv"
+$include "./modules/14_yields/input/p_bias_1.csv"
 $offdelim
 /;
-parameter f31_b2(lns2)
+parameter f14_b2(lnp2)
 /
 $ondelim
-$include "./modules/31_past/input/s_bias_2.csv"
+$include "./modules/14_yields/input/p_bias_2.csv"
 $offdelim
 /;
-parameter f31_b3(lns3)
+parameter f14_b3(lnp3)
 /
 $ondelim
-$include "./modules/31_past/input/s_bias_3.csv"
+$include "./modules/14_yields/input/p_bias_3.csv"
 $offdelim
 /;
-parameter f31_b4(lns4)
+parameter f14_b4(lnp4)
 /
 $ondelim
-$include "./modules/31_past/input/s_bias_4.csv"
+$include "./modules/14_yields/input/p_bias_4.csv"
 $offdelim
 /;
-parameter f31_b5(lns5)
+parameter f14_b5(lnp5)
 /
 $ondelim
-$include "./modules/31_past/input/s_bias_5.csv"
+$include "./modules/14_yields/input/p_bias_5.csv"
 $offdelim
 /;
-parameter f31_b6(lns6)
+parameter f14_b6(lnp6)
 /
 $ondelim
-$include "./modules/31_past/input/s_bias_6.csv"
+$include "./modules/14_yields/input/p_bias_6.csv"
 $offdelim
 /;
-parameter f31_b7(lns7)
+parameter f14_b7(lnp7)
 /
 $ondelim
-$include "./modules/31_past/input/s_bias_7.csv"
+$include "./modules/14_yields/input/p_bias_7.csv"
 $offdelim
 /;
-parameter f31_b8(lns8)
+parameter f14_b8(lnp8)
 /
 $ondelim
-$include "./modules/31_past/input/s_bias_8.csv"
+$include "./modules/14_yields/input/p_bias_8.csv"
 $offdelim
 /;
