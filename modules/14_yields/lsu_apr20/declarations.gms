@@ -20,55 +20,51 @@ equations
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
 ;
 
-* model hash ID 2b6bbb2913486ce8498891cb1057c91bfaac3a14
+* model hash ID 055a17811eafed23cc7cfc6f4059fa41ee7a6397
 variables
-vm_lsu(j) a
-v14_inlsu(j,lnp1) a
-v14_inEnv(j,lnp1) a
-v14_z1(j,lnp1) a
-v14_a1(j,lnp1) a
-v14_z2(j,lnp2) a
-v14_a2(j,lnp2) a
-v14_z3(j,lnp3) a
-v14_a3(j,lnp3) a
-v14_z4(j,lnp4) a
-v14_a4(j,lnp4) a
-v14_z5(j,lnp5) a
-v14_a5(j,lnp5) a
-v14_z6(j,lnp6) a
-v14_a6(j,lnp6) a
-v14_z7(j,lnp7) a
-v14_a7(j,lnp7) a
+vm_lsu(j) LSU variable
+v14_inlsu(j,lnp1) LSU input layer
+v14_inEnv(j,lnp1) Environmental input layer
+v14_z1(j,lnp1) layer neurons
+v14_a1(j,lnp1) layer activation
+v14_z2(j,lnp2) layer neurons
+v14_a2(j,lnp2) layer activation
+v14_z3(j,lnp3) layer neurons
+v14_a3(j,lnp3) layer activation
+v14_z4(j,lnp4) layer neurons
+v14_a4(j,lnp4) layer activation
+v14_z5(j,lnp5) layer neurons
+v14_a5(j,lnp5) layer activation
+v14_z6(j,lnp6) layer neurons
+v14_a6(j,lnp6) layer activation
 ;
 equations
-q14_inlsu(j,lnp1) a
-q14_inEnv(j,lnp1) a
-q14_rlsu(j) a
-q14_maxlsu(j) a
-q14_minlsu(j) a
-q14_past_yld(j) a
-q14_z1(j,lnp1) a
-q14_a1(j,lnp1) a
-q14_z2(j,lnp2) a
-q14_a2(j,lnp2) a
-q14_z3(j,lnp3) a
-q14_a3(j,lnp3) a
-q14_z4(j,lnp4) a
-q14_a4(j,lnp4) a
-q14_z5(j,lnp5) a
-q14_a5(j,lnp5) a
-q14_z6(j,lnp6) a
-q14_a6(j,lnp6) a
-q14_z7(j,lnp7) a
-q14_a7(j,lnp7) a
+q14_inlsu(j,lnp1) LSU input equation
+q14_inEnv(j,lnp1) LSU input equation
+q14_rlsu(j) real lsu equation
+q14_maxlsu(j) max LSU
+q14_minlsu(j) min LSU
+q14_past_yld(j) output equation
+q14_z1(j,lnp1) layer equation
+q14_a1(j,lnp1) activation equation
+q14_z2(j,lnp2) layer equation
+q14_a2(j,lnp2) activation equation
+q14_z3(j,lnp3) layer equation
+q14_a3(j,lnp3) activation equation
+q14_z4(j,lnp4) layer equation
+q14_a4(j,lnp4) activation equation
+q14_z5(j,lnp5) layer equation
+q14_a5(j,lnp5) activation equation
+q14_z6(j,lnp6) layer equation
+q14_a6(j,lnp6) activation equation
 ;
 positive variables
-v14_past_yld(j) a
-v14_rlsu(j) a
+v14_past_yld(j) output variable
+v14_rlsu(j) real LSU variable
 ;
 scalars
-s14_mean lsu conversion factor /1.12500723594219/
-s14_std lsu conversion factor /0.733845338253695/
+s14_mean lsu conversion factor /1.12500545485321/
+s14_std lsu conversion factor /0.733858935691896/
 ;
 
 
