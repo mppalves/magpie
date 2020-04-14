@@ -12,55 +12,57 @@ equations
  q31_cost_prod_past(i)    Costs for putting animals on pastures (mio. USD05MER per yr)
 ;
 
-* model hash ID af93162731dc499d3190e4be7b1e533bd6fe7e24
+* model hash ID caf1e6aee9b36da8b672fb5fd18eaac7231b1544
 variables
-v31_inlsu(j,lns1) a
-v31_inEnv(j,lns1) a
-v31_z1(j,lns1) a
-v31_a1(j,lns1) a
-v31_z2(j,lns2) a
-v31_a2(j,lns2) a
-v31_z3(j,lns3) a
-v31_a3(j,lns3) a
-v31_z4(j,lns4) a
-v31_a4(j,lns4) a
-v31_z5(j,lns5) a
-v31_a5(j,lns5) a
-v31_z6(j,lns6) a
-v31_a6(j,lns6) a
-v31_z7(j,lns7) a
-v31_a7(j,lns7) a
+vm_lsu(j) LSU variable
+v31_inlsu(j,lns1) LSU input layer
+v31_inEnv(j,lns1) Environmental input layer
+v31_z1(j,lns1) layer neurons
+v31_a1(j,lns1) layer activation
+v31_z2(j,lns2) layer neurons
+v31_a2(j,lns2) layer activation
+v31_z3(j,lns3) layer neurons
+v31_a3(j,lns3) layer activation
+v31_z4(j,lns4) layer neurons
+v31_a4(j,lns4) layer activation
+v31_z5(j,lns5) layer neurons
+v31_a5(j,lns5) layer activation
+v31_z6(j,lns6) layer neurons
+v31_a6(j,lns6) layer activation
+v31_z7(j,lns7) layer neurons
+v31_a7(j,lns7) layer activation
 ;
 equations
-q31_inlsu(j,lns1) a
-q31_inEnv(j,lns1) a
-q31_rlsu(j) a
-q31_maxlsu(j) a
-q31_minlsu(j) a
-q31_soilc_yld(j) a
-q31_z1(j,lns1) a
-q31_a1(j,lns1) a
-q31_z2(j,lns2) a
-q31_a2(j,lns2) a
-q31_z3(j,lns3) a
-q31_a3(j,lns3) a
-q31_z4(j,lns4) a
-q31_a4(j,lns4) a
-q31_z5(j,lns5) a
-q31_a5(j,lns5) a
-q31_z6(j,lns6) a
-q31_a6(j,lns6) a
-q31_z7(j,lns7) a
-q31_a7(j,lns7) a
+q31_inlsu(j,lns1) LSU input equation
+q31_inEnv(j,lns1) LSU input equation
+q31_rlsu(j) real lsu equation
+q31_maxlsu(j) max LSU
+q31_minlsu(j) min LSU
+q31_soilc_yld(j) output equation
+q31_z1(j,lns1) layer equation
+q31_a1(j,lns1) activation equation
+q31_z2(j,lns2) layer equation
+q31_a2(j,lns2) activation equation
+q31_z3(j,lns3) layer equation
+q31_a3(j,lns3) activation equation
+q31_z4(j,lns4) layer equation
+q31_a4(j,lns4) activation equation
+q31_z5(j,lns5) layer equation
+q31_a5(j,lns5) activation equation
+q31_z6(j,lns6) layer equation
+q31_a6(j,lns6) activation equation
+q31_z7(j,lns7) layer equation
+q31_a7(j,lns7) activation equation
 ;
 positive variables
-v31_soilc_yld(j) a
-v31_rlsu(j) a
+v31_soilc_yld(j) output variable
+v31_rlsu(j) real LSU variable
 ;
 scalars
-s31_mean lsu conversion factor /1.12500723594219/
-s31_std lsu conversion factor /0.733845338253695/
+s31_mean lsu conversion factor /1.12477570376585/
+s31_std lsu conversion factor /0.733718079997699/
 ;
+
 
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

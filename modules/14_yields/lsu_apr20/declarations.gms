@@ -20,7 +20,7 @@ equations
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
 ;
 
-* model hash ID 055a17811eafed23cc7cfc6f4059fa41ee7a6397
+* model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
 variables
 vm_lsu(j) LSU variable
 v14_inlsu(j,lnp1) LSU input layer
@@ -37,6 +37,8 @@ v14_z5(j,lnp5) layer neurons
 v14_a5(j,lnp5) layer activation
 v14_z6(j,lnp6) layer neurons
 v14_a6(j,lnp6) layer activation
+v14_z7(j,lnp7) layer neurons
+v14_a7(j,lnp7) layer activation
 ;
 equations
 q14_inlsu(j,lnp1) LSU input equation
@@ -57,16 +59,17 @@ q14_z5(j,lnp5) layer equation
 q14_a5(j,lnp5) activation equation
 q14_z6(j,lnp6) layer equation
 q14_a6(j,lnp6) activation equation
+q14_z7(j,lnp7) layer equation
+q14_a7(j,lnp7) activation equation
 ;
 positive variables
 v14_past_yld(j) output variable
 v14_rlsu(j) real LSU variable
 ;
 scalars
-s14_mean lsu conversion factor /1.12500545485321/
-s14_std lsu conversion factor /0.733858935691896/
+s14_mean lsu conversion factor /1.12477570376585/
+s14_std lsu conversion factor /0.733718079997699/
 ;
-
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters

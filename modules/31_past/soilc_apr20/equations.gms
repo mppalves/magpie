@@ -35,7 +35,8 @@ q31_cost_prod_past(i2) ..
 *' For all following time steps, factor requriements `s31_fac_req_past` are set
 *' to zero.
 
-* model hash ID af93162731dc499d3190e4be7b1e533bd6fe7e24
+
+* model hash ID caf1e6aee9b36da8b672fb5fd18eaac7231b1544
 q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, vm_lsu(j2) * f31_w1(in_lsu_s,lns1));
 q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum(in_env_s, f31_nn_input(j2,in_env_s) * f31_w1(in_env_s,lns1));
 q31_z1(j2,lns1)..  v31_z1(j2,lns1) =e= v31_inlsu(j2,lns1) + v31_inEnv(j2,lns1) + f31_b1(lns1);
@@ -56,5 +57,6 @@ q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns7,lns8), v31_a7(j2,lns7) * f3
 q31_maxlsu(j2)..  vm_lsu(j2) =l= 2;
 q31_minlsu(j2)..  vm_lsu(j2) =g= -2;
 q31_rlsu(j2)..  v31_rlsu(j2) =e= vm_lsu(j2) * s31_std + s31_mean;
+
 
 *** EOF constraints.gms ***
