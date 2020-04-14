@@ -19,9 +19,9 @@ q31_prod(j2) ..
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
 
-q31_carbon(j2,ag_pools) ..
- vm_carbon_stock(j2,"past",ag_pools) =e=
-         sum(ct, vm_land(j2,"past")*fm_carbon_density(ct,j2,"past",ag_pools));
+q31_carbon(j2,c_pools) ..
+ vm_carbon_stock(j2,"past",c_pools) =e=
+         sum(ct, vm_land(j2,"past")*fm_carbon_density(ct,j2,"past",ag_pools) + v31_past_soilc(j2,"soilc");
 
 *' In the initial calibration time step, where the pasture calibration factor
 *' is calculated that brings pasture biomass demand and pasture area in balance,
@@ -54,9 +54,9 @@ q31_a6(j2,lns6)..  v31_a6(j2,lns6) =e= log(1 + system.exp(v31_z6(j2,lns6)));
 q31_z7(j2,lns7)..  v31_z7(j2,lns7) =e= sum(lns6, v31_a6(j2,lns6) * f31_w7(lns6,lns7)) + f31_b7(lns7);
 q31_a7(j2,lns7)..  v31_a7(j2,lns7) =e= log(1 + system.exp(v31_z7(j2,lns7)));
 q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns7,lns8), v31_a7(j2,lns7) * f31_w8(lns7,lns8) + f31_b8(lns8));
-q31_maxlsu(j2)..  vm_lsu(j2) =l= 2;
-q31_minlsu(j2)..  vm_lsu(j2) =g= -2;
-*q31_rlsu(j2)..  v31_rlsu(j2) =e= vm_lsu(j2) * s31_std + s31_mean;
+
+
+q31_past_soilc(j2,c_pools).. v31_past_soilc(j2,"soilc") =e= v31_soilc_yld(j2);
 
 
 *** EOF constraints.gms ***

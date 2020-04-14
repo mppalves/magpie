@@ -8,7 +8,7 @@
 
 equations
  q31_prod(j)              Cellular pasture production constraint (mio. tDM per yr)
- q31_carbon(j,ag_pools)   Above ground carbon content calculation for pasture (mio tC)
+ q31_carbon(j,c_pools)   Above ground carbon content calculation for pasture (mio tC)
  q31_cost_prod_past(i)    Costs for putting animals on pastures (mio. USD05MER per yr)
 ;
 
@@ -34,9 +34,6 @@ v31_a7(j,lns7) layer activation
 equations
 q31_inlsu(j,lns1) LSU input equation
 q31_inEnv(j,lns1) LSU input equation
-q31_rlsu(j) real lsu equation
-q31_maxlsu(j) max LSU
-q31_minlsu(j) min LSU
 q31_soilc_yld(j) output equation
 q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
@@ -63,6 +60,13 @@ s31_std lsu conversion factor /0.733718079997699/
 ;
 
 
+equation
+q31_past_soilc(j,c_pools) soil carbon in pastures
+;
+
+variables
+v31_past_soilc(j,c_pools) soil carbon in pastures
+;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
