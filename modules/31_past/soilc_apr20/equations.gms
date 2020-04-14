@@ -56,7 +56,7 @@ q31_a7(j2,lns7)..  v31_a7(j2,lns7) =e= log(1 + system.exp(v31_z7(j2,lns7)));
 q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns7,lns8), v31_a7(j2,lns7) * f31_w8(lns7,lns8) + f31_b8(lns8));
 q31_maxlsu(j2)..  vm_lsu(j2) =l= 2;
 q31_minlsu(j2)..  vm_lsu(j2) =g= -2;
-q31_rlsu(j2)..  v31_rlsu(j2) =e= vm_lsu(j2) * s31_std + s31_mean;
+*q31_rlsu(j2)..  v31_rlsu(j2) =e= vm_lsu(j2) * s31_std + s31_mean;
 
 
 *** EOF constraints.gms ***

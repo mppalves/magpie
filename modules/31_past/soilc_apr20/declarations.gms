@@ -14,7 +14,6 @@ equations
 
 * model hash ID caf1e6aee9b36da8b672fb5fd18eaac7231b1544
 variables
-vm_lsu(j) LSU variable
 v31_inlsu(j,lns1) LSU input layer
 v31_inEnv(j,lns1) Environmental input layer
 v31_z1(j,lns1) layer neurons
