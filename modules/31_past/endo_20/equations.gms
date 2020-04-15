@@ -25,7 +25,7 @@ q31_carbon(j2,ag_pools) ..
 
 q31_carbon_soilc(j2,c_pools) ..
   vm_carbon_stock(j2,"past","soilc") =e=
-          f31_coefs(j2,"intercept") + vm_rlsu(j2) * f31_coefs(j2,"coef");
+          (f31_coefs(j2,"intercept") + vm_rlsu(j2) * f31_coefs(j2,"coef"))/1e+6/10000;
 
 *' In the initial calibration time step, where the pasture calibration factor
 *' is calculated that brings pasture biomass demand and pasture area in balance,
