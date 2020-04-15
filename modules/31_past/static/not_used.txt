@@ -10,3 +10,4 @@ vm_prod, input, not needed
 vm_yld, input, not needed
 vm_prod_reg,input,questionnaire
 vm_rlsu, input, not needed
+vm_lsu, input, not needed
