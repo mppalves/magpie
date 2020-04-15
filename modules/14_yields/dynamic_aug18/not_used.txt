@@ -6,4 +6,4 @@
 # |  Contact: magpie@pik-potsdam.de
 
 name,type,reason
-vm_lsu, input, not needed
+vm_rlsu, input, not needed

@@ -22,7 +22,7 @@ equations
 
 * model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
 variables
-vm_lsu(j) LSU variable
+v14_lsu(j) LSU variable
 v14_inlsu(j,lnp1) LSU input layer
 v14_inEnv(j,lnp1) Environmental input layer
 v14_z1(j,lnp1) layer neurons
@@ -64,7 +64,7 @@ q14_a7(j,lnp7) activation equation
 ;
 positive variables
 v14_past_yld(j) output variable
-v14_rlsu(j) real LSU variable
+vm_rlsu(j) real LSU variable
 ;
 scalars
 s14_mean lsu conversion factor /1.12477570376585/
