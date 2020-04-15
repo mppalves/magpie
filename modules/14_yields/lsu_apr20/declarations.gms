@@ -22,7 +22,7 @@ equations
 
 * model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
 variables
-v14_lsu(j) LSU variable
+vm_lsu(j) LSU variable
 v14_inlsu(j,lnp1) LSU input layer
 v14_inEnv(j,lnp1) Environmental input layer
 v14_z1(j,lnp1) layer neurons

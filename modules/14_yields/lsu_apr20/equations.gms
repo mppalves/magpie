@@ -22,7 +22,7 @@ q14_yield_crop(j2,kcr,w) ..
 * *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));
 
 * model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
-q14_inlsu(j2,lnp1)..  v14_inlsu(j2,lnp1) =e= sum(in_lsu_p, v14_lsu(j2) * f14_w1(in_lsu_p,lnp1));
+q14_inlsu(j2,lnp1)..  v14_inlsu(j2,lnp1) =e= sum(in_lsu_p, vm_lsu(j2) * f14_w1(in_lsu_p,lnp1));
 q14_inEnv(j2,lnp1)..  v14_inEnv(j2,lnp1) =e= sum(in_env_p, f14_nn_input(j2,in_env_p) * f14_w1(in_env_p,lnp1));
 q14_z1(j2,lnp1)..  v14_z1(j2,lnp1) =e= v14_inlsu(j2,lnp1) + v14_inEnv(j2,lnp1) + f14_b1(lnp1);
 q14_a1(j2,lnp1)..  v14_a1(j2,lnp1) =e= log(1 + system.exp(v14_z1(j2,lnp1)));
@@ -39,9 +39,9 @@ q14_a6(j2,lnp6)..  v14_a6(j2,lnp6) =e= log(1 + system.exp(v14_z6(j2,lnp6)));
 q14_z7(j2,lnp7)..  v14_z7(j2,lnp7) =e= sum(lnp6, v14_a6(j2,lnp6) * f14_w7(lnp6,lnp7)) + f14_b7(lnp7);
 q14_a7(j2,lnp7)..  v14_a7(j2,lnp7) =e= log(1 + system.exp(v14_z7(j2,lnp7)));
 q14_past_yld(j2)..  v14_past_yld(j2) =e= sum((lnp7,lnp8), v14_a7(j2,lnp7) * f14_w8(lnp7,lnp8) + f14_b8(lnp8));
-q14_maxlsu(j2)..  v14_lsu(j2) =l= 2;
-q14_minlsu(j2)..  v14_lsu(j2) =g= -2;
-q14_rlsu(j2)..  vm_rlsu(j2) =e= v14_lsu(j2) * s14_std + s14_mean;
+q14_maxlsu(j2)..  vm_lsu(j2) =l= 2;
+q14_minlsu(j2)..  vm_lsu(j2) =g= -2;
+q14_rlsu(j2)..  vm_rlsu(j2) =e= vm_lsu(j2) * s14_std + s14_mean;
 
 
 
