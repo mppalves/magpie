@@ -13,7 +13,7 @@ parameters
 
 positive variables
  vm_yld(j,kve,w)                     Yields (variable because of technical change) (tDM per ha per yr)
- vm_rlsu(j2)
+ vm_rlsu(j2)                         real lsu values (livestock units per ha)
 ;
 
 equations
