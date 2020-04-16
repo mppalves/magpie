@@ -23,6 +23,6 @@ q14_yield_crop(j2,kcr,w) ..
 
 
 q14_yield_past(j2,w)..
-   vm_yld(j2,"pasture","rainfed") =e=  f14_coefs(j2,"a") * vm_rlsu(j2) * system.exp(-f14_coefs(j2,"b") * vm_rlsu(j2));
+   vm_yld(j2,"pasture","rainfed") =e=  (f14_coefs(j2,"a") * vm_rlsu(j2) * system.exp(-f14_coefs(j2,"b") * vm_rlsu(j2)))*0.01*0.45;
 
 q14_maxrlsu(j2)..  vm_rlsu(j2) =l= 2.5;
