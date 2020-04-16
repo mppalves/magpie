@@ -13,13 +13,13 @@ parameters
 
 positive variables
  vm_yld(j,kve,w)                     Yields (variable because of technical change) (tDM per ha per yr)
+ vm_rlsu(j2)
 ;
 
 equations
  q14_yield_crop(j,kcr,w)             Crop yields (tDM per ha per yr)
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
  q14_maxrlsu(j)                       max LSU
- q14_minrlsu(j)                       min LSU
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
