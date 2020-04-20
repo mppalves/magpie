@@ -12,8 +12,9 @@ equations
  q31_cost_prod_past(i)    Costs for putting animals on pastures (mio. USD05MER per yr)
 ;
 
-* model hash ID caf1e6aee9b36da8b672fb5fd18eaac7231b1544
+* model hash ID 9d30d5243cfcd2adb4e0d15fcbb0f1873e8782dc
 variables
+vm_lsu(j) LSU variable
 v31_inlsu(j,lns1) LSU input layer
 v31_inEnv(j,lns1) Environmental input layer
 v31_z1(j,lns1) layer neurons
@@ -22,18 +23,13 @@ v31_z2(j,lns2) layer neurons
 v31_a2(j,lns2) layer activation
 v31_z3(j,lns3) layer neurons
 v31_a3(j,lns3) layer activation
-v31_z4(j,lns4) layer neurons
-v31_a4(j,lns4) layer activation
-v31_z5(j,lns5) layer neurons
-v31_a5(j,lns5) layer activation
-v31_z6(j,lns6) layer neurons
-v31_a6(j,lns6) layer activation
-v31_z7(j,lns7) layer neurons
-v31_a7(j,lns7) layer activation
 ;
 equations
 q31_inlsu(j,lns1) LSU input equation
 q31_inEnv(j,lns1) LSU input equation
+q31_rlsu(j) real lsu equation
+q31_maxlsu(j) max LSU
+q31_minlsu(j) min LSU
 q31_soilc_yld(j) output equation
 q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
@@ -41,31 +37,14 @@ q31_z2(j,lns2) layer equation
 q31_a2(j,lns2) activation equation
 q31_z3(j,lns3) layer equation
 q31_a3(j,lns3) activation equation
-q31_z4(j,lns4) layer equation
-q31_a4(j,lns4) activation equation
-q31_z5(j,lns5) layer equation
-q31_a5(j,lns5) activation equation
-q31_z6(j,lns6) layer equation
-q31_a6(j,lns6) activation equation
-q31_z7(j,lns7) layer equation
-q31_a7(j,lns7) activation equation
 ;
-positive variables
+variables
 v31_soilc_yld(j) output variable
 v31_rlsu(j) real LSU variable
 ;
 scalars
 s31_mean lsu conversion factor /1.12477570376585/
 s31_std lsu conversion factor /0.733718079997699/
-;
-
-
-equation
-q31_past_soilc(j,c_pools) soil carbon in pastures
-;
-
-variables
-v31_past_soilc(j,c_pools) soil carbon in pastures
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
