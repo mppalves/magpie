@@ -8,8 +8,9 @@
 
 equations
  q31_prod(j)              Cellular pasture production constraint (mio. tDM per yr)
- q31_carbon(j,c_pools)   Above ground carbon content calculation for pasture (mio tC)
+ q31_carbon(j,ag_pools)   Above ground carbon content calculation for pasture (mio tC)
  q31_cost_prod_past(i)    Costs for putting animals on pastures (mio. USD05MER per yr)
+ q31_carbon_soilc(j,c_pools) Soil carbon stock calculation for pasture
 ;
 
 * model hash ID 9d30d5243cfcd2adb4e0d15fcbb0f1873e8782dc

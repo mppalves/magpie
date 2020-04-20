@@ -18,10 +18,10 @@ q31_prod(j2) ..
  						   * vm_yld(j2,"pasture","rainfed");
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
+q31_carbon(j2,ag_pools) ..
+ vm_carbon_stock(j2,"past",ag_pools) =e=
+         sum(ct, vm_land(j2,"past")*fm_carbon_density(ct,j2,"past",ag_pools));
 
-q31_carbon(j2,c_pools) ..
- vm_carbon_stock(j2,"past",c_pools) =e=
-         sum(ct, vm_land(j2,"past")*fm_carbon_density(ct,j2,"past",ag_pools) + v31_past_soilc(j2,"soilc");
 
 *' In the initial calibration time step, where the pasture calibration factor
 *' is calculated that brings pasture biomass demand and pasture area in balance,
