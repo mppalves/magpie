@@ -27,9 +27,6 @@ v31_a3(j,lns3) layer activation
 equations
 q31_inlsu(j,lns1) LSU input equation
 q31_inEnv(j,lns1) LSU input equation
-q31_rlsu(j) real lsu equation
-q31_maxlsu(j) max LSU
-q31_minlsu(j) min LSU
 q31_soilc_yld(j) output equation
 q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
@@ -40,12 +37,8 @@ q31_a3(j,lns3) activation equation
 ;
 variables
 v31_soilc_yld(j) output variable
-v31_rlsu(j) real LSU variable
 ;
-scalars
-s31_mean lsu conversion factor /1.12477570376585/
-s31_std lsu conversion factor /0.733718079997699/
-;
+
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
