@@ -34,14 +34,9 @@ q31_z2(j,lns2) layer equation
 q31_a2(j,lns2) activation equation
 q31_z3(j,lns3) layer equation
 q31_a3(j,lns3) activation equation
-q31_soilc_ryld(j) real carbon stocks
 ;
-variables
+Positive variables
 v31_soilc_yld(j) output variable
-;
-
-Positive variable
-v31_soilc_ryld(j) real carbon stocks
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

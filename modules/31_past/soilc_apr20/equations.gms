@@ -36,6 +36,7 @@ q31_cost_prod_past(i2) ..
 *' to zero.
 
 
+
 * model hash ID 9d30d5243cfcd2adb4e0d15fcbb0f1873e8782dc
 q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, vm_lsu(j2) * f31_w1(in_lsu_s,lns1));
 q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum(in_env_s, f31_nn_input(j2,in_env_s) * f31_w1(in_env_s,lns1));
@@ -45,10 +46,10 @@ q31_z2(j2,lns2)..  v31_z2(j2,lns2) =e= sum(lns1, v31_a1(j2,lns1) * f31_w2(lns1,l
 q31_a2(j2,lns2)..  v31_a2(j2,lns2) =e= log(1 + system.exp(v31_z2(j2,lns2)));
 q31_z3(j2,lns3)..  v31_z3(j2,lns3) =e= sum(lns2, v31_a2(j2,lns2) * f31_w3(lns2,lns3)) + f31_b3(lns3);
 q31_a3(j2,lns3)..  v31_a3(j2,lns3) =e= log(1 + system.exp(v31_z3(j2,lns3)));
-q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns3,lns4), v31_a3(j2,lns3) * f31_w4(lns3,lns4) + f31_b4(lns4));
-q31_soilc_ryld(j2).. v31_soilc_ryld(j2) =e= (v31_soilc_yld(j2) * 10543.66 + 9843.049)/1e6/10000;
+q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= (sum((lns3,lns4), v31_a3(j2,lns3) * f31_w4(lns3,lns4) + f31_b4(lns4))+2.281819) * 10543.66 + 9843.049;
+
 
 q31_carbon_soilc(j2,c_pools) ..
-  vm_carbon_stock(j2,"past","soilc") =e= v31_soilc_ryld(j2);
+  vm_carbon_stock(j2,"past","soilc") =e= v31_soilc_yld(j2)/1e6/10000;
 
 *** EOF constraints.gms ***
