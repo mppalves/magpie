@@ -51,5 +51,5 @@ q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= (sum((lns3,lns4), v31_a3(j2,lns3) * f
 
 q31_carbon_soilc(j2,c_pools) ..
   vm_carbon_stock(j2,"past","soilc") =e= v31_soilc_yld(j2)/1e6/10000;
-
+ 
 *** EOF constraints.gms ***
