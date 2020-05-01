@@ -13,6 +13,7 @@ parameters
 
 positive variables
  vm_yld(j,kve,w)                     Yields (variable because of technical change) (tDM per ha per yr)
+ vm_tc_past(j)                       technological change pasture
 ;
 
 equations
