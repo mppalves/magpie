@@ -12,6 +12,7 @@ positive variables
 
 equations
  q17_prod_reg(i,k)               Regional production (mio. tDM per yr)
+ q17_prod_lsu(j,k)                   Celular production constraint on LSUs
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
@@ -21,4 +22,3 @@ parameters
  oq17_prod_reg(t,i,k,type)  Regional production (mio. tDM per yr)
 ;
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################
-
