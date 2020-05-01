@@ -13,7 +13,8 @@ positive variables
 
 equations
  q17_prod_reg(i,k)               Regional production (mio. tDM per yr)
- q17_prod_lsu(i,k)                   Celular production constraint on LSUs
+ q17_prod_lsu(i,k)               Celular production constraint on LSUs
+ q17_past_factor(i)            regional pasture ratio
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
