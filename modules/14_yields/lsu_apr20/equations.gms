@@ -46,4 +46,4 @@ q14_rlsu(j2)..  vm_rlsu(j2) =e= vm_lsu(j2) * s14_std + s14_mean;
 
 
  q14_yield_past(j2,w)..
-   vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2)*0.01*0.45 * sum((ct,cell(i2,j2)),pm_past_mngmnt_factor(ct,i2));
+   vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2)*0.01*0.45*20;
