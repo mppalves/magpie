@@ -15,14 +15,12 @@ vm_prod_reg(i2,k) =e= sum(cell(i2,j2), vm_prod(j2,k));
 *' same commodity.
 
 q17_past_factor(i2) ..
-v17_past_factor(i2) =e= (sum((ct,kli_rum),im_feed_baskets(ct,i2,kli_rum,"pasture")) /
+v17_past_fraction(i2) =e= (sum((ct,kli_rum),im_feed_baskets(ct,i2,kli_rum,"pasture")) /
                          sum((ct,kli_rum,kall),im_feed_baskets(ct,i2,kli_rum,kall)));
 
-q17_prod_lsu(i2,k) ..
-vm_prod_reg(i2,"pasture") =g= (sum(cell(i2,j2), vm_rlsu(j2)) *
-                              sum(cell(i2,j2), vm_land(j2,"past"))  * ((4000 * 2.225)/100000) * 365)
-                              * v17_past_factor(i2);
-
+q17_prod_lsu(j2,k) ..
+vm_prod_reg(j2,"pasture") =g= (vm_rlsu(j2) * vm_land(j2,"past") * ((4000 * 2.225)/100000) * 365)
+                              * sum(cell(i2,j2),v17_past_fraction(i2));
 
 
 *q31_prod(j2) ..

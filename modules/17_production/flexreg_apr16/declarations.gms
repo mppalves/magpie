@@ -8,12 +8,12 @@
 positive variables
  vm_prod(j,k)                    Production in each cell (mio. tDM per yr)
  vm_prod_reg(i,kall)             Regional aggregated production (mio. tDM per yr)
- v17_past_factor(i)              Ratio of pasture in feed baskets
+ v17_past_fraction(i)              Ratio of pasture in feed baskets
 ;
 
 equations
  q17_prod_reg(i,k)               Regional production (mio. tDM per yr)
- q17_prod_lsu(i,k)               Celular production constraint on LSUs
+ q17_prod_lsu(j,k)               Celular production constraint on LSUs
  q17_past_factor(i)            regional pasture ratio
 ;
 
