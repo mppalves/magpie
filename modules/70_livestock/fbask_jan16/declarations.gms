@@ -12,7 +12,8 @@ positive variables
 
 equations
  q70_feed(i,kap,kall)             Regional feed demand
- q70_cost_prod_liv(i,kall)        Regional factor input costs for livestock production
+ q70_cost_prod_rum(i,kall)        Regional factor input costs for ruminant production
+ q70_cost_prod_mon(i,kall)        Regional factor input costs for monogastric production
  q70_cost_prod_fish(i)            Regional factor input costs for fish production
 ;
 

@@ -22,12 +22,14 @@ sets
      /sys_hen, sys_dairy/
 
 
-  sys_to_kli(sys,kli) Mapping between livestock producton systems and livestock products
+  sys_to_mon(sys,kli) Mapping between livestock producton systems and livestock products
   /sys_pig    . livst_pig
-   sys_beef    . livst_rum
    sys_chicken  . livst_chick
    sys_hen . livst_egg
-   sys_dairy .livst_milk
    /
 
+   sys_to_rum(sys,kli) Mapping between livestock producton systems and livestock products
+   /sys_beef    . livst_rum
+    sys_dairy .livst_milk
+    /
 ;

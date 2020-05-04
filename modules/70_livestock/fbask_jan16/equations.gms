@@ -29,10 +29,16 @@ q70_feed(i2,kap,kall) ..
 *' `f70_cost_regr(kli,"cost_regr_b")` is set to zero in the case of livestock
 *' products generated in monogastric systems.
 
-q70_cost_prod_liv(i2,kli) ..
- vm_cost_prod(i2,kli) =e= vm_prod_reg(i2,kli)
-     *(f70_cost_regr(kli,"cost_regr_a") + f70_cost_regr(kli,"cost_regr_b")
-     *sum((ct, sys_to_kli(sys,kli)),i70_livestock_productivity(ct,i2,sys))) + sum(cell(i2,j2),vm_tc_past(j2)) + sum(cell(i2,j2),vm_rlsu(j2));
+q70_cost_prod_mon(i2,kli_mon) ..
+ vm_cost_prod(i2,kli_mon) =e= vm_prod_reg(i2,kli_mon)
+     *(f70_cost_regr(kli_mon,"cost_regr_a") + f70_cost_regr(kli_mon,"cost_regr_b")
+     *sum((ct, sys_to_mon(sys,kli)),i70_livestock_productivity(ct,i2,sys)));
+
+q70_cost_prod_rum(i2,kli_rum) ..
+  vm_cost_prod(i2,kli_rum) =e= vm_prod_reg(i2,kli_rum)
+      *(f70_cost_regr(kli_rum,"cost_regr_a") + f70_cost_regr(kli_rum,"cost_regr_b")
+      *sum((ct, sys_to_rum(sys,kli_rum)),i70_livestock_productivity(ct,i2,sys))) + sum(cell(i2,j2),vm_tc_past(j2)) + sum(cell(i2,j2),vm_rlsu(j2));
+
 
 q70_cost_prod_fish(i2) ..
  vm_cost_prod(i2,"fish") =e=
