@@ -19,7 +19,7 @@ v17_past_fraction(i2) =e= (sum((ct,kli_rum),im_feed_baskets(ct,i2,kli_rum,"pastu
                          sum((ct,kli_rum,kall),im_feed_baskets(ct,i2,kli_rum,kall)));
 
 q17_prod_lsu(j2,k) ..
-vm_prod(j2,"pasture") =g= (vm_rlsu(j2) * vm_land(j2,"past") * ((4000 * 2.225)/100000) * 365)
+vm_prod(j2,"pasture") =g= (vm_rlsu(j2) * vm_land(j2,"past") * (4000 * 2.25/1e6) * 365)
                               * sum(cell(i2,j2),v17_past_fraction(i2));
 
 
@@ -32,7 +32,6 @@ vm_prod(j2,"pasture") =g= (vm_rlsu(j2) * vm_land(j2,"past") * ((4000 * 2.225)/10
 *q31_prod(j2) ..
 * vm_prod(j2,"pasture") =l= vm_land(j2,"past")
 * 						   * vm_yld(j2,"pasture","rainfed");
-
 
 
 *q70_feed(i2,kap,kall) ..
