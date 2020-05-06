@@ -37,7 +37,7 @@ q70_cost_prod_mon(i2,kli_mon) ..
 q70_cost_prod_rum(i2,kli_rum) ..
   vm_cost_prod(i2,kli_rum) =e= vm_prod_reg(i2,kli_rum)
       *(f70_cost_regr(kli_rum,"cost_regr_a") + f70_cost_regr(kli_rum,"cost_regr_b")
-      *sum((ct, sys_to_rum(sys,kli_rum)),i70_livestock_productivity(ct,i2,sys))) + sum(cell(i2,j2),vm_tc_past(j2) - 1)*100;
+      *sum((ct, sys_to_rum(sys,kli_rum)),i70_livestock_productivity(ct,i2,sys))) + sum(cell(i2,j2),vm_tc_past(j2) - 1)*100 + sum(cell(i2,j2),vm_rlsu(j2));
 
 
 q70_cost_prod_fish(i2) ..
