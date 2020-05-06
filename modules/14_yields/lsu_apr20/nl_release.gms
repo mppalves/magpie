@@ -9,3 +9,4 @@
 
 vm_yld.lo(j,kve,w) = 0;
 vm_yld.up(j,kve,w) = Inf;
+vm_tc_past.lo(j2) = 1;
