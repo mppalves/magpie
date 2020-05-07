@@ -61,7 +61,7 @@ q14_z6(j,lnp6) layer equation
 q14_a6(j,lnp6) activation equation
 q14_z7(j,lnp7) layer equation
 q14_a7(j,lnp7) activation equation
-q14_min_tc(j) min tc value
+*q14_min_tc(j) min tc value
 ;
 positive variables
 v14_past_yld(j) output variable
