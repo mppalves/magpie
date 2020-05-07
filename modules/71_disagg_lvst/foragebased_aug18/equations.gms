@@ -24,6 +24,8 @@ q71_past_rum_liv(j2,kforage) ..
                   vm_prod(j2,"pasture") =g=
                    sum(kli_rum, v71_prod_rum(j2,kli_rum,"pasture")
                  * sum((ct,cell(i2,j2)),im_feed_baskets(ct,i2,kli_rum,"pasture")))
+                 * (1 + v71_feed_balanceflow(j2,kli_rum,"pasture")$(s71_lp_fix=0))
+                 + v71_feed_balanceflow(j2,kli_rum,"pasture")$(s71_lp_fix=1))
                  ;
 
 
