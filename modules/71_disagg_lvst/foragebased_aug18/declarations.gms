@@ -17,7 +17,7 @@ variables
 
 equations
  q71_fodder_rum_liv(j,kforage)                     Production constraint for ruminant livestock products (mio. tDM per yr)
- q71_past_rum_liv(j2,kforage)                      Production constraint for ruminant livestock products (mio. tDM per yr)
+ q71_past_rum_liv(j,kforage)                      Production constraint for ruminant livestock products (mio. tDM per yr)
  q71_balanceflow_constraint_nlp(j,kli_rum,kforage) Nonlinear balanceflow constraint for cellular forage feed products (mio. tDM per yr)
  q71_balanceflow_constraint_lp(i,kli_rum,kforage)  Linear balanceflow constraint for cellular forage feed product (mio. tDM per yr)
  q71_sum_rum_liv(j,kli_rum)                        Total production of forage fed ruminants (mio. tDM per yr)
