@@ -10,14 +10,14 @@ positive variables
  vm_costs_additional_mon(i)                       Punishment cost for additionally transported monogastric livst_egg (mio. USD05MER per yr)
 ;
 
-*variables
-*v71_lsu_proportion(j)                                 LSU density proportion
-*;
+variables
+v71_lsu_proportion(j)                                 LSU density proportion
+;
 
 equations
  q71_prod_mon_liv(j,kli_mon)                       Production constraint for monogastric livestock products (mio. tDM per yr)
  q71_punishment_mon(i)                             Punishment for additional monogastrics (mio. USD05MER per yr)
-* q71_prop_lsu(j)                                   LSU density proportion
+ q71_prop_lsu(j)                                   LSU density proportion
 ;
 
 parameters

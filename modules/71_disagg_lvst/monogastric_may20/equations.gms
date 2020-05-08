@@ -7,8 +7,8 @@
 
 *' @equations
 
-*q71_prop_lsu(j2) ..
-*v71_lsu_proportion(j2) =e= (vm_rlsu(j2) * vm_land(j2,"past")) / (sum(cell(i2,j2), vm_rlsu(j2) * vm_land(j2,"past")) + 1);
+q71_prop_lsu(j2) ..
+v71_lsu_proportion(j2) =e= (vm_rlsu(j2) * vm_land(j2,"past")) / (sum(cell(i2,j2), vm_rlsu(j2) * vm_land(j2,"past")) + 1);
 
 
 *' To account for the above mentioned fact that monogastric livestock are held close to the population, it is
