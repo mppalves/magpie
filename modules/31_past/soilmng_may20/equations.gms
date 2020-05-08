@@ -52,4 +52,13 @@ q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= (sum((lns3,lns4), v31_a3(j2,lns3) * f
 q31_carbon_soilc(j2,c_pools) ..
   vm_carbon_stock(j2,"past","soilc") =e= v31_soilc_yld(j2)/1e6/10000;
 
+
+q31_past_factor(i2) ..
+  v31_past_fraction(i2) =e= (sum((ct,kli_rum),im_feed_baskets(ct,i2,kli_rum,"pasture")) /
+                                          sum((ct,kli_rum,kall),im_feed_baskets(ct,i2,kli_rum,kall)));
+
+q31_prod_lsu(j2,k) ..
+  vm_prod(j2,"pasture") =g= (vm_rlsu(j2) * vm_land(j2,"past") * (4000 * 2.25/1e6) * 365)
+                                               * sum(cell(i2,j2),v31_past_fraction(i2));
+
 *** EOF constraints.gms ***
