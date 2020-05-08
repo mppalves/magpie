@@ -14,6 +14,7 @@ positive variables
 equations
  q71_prod_mon_liv(j,kli_mon)                       Production constraint for monogastric livestock products (mio. tDM per yr)
  q71_punishment_mon(i)                             Punishment for additional monogastrics (mio. USD05MER per yr)
+ q71_prop_lsu(j)                                   LSU density proportion
 ;
 
 parameters
