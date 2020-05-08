@@ -17,6 +17,7 @@ q71_feed_rum_liv(j2,kforage) ..
                  * sum((ct,cell(i2,j2),kforage2),im_feed_baskets(ct,i2,kli_rum,kforage2))
 				 * (1 + v71_feed_balanceflow(j2,kli_rum,kforage)$(s71_lp_fix=0))
 				 + v71_feed_balanceflow(j2,kli_rum,kforage)$(s71_lp_fix=1))
+         ;
 
 
 *' The above equation contains a split of pasture and fodder fed ruminants, since we assume that depending
