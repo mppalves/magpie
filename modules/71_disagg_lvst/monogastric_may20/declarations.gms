@@ -11,7 +11,7 @@ positive variables
 ;
 
 variables
-v71_lsu_proportion                                 LSU density proportion
+v71_lsu_proportion(j)                                 LSU density proportion
 ;
 
 equations
