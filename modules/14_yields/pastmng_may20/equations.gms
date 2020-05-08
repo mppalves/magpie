@@ -41,11 +41,11 @@ q14_a7(j2,lnp7)..  v14_a7(j2,lnp7) =e= log(1 + system.exp(v14_z7(j2,lnp7)));
 q14_past_yld(j2)..  v14_past_yld(j2) =e= sum((lnp7,lnp8), v14_a7(j2,lnp7) * f14_w8(lnp7,lnp8) + f14_b8(lnp8));
 q14_maxlsu(j2)..  vm_lsu(j2) =l= 2;
 q14_minlsu(j2)..  vm_lsu(j2) =g= -2;
-q14_rlsu(j2)..  v14_rlsu(j2) =e= vm_lsu(j2) * s14_std + s14_mean;
+q14_rlsu(j2)..  vm_rlsu(j2) =e= vm_lsu(j2) * s14_std + s14_mean;
 
 
 * q14_yield_past(j2,w)..
 *   vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * 0.01 * 0.45 * vm_tc_past(j2);
 *q14_min_tc(j2).. vm_tc_past(j2) =g= 0;
 q14_yield_past(j2,w)..
-     vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.21 / 1e6) + v14_tc_past(j2);
+     vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.21 / 1e6) + vm_tc_past(j2);
