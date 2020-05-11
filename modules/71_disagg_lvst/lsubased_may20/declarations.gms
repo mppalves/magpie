@@ -17,8 +17,8 @@ v71_lsu_dem_cluster(j)                                development
 v71_lsu_dem_reg(i)                                    development
 v71_lsu_dem_reg_disagg(j)                             development
 v71_ratio_lsu(j)                                      development
-v71_past_dem_reg_disagg(j)                            development
-v71_ratio_past(j)                                     development
+*v71_past_dem_reg_disagg(j)                            development
+*v71_ratio_past(j)                                     development
 ;
 
 equations
@@ -29,9 +29,9 @@ equations
  q71_lsu_dem_reg(i)                                development
  q71_lsu_dem_reg_disagg(j)                         development
  q71_ratio_lsu(j)                                  development
- q71_past_dem_reg_disagg(j)                        development
- q71_ratio_past(j)                                 development
- q71_ratio_comparisson(j)                          development
+* q71_past_dem_reg_disagg(j)                        development
+* q71_ratio_past(j)                                 development
+* q71_ratio_comparisson(j)                          development
 ;
 
 parameters
