@@ -23,10 +23,12 @@ q71_past_dem_reg_disagg(j2)..
       v71_past_dem_reg_disagg(j2) =e= sum(cell(i2,j2), vm_prod_reg(i2,"pasture"));
 
 q71_ratio_past(j2) ..
+*      v71_ratio_past(j2) =e= vm_prod(j2,"pasture") / (v71_past_dem_reg_disagg(j2) + 1e-6);
       v71_ratio_past(j2) =e= vm_prod(j2,"pasture") / (v71_past_dem_reg_disagg(j2) + 1e-6);
 
 q71_ratio_comparisson(j2)..
-      v71_ratio_lsu(j2) + 1 =e= v71_ratio_past(j2) + 1;
+*      v71_ratio_lsu(j2) + 1 =e= v71_ratio_past(j2) + 1;
+      v71_lsu_dem_cluster(j2) / (v71_lsu_dem_reg_disagg(j2) + 1e-6) =e= vm_prod(j2,"pasture") / (v71_past_dem_reg_disagg(j2) + 1e-6);
 
 
 *' To account for the above mentioned fact that monogastric livestock are held close to the population, it is
