@@ -9,8 +9,8 @@
 
 *' lsu proportion
 
-*q71_lsu_dem_cluster(j2) ..
-*      v71_lsu_dem_cluster(j2) =e= vm_rlsu(j2) * vm_land(j2,"past");
+q71_lsu_dem_cluster(j2) ..
+      v71_lsu_dem_cluster(j2) =e= vm_rlsu(j2) * vm_land(j2,"past");
 
 *q71_lsu_dem_reg(i2) ..
 *      v71_lsu_dem_reg(i2) =e= sum(cell(i2,j2), vm_rlsu(j2) * vm_land(j2,"past"));
