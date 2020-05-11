@@ -17,7 +17,7 @@ variables
 
 equations
          q59_soilcarbon_cropland(j)                        Cropland soil carbon content calculation (mio. tC)
-         q59_soilcarbon_noncropland(j,noncropland59)       Non-cropland soil carbon content calculation (mio. tC)
+         q59_soilcarbon_noncropland(j,nonpast59)       Non-cropland soil carbon content calculation (mio. tC)
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
@@ -25,6 +25,6 @@ parameters
  ov_nr_som(t,j,type)                                 Release of soil organic matter (Mt N per yr)
  ov_nr_som_fertilizer(t,j,type)                      Uptake of soil organic matter from plants (Mt N per yr)
  oq59_soilcarbon_cropland(t,j,type)                  Cropland soil carbon content calculation (mio. tC)
- oq59_soilcarbon_noncropland(t,j,noncropland59,type) Non-cropland soil carbon content calculation (mio. tC)
+ oq59_soilcarbon_noncropland(t,j,nonpast59,type) Non-cropland soil carbon content calculation (mio. tC)
 ;
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################
