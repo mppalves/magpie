@@ -7,10 +7,31 @@
 
 *' @equations
 
-q71_prop_lsu(j2) ..
-v71_lsu_proportion(j2) =e= (vm_rlsu(j2) * vm_land(j2,"past")) / (sum(cell(i2,j2), vm_rlsu(j2) * vm_land(j2,"past")) + 1)
-                ;
+*' lsu proportion
 
+q71_lsu_dem_cluster(j2) ..
+      v71_lsu_dem_cluster(j2) =e= vm_rlsu(j2) * vm_land(j2,"past");
+
+q71_lsu_dem_reg(i2) ..
+      v71_lsu_dem_reg(i2) =e= sum(cell(i2,j2), vm_rlsu(j2) * vm_land(j2)));
+
+q71_lsu_dem_reg_disagg(j2)..
+      v71_lsu_dem_reg_disagg(j2) =e= sum(cell(i2,j2), v71_lsu_dem_reg(i2));
+
+q71_ratio_lsu(j2) ..
+      v71_ratio_lsu(j2) =e= v71_lsu_dem_cluster(j2) / (v71_lsu_dem_reg_disagg(j2) + 1e-6);
+
+*' pasture proportion
+
+q71_past_dem_reg_disagg(j2)..
+      v71_past_dem_reg_disagg(j2) =e= sum(cell(i2,j2), vm_prod_reg(i2,"pasture"));
+
+q71_ratio_past(j2) ..
+      v71_ratio_past(j2) =e= vm_prod(j2,"pasture") / (v71_past_dem_reg_disagg(j2) + 1e-6);
+
+*' comparin pasture and lsu distribution ratio
+q71_ratio_comparisson(j2)..
+      v71_ratio_lsu(j2) =e= v71_ratio_past(j2);
 
 *' To account for the above mentioned fact that monogastric livestock are held close to the population, it is
 *' distributed based on urban area by the formula

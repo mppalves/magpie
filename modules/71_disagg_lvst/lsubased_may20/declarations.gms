@@ -5,6 +5,16 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
+q71_lsu_dem_cluster(j)
+q71_lsu_dem_reg(i)
+q71_lsu_dem_reg_disagg(j)
+q71_ratio_lsu(j)
+q71_past_dem_reg_disagg(j)
+q71_ratio_past(j)
+q71_ratio_comparisson(j)
+
+
+
 positive variables
  v71_additional_mon(j, kli_mon)                   Additional punished production of monogastric livestock (mio. tDM per yr)
  vm_costs_additional_mon(i)                       Punishment cost for additionally transported monogastric livst_egg (mio. USD05MER per yr)
@@ -12,12 +22,25 @@ positive variables
 
 variables
 v71_lsu_proportion(j)                                 LSU density proportion
+v71_lsu_dem_cluster(j)                                development
+v71_lsu_dem_reg(i)                                    development
+v71_lsu_dem_reg_disagg(j)                             development
+v71_ratio_lsu(j)                                      development
+v71_past_dem_reg_disagg(j)                            development
+v71_ratio_past(j)                                     development
 ;
 
 equations
  q71_prod_mon_liv(j,kli_mon)                       Production constraint for monogastric livestock products (mio. tDM per yr)
  q71_punishment_mon(i)                             Punishment for additional monogastrics (mio. USD05MER per yr)
  q71_prop_lsu(j)                                   LSU density proportion
+ q71_lsu_dem_cluster(j)                            development
+ q71_lsu_dem_reg(i)                                development
+ q71_lsu_dem_reg_disagg(j)                         development
+ q71_ratio_lsu(j)                                  development
+ q71_past_dem_reg_disagg(j)                        development
+ q71_ratio_past(j)                                 development
+ q71_ratio_comparisson(j)                          development
 ;
 
 parameters
