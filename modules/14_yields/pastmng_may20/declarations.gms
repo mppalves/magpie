@@ -66,7 +66,7 @@ q14_a7(j,lnp7) activation equation
 positive variables
 v14_past_yld(j) output variable
 vm_rlsu(j) real LSU variable
-vm_tc_past(j)  technological change pasture
+v14_rlx_past(j)  technological change pasture
 ;
 scalars
 s14_mean lsu conversion factor /1.12477570376585/
