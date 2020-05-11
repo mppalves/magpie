@@ -5,15 +5,6 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-q71_lsu_dem_cluster(j)
-q71_lsu_dem_reg(i)
-q71_lsu_dem_reg_disagg(j)
-q71_ratio_lsu(j)
-q71_past_dem_reg_disagg(j)
-q71_ratio_past(j)
-q71_ratio_comparisson(j)
-
-
 
 positive variables
  v71_additional_mon(j, kli_mon)                   Additional punished production of monogastric livestock (mio. tDM per yr)
