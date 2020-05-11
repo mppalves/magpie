@@ -12,7 +12,6 @@ positive variables
 ;
 
 variables
-v71_lsu_proportion(j)                                 LSU density proportion
 v71_lsu_dem_cluster(j)                                development
 v71_lsu_dem_reg(i)                                    development
 v71_lsu_dem_reg_disagg(j)                             development
