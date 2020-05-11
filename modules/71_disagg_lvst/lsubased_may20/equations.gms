@@ -10,21 +10,16 @@
 q71_lsu_dem_cluster(j2) ..
       v71_lsu_dem_cluster(j2) =e= vm_rlsu(j2) * vm_land(j2,"past");
 
-
 q71_lsu_dem_reg(i2) ..
       v71_lsu_dem_reg(i2) =e= sum(cell(i2,j2), vm_rlsu(j2) * vm_land(j2,"past"));
-
+*      v71_lsu_dem_reg(i2) =e= 1;
 
 q71_lsu_dem_reg_disagg(j2)..
-      v71_lsu_dem_reg_disagg(j2) =e= sum(cell(i2,j2), v71_lsu_dem_reg(i2));
-
+*      v71_lsu_dem_reg_disagg(j2) =e= sum(cell(i2,j2), v71_lsu_dem_reg(i2));
+      v71_lsu_dem_reg_disagg(j2) =e= 1;
 
 q71_ratio_lsu(j2) ..
       v71_ratio_lsu(j2) =e= v71_lsu_dem_cluster(j2) / (v71_lsu_dem_reg_disagg(j2) + 1e-6);
-
-
-
-
 
 q71_past_dem_reg_disagg(j2)..
       v71_past_dem_reg_disagg(j2) =e= sum(cell(i2,j2), vm_prod_reg(i2,"pasture"));
