@@ -14,3 +14,4 @@ pm_land_start,input,questionnaire
 pcm_land,input,questionnaire
 vm_rlsu,input,questionnaire
 vm_land,input,questionnaire
+vm_rlx_ratio,input,questionnaire
