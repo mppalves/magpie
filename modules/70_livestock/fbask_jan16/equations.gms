@@ -32,7 +32,7 @@ q70_feed(i2,kap,kall) ..
 q70_cost_prod_liv(i2,kli) ..
  vm_cost_prod(i2,kli) =e= vm_prod_reg(i2,kli)
      *(f70_cost_regr(kli,"cost_regr_a") + f70_cost_regr(kli,"cost_regr_b")
-     *sum((ct, sys_to_kli(sys,kli)),i70_livestock_productivity(ct,i2,sys))) + power(sum(cell(i2,j2),vm_rlx_ratio(j2)),2);
+     *sum((ct, sys_to_kli(sys,kli)),i70_livestock_productivity(ct,i2,sys)));
 
 q70_cost_prod_fish(i2) ..
  vm_cost_prod(i2,"fish") =e=
