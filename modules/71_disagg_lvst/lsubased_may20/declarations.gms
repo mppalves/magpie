@@ -18,6 +18,7 @@ v71_lsu_dem_reg_disagg(j)                             development
 v71_ratio_lsu(j)                                      development
 v71_past_dem_reg_disagg(j)                            development
 v71_ratio_past(j)                                     development
+vm_rlx_ratio(j2)                                      developemnt
 ;
 
 equations
