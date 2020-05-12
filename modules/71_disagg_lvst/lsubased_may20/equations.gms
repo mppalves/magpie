@@ -26,7 +26,7 @@ q71_ratio_past(j2) ..
       v71_ratio_past(j2) =e= vm_prod(j2,"pasture") / (v71_past_dem_reg_disagg(j2) + 1e-2);
 
 q71_ratio_comparisson(j2)..
-      v71_ratio_lsu(j2) + 1 =e= v71_ratio_past(j2) + 1;
+      v71_ratio_lsu(j2) + 1 =l= v71_ratio_past(j2) + 1;
 *      v71_lsu_dem_cluster(j2) / (v71_lsu_dem_reg_disagg(j2) + 1e-2) =e= vm_prod(j2,"pasture") / (v71_past_dem_reg_disagg(j2) + 1e-2);
 
 
