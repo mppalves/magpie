@@ -53,4 +53,4 @@ q14_yield_past(j2,w)..
 *     vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.21 / 1e6);
      vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.21 / 1e6) + v14_rlx_past(j2);
 *     vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) + v14_rlx_past(j2);
-v14_rlx_past.up(j2) = 5;
+v14_rlx_past.up(j2) = 10;
