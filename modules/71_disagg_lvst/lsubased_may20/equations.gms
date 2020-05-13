@@ -29,6 +29,8 @@ q71_ratio_comparisson(j2)..
       v71_ratio_lsu(j2) =e= v71_ratio_past(j2) + v71_rlx_ratio(j2);
 *      v71_lsu_dem_cluster(j2) / (v71_lsu_dem_reg_disagg(j2) + 1e-2) =e= vm_prod(j2,"pasture") / (v71_past_dem_reg_disagg(j2) + 1e-2);
 
+v71_rlx_ratio.lo(j2) = -0.01
+v71_rlx_ratio.up(j2) = 0.01
 
 *' To account for the above mentioned fact that monogastric livestock are held close to the population, it is
 *' distributed based on urban area by the formula
