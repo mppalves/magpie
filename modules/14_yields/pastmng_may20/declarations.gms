@@ -68,7 +68,7 @@ v14_past_yld(j) output variable
 vm_rlsu(j) real LSU variable
 ;
 positive variable
-v14_rlx_past(j)  technological change pasture
+vm_rlx_past(j)  technological change pasture
 ;
 
 scalars
