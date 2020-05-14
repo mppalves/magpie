@@ -5,10 +5,9 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-i71_urban_area_share(j) =
-       pm_land_start(j,"urban")/sum(cell(i,j),sum(cell2(i,j3),pm_land_start(j3,"urban")))
-	   ;
+* ### nl_release ###
 
-s71_lp_fix = 0;
-s71_scale_mon = 1.10;
-s71_punish_additional_mon = 15000;
+v71_feed_balanceflow.lo(j,kli_rum,kforage)= -Inf;
+v71_feed_balanceflow.up(j,kli_rum,kforage)= Inf;
+
+s71_lp_fix=0;

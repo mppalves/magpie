@@ -6,6 +6,3 @@
 # |  Contact: magpie@pik-potsdam.de
 
 name,type,reason
-im_feed_baskets,input,questionnaire
-fm_feed_balanceflow,input,questionnaire
-pcm_land,input,questionnaire

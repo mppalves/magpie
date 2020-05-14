@@ -5,32 +5,23 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-
 positive variables
+ v71_prod_rum(j,kli_rum,kforage)                   Production of forage fed ruminants within a cell (mio. tDM per yr)
  v71_additional_mon(j, kli_mon)                   Additional punished production of monogastric livestock (mio. tDM per yr)
  vm_costs_additional_mon(i)                       Punishment cost for additionally transported monogastric livst_egg (mio. USD05MER per yr)
 ;
 
 variables
-v71_lsu_dem_cluster(j)                                development
-v71_lsu_dem_reg(i)                                    development
-v71_lsu_dem_reg_disagg(j)                             development
-v71_ratio_lsu(j)                                      development
-v71_past_dem_reg_disagg(j)                            development
-v71_ratio_past(j)                                     development
-v71_rlx_ratio(j)                                      developemnt
+ v71_feed_balanceflow(j,kli_rum,kforage)           Cellular feed balanceflow for forage feed for ruminant livestock (mio. tDM per yr)
 ;
 
 equations
+ q71_feed_rum_liv(j,kforage)                       Production constraint for ruminant livestock products (mio. tDM per yr)
+ q71_balanceflow_constraint_nlp(j,kli_rum,kforage) Nonlinear balanceflow constraint for cellular forage feed products (mio. tDM per yr)
+ q71_balanceflow_constraint_lp(i,kli_rum,kforage)  Linear balanceflow constraint for cellular forage feed product (mio. tDM per yr)
+ q71_sum_rum_liv(j,kli_rum)                        Total production of forage fed ruminants (mio. tDM per yr)
  q71_prod_mon_liv(j,kli_mon)                       Production constraint for monogastric livestock products (mio. tDM per yr)
- q71_punishment_mon(i)                             Punishment for additional monogastrics (mio. USD05MER per yr)
- q71_lsu_dem_cluster(j)                            development
- q71_lsu_dem_reg(i)                                development
- q71_lsu_dem_reg_disagg(j)                         development
- q71_ratio_lsu(j)                                  development
- q71_past_dem_reg_disagg(j)                        development
- q71_ratio_past(j)                                 development
- q71_ratio_comparisson(j)                          development
+ q71_punishment_mon(i)                            Punishment for additional monogastrics (mio. USD05MER per yr)
 ;
 
 parameters
@@ -38,9 +29,38 @@ parameters
 ;
 
 scalars
+ s71_lp_fix                                        Switch to fix equations to linear relation (Logical)
  s71_scale_mon                                     Scalar for flexible distribution of monogastrics (1)
  s71_punish_additional_mon                         Scaling factor for transport punishment (USD05MER per tDM)
 ;
+
+variables
+v71_lsu_dem_cluster(j) development
+v71_lsu_dem_reg(i) development
+v71_lsu_dem_reg_disagg(j) development
+v71_ratio_lsu(j) development
+v71_past_prod_cluster(j) development
+v71_past_prod_reg(i) development
+v71_past_prod_reg_disagg(j) development
+v71_ratio_past(j) development
+v71_ratio_lsu(j)                                  development
+v71_ratio_past(j)                                development
+;
+
+equations
+q71_lsu_dem_cluster(j) development
+q71_lsu_dem_reg(i) development
+q71_lsu_dem_reg_disagg(j) development
+q71_ratio_lsu(j) development
+q71_past_prod_cluster(j) development
+q71_past_prod_reg(i) development
+q71_past_prod_reg_disagg(j) development
+q71_ratio_past(j) development
+q71_ratio_lsu(j)                                  development
+q71_ratio_past(j)                                 development
+;
+
+
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
