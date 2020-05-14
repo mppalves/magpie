@@ -34,8 +34,8 @@ q71_ratio_past(j2) ..
 q71_ratio_comparisson(j2)..
       v71_ratio_lsu(j2) =e= v71_ratio_past(j2) + v71_rlx_ratio(j2);
 
-v71_rlx_ratio.lo(j2) = -1;
-v71_rlx_ratio.up(j2) = 1;
+v71_rlx_ratio.lo(j2) = -0.1;
+v71_rlx_ratio.up(j2) = 0.1;
 
 *' Ruminant livestock production within a cell is determined by the production of the non-transportable
 *' feed items grazed pasture and fodder. These must be larger than the ruminant feed requirements
