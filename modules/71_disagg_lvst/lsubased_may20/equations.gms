@@ -17,7 +17,7 @@ q71_lsu_dem_reg_disagg(j2)..
 
 q71_ratio_lsu(j2) ..
       v71_ratio_lsu(j2) =e= v71_lsu_dem_cluster(j2) / (v71_lsu_dem_reg_disagg(j2) + 1e-2);
-      
+
 
 q71_past_prod_cluster(j2)..
       v71_past_prod_cluster(j2) =e= sum(kli_rum,v71_prod_rum(j2,kli_rum,"pasture"));
@@ -30,6 +30,12 @@ q71_past_prod_reg_disagg(j2)..
 
 q71_ratio_past(j2) ..
       v71_ratio_past(j2) =e= v71_past_prod_cluster(j2) / (v71_past_prod_reg_disagg(j2) + 1e-2);
+
+q71_ratio_comparisson(j2)..
+      v71_ratio_lsu(j2) =e= v71_ratio_past(j2) + v71_rlx_ratio(j2);
+
+v71_rlx_ratio.lo(j2) = -0.01;
+v71_rlx_ratio.up(j2) = 0.01;
 
 *' Ruminant livestock production within a cell is determined by the production of the non-transportable
 *' feed items grazed pasture and fodder. These must be larger than the ruminant feed requirements

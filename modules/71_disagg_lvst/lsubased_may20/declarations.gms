@@ -45,6 +45,7 @@ v71_past_prod_reg_disagg(j) development
 v71_ratio_past(j) development
 v71_ratio_lsu(j)                                  development
 v71_ratio_past(j)                                development
+v71_rlx_ratio(j) development
 ;
 
 equations
@@ -58,9 +59,8 @@ q71_past_prod_reg_disagg(j) development
 q71_ratio_past(j) development
 q71_ratio_lsu(j)                                  development
 q71_ratio_past(j)                                 development
+q71_ratio_comparisson(j) development
 ;
-
-
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
