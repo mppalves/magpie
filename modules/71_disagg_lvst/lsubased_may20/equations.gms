@@ -16,7 +16,7 @@ q71_lsu_dem_reg_disagg(j2)..
       v71_lsu_dem_reg_disagg(j2) =e= sum(cell(i2,j2), v71_lsu_dem_reg(i2));
 
 q71_ratio_lsu(j2) ..
-      v71_ratio_lsu(j2) =e= v71_lsu_dem_cluster(j2) / (v71_lsu_dem_reg_disagg(j2) + 1e-2);
+      v71_lsu_dem_cluster(j2) =e= v71_ratio_lsu(j2) * (v71_lsu_dem_reg_disagg(j2);
 
 
 q71_past_prod_cluster(j2)..
@@ -29,7 +29,7 @@ q71_past_prod_reg_disagg(j2)..
       v71_past_prod_reg_disagg(j2) =e= sum(cell(i2,j2), v71_past_prod_reg(i2));
 
 q71_ratio_past(j2) ..
-      v71_ratio_past(j2) =e= v71_past_prod_cluster(j2) / (v71_past_prod_reg_disagg(j2) + 1e-2);
+      v71_past_prod_reg_disagg(j2) =e= v71_ratio_past(j2) * v71_past_prod_cluster(j2) ;
 
 q71_ratio_comparisson(j2)..
       v71_ratio_lsu(j2) =e= v71_ratio_past(j2) + v71_rlx_ratio(j2);
