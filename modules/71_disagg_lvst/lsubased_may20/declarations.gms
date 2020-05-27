@@ -40,6 +40,7 @@ v71_total_lsu_reg(i)                             development
 v71_past_prod_cluster(j)                         development
 v71_past_prod_reg(i)                             development
 v71_cluster_lsu_past_productivity(j)             development
+v71_regional_lsu_past_productivity(i)            development
 ;
 
 equations
