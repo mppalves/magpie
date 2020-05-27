@@ -35,31 +35,21 @@ scalars
 ;
 
 variables
-v71_lsu_dem_cluster(j) development
-v71_lsu_dem_reg(i) development
-v71_lsu_dem_reg_disagg(j) development
-v71_ratio_lsu(j) development
-v71_past_prod_cluster(j) development
-v71_past_prod_reg(i) development
-v71_past_prod_reg_disagg(j) development
-v71_ratio_past(j) development
-v71_ratio_lsu(j)                                  development
-v71_ratio_past(j)                                development
-v71_rlx_ratio(j) development
+v71_total_lsu_cluster(j)                         development
+v71_total_lsu_reg(i)                             development
+v71_past_prod_cluster(j)                         development
+v71_past_prod_reg(i)                             development
+v71_cluster_lsu_past_productivity(j)             development
 ;
 
 equations
-q71_lsu_dem_cluster(j) development
-q71_lsu_dem_reg(i) development
-q71_lsu_dem_reg_disagg(j) development
-q71_ratio_lsu(j) development
-q71_past_prod_cluster(j) development
-q71_past_prod_reg(i) development
-q71_past_prod_reg_disagg(j) development
-q71_ratio_past(j) development
-q71_ratio_lsu(j)                                  development
-q71_ratio_past(j)                                 development
-q71_ratio_comparisson(j) development
+q71_total_lsu_cluster(j)                         development
+q71_total_lsu_reg(i)                             development
+q71_past_prod_cluster(j)                         development
+q71_past_prod_reg(i)                             development
+q71_regional_lsu_past_productivity(i)            development
+q71_cluster_lsu_past_productivity(j)             development
+q71_rum_prod_constraint(j)                       development
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
