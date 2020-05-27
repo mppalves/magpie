@@ -32,7 +32,8 @@ q71_ratio_past(j2) ..
       v71_past_prod_reg_disagg(j2) =e= v71_ratio_past(j2) * v71_past_prod_cluster(j2);
 
 q71_ratio_comparisson(j2)..
-      v71_ratio_lsu(j2) =e= v71_ratio_past(j2) + v71_rlx_ratio(j2);
+      v71_ratio_lsu(j2) =e= v71_ratio_past(j2);
+*     v71_ratio_lsu(j2) =e= v71_ratio_past(j2) + v71_rlx_ratio(j2);
 
 v71_rlx_ratio.lo(j2) = -0.01;
 v71_rlx_ratio.up(j2) = 0.01;
