@@ -30,9 +30,9 @@ $include "./modules/14_yields/input/f14_pasture_yields_hist.csv"
 $offdelim;
 
 * model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
-table f14_nn_input(j,in_env_p) aggregated environmental cell values
+table f14_nn_input(t_all,j,in_env_p) aggregated environmental cell values
 $ondelim
-$include "./modules/14_yields/input/environment_cell.csv"
+$include "./modules/14_yields/input/environment_cell_ct.csv"
 $offdelim
 ;
 table f14_w1(in_types_p,lnp1) weight
