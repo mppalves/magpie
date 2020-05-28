@@ -23,7 +23,7 @@ q14_yield_crop(j2,kcr,w) ..
 
 * model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
 q14_inlsu(j2,lnp1)..  v14_inlsu(j2,lnp1) =e= sum(in_lsu_p, vm_lsu(j2) * f14_w1(in_lsu_p,lnp1));
-q14_inEnv(j2,lnp1)..  v14_inEnv(j2,lnp1) =e= sum((in_env_p,ct), f14_nn_input(ct,j2,in_env_p) * f14_w1(in_env_p,lnp1));
+q14_inEnv(j2,lnp1)..  v14_inEnv(j2,lnp1) =e= sum(in_env_p, f14_nn_input(ct,j2,in_env_p) * f14_w1(in_env_p,lnp1));
 q14_z1(j2,lnp1)..  v14_z1(j2,lnp1) =e= v14_inlsu(j2,lnp1) + v14_inEnv(j2,lnp1) + f14_b1(lnp1);
 q14_a1(j2,lnp1)..  v14_a1(j2,lnp1) =e= log(1 + system.exp(v14_z1(j2,lnp1)));
 q14_z2(j2,lnp2)..  v14_z2(j2,lnp2) =e= sum(lnp1, v14_a1(j2,lnp1) * f14_w2(lnp1,lnp2)) + f14_b2(lnp2);
