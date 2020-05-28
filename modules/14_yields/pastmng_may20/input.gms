@@ -31,12 +31,12 @@ $offdelim;
 
 
 
-*mowing limits
-table f14_mowing(j) maximum mowing potential
+parameter f14_mowing(j) maximum mowing potential
+/
 $ondelim
 $include "./modules/14_yields/input/env_mowing_scaled.csv"
 $offdelim
-;
+/;
 
 
 * model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
