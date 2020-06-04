@@ -144,7 +144,7 @@ sets time_annual Annual extended time steps
 
 ;
 
-set t_past(t_all) Timesteps with observed data 
+set t_past(t_all) Timesteps with observed data
 $If "%c_past%"== "till_2010" /y1965, y1970, y1975, y1980, y1985, y1990,y1995, y2000, y2005, y2010/;
 $If "%c_past%"== "till_1965" /y1965/;
 $If "%c_past%"== "till_1975" /y1965, y1970, y1975/;
@@ -190,7 +190,7 @@ sets
    kall All products in the sectoral version
    /
    tece,maiz,trce,rice_pro,soybean,rapeseed,groundnut,sunflower,oilpalm,puls_pro,
-   potato,cassav_sp,sugr_cane,sugr_beet,others,cottn_pro,foddr, pasture, begr, betr,
+   potato,cassav_sp,sugr_cane,sugr_beet,others,cottn_pro,foddr, pasture, past_mowing, begr, betr,
    oils,oilcakes,sugar,molasses,alcohol,ethanol,distillers_grain,brans,scp,fibres,
    livst_rum, livst_pig,livst_chick, livst_egg, livst_milk, fish,
    res_cereals, res_fibrous, res_nonfibrous, wood, woodfuel

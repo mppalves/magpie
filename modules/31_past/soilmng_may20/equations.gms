@@ -13,9 +13,12 @@
 *' multiplying pasture area `vm_land` with cellular rainfed pasture yields
 *' `vm_yld` which are delivered by the module [14_yields]:
 
+q31_pastureland(j2,kpm)  ..
+  sum(kpm, vm_past_area(j2,kpm,"rainfed")) =e= vm_land(j2,"past");
+
 q31_prod(j2) ..
- vm_prod(j2,"pasture") =l= vm_land(j2,"past")
- 						   * vm_yld(j2,"pasture","rainfed");
+  vm_prod(j2,"pasture") =l= sum(kmp, vm_past_area(j2,kmp,"rainfed") * vm_yld(j2,kmp,"rainfed"));
+
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
 q31_carbon(j2,ag_pools) ..
@@ -29,8 +32,9 @@ q31_carbon(j2,ag_pools) ..
 *' avoid overproduction of pasture in the model:
 
 q31_cost_prod_past(i2) ..
- vm_cost_prod(i2,"pasture") =e= vm_prod_reg(i2,"pasture")
- 								* s31_fac_req_past + 10 * sum(cell(i2,j2), vm_mowing_yld(j2));
+ vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"pasture","rainfed") * vm_yld(j2,"pasture","rainfed"))
+                                 + sum(cell(i2,j2), vm_past_area(j2,"past_mowing","rainfed") * vm_yld(j2,"past_mowing","rainfed"))
+                                 * s31_fac_req_past * 1.2;
 
 *' For all following time steps, factor requriements `s31_fac_req_past` are set
 *' to zero.
@@ -50,7 +54,7 @@ q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= (sum((lns3,lns4), v31_a3(j2,lns3) * f
 
 
 q31_carbon_soilc(j2,c_pools) ..
-  vm_carbon_stock(j2,"past","soilc") =e= (v31_soilc_yld(j2)/1e6/10000) * vm_land(j2,"past");
+  vm_carbon_stock(j2,"past","soilc") =e= (v31_soilc_yld(j2)/1e6/10000) * vm_past_area(j2,"pasture","rainfed");
 
 
 q31_past_factor(i2) ..
@@ -58,7 +62,7 @@ q31_past_factor(i2) ..
                                           sum((ct,kli_rum,kall),im_feed_baskets(ct,i2,kli_rum,kall)));
 
 q31_prod_lsu(j2,k) ..
-  vm_prod(j2,"pasture") =g= (vm_rlsu(j2) * vm_land(j2,"past") * (4000 * 2.25/1e6) * 365)
+  vm_prod(j2,"pasture") =g= (vm_rlsu(j2) * vm_past_area(j2,"pasture","rainfed") * (4000 * 2.25/1e6) * 365)
                                                * sum(cell(i2,j2),v31_past_fraction(i2));
 
 *** EOF constraints.gms ***

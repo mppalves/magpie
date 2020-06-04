@@ -13,6 +13,7 @@ equations
  q31_carbon_soilc(j,c_pools) Soil carbon stock calculation for pasture
  q31_prod_lsu(j,k)        Celular production constraint on LSUs
  q31_past_factor(i)       Regional pasture ratio
+ q31_pastureland(j,kpm)   development
 ;
 
 variable
@@ -43,6 +44,7 @@ q31_a3(j,lns3) activation equation
 ;
 Positive variables
 v31_soilc_yld(j) output variable
+vm_past_area(j,kpm,w) development
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

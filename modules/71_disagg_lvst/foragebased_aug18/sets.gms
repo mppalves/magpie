@@ -15,12 +15,12 @@ sets
    /
    livst_pig, livst_chick, livst_egg
    /
-   
+
    kforage(k) Forage feed categories
    /
 	pasture, foddr
-   / 
-; 
+   /
+;
 
 alias(j,j3);
 alias(cell,cell2);

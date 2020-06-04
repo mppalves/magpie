@@ -7,7 +7,7 @@
 
 *' @equations
 q71_total_lsu_cluster(j2)..
-      v71_total_lsu_cluster(j2) =e= vm_rlsu(j2) * vm_land(j2,"past");
+      v71_total_lsu_cluster(j2) =e= vm_rlsu(j2) * vm_past_area(j2,"pasture","rainfed");
 
 q71_total_lsu_reg(i2)..
       v71_total_lsu_reg(i2) =e= sum(cell(i2,j2), v71_total_lsu_cluster(j2));

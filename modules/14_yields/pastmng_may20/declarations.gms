@@ -61,16 +61,12 @@ q14_z6(j,lnp6) layer equation
 q14_a6(j,lnp6) activation equation
 q14_z7(j,lnp7) layer equation
 q14_a7(j,lnp7) activation equation
-*q14_min_tc(j) min tc value
-q14_vm_mowing_yld_max(j) development
 ;
 positive variables
 v14_past_yld(j) output variable
 vm_rlsu(j) real LSU variable
 ;
-positive variable
-vm_mowing_yld(j)  development
-;
+
 
 scalars
 s14_mean lsu conversion factor /1.12477570376585/
