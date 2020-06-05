@@ -19,7 +19,7 @@ q71_past_prod_reg(i2)..
       v71_total_prod_rum_reg(i2) =e= sum(cell(i2,j2), v71_total_prod_rum_cluster(j2));
 
 q71_regional_lsu_past_productivity(i2)..
-      v71_total_prod_rum_reg(i2) =l= v71_regional_lsu_past_productivity(i2) * v71_total_lsu_reg(i2);
+      v71_total_prod_rum_reg(i2) =g= v71_regional_lsu_past_productivity(i2) * v71_total_lsu_reg(i2);
 
 q71_cluster_lsu_past_productivity(j2)..
       v71_cluster_lsu_past_productivity(j2) =e= sum(cell(i2,j2), v71_regional_lsu_past_productivity(i2));
