@@ -53,3 +53,13 @@ q14_yield_past(j2,w)..
 
 q14_vm_mowing_yld_max(j2)..
     vm_mowing_yld(j2) =l= f14_mowing(j2);
+
+
+
+v14_z1.up(j,lnp1) = 227;
+v14_z2.up(j,lnp2) = 227;
+v14_z3.up(j,lnp3) = 227;
+v14_z4.up(j,lnp4) = 227;
+v14_z5.up(j,lnp5) = 227;
+v14_z6.up(j,lnp6) = 227;
+v14_z7.up(j,lnp7) = 227;
