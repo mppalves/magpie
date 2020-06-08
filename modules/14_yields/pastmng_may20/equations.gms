@@ -45,13 +45,13 @@ q14_rlsu(j2)..  vm_rlsu(j2) =e= vm_lsu(j2) * s14_std + s14_mean;
 
 
 *constrains to avoid the NN flood variables inside the exp() function
-v14_z1.up(j,lnp1) = 227;
-v14_z2.up(j,lnp2) = 227;
-v14_z3.up(j,lnp3) = 227;
-v14_z4.up(j,lnp4) = 227;
-v14_z5.up(j,lnp5) = 227;
-v14_z6.up(j,lnp6) = 227;
-v14_z7.up(j,lnp7) = 227;
+v14_z1.up(j,lnp1) = 100;
+v14_z2.up(j,lnp2) = 100;
+v14_z3.up(j,lnp3) = 100;
+v14_z4.up(j,lnp4) = 100;
+v14_z5.up(j,lnp5) = 100;
+v14_z6.up(j,lnp6) = 100;
+v14_z7.up(j,lnp7) = 100;
 
 * q14_yield_past(j2,w)..
 *   vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * 0.01 * 0.45 * v14_rlx_past(j2);
