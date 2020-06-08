@@ -7,5 +7,4 @@
 
 name,type,reason
 vm_rlsu,input,questionnaire
-vm_land,input,questionnaire
 vm_past_area, input, not used

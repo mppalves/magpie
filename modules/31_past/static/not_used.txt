@@ -12,3 +12,4 @@ vm_prod_reg,input,questionnaire
 vm_lsu, input, not needed
 vm_rlsu, input, not needed
 im_feed_baskets, input, not needed
+vm_past_area, input, not needed

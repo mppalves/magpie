@@ -32,7 +32,7 @@ sets
          oilpalm, puls_pro, potato, cassav_sp, sugr_cane, sugr_beet, others,
          foddr, pasture, past_mowing, cottn_pro, begr, betr /
 
-   kpm(kve)
+   kpm(kve) (development) grass producing activities
    / pasture, past_mowing /
 
    kcr(kve) Cropping activities
