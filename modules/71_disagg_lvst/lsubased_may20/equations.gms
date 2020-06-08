@@ -13,7 +13,7 @@ q71_total_lsu_reg(i2)..
       v71_total_lsu_reg(i2) =e= sum(cell(i2,j2), v71_total_lsu_cluster(j2));
 
 q71_past_prod_cluster(j2)..
-      v71_total_prod_rum_cluster(j2) =e= sum(kli_rum, vm_prod(j2,kli_rum));
+      v71_total_prod_rum_cluster(j2) =e= sum(kli_rum, v71_prod_rum(j2,kli_rum,"pasture"));
 
 q71_past_prod_reg(i2)..
       v71_total_prod_rum_reg(i2) =e= sum(cell(i2,j2), v71_total_prod_rum_cluster(j2));
