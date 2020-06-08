@@ -13,7 +13,7 @@ equations
  q31_carbon_soilc(j,c_pools) Soil carbon stock calculation for pasture
  q31_prod_lsu(j,k)        Celular production constraint on LSUs
  q31_past_factor(i)       Regional pasture ratio
- q31_pastureland(j,kpm)   development
+ q31_pastureland(j)   development
 ;
 
 variable

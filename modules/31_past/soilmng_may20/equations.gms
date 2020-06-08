@@ -13,11 +13,11 @@
 *' multiplying pasture area `vm_land` with cellular rainfed pasture yields
 *' `vm_yld` which are delivered by the module [14_yields]:
 
-q31_pastureland(j2,kpm)  ..
+q31_pastureland(j2)  ..
   sum(kpm, vm_past_area(j2,kpm,"rainfed")) =e= vm_land(j2,"past");
 
 q31_prod(j2) ..
-  vm_prod(j2,"pasture") =l= sum(kmp, vm_past_area(j2,kmp,"rainfed") * vm_yld(j2,kmp,"rainfed"));
+  vm_prod(j2,"pasture") =l= sum(kpm, vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed"));
 
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:

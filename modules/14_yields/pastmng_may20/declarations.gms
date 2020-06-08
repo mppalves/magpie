@@ -18,6 +18,7 @@ positive variables
 equations
  q14_yield_crop(j,kcr,w)             Crop yields (tDM per ha per yr)
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
+ q14_yield_past_mowing(j,w)          Pasture mowing yields (tDM per ha per yr)
 ;
 
 * model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
