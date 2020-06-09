@@ -57,7 +57,7 @@ v14_z7.up(j,lnp7) = 227;
 *q14_min_tc(j2).. v14_rlx_past(j2) =g= 0;
 
 q14_yield_past(j2,w)..
-     vm_yld(j2,"pasture","rainfed") =e= (v14_past_yld(j2) + vm_mowing_yld(j2))* (10000 * 2.21 / 1e6);
+     vm_yld(j2,"pasture","rainfed") =e= (v14_past_yld(j2) * sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2)) )* (10000 * 2.21 / 1e6);
 
 q14_vm_mowing_yld_max(j2)..
     vm_mowing_yld(j2) =l= f14_mowing(j2);
