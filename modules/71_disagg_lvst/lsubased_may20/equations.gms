@@ -25,7 +25,7 @@ q71_cluster_lsu_past_productivity(j2)..
       v71_cluster_lsu_past_productivity(j2) =e= sum(cell(i2,j2), v71_regional_lsu_past_productivity(i2));
 
 q71_rum_prod_constraint(j2)..
-       v71_total_prod_rum_cluster(j2) =l= v71_total_lsu_cluster(j2) * v71_cluster_lsu_past_productivity(j2);
+       v71_total_prod_rum_cluster(j2) =e= v71_total_lsu_cluster(j2) * v71_cluster_lsu_past_productivity(j2);
 
 
 *' Ruminant livestock production within a cell is determined by the production of the non-transportable
