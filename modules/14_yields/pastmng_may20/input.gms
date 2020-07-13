@@ -29,6 +29,14 @@ $ondelim
 $include "./modules/14_yields/input/f14_pasture_yields_hist.csv"
 $offdelim;
 
+* loading correction factor for grass production
+parameter f14_correction(t_all, j) bias
+/
+$ondelim
+$include "./modules/14_yields/input/f14_correction_factor.csv"
+$offdelim
+/;
+
 * model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
 table f14_nn_input(t_all,j,in_env_p) aggregated environmental cell values
 $ondelim
