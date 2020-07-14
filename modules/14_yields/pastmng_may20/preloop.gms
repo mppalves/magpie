@@ -22,5 +22,8 @@ i14_yields(t,j,"pasture",w) = i14_yields(t,j,"pasture",w)*sum(cell(i,j),p14_pyie
 i14_yields(t,j,kcr,w)       = i14_yields(t,j,kcr,w)      *sum(cell(i,j),f14_yld_calib(i,"crop"));
 i14_yields(t,j,"pasture",w) = i14_yields(t,j,"pasture",w)*sum(cell(i,j),f14_yld_calib(i,"past"));
 
+***LSU INITIAL VALUES**********************************************************************
+
+vm_lsu(ct, j) = f14_initial_lsu(t,j)
 
 ***INITIALIZATION OF PARAMETERS FOR THE INITIAL TIME STEP**********************************
