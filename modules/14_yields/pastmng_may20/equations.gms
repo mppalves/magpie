@@ -22,7 +22,7 @@ q14_yield_crop(j2,kcr,w) ..
 * *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));
 
 * model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
-q14_inlsu(j2,lnp1)..  v14_inlsu(j2,lnp1) =e= sum(in_lsu_p, vm_lsu(ct,j2) * f14_w1(in_lsu_p,lnp1));
+q14_inlsu(j2,lnp1)..  v14_inlsu(j2,lnp1) =e= sum((in_lsu_p, ct), vm_lsu(ct,j2) * f14_w1(in_lsu_p,lnp1));
 q14_inEnv(j2,lnp1)..  v14_inEnv(j2,lnp1) =e= sum((in_env_p, ct), f14_nn_input(ct,j2,in_env_p) * f14_w1(in_env_p,lnp1));
 q14_z1(j2,lnp1)..  v14_z1(j2,lnp1) =e= v14_inlsu(j2,lnp1) + v14_inEnv(j2,lnp1) + f14_b1(lnp1);
 q14_a1(j2,lnp1)..  v14_a1(j2,lnp1) =e= log(1 + system.exp(v14_z1(j2,lnp1)));
