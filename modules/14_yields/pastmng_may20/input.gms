@@ -30,7 +30,7 @@ $include "./modules/14_yields/input/f14_pasture_yields_hist.csv"
 $offdelim;
 
 * loading correction factor for grass production
-parameter f14_correction(j, t_all) bias
+parameter f14_correction(t_all,j) bias
 /
 $ondelim
 $include "./modules/14_yields/input/f14_correction_factor.csv"
