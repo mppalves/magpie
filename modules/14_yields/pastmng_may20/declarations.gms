@@ -20,7 +20,7 @@ equations
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
 ;
 
-* model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
+* model hash ID f41f19be671fe2b50f989841d666fd8008141a78
 variables
 vm_lsu(t, j) LSU variable
 v14_inlsu(j,lnp1) LSU input layer
@@ -66,12 +66,11 @@ positive variables
 v14_past_yld(j) output variable
 vm_rlsu(j) real LSU variable
 ;
-
-
 scalars
-s14_mean lsu conversion factor /1.12477570376585/
-s14_std lsu conversion factor /0.733718079997699/
+s14_mean lsu conversion factor /1.12482040765598/
+s14_std lsu conversion factor /0.733714157685237/
 ;
+
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters

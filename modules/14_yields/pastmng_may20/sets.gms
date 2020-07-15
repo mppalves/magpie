@@ -10,14 +10,14 @@ sets
        / crop, past /
 ;
 
-* model hash ID a0045b6118215f5e5ffdaaef64fbc7168f1bc851
+* model hash ID f41f19be671fe2b50f989841d666fd8008141a78
 sets
-in_types_p Neural net input features / temperature, precipitation, wetdays, lwnet, rsds, co2, soil, Ks, Sf, w_pwp, w_fc, w_sat, hsg, tdiff_0, tdiff_15, tdiff_100, cond_pwp, cond_100, cond_100_ice, lsu /
+in_types_p Neural net input features / temperature, precipitation, wetdays, lwnet, rsds, co2, Ks, Sf, w_pwp, w_fc, w_sat, hsg, lsu /
 in_lsu_p(in_types_p) LSU input type / LSU /
-in_env_p(in_types_p) Weather input types /temperature, precipitation, wetdays, lwnet, rsds, co2, soil, Ks, Sf, w_pwp, w_fc, w_sat, hsg, tdiff_0, tdiff_15, tdiff_100, cond_pwp, cond_100, cond_100_ice, lsu/
-lnp1 layer 1 / n1_1 * n1_19 /
-lnp2 layer 2 / n2_1 * n2_5 /
-lnp3 layer 3 / n3_1 * n3_5 /
+in_env_p(in_types_p) Weather input types /temperature, precipitation, wetdays, lwnet, rsds, co2, Ks, Sf, w_pwp, w_fc, w_sat, hsg, lsu/
+lnp1 layer 1 / n1_1 * n1_20 /
+lnp2 layer 2 / n2_1 * n2_15 /
+lnp3 layer 3 / n3_1 * n3_10 /
 lnp4 layer 4 / n4_1 * n4_5 /
 lnp5 layer 5 / n5_1 * n5_5 /
 lnp6 layer 6 / n6_1 * n6_5 /
