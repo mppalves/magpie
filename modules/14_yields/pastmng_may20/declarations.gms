@@ -9,7 +9,6 @@ parameters
  i14_yields(t,j,kve,w)               Biophysical input yields (excluding technological change) (tDM per ha per yr)
  p14_pyield_LPJ(t_all,j)             Regional average input yields aggregated from clusters with initial pasture area as weights (tDM per ha per yr)
  p14_pyield_corr(t,j)                Regional pasture management correction for historical time steps (1)
- f14_pyld_hist_cell(t,j)                  development
 ;
 
 positive variables
