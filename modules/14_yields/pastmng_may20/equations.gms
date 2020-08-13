@@ -49,5 +49,5 @@ q14_rlsu(j2)..  vm_rlsu(j2) =e= sum(ct,vm_lsu(ct,j2)) * s14_std + s14_mean;
 *q14_min_tc(j2).. v14_rlx_past(j2) =g= 0;
 
 q14_yield_past(j2,w)..
-*     vm_yld(j2,"pasture","rainfed") =e= sum(ct, v14_past_yld(j2) * sum(cell(i2,j2),p14_pyield_corr(ct,i2)) * (10000 * 2.21 / 1e6) * sum(cell(i2,j2),f14_yld_calib(i,"past")));
-     vm_yld(j2,"pasture","rainfed") =e= sum(ct, v14_past_yld(j2) * p14_pyield_corr(ct,j2) * (10000 * 2.21 / 1e6));
+     vm_yld(j2,"pasture","rainfed") =e= sum(ct, v14_past_yld(j2) * sum(cell(i2,j2),p14_pyield_corr(ct,i2)) * (10000 * 2.21 / 1e6));
+*     vm_yld(j2,"pasture","rainfed") =e= sum(ct, v14_past_yld(j2) * p14_pyield_corr(ct,j2) * (10000 * 2.21 / 1e6) * sum(cell(i2,j2),f14_yld_calib(i,"past")) );

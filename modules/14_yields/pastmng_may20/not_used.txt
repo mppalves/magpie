@@ -7,4 +7,3 @@
 # |  Contact: magpie@pik-potsdam.de
 
 name,type,reason
-pm_land_start, input, not needed
