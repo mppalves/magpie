@@ -29,11 +29,11 @@ $ondelim
 $include "./modules/14_yields/input/f14_pasture_yields_hist.csv"
 $offdelim;
 
-* loading correction factor for grass production
-parameter f14_correction(t_all,j) grass yields correction factor
+* loading f14_max_grass_harvestfor correction factor calculation
+parameter f14_max_grass_harvest(t_all,j) grass yields correction factor
 /
 $ondelim
-$include "./modules/14_yields/input/f14_correction_factor.csv"
+$include "./modules/14_yields/input/f14_max_grass_harvest.csv"
 $offdelim
 /;
 
