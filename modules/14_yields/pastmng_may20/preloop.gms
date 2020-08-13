@@ -21,11 +21,10 @@ i14_yields(t,j,"pasture",w) = i14_yields(t,j,"pasture",w)*sum(cell(i,j),p14_pyie
 $offtext
 
 ***YIELD CORRECTION FOR PASTURE ACCOUNTING FOR REGIONAL DIFFERENCES IN MANAGEMENT***
-p14_pyield_LPJ(t,j) = f14_max_grass_harvest(t,j)*(10000 * 2.21 / 1e6);
+p14_pyield_LPJ_reg(t,j) = f14_max_grass_harvest(t,j)*(10000 * 2.21 / 1e6);
 
-p14_pyield_corr(t,j) = (sum(cell(i,j),f14_pyld_hist(t,i))/p14_pyield_LPJ(t,j))$(sum(sameas(t_past,t),1) = 1)
-			+ sum(t_past,(sum(cell(i,j),f14_pyld_hist(t_past,i))/(p14_pyield_LPJ(t_past,i)+0.000001))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
-
+p14_pyield_corr(t,j) = (sum(cell(i,j),f14_pyld_hist(t,i))/p14_pyield_LPJ_reg(t,j))$(sum(sameas(t_past,t),1) = 1)
+			+ sum(t_past,(sum(cell(i,j),f14_pyld_hist(t_past,i))/(p14_pyield_LPJ_reg(t_past,j)+0.000001))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
 
 ***YIELD CALIBRATION***********************************************************************
 i14_yields(t,j,kcr,w)       = i14_yields(t,j,kcr,w)      *sum(cell(i,j),f14_yld_calib(i,"crop"));
