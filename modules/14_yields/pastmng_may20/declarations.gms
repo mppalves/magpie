@@ -61,12 +61,10 @@ q14_z6(j,lnp6) layer equation
 q14_a6(j,lnp6) activation equation
 q14_z7(j,lnp7) layer equation
 q14_a7(j,lnp7) activation equation
-q14_correction_factor(t_all,j) development (correction factor)
 ;
 positive variables
 v14_past_yld(j) output variable
 vm_rlsu(j) real LSU variable
-v14_correction(t_all,j) development correction factor
 ;
 scalars
 s14_mean lsu conversion factor /1.12482040765598/
