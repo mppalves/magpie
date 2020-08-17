@@ -24,4 +24,5 @@
 
 *###################### R SECTION START (MODULETYPES) ##########################
 $Ifi "%livestock%" == "fbask_jan16" $include "./modules/70_livestock/fbask_jan16/realization.gms"
+$Ifi "%livestock%" == "lsu_aug20" $include "./modules/70_livestock/lsu_aug20/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################

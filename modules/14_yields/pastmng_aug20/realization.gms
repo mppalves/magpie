@@ -14,10 +14,10 @@
 
 
 *####################### R SECTION START (PHASES) ##############################
-$Ifi "%phase%" == "sets" $include "./modules/14_yields/pastmng_may20/sets.gms"
-$Ifi "%phase%" == "declarations" $include "./modules/14_yields/pastmng_may20/declarations.gms"
-$Ifi "%phase%" == "input" $include "./modules/14_yields/pastmng_may20/input.gms"
-$Ifi "%phase%" == "equations" $include "./modules/14_yields/pastmng_may20/equations.gms"
-$Ifi "%phase%" == "preloop" $include "./modules/14_yields/pastmng_may20/preloop.gms"
-$Ifi "%phase%" == "postsolve" $include "./modules/14_yields/pastmng_may20/postsolve.gms"
+$Ifi "%phase%" == "sets" $include "./modules/14_yields/pastmng_aug20/sets.gms"
+$Ifi "%phase%" == "declarations" $include "./modules/14_yields/pastmng_aug20/declarations.gms"
+$Ifi "%phase%" == "input" $include "./modules/14_yields/pastmng_aug20/input.gms"
+$Ifi "%phase%" == "equations" $include "./modules/14_yields/pastmng_aug20/equations.gms"
+$Ifi "%phase%" == "preloop" $include "./modules/14_yields/pastmng_aug20/preloop.gms"
+$Ifi "%phase%" == "postsolve" $include "./modules/14_yields/pastmng_aug20/postsolve.gms"
 *######################## R SECTION END (PHASES) ###############################

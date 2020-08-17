@@ -6,7 +6,3 @@
 # |  Contact: magpie@pik-potsdam.de
 
 name,type,reason
-vm_rlsu, input, not used
-im_feed_baskets, input, not used
-vm_prod, input, not used
-vm_land, input, not used
