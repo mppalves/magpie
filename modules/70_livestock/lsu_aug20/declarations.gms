@@ -28,7 +28,7 @@ parameters
 ;
 
 variables
-v70_past_fraction(i)
+v70_past_fraction(i)             development
 ;
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
