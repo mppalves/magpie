@@ -31,7 +31,7 @@ $offdelim;
 $offtext
 
 * model hash ID 5860897949b623d66f6d6ec7afc6a537638a96da
-table f14_nn_input(t,j,in_env_p) aggregated environmental cell values
+table f14_nn_input(t_all,j,in_env_p) aggregated environmental cell values
 $ondelim
 $include "./modules/14_yields/input/environment_cell_ct.csv"
 $offdelim
