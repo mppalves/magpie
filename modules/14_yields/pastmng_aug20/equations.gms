@@ -34,7 +34,7 @@ q14_yield_crop(j2,kcr,w) ..
  q14_past_yld(j2)..  v14_past_yld(j2) =e= sum((lnp7,lnp8), v14_a7(j2,lnp7) * f14_w8(lnp7,lnp8) + f14_b8(lnp8));
  q14_maxlsu(j2)..  sum(ct, v14_lsu(ct,j2)) =l= 2;
  q14_minlsu(j2)..  sum(ct, v14_lsu(ct,j2)) =g= -2;
- q14_rlsu(j2)..  vm_rlsu(j2) =e= sum(ct,v14_lsu(ct,j2)) * s14_std + s14_mean;
+ q14_rlsu(j2)..  v14_rlsu(j2) =e= sum(ct,v14_lsu(ct,j2)) * s14_std + s14_mean;
 
  q14_yield_past(j2,w)..
    vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2);
