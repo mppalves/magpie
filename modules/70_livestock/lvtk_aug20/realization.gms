@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-*' @description The fbask_jan16 realization of the livestock module is based on
+*' @description The lvtk_aug20 realization of the livestock module is based on
 *' the methodology as described in @weindl_livestock_2017 and
 *' @weindl_livestock_2017-1. An important part of the feed demand calculations
 *' is conducted outside of the core MAgPIE-GAMS code. Livestock products
@@ -15,7 +15,7 @@
 *' consistent with FAO statistics regarding livestock production, livestock
 *' productivity and concentrate feed use.
 
-*' The fbask_jan16 realization requires regional and product-specific feed
+*' The lvtk_aug20 realization requires regional and product-specific feed
 *' baskets that are calculated by a set of preprocessing routines outside of the
 *' MAgPIE-GAMS code. Following the methodology of @wirsenius_human_2000, feed
 *' conversion (total feed input per product output in dry matter) and feed
@@ -69,8 +69,8 @@
 *' biomass in feed baskets and livestock productivity for diary cattle systems
 *' [@weindl_livestock_2017].](feed_comp_dairy.jpg){ width=60% }
 
-*' These relationships between feed baskets and livestock productivity are used 
-*' to construct feeding scenarios that reflect the narratives of the SSPs. The 
+*' These relationships between feed baskets and livestock productivity are used
+*' to construct feeding scenarios that reflect the narratives of the SSPs. The
 *' resulting feed baskets enter the MAgPIE model as scenario-dependent input data
 *' and are crucial for the feed demand calculations in the livestock module.
 
@@ -80,11 +80,11 @@
 *' targeting climate protection.
 
 *####################### R SECTION START (PHASES) ##############################
-$Ifi "%phase%" == "sets" $include "./modules/70_livestock/fbask_jan16/sets.gms"
-$Ifi "%phase%" == "declarations" $include "./modules/70_livestock/fbask_jan16/declarations.gms"
-$Ifi "%phase%" == "input" $include "./modules/70_livestock/fbask_jan16/input.gms"
-$Ifi "%phase%" == "equations" $include "./modules/70_livestock/fbask_jan16/equations.gms"
-$Ifi "%phase%" == "preloop" $include "./modules/70_livestock/fbask_jan16/preloop.gms"
-$Ifi "%phase%" == "presolve" $include "./modules/70_livestock/fbask_jan16/presolve.gms"
-$Ifi "%phase%" == "postsolve" $include "./modules/70_livestock/fbask_jan16/postsolve.gms"
+$Ifi "%phase%" == "sets" $include "./modules/70_livestock/lvtk_aug20/sets.gms"
+$Ifi "%phase%" == "declarations" $include "./modules/70_livestock/lvtk_aug20/declarations.gms"
+$Ifi "%phase%" == "input" $include "./modules/70_livestock/lvtk_aug20/input.gms"
+$Ifi "%phase%" == "equations" $include "./modules/70_livestock/lvtk_aug20/equations.gms"
+$Ifi "%phase%" == "preloop" $include "./modules/70_livestock/lvtk_aug20/preloop.gms"
+$Ifi "%phase%" == "presolve" $include "./modules/70_livestock/lvtk_aug20/presolve.gms"
+$Ifi "%phase%" == "postsolve" $include "./modules/70_livestock/lvtk_aug20/postsolve.gms"
 *######################## R SECTION END (PHASES) ###############################
