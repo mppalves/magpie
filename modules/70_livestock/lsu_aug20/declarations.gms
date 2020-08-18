@@ -15,7 +15,7 @@ equations
  q70_cost_prod_liv(i,kall)        Regional factor input costs for livestock production
  q70_cost_prod_fish(i)            Regional factor input costs for fish production
  q70_past_factor(i)               development
- q70_prod_lsu(j,k)                development
+ q70_prod_lsu(i,k)                development
 ;
 
 parameters
