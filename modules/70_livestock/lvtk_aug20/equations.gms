@@ -39,4 +39,4 @@ q70_cost_prod_fish(i2) ..
      vm_prod_reg(i2,"fish")*f70_cost_regr("fish","cost_regr_a");
 
 q70_livestock(j2,k) ..
- vm_rlsu(j2) * vm_land(j2,"past") =g= sum(ct, f70_livestock_cell(ct,j2));
+ vm_rlsu(j2) * vm_land(j2,"past") =g= sum(ct, f70_livestock_cell("y1995",j2));
