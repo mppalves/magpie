@@ -67,9 +67,6 @@ v14_past_yld(j) output variable
 vm_rlsu(t,j) real LSU variable
 ;
 
-variables
-vm_slack(j) development
-;
 
 scalars
 s14_mean lsu conversion factor /1.12482040765598/
