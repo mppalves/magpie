@@ -68,7 +68,7 @@ vm_rlsu(j) real LSU variable
 ;
 
 variable
-vm_slack(j)
+vm_slack(j) development
 ;
 
 scalars
