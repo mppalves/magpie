@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-p70_lsu_limit(t,j) = vm_rlsu.l(t,j);
+p70_lsu_limit(t,j) = vm_rlsu.l(t,j) * vm_land.l(j,"past");
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################
  ov_dem_feed(t,i,kap,kall,"marginal")    = vm_dem_feed.m(i,kap,kall);
