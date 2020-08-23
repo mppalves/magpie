@@ -43,8 +43,8 @@ q70_total_lvstk(j2)..
 
 
 q70_lsu_range_max(j2)..
-  v70_total_lvstk(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
+  v70_total_lvstk(j2) =l= 100 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
 
 
 q70_lsu_range_min(j2)..
-  v70_total_lvstk(j2) =g= 0.9 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
+  v70_total_lvstk(j2) =g= 0 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
