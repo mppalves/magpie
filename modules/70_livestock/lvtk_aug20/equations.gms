@@ -48,4 +48,4 @@ $offtext
 
 q70_lsu_range_min(j2)..
 *  v70_total_lvstk(j2) =g= 0 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
-  v70_total_lvstk(j2) =g= f70_livestock_cell(ct,j2)/1e6;
+  v70_total_lvstk(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
