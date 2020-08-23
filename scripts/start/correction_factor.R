@@ -18,7 +18,7 @@ source("config/default.cfg")
 test <- c(0,10,20,30,40,50,70,90,200,300,400)
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("correct_factor",test[i])
+  cfg$title <- paste0("correct_factor_NoDefc",test[i])
   cfg$gms$s14_corr_fact <- test[i]
   start_run(cfg=cfg,codeCheck=T)
 }
