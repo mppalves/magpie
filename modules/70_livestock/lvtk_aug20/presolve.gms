@@ -39,6 +39,6 @@ else
 	         )**((m_year(t)-m_year(t-1))/5) )*pm_past_mngmnt_factor(t-1,i);
  );
 
-p70_lsu_limit(t,j)$t_past(t) = f70_livestock_cell(t,j);
+*p70_lsu_limit(t,j)$t_past(t) = f70_livestock_cell(t,j);
 
 *' @stop
