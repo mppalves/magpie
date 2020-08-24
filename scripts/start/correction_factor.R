@@ -15,7 +15,7 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-test <- c(0,10,20,30,40,50,70,90,200,300,400)
+test <- c(1,5,10,20,30,40,45,50,60,70,80,90,100)
 
 for(i in 1:length(test)){
   cfg$title <- paste0("correct_factor_clean",test[i])

@@ -33,7 +33,7 @@ $offecho
 
 $onecho > conopt4.op2
 *Flg_Prep = FALSE
-NoDefc = true
+NoDefc = TRUE
 $offecho
 
 repeat(

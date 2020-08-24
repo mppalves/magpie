@@ -11,6 +11,10 @@ positive variables
  v70_total_lvstk(j)               development
 ;
 
+parameter
+p70_check(t,j)  development
+;
+
 equations
  q70_feed(i,kap,kall)             Regional feed demand
  q70_cost_prod_liv(i,kall)        Regional factor input costs for livestock production
