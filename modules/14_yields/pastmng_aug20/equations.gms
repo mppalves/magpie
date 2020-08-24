@@ -39,3 +39,5 @@ q14_yield_crop(j2,kcr,w) ..
 
  q14_yield_past(j2,w)..
    vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.25/1e6) * s14_corr_fact;
+
+display s14_corr_fact;
