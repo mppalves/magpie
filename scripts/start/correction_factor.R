@@ -15,7 +15,7 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-test <- c(0,5,10,20,30,40,45,50,60,70,90,100)
+test <- c(1,2,3,4)
 
 for(i in 1:length(test)){
   cfg$title <- paste0("basic_run_",test[i])
