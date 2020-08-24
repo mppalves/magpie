@@ -16,7 +16,7 @@ equations
  q70_cost_prod_liv(i,kall)        Regional factor input costs for livestock production
  q70_cost_prod_fish(i)            Regional factor input costs for fish production
  q70_total_lvstk(j)               development
- q70_lsu_range_max(j)             development
+* q70_lsu_range_max(j)             development
  q70_lsu_range_min(j)             development
 ;
 
@@ -27,7 +27,7 @@ parameters
  p70_cattle_stock_proxy(t,i)                      Proxy for cattle stocks needed to fullfil domestic food demand (mio. animals per yr)
  p70_incr_cattle(t,i)                             Change in estimated cattle stocks attributed to food demand projections (1)
  pm_past_mngmnt_factor(t,i)                       Regional pasture management intensification factor (1)
- p70_lsu_limit(t,j)                               development
+*p70_lsu_limit(t,j)                               development
 ;
 
 

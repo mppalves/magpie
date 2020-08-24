@@ -41,9 +41,9 @@ q70_cost_prod_fish(i2) ..
 q70_total_lvstk(j2)..
   v70_total_lvstk(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
 
-q70_lsu_range_max(j2)..
-  v70_total_lvstk(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
+*q70_lsu_range_max(j2)..
+*  v70_total_lvstk(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
 
 q70_lsu_range_min(j2)..
-  v70_total_lvstk(j2) =g= 0.9 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
-*  v70_total_lvstk(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
+*  v70_total_lvstk(j2) =g= 0.9 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
+  v70_total_lvstk(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
