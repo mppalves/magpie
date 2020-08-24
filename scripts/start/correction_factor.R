@@ -18,7 +18,7 @@ source("config/default.cfg")
 test <- c(1,5,10,20,30,40,45,50,60,70,80,90,100)
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("basic_run",test[i])
+  cfg$title <- paste0("basic_debug",test[i])
   cfg$gms$s14_corr_fact <- test[i]
   start_run(cfg=cfg,codeCheck=F)
 }

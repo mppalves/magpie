@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-*Scalar s14_corr_fact correction factor / 1 /;
+Scalar s14_corr_fact correction factor;
 
 $setglobal c14_yields_scenario  nocc
 *   options:   cc  (climate change)
