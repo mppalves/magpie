@@ -15,10 +15,10 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-test <- c(4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100)
+test <- c(4,10,45,100)
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("basic_run_calib_",test[i])
+  cfg$title <- paste0("lvtk_aug20_",test[i])
   cfg$gms$s14_corr_fact <- as.character(test[i])
   start_run(cfg=cfg,codeCheck=T)
 }
