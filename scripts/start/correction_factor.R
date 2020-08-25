@@ -18,7 +18,7 @@ source("config/default.cfg")
 test <- c(4,10,45,100)
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("lvtk_aug20_",test[i])
+  cfg$title <- paste0("lvtk_aug20_orginal_calb_",test[i])
   cfg$gms$s14_corr_fact <- as.character(test[i])
   start_run(cfg=cfg,codeCheck=T)
 }
