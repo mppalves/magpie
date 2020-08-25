@@ -22,4 +22,4 @@ loop (t_past,
 );
 $offtext
 
-p70_lsu_limit(t_past,j) = f70_livestock_cell(t_past,j);
+p70_lsu_limit(t,j) = f70_livestock_cell(t,j);
