@@ -43,5 +43,6 @@ p70_lsu_limit(t,j)$t_past(t) = f70_livestock_cell(t,j);
 
 p70_check(t,j) = p70_lsu_limit(t,j) - f70_livestock_cell(t,j);
 display p70_check;
+display f70_livestock_cell;
 
 *' @stop

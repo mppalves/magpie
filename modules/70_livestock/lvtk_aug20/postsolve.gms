@@ -6,9 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 p70_lsu_limit(t,j) = vm_rlsu.l(t,j) * vm_land.l(j,"past");
-
-p70_check(t,j) = p70_lsu_limit(t,j) - f70_livestock_cell(t,j);
-display p70_check;
+display p70_lsu_limit;
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################
  ov_dem_feed(t,i,kap,kall,"marginal")    = vm_dem_feed.m(i,kap,kall);
