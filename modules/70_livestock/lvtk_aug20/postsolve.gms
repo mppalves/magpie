@@ -5,7 +5,11 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-p70_lsu_limit(t+1,j)$((sum(sameas(t_past,t),1) <> 1) OR (ord(t_past) = card(t_past))) = v70_total_lvstk.l(j) * 1e6;
+p70_lsu_limit(t+1,j) = (v70_total_lvstk.l(j) * 1e6)$((sum(sameas(t_past,t),1) <> 1) OR (ord(t_past) = card(t_past)));
+
+p14_pyield_corr(t,i) = (f14_pyld_hist(t,i)/p14_pyield_LPJ_reg(t,i))$(sum(sameas(t_past,t),1) = 1)
+			+ sum(t_past,(f14_pyld_hist(t_past,i)/(p14_pyield_LPJ_reg(t_past,i)+0.000001))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
+
 display p70_lsu_limit;
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################
