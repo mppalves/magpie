@@ -15,3 +15,11 @@ loop(t_all,
   im_feed_baskets(t_all,i,kap,kall) = f70_feed_baskets(t_all,i,kap,kall,"%c70_feed_scen%");
  );
 );
+
+$ontext
+loop (t_past,
+ p70_lsu_limit(t_past,j) = f70_livestock_cell(t_past,j);
+);
+$offtext
+
+p70_lsu_limit(t_past,j) = f70_livestock_cell(t_past,j);

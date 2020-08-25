@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-p70_lsu_limit_future(t,j) = vm_rlsu.l(t,j) * vm_land.l(j,"past") * 1e6;
+p70_lsu_limit(t+1,j)$((sum(sameas(t_past,t),1) <> 1) OR (ord(t_past) = card(t_past))) = v70_total_lvstk.l(j) * 1e6;
 display p70_lsu_limit;
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################

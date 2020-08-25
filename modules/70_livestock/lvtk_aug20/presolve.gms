@@ -34,15 +34,11 @@ p70_incr_cattle(t,i)  =  1$(ord(t)=1)
 
 if (sum(sameas(t_past,t),1) = 1,
    pm_past_mngmnt_factor(t,i) = 1;
-	 p70_lsu_limit_past(t,j) = f70_livestock_cell(t,j);
+*	 p70_lsu_limit(t,j) = f70_livestock_cell(t,j);
 else
    pm_past_mngmnt_factor(t,i) =   ( (s70_pyld_intercept + f70_pyld_slope_reg(i)*p70_incr_cattle(t,i)**(5/(m_year(t)-m_year(t-1)))
 	         )**((m_year(t)-m_year(t-1))/5) )*pm_past_mngmnt_factor(t-1,i);
  );
-
-
-
-*p70_lsu_limit(t,j)$t_past(t) = f70_livestock_cell(t,j);
 
 p70_check(ct,j) = p70_lsu_limit_future(ct,j) - f70_livestock_cell(ct,j);
 display p70_check;

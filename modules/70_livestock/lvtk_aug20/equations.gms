@@ -43,10 +43,8 @@ q70_total_lvstk(j2)..
 
 
 q70_lsu_range_max(j2)..
-  v70_total_lvstk(j2) =l= 1.05 * (sum(ct, p70_lsu_limit_past(ct,j2))/1e6)$(sum(sameas(t_past,t),1) = 1) +
-  1.05 * (sum(ct, p70_lsu_limit_future(ct,j2))/1e6)$(sum(sameas(t_past,t),1) <> 1);
+  v70_total_lvstk(j2) =l= 1.05 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
 
 q70_lsu_range_min(j2)..
-  v70_total_lvstk(j2) =g= 1.05 * (sum(ct, p70_lsu_limit_past(ct,j2))/1e6)$(sum(sameas(t_past,t),1) = 1) +
-  1.05 * (sum(ct, p70_lsu_limit_future(ct,j2))/1e6)$(sum(sameas(t_past,t),1) <> 1);
+  v70_total_lvstk(j2) =g= 0.95 * sum(ct, p70_lsu_limit(ct,j2))/1e6;
 *  v70_total_lvstk(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
