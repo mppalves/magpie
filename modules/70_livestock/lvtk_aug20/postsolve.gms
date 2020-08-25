@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 *p70_lsu_limit(t+1,j)$((sum(sameas(t_past,t),1) <> 1) or (ord(t_past) = card(t_past))) = (v70_total_lvstk.l(j) * 1e6);
-if ((sum(sameas(t_past,t),1) <> 1) or (ord(t_past) = card(t_past)),
+if ((sum(sameas(t_past,t),1) <> 1) or (sum(t_past, ord(t_past) = card(t_past)) = 1),
 	 p70_lsu_limit(t+1,j) = v70_total_lvstk.l(j) * 1e6;
  );
 
