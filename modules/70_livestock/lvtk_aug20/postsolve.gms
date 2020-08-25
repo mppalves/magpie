@@ -5,8 +5,8 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-*p70_lsu_limit(t+1,j)$((sum(sameas(t_past,t),1) <> 1) OR (ord(t_past) = card(t_past))) = (v70_total_lvstk.l(j) * 1e6);
-if (sum(sameas(t_past,t),1) <> 1,
+*p70_lsu_limit(t+1,j)$((sum(sameas(t_past,t),1) <> 1) or (ord(t_past) = card(t_past))) = (v70_total_lvstk.l(j) * 1e6);
+if ((sum(sameas(t_past,t),1) <> 1) or (ord(t_past) = card(t_past)),
 	 p70_lsu_limit(t+1,j) = v70_total_lvstk.l(j) * 1e6;
  );
 

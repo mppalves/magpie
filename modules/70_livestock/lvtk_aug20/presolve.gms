@@ -34,7 +34,6 @@ p70_incr_cattle(t,i)  =  1$(ord(t)=1)
 
 if (sum(sameas(t_past,t),1) = 1,
    pm_past_mngmnt_factor(t,i) = 1;
-*	 p70_lsu_limit(t,j) = f70_livestock_cell(t,j);
 else
    pm_past_mngmnt_factor(t,i) =   ( (s70_pyld_intercept + f70_pyld_slope_reg(i)*p70_incr_cattle(t,i)**(5/(m_year(t)-m_year(t-1)))
 	         )**((m_year(t)-m_year(t-1))/5) )*pm_past_mngmnt_factor(t-1,i);
