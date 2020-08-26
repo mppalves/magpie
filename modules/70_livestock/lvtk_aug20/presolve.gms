@@ -39,8 +39,14 @@ else
 	         )**((m_year(t)-m_year(t-1))/5) )*pm_past_mngmnt_factor(t-1,i);
  );
 
+ if (sum(sameas(t_past,t),1) <> 1,
+ 	 p70_lsu_limit(t,j) = p70_lsu_limit(t-1,j);
+  );
+
+
 p70_check(ct,j) = p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j);
 display p70_check;
+display p70_lsu_limit;
 
 
 
