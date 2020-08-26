@@ -16,6 +16,7 @@ source("config/default.cfg")
 
 
 test <- c(4,10,45,100)
+test <- c(5)
 
 for(i in 1:length(test)){
   cfg$title <- paste0("lvtk_aug20_debug_",test[i])
