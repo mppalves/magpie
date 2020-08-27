@@ -15,14 +15,13 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-test <- c(4,10,45,100)
-test <- c(5)
+test <- c(4,5,6,7,8,9,10,20,30,40,45,50,60,70,80,100,)
+
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("lvtk_aug20_output_script",test[i])
+  cfg$title <- paste0("factor_",test[i])
   cfg$gms$s14_corr_fact <- as.character(test[i])
-  cfg$gms$c_timesteps <- "1"
-  cfg$output <- c("disaggregation","lsu_evaluation")
+  cfg$output <- c("rds_report","validation","disaggregation","lsu_evaluation")
 #  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=T)
 }
