@@ -19,7 +19,8 @@ test <- c(4,10,45,100)
 test <- c(5)
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("lvtk_aug20_debug_",test[i])
+  cfg$title <- paste0("lvtk_aug20_cali_",test[i])
   cfg$gms$s14_corr_fact <- as.character(test[i])
+  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=T)
 }
