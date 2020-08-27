@@ -39,7 +39,7 @@ v14_z6(j,lnp6) layer neurons
 v14_a6(j,lnp6) layer activation
 v14_z7(j,lnp7) layer neurons
 v14_a7(j,lnp7) layer activation
-vm_relax(i) development
+vm_relax(j) development
 ;
 equations
 q14_inlsu(j,lnp1) LSU input equation
