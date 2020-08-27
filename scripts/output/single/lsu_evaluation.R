@@ -73,15 +73,16 @@ plotvariables <- function(variables,
                           quant = 0.95) {
   setwd(dir)
   dir.create(folder)
+  setwd(folder)
   for (variable in variables) {
-    setwd(dir)
+    setwd("..")
     try(x <- gdx::readGDX(file, variable))
     y <- NULL
     names <- var_names[!is.na(match(var_names, unlist(dimnames(x)[3])))]
     print(variable)
     for (i in 1:length(names)) {
       try({
-        setwd(file.path(dir, folder))
+        setwd(folder)
         temp <- list()
         regions <- getRegions(x)
         for (r in getRegions(x)) {
@@ -100,7 +101,7 @@ plotvariables <- function(variables,
         print(paste0("magpie_", variable, "_", names[i], "_", ".png"))
 
         y <- luscale::speed_aggregate(x[, , names[i]], rel = read.spam(file.path("../", "0.5-to-c200_sum.spam")))
-        setwd(file.path(dir, folder))
+
         for (j in 1:dim(y)[2]) {
           print(paste(unlist(dimnames(y)[2])[j]))
           print(names[i])
