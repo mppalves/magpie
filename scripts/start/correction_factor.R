@@ -21,6 +21,8 @@ test <- c(5)
 for(i in 1:length(test)){
   cfg$title <- paste0("lvtk_aug20_debug_",test[i])
   cfg$gms$s14_corr_fact <- as.character(test[i])
+  cfg$gms$c_timesteps <- "1"
+  cfg$output <- c("disaggregation","lsu_evaluation")
 #  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=T)
 }
