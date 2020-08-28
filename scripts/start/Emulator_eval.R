@@ -46,12 +46,12 @@ variables <-
     "livst_milk",
     "livst_rum"
   )
-gdx <-
-  "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
-variable <- "ov70_total_lvstk1"
-outputdirs <-
-  list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
-            recursive = FALSE)
+#gdx <-
+#  "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
+#variable <- "ov70_total_lvstk1"
+#outputdirs <-
+#  list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
+#            recursive = FALSE)
 
 for (variable in variables) {
   magpie <- NULL
