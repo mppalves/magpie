@@ -46,12 +46,12 @@ variables <-
     "livst_milk",
     "livst_rum"
   )
-#gdx <-
-#  "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
-#variable <- "ov70_total_lvstk1"
-#outputdirs <-
-#  list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
-#            recursive = FALSE)
+# gdx <-
+#   "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
+# variable <- "ov70_total_lvstk1"
+# outputdirs <-
+#   list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
+#             recursive = FALSE)
 
 for (variable in variables) {
   magpie <- NULL
@@ -228,9 +228,7 @@ for (i in 1:length(outputdirs)) {
     y <- collapseNames(y)
     x <-
       readGDX(gdx, "ov70_total_lvstk", select = list(type = "level"))
-    if (!is.null(x)) {
-      stop("These runs do not have the variable ov70_total_lvstk")
-    }
+    if (is.null(x)) {
     regions <- getRegions(x)
     temp <- list()
     title <- paste0("Average", " | ", variable)
@@ -258,5 +256,6 @@ for (i in 1:length(outputdirs)) {
       width = 20,
       height = 10
     )
+    }
   }
 }
