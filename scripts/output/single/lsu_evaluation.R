@@ -96,8 +96,8 @@ plotvariables <- function(variables,
         magpie_region <- do.call(mbind, temp)
         magpie_region <- as.magpie(aperm(magpie_region, c(3, 2, 1)), spatial = 1)
         getCells(magpie_region) <- regions
-        luplot::magpie2ggplot2(magpie_region, title = paste0(variable,"_",names[i]))
-        ggplot2::ggsave(paste0("magpie_", variable, "_", names[i], "_", ".png"))
+        luplot::magpie2ggplot2(magpie_region, title = paste0(cfg$title, " | ", variable," | ",names[i]))
+        ggplot2::ggsave(paste0("magpie_", variable, "_", names[i], "_", ".png"),  width = 15, height = 5)
         print(paste0("magpie_", variable, "_", names[i], "_", ".png"))
 
         y <- luscale::speed_aggregate(x[, , names[i]], rel = read.spam(file.path("../", "0.5-to-c200_sum.spam")))
