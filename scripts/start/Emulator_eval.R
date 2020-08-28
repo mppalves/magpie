@@ -72,11 +72,17 @@ for (variable in variables) {
               title <- paste0("Total"," | ", variable)
             }
           })
-          x <- collapseNames(x)
+          if(is.magpie(x)){
+            x <- collapseNames(x)
+          }
+
         }
       }
-      getNames(x) <- paste0(scen)
-      try(magpie <- mbind(magpie, x))
+      if(is.magpie(x)){
+        getNames(x) <- paste0(scen)
+        try(magpie <- mbind(magpie, x))
+      }
+
     } else {
       missing <- c(missing, outputdirs[i])
     }
@@ -138,9 +144,12 @@ for  (i in 1:length(outputdirs)){
           x <- collapseNames(x)
         }
       }
-      getNames(x) <- variable
-      x <- (x - min(x))/(max(x) - min(x))
-      try(magpie <- mbind(magpie, x))
+      if(is.magpie(x)){
+        getNames(x) <- variable
+        x <- (x - min(x))/(max(x) - min(x))
+        try(magpie <- mbind(magpie, x))
+      }
+
     } else {
       missing <- c(missing, outputdirs[i])
     }
@@ -179,6 +188,6 @@ for (i in 1:length(outputdirs)) {
     w <- y / x
 
     p <- magpie2ggplot2(w, scenario = 1, ylab = "Production/Total LSUs", legend_position = "bottom", group = NULL, title = scen)
-    print(p)
+    ggsave(plot = p, filename = paste0(scen,"_productivity",".pdf"), width = 20, height = 10)
   }
 }
