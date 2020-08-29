@@ -52,6 +52,8 @@ variables <-
 # outputdirs <-
 #   list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
 #             recursive = FALSE)
+if(FALSE){
+
 
 for (variable in variables) {
   magpie <- NULL
@@ -216,7 +218,7 @@ for (i in 1:length(outputdirs)) {
     )
   }
 }
-
+}
 
 for (i in 1:length(outputdirs)) {
   gdx <- path(outputdirs[i], "fulldata.gdx")
@@ -228,7 +230,7 @@ for (i in 1:length(outputdirs)) {
     y <- collapseNames(y)
     x <-
       readGDX(gdx, "ov70_total_lvstk", select = list(type = "level"))
-    if (is.null(x)) {
+    if (!is.null(x)) {
     regions <- getRegions(x)
     temp <- list()
     title <- paste0("Average", " | ", variable)
