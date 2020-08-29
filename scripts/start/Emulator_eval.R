@@ -54,7 +54,6 @@ variables <-
 #             recursive = FALSE)
 if(FALSE){
 
-
 for (variable in variables) {
   magpie <- NULL
   missing <- NULL
@@ -233,7 +232,6 @@ for (i in 1:length(outputdirs)) {
     if (!is.null(x)) {
     regions <- getRegions(x)
     temp <- list()
-    title <- paste0("Average", " | ", variable)
     for (r in regions) {
       temp[[r]] <- colSums(x[r, ,]) / dim(x[r, ,])[1]
     }
