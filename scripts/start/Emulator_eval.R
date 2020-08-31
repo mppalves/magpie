@@ -38,7 +38,6 @@ cat("\nStarting output generation\n")
 variables <-
   c(
     "ov_rlsu",
-    "asdfasdf",
     "ov70_total_lvstk",
     "ov14_total_lvstk",
     "ov14_past_yld",
