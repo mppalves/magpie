@@ -5,9 +5,9 @@
 # |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 # |  Contact: magpie@pik-potsdam.de
 
-#########################
-#### check modelstat ####
-#########################
+###########################
+#### Check development ####
+###########################
 # Version 1.0, Marcos Alves
 #
 library(lucode)
@@ -17,10 +17,7 @@ library(magpie4)
 library(ggplot2)
 library(gdx)
 
-options(
-  error = function()
-    traceback(2)
-)
+options(error = function() traceback(2))
 
 ############################# BASIC CONFIGURATION #############################
 
@@ -29,8 +26,10 @@ fname <- "factor"
 readArgs("fname")
 
 outputdirs <-
-  file.path("output",
-            list.dirs("output/", full.names = FALSE, recursive = FALSE))
+  file.path(
+    "output",
+    list.dirs("output/", full.names = FALSE, recursive = FALSE)
+  )
 outputdirs <- outputdirs[grep(fname, outputdirs)]
 
 ###############################################################################
@@ -39,25 +38,30 @@ cat("\nStarting output generation\n")
 variables <-
   c(
     "ov_rlsu",
+    "asdfasdf",
     "ov70_total_lvstk",
     "ov14_past_yld",
     "past",
     "pasture",
     "livst_milk",
-    "livst_rum"
+    "livst_rum",
+    "pm_past_mngmnt_factor"
   )
 # gdx <-
 #   "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
 # variable <- "ov70_total_lvstk1"
 # outputdirs <-
 #   list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
-#             recursive = FALSE)
+#     recursive = FALSE
+#   )
 
 
 for (variable in variables) {
   magpie <- NULL
   missing <- NULL
+  print(paste("Processing", variable))
   for (i in 1:length(outputdirs)) {
+    x <- NULL
     print(paste("Processing", outputdirs[i]))
     # gdx file
     gdx <- path(outputdirs[i], "fulldata.gdx")
@@ -67,55 +71,68 @@ for (variable in variables) {
       scen <- cfg$title
       # read-in reporting file
       if (variable %in% c("past")) {
-        try({x <- land(gdx)[, , variable]
-        x <- collapseNames(x)})
-        title <- paste0("Land", " | ", variable)
-      } else {
-        if (variable %in% c("pasture", "livst_milk", "livst_rum")) {
-          try({x <- production(gdx)[, , variable]
-          x <- collapseNames(x)})
-          title <- paste0("Production", " | ", variable)
-        } else {
-          try({
-            x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-            if (!is.null(x)) {
-              if (variable %in% c("ov_rlsu", "ov14_past_yld")) {
-                regions <- getRegions(x)
-                temp <- list()
-                title <- paste0("Average", " | ", variable)
-                for (r in regions) {
-                  temp[[r]] <- colSums(x[r, , ]) / dim(x[r, , ])[1]
-                }
-                x <- do.call(mbind, temp)
-                x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
-                getCells(x) <- regions
-              } else {
-                x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
-                title <- paste0("Total", " | ", variable)
-              }
-            }
-          })
-          if (!is.null(x)) {
-            x <- collapseNames(x)
-          }
-
-        }
+        try({
+          x <- land(gdx)[, , variable]
+          x <- collapseNames(x)
+          title <- paste0("Land", " | ", variable)
+        })
       }
+      if (variable %in% c("pasture", "livst_milk", "livst_rum")) {
+        try({
+          x <- production(gdx)[, , variable]
+          x <- collapseNames(x)
+          title <- paste0("Production", " | ", variable)
+        })
+      }
+      if (variable %in% c("ov_rlsu", "ov14_past_yld")) {
+        try({
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
+          if (!is.null(x)) {
+            regions <- getRegions(x)
+            temp <- list()
+            title <- paste0("Average", " | ", variable)
+            for (r in regions) {
+              temp[[r]] <- colSums(x[r, , ]) / dim(x[r, , ])[1]
+            }
+            x <- do.call(mbind, temp)
+            x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
+            getCells(x) <- regions
+          }
+        })
+      }
+
+      if (variable %in% c("ov70_total_lvstk")) {
+        try({
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
+          x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
+          title <- paste0("Total", " | ", variable)
+          x <- collapseNames(x)
+        })
+      }
+
+      if (variable %in% c("pm_past_mngmnt_factor")) {
+        try({
+          x <- gdx::readGDX(gdx, variable)
+          x <- collapseNames(x)
+        })
+      }
+
       if (!is.null(x)) {
         getNames(x) <- paste0(scen)
         try(magpie <- mbind(magpie, x))
+      } else {
+        print(paste("==>", variable, "not processed"))
       }
-
     } else {
       missing <- c(missing, outputdirs[i])
     }
   }
 
-
   if (!is.null(missing)) {
     cat("\nList of folders with missing fulldata.gdx\n")
     print(missing)
   }
+
   if (!is.null(magpie)) {
     p <-
       magpie2ggplot2(
@@ -126,6 +143,8 @@ for (variable in variables) {
         group = NULL,
         title = title
       )
+
+    print(p)
 
     ggsave(
       plot = p,
@@ -141,8 +160,10 @@ for (variable in variables) {
 for (i in 1:length(outputdirs)) {
   magpie <- NULL
   missing <- NULL
+  print(paste("Processing", outputdirs[i]))
   for (variable in variables) {
-    print(paste("Processing", outputdirs[i]))
+    print(paste("Processing", variable))
+    x <- NULL
     # gdx file
     gdx <- path(outputdirs[i], "fulldata.gdx")
     if (file.exists(gdx)) {
@@ -150,44 +171,61 @@ for (i in 1:length(outputdirs)) {
       load(path(outputdirs[i], "config.Rdata"))
       scen <- cfg$title
       # read-in reporting file
+
       if (variable %in% c("past")) {
-        try({x <- land(gdx)[, , variable]
-        x <- collapseNames(x)})
-        title <- paste0("Land", " | ", variable)
-      } else {
-        if (variable %in% c("pasture", "livst_milk", "livst_rum")) {
-          try({x <- production(gdx)[, , variable]
-          x <- collapseNames(x)})
-          title <- paste0("Production", " | ", variable)
-        } else {
-          try({
-            x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-            if (!is.null(x)) {
-              if (variable %in% c("ov_rlsu", "ov14_past_yld")) {
-                regions <- getRegions(x)
-                temp <- list()
-                title <- paste0("Average", " | ", variable)
-                for (r in regions) {
-                  temp[[r]] <- colSums(x[r, , ]) / dim(x[r, , ])[1]
-                }
-                x <- do.call(mbind, temp)
-                x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
-                getCells(x) <- regions
-              } else {
-                x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
-                title <- paste0("Total", " | ", variable)
-              }
-            }
-          })
-          try(x <- collapseNames(x))
-        }
+        try({
+          x <- land(gdx)[, , variable]
+          x <- collapseNames(x)
+          title <- paste0("Land", " | ", variable)
+        })
       }
+
+      if (variable %in% c("pasture", "livst_milk", "livst_rum")) {
+        try({
+          x <- production(gdx)[, , variable]
+          x <- collapseNames(x)
+          title <- paste0("Production", " | ", variable)
+        })
+      }
+
+      if (variable %in% c("ov_rlsu", "ov14_past_yld")) {
+        try({
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
+          if (!is.null(x)) {
+            regions <- getRegions(x)
+            temp <- list()
+            title <- paste0("Average", " | ", variable)
+            for (r in regions) {
+              temp[[r]] <- colSums(x[r, , ]) / dim(x[r, , ])[1]
+            }
+            x <- do.call(mbind, temp)
+            x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
+            getCells(x) <- regions
+          }
+        })
+      }
+
+      if (variable %in% c("ov70_total_lvstk")) {
+        x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
+        x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
+        title <- paste0("Total", " | ", variable)
+        x <- collapseNames(x)
+      }
+
+      if (variable %in% c("pm_past_mngmnt_factor")) {
+        try({
+          x <- gdx::readGDX(gdx, variable)
+          x <- collapseNames(x)
+        })
+      }
+
       if (!is.null(x)) {
         getNames(x) <- variable
         x <- (x - min(x)) / (max(x) - min(x))
         try(magpie <- mbind(magpie, x))
+      } else {
+        print(paste("==>", variable, "not processed"))
       }
-
     } else {
       missing <- c(missing, outputdirs[i])
     }
@@ -195,9 +233,10 @@ for (i in 1:length(outputdirs)) {
 
 
   if (!is.null(missing)) {
-    cat("\nList of folders with missing fulldata.gdx\n")
+    print("\nList of folders with missing fulldata.gdx\n")
     print(missing)
   }
+
   if (!is.null(magpie)) {
     magpie <- (magpie - min(magpie)) / (max(magpie) - min(magpie))
     p <-
@@ -209,6 +248,7 @@ for (i in 1:length(outputdirs)) {
         group = NULL,
         title = scen
       )
+    print(p)
     ggsave(
       plot = p,
       filename = paste0(scen, ".pdf"),
@@ -225,10 +265,16 @@ for (i in 1:length(outputdirs)) {
     # get scenario name
     load(path(outputdirs[i], "config.Rdata"))
     scen <- cfg$title
+
     y <- production(gdx)[, , c("livst_milk", "livst_rum")]
     y <- collapseNames(y)
     x <-
       readGDX(gdx, "ov70_total_lvstk", select = list(type = "level"))
+
+    if (is.null(x)) {
+      stop("This run do not have ov70_total_lvstk")
+    }
+
     if (!is.null(x)) {
       regions <- getRegions(x)
       temp <- list()
@@ -250,6 +296,7 @@ for (i in 1:length(outputdirs)) {
           group = NULL,
           title = scen
         )
+      print(p)
       ggsave(
         plot = p,
         filename = paste0(scen, "_productivity", ".pdf"),
