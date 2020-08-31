@@ -98,20 +98,20 @@ for (variable in variables) {
           if (!is.null(x)) {
             x <- collapseNames(x)
           }
-          
+
         }
       }
       if (!is.null(x)) {
         getNames(x) <- paste0(scen)
         try(magpie <- mbind(magpie, x))
       }
-      
+
     } else {
       missing <- c(missing, outputdirs[i])
     }
   }
-  
-  
+
+
   if (!is.null(missing)) {
     cat("\nList of folders with missing fulldata.gdx\n")
     print(missing)
@@ -184,16 +184,16 @@ for (i in 1:length(outputdirs)) {
       }
       if (!is.null(x)) {
         getNames(x) <- variable
-        # x <- (x - min(x)) / (max(x) - min(x))
+        x <- (x - min(x)) / (max(x) - min(x))
         try(magpie <- mbind(magpie, x))
       }
-      
+
     } else {
       missing <- c(missing, outputdirs[i])
     }
   }
-  
-  
+
+
   if (!is.null(missing)) {
     cat("\nList of folders with missing fulldata.gdx\n")
     print(missing)
@@ -238,9 +238,9 @@ for (i in 1:length(outputdirs)) {
       x <- do.call(mbind, temp)
       x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
       getCells(x) <- regions
-      
+
       w <- y / x
-      
+
       p <-
         magpie2ggplot2(
           w,
