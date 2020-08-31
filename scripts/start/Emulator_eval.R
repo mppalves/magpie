@@ -40,6 +40,7 @@ variables <-
     "ov_rlsu",
     "asdfasdf",
     "ov70_total_lvstk",
+    "ov14_total_lvstk",
     "ov14_past_yld",
     "past",
     "pasture",
@@ -107,7 +108,7 @@ for (variable in variables) {
           if(!is.null(x)){
             x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
             title <- paste0("Total", " | ", variable)
-            x <- collapseNames(x)            
+            x <- collapseNames(x)
           }
         })
       }
@@ -213,11 +214,11 @@ for (i in 1:length(outputdirs)) {
           if(!is.null(x)){
             x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
             title <- paste0("Total", " | ", variable)
-            x <- collapseNames(x)            
+            x <- collapseNames(x)
           }
         })
       }
-      
+
 
       if (variable %in% c("pm_past_mngmnt_factor")) {
         try({
