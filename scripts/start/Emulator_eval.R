@@ -52,7 +52,7 @@ variables <-
 # outputdirs <-
 #   list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
 #             recursive = FALSE)
-if(FALSE){
+
 
 for (variable in variables) {
   magpie <- NULL
@@ -67,13 +67,13 @@ for (variable in variables) {
       scen <- cfg$title
       # read-in reporting file
       if (variable %in% c("past")) {
-        try(x <- land(gdx)[, , variable])
-        x <- collapseNames(x)
+        try({x <- land(gdx)[, , variable]
+        x <- collapseNames(x)})
         title <- paste0("Land", " | ", variable)
       } else {
         if (variable %in% c("pasture", "livst_milk", "livst_rum")) {
-          try(x <- production(gdx)[, , variable])
-          x <- collapseNames(x)
+          try({x <- production(gdx)[, , variable]
+          x <- collapseNames(x)})
           title <- paste0("Production", " | ", variable)
         } else {
           try({
@@ -84,7 +84,7 @@ for (variable in variables) {
                 temp <- list()
                 title <- paste0("Average", " | ", variable)
                 for (r in regions) {
-                  temp[[r]] <- colSums(x[r, ,]) / dim(x[r, ,])[1]
+                  temp[[r]] <- colSums(x[r, , ]) / dim(x[r, , ])[1]
                 }
                 x <- do.call(mbind, temp)
                 x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
@@ -98,25 +98,25 @@ for (variable in variables) {
           if (!is.null(x)) {
             x <- collapseNames(x)
           }
-
+          
         }
       }
       if (!is.null(x)) {
         getNames(x) <- paste0(scen)
         try(magpie <- mbind(magpie, x))
       }
-
+      
     } else {
       missing <- c(missing, outputdirs[i])
     }
   }
-
-
+  
+  
   if (!is.null(missing)) {
     cat("\nList of folders with missing fulldata.gdx\n")
     print(missing)
   }
-  if (!is.null(x)) {
+  if (!is.null(magpie)) {
     p <-
       magpie2ggplot2(
         magpie,
@@ -126,7 +126,7 @@ for (variable in variables) {
         group = NULL,
         title = title
       )
-    print(p)
+
     ggsave(
       plot = p,
       filename = paste0(variable, ".pdf"),
@@ -151,13 +151,13 @@ for (i in 1:length(outputdirs)) {
       scen <- cfg$title
       # read-in reporting file
       if (variable %in% c("past")) {
-        try(x <- land(gdx)[, , variable])
-        x <- collapseNames(x)
+        try({x <- land(gdx)[, , variable]
+        x <- collapseNames(x)})
         title <- paste0("Land", " | ", variable)
       } else {
         if (variable %in% c("pasture", "livst_milk", "livst_rum")) {
-          try(x <- production(gdx)[, , variable])
-          x <- collapseNames(x)
+          try({x <- production(gdx)[, , variable]
+          x <- collapseNames(x)})
           title <- paste0("Production", " | ", variable)
         } else {
           try({
@@ -168,7 +168,7 @@ for (i in 1:length(outputdirs)) {
                 temp <- list()
                 title <- paste0("Average", " | ", variable)
                 for (r in regions) {
-                  temp[[r]] <- colSums(x[r, ,]) / dim(x[r, ,])[1]
+                  temp[[r]] <- colSums(x[r, , ]) / dim(x[r, , ])[1]
                 }
                 x <- do.call(mbind, temp)
                 x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
@@ -179,26 +179,26 @@ for (i in 1:length(outputdirs)) {
               }
             }
           })
-          x <- collapseNames(x)
+          try(x <- collapseNames(x))
         }
       }
       if (!is.null(x)) {
         getNames(x) <- variable
-        x <- (x - min(x)) / (max(x) - min(x))
+        # x <- (x - min(x)) / (max(x) - min(x))
         try(magpie <- mbind(magpie, x))
       }
-
+      
     } else {
       missing <- c(missing, outputdirs[i])
     }
   }
-
-
+  
+  
   if (!is.null(missing)) {
     cat("\nList of folders with missing fulldata.gdx\n")
     print(missing)
   }
-  if (!is.null(x)) {
+  if (!is.null(magpie)) {
     magpie <- (magpie - min(magpie)) / (max(magpie) - min(magpie))
     p <-
       magpie2ggplot2(
@@ -217,7 +217,7 @@ for (i in 1:length(outputdirs)) {
     )
   }
 }
-}
+
 
 for (i in 1:length(outputdirs)) {
   gdx <- path(outputdirs[i], "fulldata.gdx")
@@ -230,32 +230,32 @@ for (i in 1:length(outputdirs)) {
     x <-
       readGDX(gdx, "ov70_total_lvstk", select = list(type = "level"))
     if (!is.null(x)) {
-    regions <- getRegions(x)
-    temp <- list()
-    for (r in regions) {
-      temp[[r]] <- colSums(x[r, ,]) / dim(x[r, ,])[1]
-    }
-    x <- do.call(mbind, temp)
-    x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
-    getCells(x) <- regions
-
-    w <- y / x
-
-    p <-
-      magpie2ggplot2(
-        w,
-        scenario = 1,
-        ylab = "Production/Total LSUs",
-        legend_position = "bottom",
-        group = NULL,
-        title = scen
+      regions <- getRegions(x)
+      temp <- list()
+      for (r in regions) {
+        temp[[r]] <- colSums(x[r, , ]) / dim(x[r, , ])[1]
+      }
+      x <- do.call(mbind, temp)
+      x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
+      getCells(x) <- regions
+      
+      w <- y / x
+      
+      p <-
+        magpie2ggplot2(
+          w,
+          scenario = 1,
+          ylab = "Production/Total LSUs",
+          legend_position = "bottom",
+          group = NULL,
+          title = scen
+        )
+      ggsave(
+        plot = p,
+        filename = paste0(scen, "_productivity", ".pdf"),
+        width = 20,
+        height = 10
       )
-    ggsave(
-      plot = p,
-      filename = paste0(scen, "_productivity", ".pdf"),
-      width = 20,
-      height = 10
-    )
     }
   }
 }
