@@ -104,9 +104,11 @@ for (variable in variables) {
       if (variable %in% c("ov70_total_lvstk")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-          x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
-          title <- paste0("Total", " | ", variable)
-          x <- collapseNames(x)
+          if(!is.null(x)){
+            x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
+            title <- paste0("Total", " | ", variable)
+            x <- collapseNames(x)            
+          }
         })
       }
 
@@ -206,11 +208,16 @@ for (i in 1:length(outputdirs)) {
       }
 
       if (variable %in% c("ov70_total_lvstk")) {
-        x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-        x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
-        title <- paste0("Total", " | ", variable)
-        x <- collapseNames(x)
+        try({
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
+          if(!is.null(x)){
+            x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
+            title <- paste0("Total", " | ", variable)
+            x <- collapseNames(x)            
+          }
+        })
       }
+      
 
       if (variable %in% c("pm_past_mngmnt_factor")) {
         try({
