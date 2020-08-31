@@ -102,7 +102,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("ov70_total_lvstk")) {
+      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if(!is.null(x)){
@@ -208,7 +208,7 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
-      if (variable %in% c("ov70_total_lvstk")) {
+      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if(!is.null(x)){
@@ -277,7 +277,7 @@ for (i in 1:length(outputdirs)) {
     y <- production(gdx)[, , c("livst_milk", "livst_rum")]
     y <- collapseNames(y)
     x <-
-      readGDX(gdx, "ov70_total_lvstk", select = list(type = "level"))
+      readGDX(gdx, "ov14_total_lvstk", select = list(type = "level"))
 
     if (is.null(x)) {
       stop("This run do not have ov70_total_lvstk")
