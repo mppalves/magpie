@@ -41,6 +41,7 @@ variables <-
     "ov70_total_lvstk",
     "ov14_total_lvstk",
     "ov14_past_yld",
+    "ov_yld",
     "past",
     "pasture",
     "livst_milk",

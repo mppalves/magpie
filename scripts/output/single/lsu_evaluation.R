@@ -48,7 +48,9 @@ variables <-
     "ov71_total_prod_rum_cluster",
     "ov71_total_prod_rum_reg",
     "pm_past_mngmnt_factor",
-    "ov_past_area"
+    "ov_past_area",
+    "vm_dem_feed",
+    "ov_yld"
   )
 var_names <-
   c(
