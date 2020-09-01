@@ -223,6 +223,7 @@ for (i in 1:length(outputdirs)) {
         try({
           x <- gdx::readGDX(gdx, variable)
           x <- collapseNames(x)
+          title <- paste0("Factor", " | ", variable)
         })
       }
 
