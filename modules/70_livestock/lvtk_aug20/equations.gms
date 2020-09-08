@@ -90,7 +90,7 @@ meat_cell * milk_cell * LU_region * pop_region * urban_ratio_region - 1.72e-04 *
 gpdpc_region * meat_cell * milk_cell * LU_region * pop_region * urban_ratio_region
 
 
-gpdpc_region im_gdp_ppp(t_all,i2)
+gpdpc_region im_gdp_pc_ppp
 meat_cell
 milk_cell
 pop_region im_pop(t_all,i)

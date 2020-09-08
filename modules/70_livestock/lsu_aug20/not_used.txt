@@ -6,5 +6,6 @@
 # |  Contact: magpie@pik-potsdam.de
 
 name,type,reason
-im_gdp_ppp, input, not used
 im_urb_ratio, input, not used
+im_gdp_pc_ppp, input, not used
+im_pop, input, not used
