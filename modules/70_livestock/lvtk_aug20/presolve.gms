@@ -48,7 +48,7 @@ p70_check(ct,j) = p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j);
 display p70_check;
 display p70_lsu_limit;
 
-
-
+display im_gdp_ppp;
+display im_urb_ratio;
 
 *' @stop
