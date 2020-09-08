@@ -60,7 +60,7 @@ im_gdp_pc_ppp_iso(t_all,iso)$(im_gdp_pc_ppp_iso(t_all,iso)=0) = sum(i_to_iso(i,i
 
 
 *Development
-im_gdp_pc_ppp(t_all,i) =  sum(i_to_iso(i,iso), im_gdp_pc_ppp_iso(t_all,iso));
+im_gdp_pc_ppp(t_all,i) =  sum(i_to_iso(i,iso), im_gdp_pc_ppp_iso(t_all,iso))/sum(i_to_iso(i,iso),1);
 
 im_urb_ratio(t_all,i)$(
     sum(i_to_iso(i,iso),
