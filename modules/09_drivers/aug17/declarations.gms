@@ -10,6 +10,10 @@ parameters
   im_pop_iso(t_all,iso)                              Population (mio. per yr)
   im_pop(t_all,i)                                    Population (mio. per yr)
 
+* Urban population (development)
+  i09_urb_pop_iso(t_all,iso)                      Development
+  im_gdp_pc_ppp(t_all,i)                         Development
+  im_urb_ratio(t_all,i)                          development
 * GDP in MER
   i09_gdp_mer_iso(t_all,iso)                  Income in market exchange rates (mio. USD05MER per yr)
   i09_gdp_mer(t_all,i)                        Income in market exchange rates (mio. USD05MER per yr)
