@@ -10,4 +10,3 @@ vm_rlsu, input, not used
 vm_land, input, not used
 im_urb_ratio, input, not used
 im_gdp_pc_ppp, input, not used
-im_pop, input, not used
