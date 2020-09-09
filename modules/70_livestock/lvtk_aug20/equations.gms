@@ -51,7 +51,7 @@ q70_total_lvstk(j2)..
 
 
 q70_total_lvstk_regress(j2)..
-v70_total_lvstk(j2) =e= sum(ct, - 2.96e+00 + 3.08e-05 * i70_gdp_pc_ppp(ct,j2) + 1.96e+03 *
+v70_total_lvstk(j2) =g= sum(ct, - 2.96e+00 + 3.08e-05 * i70_gdp_pc_ppp(ct,j2) + 1.96e+03 *
 vm_prod(j2,"livst_rum") - 4.84e+02 * vm_prod(j2,"livst_milk") + 8.58e-03 * i70_pop(ct,j2) + 2.34e+01 *
 i70_urb_ratio(ct,j2) - 1.49e-01 * i70_gdp_pc_ppp(ct,j2) * vm_prod(j2,"livst_rum") + 5.69e-02 *
 i70_gdp_pc_ppp(ct,j2) * vm_prod(j2,"livst_milk") - 2.48e+03 * vm_prod(j2,"livst_rum") * i70_livestock_conversion(ct,j2) + 6.65e+02 *
