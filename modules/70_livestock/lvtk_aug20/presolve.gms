@@ -44,6 +44,8 @@ else
   );
 
 
+v70_dem_feed(j) = sum(cell(i,j), vm_dem_feed(i,kli,"pasture"))
+
 p70_check(ct,j) = p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j);
 display p70_check;
 display p70_lsu_limit;
@@ -52,4 +54,5 @@ display i70_gdp_pc_ppp;
 display i70_urb_ratio;
 display i70_pop;
 display i70_livestock_conversion;
+display vm_prod;
 *' @stop

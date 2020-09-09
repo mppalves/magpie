@@ -42,14 +42,14 @@ q70_total_lvstk(j2)..
   v70_total_lvstk(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
 
 
-*q70_lsu_range_max(j2)..
-*  v70_total_lvstk(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2));
+q70_lsu_range_max(j2)..
+  v70_total_lvstk(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2));
 
-*q70_lsu_range_min(j2)..
-*  v70_total_lvstk(j2) =g= 0 * sum(ct, p70_lsu_limit(ct,j2));
+q70_lsu_range_min(j2)..
+  v70_total_lvstk(j2) =g= 0.9 * sum(ct, p70_lsu_limit(ct,j2));
 *  v70_total_lvstk(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
 
-
+$ontext
 q70_total_lvstk_regress(j2)..
 v70_total_lvstk(j2) =g= sum(ct, - 2.96e+00 + 3.08e-05 * i70_gdp_pc_ppp(ct,j2) + 1.96e+03 *
 vm_prod(j2,"livst_rum") - 4.84e+02 * vm_prod(j2,"livst_milk") + 8.58e-03 * i70_pop(ct,j2) + 2.34e+01 *
@@ -89,7 +89,7 @@ i70_gdp_pc_ppp(ct,j2) * vm_prod(j2,"livst_milk") * i70_livestock_conversion(ct,j
 vm_prod(j2,"livst_rum") * vm_prod(j2,"livst_milk") * i70_livestock_conversion(ct,j2) * i70_pop(ct,j2) * i70_urb_ratio(ct,j2) - 1.72e-04 *
 i70_gdp_pc_ppp(ct,j2) * vm_prod(j2,"livst_rum") * vm_prod(j2,"livst_milk") * i70_livestock_conversion(ct,j2) * i70_pop(ct,j2) * i70_urb_ratio(ct,j2));
 
-$ontext
+
 i70_gdp_pc_ppp(ct,j2) i70_gdp_pc_ppp(ct,j2)
 vm_prod(j2,"livst_rum") vm_prod(j2,"livst_rum")
 vm_prod(j2,"livst_milk") vm_prod(j2,"livst_milk")
