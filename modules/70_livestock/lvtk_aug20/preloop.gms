@@ -23,3 +23,8 @@ loop (t_past,
 $offtext
 
 p70_lsu_limit(t,j) = f70_livestock_cell(t,j);
+
+i70_livestock_conversion(t_all,j) = sum(cell(i,j), sum(i_to_iso(i,iso), f70_livestock_conversion(t_all,iso, "Large"))/sum(i_to_iso(i,iso),1));
+i70_gdp_pc_ppp(t_all,j) = sum(cell(i,j), im_gdp_pc_ppp(t_all,i))
+i70_pop(t_all,j) = sum(cell(i,j), im_pop(t_all,i))
+i70_urb_ratio(t_all,j) = sum(cell(i,j), im_urb_ratio(t_all,i))

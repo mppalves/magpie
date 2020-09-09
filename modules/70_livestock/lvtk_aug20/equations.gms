@@ -49,7 +49,7 @@ q70_lsu_range_min(j2)..
   v70_total_lvstk(j2) =g= 0.95 * sum(ct, p70_lsu_limit(ct,j2));
 *  v70_total_lvstk(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
 
-$ontext
+
 q70_total_lvstk((j2)..
 v70_total_lvstk(j2) =e= - 2.96e+00 + 3.08e-05 * gpdpc_region + 1.96e+03 *
 meat_cell - 4.84e+02 * milk_cell + 8.58e-03 * pop_region + 2.34e+01 *
@@ -89,11 +89,11 @@ gpdpc_region * milk_cell * LU_region * pop_region * urban_ratio_region - 3.25e-0
 meat_cell * milk_cell * LU_region * pop_region * urban_ratio_region - 1.72e-04 *
 gpdpc_region * meat_cell * milk_cell * LU_region * pop_region * urban_ratio_region
 
-
+$ontext
 gpdpc_region im_gdp_pc_ppp(t_all,i)
 meat_cell
 milk_cell
 pop_region im_pop(t_all,i)
-urban_ratio_region im_urb_ratio(t_all,i)
-LU i70_livestock_conversion(t_all,iso)
+urban_ratio_region im_urb_ratio(t_all,i) fazer a desagregation usando a pop como weight
+LU  i70_livestock_conversion(t_all,j) 
 $offtext

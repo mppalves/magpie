@@ -32,7 +32,11 @@ parameters
  p70_incr_cattle(t,i)                             Change in estimated cattle stocks attributed to food demand projections (1)
  pm_past_mngmnt_factor(t,i)                       Regional pasture management intensification factor (1)
  p70_lsu_limit(t,j)                               development
- i70_livestock_conversion(t_all,i)              development
+ i70_livestock_conversion(t_all,j)                development
+ i70_livestock_conversion(t_all,j)                development
+ i70_gdp_pc_ppp(t_all,j)                          development
+ i70_pop(t_all,j)                                 development
+ i70_urb_ratio(t_all,j)                           development
 ;
 
 

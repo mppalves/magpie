@@ -48,10 +48,8 @@ p70_check(ct,j) = p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j);
 display p70_check;
 display p70_lsu_limit;
 
-i70_livestock_conversion(t_all,i) = sum(i_to_iso(i,iso), f70_livestock_conversion(t_all,iso, "Large"))/sum(i_to_iso(i,iso),1);
-
-display im_gdp_pc_ppp;
-display im_urb_ratio;
-display im_pop;
+display i70_gdp_pc_ppp;
+display i70_urb_ratio;
+display i70_pop;
 display i70_livestock_conversion;
 *' @stop
