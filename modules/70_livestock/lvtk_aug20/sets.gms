@@ -30,4 +30,7 @@ sets
    sys_dairy .livst_milk
    /
 
+   species70 ruminant species
+   / Large, Small /
+
 ;

@@ -13,6 +13,12 @@ scalars
   s70_pyld_intercept     Intercept of linear relationship determining pasture intensification (1)        / 0.24 /
 ;
 
+
+table f70_livestock_conversion(t_all,iso, species70) Feed baskets in tDM per tDM livestock product (1)
+$ondelim
+$include "./modules/70_livestock/lvtk_aug20/input/f70_livestock_conversion.cs3"
+$offdelim;
+
 table f70_feed_baskets(t_all,i,kap,kall,feed_scen70) Feed baskets in tDM per tDM livestock product (1)
 $ondelim
 $include "./modules/70_livestock/lvtk_aug20/input/f70_feed_baskets.cs3"
