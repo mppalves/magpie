@@ -8,3 +8,4 @@
 name,type,reason
 im_urb_ratio, input, not used
 im_gdp_pc_ppp, input, not used
+vm_prod , input, not used
