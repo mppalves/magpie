@@ -33,7 +33,7 @@ q14_yield_crop(j2,kcr,w) ..
  q14_a7(j2,lnp7)..  v14_a7(j2,lnp7) =e= log(1 + system.exp(v14_z7(j2,lnp7)));
  q14_past_yld(j2)..  v14_past_yld(j2) =e= sum((lnp7,lnp8), v14_a7(j2,lnp7) * f14_w8(lnp7,lnp8) + f14_b8(lnp8));
  q14_rlsu(ct,j2)..  vm_rlsu(ct,j2) =e= v14_lsu(ct,j2) * s14_std + s14_mean;
- q14_maxlsu(j2).. sum(ct, vm_rlsu(ct,j2)) =l= 2.5;
+ q14_maxlsu(j2).. sum(ct, vm_rlsu(ct,j2)) =l= 10;
  q14_minlsu(j2)..  sum(ct, vm_rlsu(ct,j2)) =g= 0;
 
 
