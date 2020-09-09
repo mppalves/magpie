@@ -43,10 +43,10 @@ q70_total_lvstk(j2)..
 
 
 q70_lsu_range_max(j2)..
-  v70_total_lvstk(j2) =l= 1000 * sum(ct, p70_lsu_limit(ct,j2));
+  v70_total_lvstk(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2));
 
 q70_lsu_range_min(j2)..
-  v70_total_lvstk(j2) =g= 0 * sum(ct, p70_lsu_limit(ct,j2));
+  v70_total_lvstk(j2) =g= 0.9 * sum(ct, p70_lsu_limit(ct,j2));
 *  v70_total_lvstk(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
 
 
@@ -96,7 +96,6 @@ vm_prod(j2,"livst_milk") vm_prod(j2,"livst_milk")
 i70_pop(ct,j2) i70_pop(ct,j2)
 i70_urb_ratio(ct,j2) i70_urb_ratio(ct,j2) fazer a desagregation usando a pop como weight
 i70_livestock_conversion(ct,j2)  i70_livestock_conversion(ct,j2)
-
 
 i70_livestock_conversion(t_all,j)
 i70_gdp_pc_ppp(t_all,j)
