@@ -51,7 +51,7 @@ q70_lsu_range_min(j2)..
 
 *development
 q70_dem_feed(j2)..
- v70_dem_feed(j2) = sum((cell(i2,j2),kli), vm_dem_feed(i2,kli,"pasture"));
+ v70_dem_feed(j2) =e= sum((cell(i2,j2),kli), vm_dem_feed(i2,kli,"pasture"));
 
 $ontext
 q70_total_lvstk_regress(j2)..
