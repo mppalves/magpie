@@ -62,9 +62,9 @@ im_gdp_pc_ppp_iso(t_all,iso)$(im_gdp_pc_ppp_iso(t_all,iso)=0) = sum(i_to_iso(i,i
 *Development
 im_gdp_pc_ppp(t_all,i) =  sum(i_to_iso(i,iso), im_gdp_pc_ppp_iso(t_all,iso))/sum(i_to_iso(i,iso),1);
 
-im_urb_ratio_iso(t_all,iso) = i09_urb_pop_iso(t_all,iso) / im_pop_iso(t_all,iso);
+i09_urb_ratio_iso(t_all,iso) = i09_urb_pop_iso(t_all,iso) / im_pop_iso(t_all,iso);
 i09_pop_region(t_all,i) = sum(i_to_iso(i,iso), im_pop_iso(t_all,iso));
 i09_pop_weight(t_all,iso) =  im_pop_iso(t_all,iso) / sum(i_to_iso(i,iso), i09_pop_region(t_all,i));
-im_urb_ratio(t_all,i) = sum(i_to_iso(i,iso), im_urb_ratio_iso(t_all,iso) * i09_pop_weight(t_all,iso));
+im_urb_ratio(t_all,i) = sum(i_to_iso(i,iso), i09_urb_ratio_iso(t_all,iso) * i09_pop_weight(t_all,iso));
 
 display i09_pop_weight, im_urb_ratio;

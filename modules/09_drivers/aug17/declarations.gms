@@ -15,7 +15,7 @@ parameters
   im_gdp_pc_ppp(t_all,i)                         Development
   im_urb_ratio(t_all,i)                          development
   i09_pop_weight(t_all,iso)                        development
-  im_urb_ratio_iso(t_all,iso)                       development
+  i09_urb_ratio_iso(t_all,iso)                       development
   i09_pop_region(t_all,i)                             development
 
 * GDP in MER
