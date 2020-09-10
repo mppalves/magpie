@@ -38,10 +38,10 @@ q14_yield_crop(j2,kcr,w) ..
 
 
  q14_yield_past(j2,w)..
-*   vm_yld(j2,"pasture","rainfed") =g= v14_past_yld(j2) * (10000 * 2.25/1e6);
-   vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.25/1e6) * s14_corr_fact;
+   vm_yld(j2,"pasture","rainfed") =g= v14_past_yld(j2) * (10000 * 2.25/1e6);
+*   vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.25/1e6) * s14_corr_fact;
    display s14_corr_fact;
    vm_yld.l(j2,"pasture","rainfed") =l= 400;
-   
+
 *   q14_total_lvstk(j2)..
 *     v14_total_lvstk(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
