@@ -123,9 +123,10 @@ for (variable in variables) {
 
       if (variable %in% c("ov_yld")) {
         try({
-          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kap=c("livst_milk","livst_rum"), kall="pasture"))
-          x <- dimSums(x[,,c(1,2)])
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kve=c("livst_milk","livst_rum", "pasture"),w = "rainfed"))
+          # x <- dimSums(x[,,c(1,2)])
           title <- paste0("Total", " | ", variable)
+          x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
           x <- collapseNames(x)
 
         })
