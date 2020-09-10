@@ -46,16 +46,16 @@ variables <-
     "pasture",
     "livst_milk",
     "livst_rum",
-    "pm_past_mngmnt_factor",
+    # "pm_past_mngmnt_factor",
     "ov70_dem_feed"
   )
-# gdx <-
-#   "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
-# variable <- "ov70_total_lvstk1"
-# outputdirs <-
-#   list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
-#     recursive = FALSE
-#   )
+gdx <-
+  "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
+variable <- "ov70_total_lvstk1"
+outputdirs <-
+  list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
+    recursive = FALSE
+  )
 
 
 for (variable in variables) {
@@ -118,6 +118,16 @@ for (variable in variables) {
         try({
           x <- gdx::readGDX(gdx, variable)
           x <- collapseNames(x)
+        })
+      }
+
+      if (variable %in% c("ov_yld")) {
+        try({
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kap=c("livst_milk","livst_rum"), kall="pasture"))
+          x <- dimSums(x[,,c(1,2)])
+          title <- paste0("Total", " | ", variable)
+          x <- collapseNames(x)
+
         })
       }
 
@@ -209,7 +219,7 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
-      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk")) {
+      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk", "ov70_dem_feed")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if(!is.null(x)){
@@ -220,6 +230,15 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
+      if (variable %in% c("ov_yld")) {
+        try({
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kap=c("livst_milk","livst_rum"), kall="pasture"))
+          x <- dimSums(x[,,c(1,2)])
+          title <- paste0("Total", " | ", variable)
+          x <- collapseNames(x)
+
+        })
+      }
 
       if (variable %in% c("pm_past_mngmnt_factor")) {
         try({
