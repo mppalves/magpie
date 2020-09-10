@@ -54,5 +54,5 @@ display i70_gdp_pc_ppp;
 display i70_urb_ratio;
 display i70_pop;
 display i70_livestock_conversion;
-display vm_prod;
+
 *' @stop
