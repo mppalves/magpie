@@ -71,3 +71,5 @@ im_urb_ratio(t_all,i)$(
                             ) / sum(i_to_iso(i,iso),
                                 im_pop_iso(t_all,iso)
                             );
+i09_pop_weight(t_all,i) = sum(iso, im_pop_iso(t_all,iso)) / sum(i_to_iso(i,iso), im_pop_iso(t_all,iso))
+display i09_pop_weight;

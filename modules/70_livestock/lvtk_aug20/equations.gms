@@ -49,6 +49,7 @@ q70_lsu_range_min(j2)..
   v70_total_lvstk(j2) =g= 0.9 * sum(ct, p70_lsu_limit(ct,j2));
 *  v70_total_lvstk(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
 
+
 *development
 q70_dem_feed(j2)..
  v70_dem_feed(j2) =e= sum((cell(i2,j2),kli), vm_dem_feed(i2,kli,"pasture"));
