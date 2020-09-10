@@ -14,7 +14,10 @@ parameters
   i09_urb_pop_iso(t_all,iso)                      Development
   im_gdp_pc_ppp(t_all,i)                         Development
   im_urb_ratio(t_all,i)                          development
-  i09_pop_weight(t_all,i)                        development
+  i09_pop_weight(t_all,iso)                        development
+  im_urb_ratio_iso(t_all,iso)                       development
+  i09_pop_region(t_all,i)                             development
+
 * GDP in MER
   i09_gdp_mer_iso(t_all,iso)                  Income in market exchange rates (mio. USD05MER per yr)
   i09_gdp_mer(t_all,i)                        Income in market exchange rates (mio. USD05MER per yr)
