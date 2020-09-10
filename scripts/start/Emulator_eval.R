@@ -121,16 +121,16 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("ov_yld")) {
-        try({
-          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kve=c("livst_milk","livst_rum", "pasture"),w = "rainfed"))
-          # x <- dimSums(x[,,c(1,2)])
-          title <- paste0("Total", " | ", variable)
-          x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
-          x <- collapseNames(x)
-
-        })
-      }
+      # if (variable %in% c("ov_yld")) {
+      #   try({
+      #     x <- gdx::readGDX(gdx, variable, select = list(type = "level", kve=c("livst_milk","livst_rum", "pasture"),w = "rainfed"))
+      #     # x <- dimSums(x[,,c(1,2)])
+      #     title <- paste0("Total", " | ", variable)
+      #     x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
+      #     x <- collapseNames(x)
+      #
+      #   })
+      # }
 
       if (!is.null(x)) {
         getNames(x) <- paste0(scen)
@@ -231,15 +231,15 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
-      if (variable %in% c("ov_yld")) {
-        try({
-          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kap=c("livst_milk","livst_rum"), kall="pasture"))
-          x <- dimSums(x[,,c(1,2)])
-          title <- paste0("Total", " | ", variable)
-          x <- collapseNames(x)
-
-        })
-      }
+      # if (variable %in% c("ov_yld")) {
+      #   try({
+      #     x <- gdx::readGDX(gdx, variable, select = list(type = "level", kap=c("livst_milk","livst_rum"), kall="pasture"))
+      #     x <- dimSums(x[,,c(1,2)])
+      #     title <- paste0("Total", " | ", variable)
+      #     x <- collapseNames(x)
+      #
+      #   })
+      # }
 
       if (variable %in% c("pm_past_mngmnt_factor")) {
         try({
