@@ -28,10 +28,15 @@ q31_carbon(j2,ag_pools) ..
 *' small costs are attributed to the production of pasture biomass in order to
 *' avoid overproduction of pasture in the model:
 
+$ontext
 q31_cost_prod_past(i2) ..
  vm_cost_prod(i2,"pasture") =e= vm_prod_reg(i2,"pasture")
   								* s31_fac_req_past;
-* 								* s31_fac_req_past + sum((cell(i2,j2),ct),vm_rlsu(ct,j2));
+$offtext
+
+q31_cost_prod_past(i2) ..
+ vm_cost_prod(i2,"pasture") =e= vm_yld(j2,"pasture","rainfed")
+  								* s31_fac_req_past;
 
 *' For all following time steps, factor requriements `s31_fac_req_past` are set
 *' to zero.
