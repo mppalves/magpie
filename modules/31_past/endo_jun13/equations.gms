@@ -35,7 +35,7 @@ q31_cost_prod_past(i2) ..
 $offtext
 
 q31_cost_prod_past(i2) ..
- vm_cost_prod(i2,"pasture") =e= vm_yld(j2,"pasture","rainfed")
+ vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_yld(j2,"pasture","rainfed"))
   								* s31_fac_req_past;
 
 *' For all following time steps, factor requriements `s31_fac_req_past` are set
