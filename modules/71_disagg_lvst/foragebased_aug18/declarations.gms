@@ -22,7 +22,7 @@ equations
  q71_sum_rum_liv(j,kli_rum)                        Total production of forage fed ruminants (mio. tDM per yr)
  q71_prod_mon_liv(j,kli_mon)                       Production constraint for monogastric livestock products (mio. tDM per yr)
  q71_punishment_mon(i)                             Punishment for additional monogastrics (mio. USD05MER per yr)
- q71_feed_rum_liv_past(j,kforage)                  development
+
 ;
 
 parameters
