@@ -37,7 +37,7 @@ q14_yield_crop(j2,kcr,w) ..
  q14_minlsu(j2)..  sum(ct, vm_rlsu(ct,j2)) =g= 0;
 
  q14_adj_past_yld(j2)..
-  v14_past_yld(j2)$(vm_rlsu > 2.5) =e= 0;
+  v14_past_yld(j2)$(sum(ct, vm_rlsu(ct,j2)) > 2.5) =e= 0;
 
  q14_yield_past(j2,w)..
    vm_yld(j2,"pasture","rainfed") =g= v14_past_yld(j2) * (10000 * 2.25/1e6);
