@@ -12,7 +12,7 @@
 *' that are given by the product of ruminant production and the respective feed baskets:
 
 q71_feed_rum_liv(j2,kforage) ..
-                 vm_prod(j2,kforage) =g=
+                 vm_prod(j2,kforage) =e=
                   sum(kli_rum, v71_prod_rum(j2,kli_rum,kforage)
                  * sum((ct,cell(i2,j2),kforage2),im_feed_baskets(ct,i2,kli_rum,kforage2))
 				 * (1 + v71_feed_balanceflow(j2,kli_rum,kforage)$(s71_lp_fix=0))
