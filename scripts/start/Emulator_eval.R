@@ -126,7 +126,8 @@ for (variable in variables) {
           x <- gdx::readGDX(gdx, variable, select = list(type = "level", kve=c("livst_milk","livst_rum", "pasture"),w = "rainfed"))
           # x <- dimSums(x[,,c(1,2)])
           title <- paste0("Total", " | ", variable)
-          x <- gdxAggregate(gdx, x, to = "reg", absolute = F)
+          weight <- as.magpie(rep(1,200),spatial =1)
+          x <- gdxAggregate(gdx, x, to = "reg", absolute = F, weight = weight)
           x <- collapseNames(x)
 
         })
@@ -237,7 +238,8 @@ for (i in 1:length(outputdirs)) {
           x <- gdx::readGDX(gdx, variable, select = list(type = "level", kve=c("livst_milk","livst_rum", "pasture"),w = "rainfed"))
           # x <- dimSums(x[,,c(1,2)])
           title <- paste0("Total", " | ", variable)
-          x <- gdxAggregate(gdx, x, to = "reg", absolute = F)
+          weight <- as.magpie(rep(1,200),spatial =1)
+          x <- gdxAggregate(gdx, x, to = "reg", absolute = F, weight = weight)
           x <- collapseNames(x)
 
         })
