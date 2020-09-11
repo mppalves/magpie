@@ -46,8 +46,8 @@ equations
 q14_inlsu(j,lnp1) LSU input equation
 q14_inEnv(j,lnp1) LSU input equation
 q14_rlsu(t,j) real lsu equation
-q14_maxlsu(j) max LSU
-q14_minlsu(j) min LSU
+*q14_maxlsu(j) max LSU
+*q14_minlsu(j) min LSU
 q14_past_yld(j) output equation
 q14_z1(j,lnp1) layer equation
 q14_a1(j,lnp1) activation equation
