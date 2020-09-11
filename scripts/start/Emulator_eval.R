@@ -47,7 +47,7 @@ variables <-
     "livst_milk",
     "livst_rum",
     # "pm_past_mngmnt_factor",
-    "ov70_dem_feed"
+    "ov70_dem_past"
   )
 # gdx <-
 #   "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
@@ -103,7 +103,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk", "ov70_dem_feed")) {
+      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk", "ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if(!is.null(x)){
@@ -220,7 +220,7 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
-      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk", "ov70_dem_feed")) {
+      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk", "ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if(!is.null(x)){

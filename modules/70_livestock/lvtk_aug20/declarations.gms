@@ -9,7 +9,7 @@
 positive variables
  vm_dem_feed(i,kap,kall)          Regional feed demand including byproducts (mio. tDM per yr)
  v70_total_lvstk(j)               development
- v70_dem_feed(j)                  development
+ v70_dem_past(j)                  development
 ;
 
 parameter
@@ -24,7 +24,7 @@ equations
 *q70_lsu_range_max(j)             development
 *q70_lsu_range_min(j)             development
 q70_total_lvstk_regress(j)       development
-q70_dem_feed(j)                  development
+q70_dem_past(j)                  development
 ;
 
 parameters
