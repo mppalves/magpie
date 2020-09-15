@@ -59,11 +59,13 @@ $offtext
 
 p70_check(ct,j) = p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j);
 p70_lsu_limit_reg(ct,i) = sum(cell(i,j), p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j));
-display p70_check;
-display p70_lsu_limit;
 display p70_total_lvstk;
 display p70_lsu_limit_reg;
 display p70_livst_rum;
 display p70_livst_milk;
+display im_gdp_pc_ppp;
+display im_pop;
+display im_urb_ratio;
+display p70_livestock_conversion;
 
 *' @stop
