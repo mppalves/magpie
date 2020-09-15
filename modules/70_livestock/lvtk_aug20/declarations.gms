@@ -40,7 +40,7 @@ parameters
  p70_gdp_pc_ppp(t_all,j)                          development
  p70_pop(t_all,j)                                 development
  p70_urb_ratio(t_all,j)                           development
- p70_total_lvstk(i)                             development
+ p70_total_lvstk(t_all,i)                         development
 ;
 
 
