@@ -55,8 +55,10 @@ $ontext
 $offtext
 
 p70_check(ct,j) = p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j);
+p70_lsu_limit_reg(ct,i) = sum(cell(i,j), p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j));
 display p70_check;
 display p70_lsu_limit;
 display p70_total_lvstk;
+display p70_lsu_limit_reg;
 
 *' @stop
