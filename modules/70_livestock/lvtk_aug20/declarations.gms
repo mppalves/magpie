@@ -23,7 +23,7 @@ equations
  q70_total_lvstk(j)               development
 *q70_lsu_range_max(j)             development
 *q70_lsu_range_min(j)             development
-q70_total_lvstk_regress(j)       development
+*q70_total_lvstk_regress(j)       development
 q70_dem_past(j)                  development
 ;
 
