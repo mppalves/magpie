@@ -15,7 +15,7 @@
 *' the number of cattle reared to fulfil the domestic demand for ruminant
 *' livestock products:
 
-p70_cattle_stock_proxy(t,i) = im_pop(t,i)*pm_kcal_pc_initial(t,i,"livst_rum")
+p70_cattle_stock_proxy(t,i) = im_pop(t,i) * pm_kcal_pc_initial(t,i,"livst_rum") * sum(ct,(f15_nutrition_attributes(ct,"livst_rum","kcal") * 10**6))
 		              /i70_livestock_productivity(t,i,"sys_beef");
 
 *' The lower bound for `p70_cattle_stock_proxy` is set to 20% of initial cattle
