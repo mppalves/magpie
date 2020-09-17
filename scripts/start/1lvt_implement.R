@@ -23,6 +23,7 @@ for(i in 1:length(test)){
   cfg$gms$s14_corr_fact <- as.character(test[i])
   cfg$output <- c("rds_report","validation","disaggregation","lsu_evaluation")
   cfg$gms$livestock <- "lvtk_aug20"                  # def = fbask_jan16, lvtk_aug20
+  cfg$gms$s31_fac_req_past  <- 0
 #  cfg$recalibrate <- "TRUE"
-  start_run(cfg=cfg,codeCheck=F)
+  start_run(cfg=cfg,codeCheck=T)
 }
