@@ -24,5 +24,5 @@ for(i in 1:length(test)){
   cfg$output <- c("rds_report","validation","disaggregation","lsu_evaluation")
   cfg$gms$livestock <- "lvtk_aug20"                  # def = fbask_jan16, lvtk_aug20
 #  cfg$recalibrate <- "TRUE"
-  start_run(cfg=cfg,codeCheck=T)
+  start_run(cfg=cfg,codeCheck=F)
 }
