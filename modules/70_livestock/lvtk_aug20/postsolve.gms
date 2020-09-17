@@ -7,6 +7,7 @@
 
 
 p70_lsu_limit(ct,j) = v70_total_lvstk.l(j);
+p70_lviestock_reg(i) = sum(cell(i,j),v70_total_lvstk.l(j))
 display v70_total_lvstk.l;
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################
