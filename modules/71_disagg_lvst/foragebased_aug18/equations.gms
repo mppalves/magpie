@@ -13,7 +13,7 @@
 
 q71_feed_rum_liv(j2,kforage) ..
                  vm_prod(j2,kforage) =g=
-                  sum(kli_rum, v71_prod_rum(j2,kli_rum,kforage)
+                  sum(kli_rum, vm_prod_rum(j2,kli_rum,kforage)
                  * sum((ct,cell(i2,j2),kforage2),im_feed_baskets(ct,i2,kli_rum,kforage2))
 				 * (1 + v71_feed_balanceflow(j2,kli_rum,kforage)$(s71_lp_fix=0))
 				 + v71_feed_balanceflow(j2,kli_rum,kforage)$(s71_lp_fix=1))
@@ -55,7 +55,7 @@ q71_balanceflow_constraint_nlp(j2,kli_rum,kforage)$(s71_lp_fix=0) ..
 *' The regional ruminant production is then given by
 
 q71_sum_rum_liv(j2,kli_rum) ..
-                 vm_prod(j2,kli_rum) =e= sum(kforage,v71_prod_rum(j2,kli_rum,kforage))
+                 vm_prod(j2,kli_rum) =e= sum(kforage,vm_prod_rum(j2,kli_rum,kforage))
                  ;
 
 *' To account for the above mentioned fact that monogastric livestock are held close to the population, it is

@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 positive variables
- v71_prod_rum(j,kli_rum,kforage)                   Production of forage fed ruminants within a cell (mio. tDM per yr)
+ vm_prod_rum(j,kli_rum,kforage)                   Production of forage fed ruminants within a cell (mio. tDM per yr)
  v71_additional_mon(j, kli_mon)                   Additional punished production of monogastric livestock (mio. tDM per yr)
  vm_costs_additional_mon(i)                       Punishment cost for additionally transported monogastric livst_egg (mio. USD05MER per yr)
 ;

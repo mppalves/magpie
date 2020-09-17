@@ -15,7 +15,7 @@
 *' the number of cattle reared to fulfil the domestic demand for ruminant
 *' livestock products:
 
-p70_cattle_stock_proxy(t,i) = im_pop(t,i) * pm_kcal_pc_initial(t,i,"livst_rum") * sum(ct,(f15_nutrition_attributes(ct,"livst_rum","kcal") * 10**6))
+p70_cattle_stock_proxy(t,i) = im_pop(t,i)*pm_kcal_pc_initial(t,i,"livst_rum")
 		              /i70_livestock_productivity(t,i,"sys_beef");
 
 *' The lower bound for `p70_cattle_stock_proxy` is set to 20% of initial cattle
@@ -43,29 +43,5 @@ else
  	 p70_lsu_limit(t,j) = p70_lsu_limit(t-1,j);
   );
 
-	p70_livst_rum(ct,i) = vm_dem_food.l(i,"livst_rum");
-	p70_livst_milk(ct,i) = vm_dem_food.l(i,"livst_milk");
-
-	p70_total_lvstk(ct,i) = - 3.011e+03 + 5.154e-02 * im_gdp_pc_ppp(ct,i) + 2.689e+03 * p70_livst_milk(ct,i) + 4.313e+03 * p70_livestock_conversion(ct,i) + 3.924e+01 * im_pop(ct,i) + 3.272e+03 * im_urb_ratio(ct,i) - 3.739e-02 * im_gdp_pc_ppp(ct,i) * p70_livst_milk(ct,i) + 1.388e+02 * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) - 9.000e-02 * im_gdp_pc_ppp(ct,i) * p70_livestock_conversion(ct,i) - 3.443e+03 * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) - 1.479e-03 * im_gdp_pc_ppp(ct,i) * im_pop(ct,i) - 1.667e+01 * p70_livst_rum(ct,i) * im_pop(ct,i) - 1.356e+01 * p70_livst_milk(ct,i) * im_pop(ct,i) - 5.604e+01 * p70_livestock_conversion(ct,i) * im_pop(ct,i) + 1.420e+02 * p70_livst_rum(ct,i) * im_urb_ratio(ct,i) - 4.321e+03 * p70_livst_milk(ct,i) * im_urb_ratio(ct,i) - 5.034e+03 * p70_livestock_conversion(ct,i) * im_urb_ratio(ct,i) - 5.300e+01 * im_pop(ct,i) * im_urb_ratio(ct,i) + 5.885e-02 * im_gdp_pc_ppp(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) - 3.202e+02 * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) + 9.057e-04 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * im_pop(ct,i) + 4.901e-04 * im_gdp_pc_ppp(ct,i) * p70_livst_milk(ct,i) * im_pop(ct,i) + 1.154e+00 * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * im_pop(ct,i) + 2.115e-03 * im_gdp_pc_ppp(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) + 2.392e+01 * p70_livst_rum(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) + 1.878e+01 * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) - 4.395e-03 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * im_urb_ratio(ct,i) + 5.435e-02 * im_gdp_pc_ppp(ct,i) * p70_livestock_conversion(ct,i) * im_urb_ratio(ct,i) + 5.310e+03 * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_urb_ratio(ct,i) + 2.217e-03 * im_gdp_pc_ppp(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) + 2.527e+01 * p70_livst_rum(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) + 2.057e+01 * p70_livst_milk(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) + 7.641e+01 * p70_livestock_conversion(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) + 1.225e-02 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) - 5.997e-05 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * im_pop(ct,i) - 1.293e-03 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) - 7.245e-04 * im_gdp_pc_ppp(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) - 1.505e+00 * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) - 2.680e-02 * im_gdp_pc_ppp(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_urb_ratio(ct,i) + 2.772e+02 * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_urb_ratio(ct,i) - 1.407e-03 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) - 6.859e-04 * im_gdp_pc_ppp(ct,i) * p70_livst_milk(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) - 2.071e+00 * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) - 3.157e-03 * im_gdp_pc_ppp(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) - 3.663e+01 * p70_livst_rum(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) - 2.764e+01 * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) + 7.638e-05 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) - 1.860e-02 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_urb_ratio(ct,i) + 1.011e-04 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) + 2.013e-03 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) + 1.006e-03 * im_gdp_pc_ppp(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) + 2.569e+00 * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i) - 1.245e-04 * im_gdp_pc_ppp(ct,i) * p70_livst_rum(ct,i) * p70_livst_milk(ct,i) * p70_livestock_conversion(ct,i) * im_pop(ct,i) * im_urb_ratio(ct,i);
-
-$ontext
-	gpdpc_region im_gdp_pc_ppp(ct,i)
-	meat_cell p70_livst_rum(ct,i)
-	milk_cell p70_livst_milk(ct,i)
-	pop_region im_pop(ct,i)
-	urban_ratio_region im_urb_ratio(ct,i)
-	LU_region  p70_livestock_conversion(ct,i)
-$offtext
-
-p70_check(ct,j) = p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j);
-p70_lsu_limit_reg(ct,i) = sum(cell(i,j), p70_lsu_limit(ct,j) - f70_livestock_cell(ct,j));
-display p70_total_lvstk;
-display p70_lsu_limit_reg;
-display p70_livst_rum;
-display p70_livst_milk;
-display im_gdp_pc_ppp;
-display im_pop;
-display im_urb_ratio;
-display p70_livestock_conversion;
 
 *' @stop
