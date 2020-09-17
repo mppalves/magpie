@@ -38,10 +38,11 @@ q70_cost_prod_fish(i2) ..
  vm_cost_prod(i2,"fish") =e=
      vm_prod_reg(i2,"fish")*f70_cost_regr("fish","cost_regr_a");
 
-$ontext
+
 q70_total_lsus(j2)..
   v70_total_lsus(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
 
+$ontext
 q70_lsu_range_max(j2)..
   v70_total_lsus(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2));
 
