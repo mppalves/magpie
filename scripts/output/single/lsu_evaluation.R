@@ -29,7 +29,7 @@ dir <- outputdir
 
 variables <-
   c(
-    "ov70_total_lvstk",
+    "ov70_total_lsus",
     "ov_rlsu",
     "oq70_livestock",
     "ov_land",

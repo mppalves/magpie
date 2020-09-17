@@ -39,24 +39,24 @@ q70_cost_prod_fish(i2) ..
      vm_prod_reg(i2,"fish")*f70_cost_regr("fish","cost_regr_a");
 
 $ontext
-q70_total_lvstk(j2)..
-  v70_total_lvstk(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
-
+q70_total_lsus(j2)..
+  v70_total_lsus(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
 
 q70_lsu_range_max(j2)..
-  v70_total_lvstk(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2));
+  v70_total_lsus(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2));
 
 q70_lsu_range_min(j2)..
-  v70_total_lvstk(j2) =g= 0.9 * sum(ct, p70_lsu_limit(ct,j2));
-*  v70_total_lvstk(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
+  v70_total_lsus(j2) =g= 0.9 * sum(ct, p70_lsu_limit(ct,j2));
+*  v70_total_lsus(j2) =g= sum(ct, f70_livestock_cell(ct,j2)/1e6);
 
-
-q70_total_lvstk(j2)..
-  v70_total_lvstk(j2) =e= vm_prod_rum(j2,"livst_rum","pasture") * fm_attributes("wm","livst_rum") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_beef"));
+q70_total_lsus(j2)..
+  v70_total_lsus(j2) =e= vm_prod_rum(j2,"livst_rum","pasture") * fm_attributes("wm","livst_rum") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_beef"));
 $offtext
 
-q70_total_lvstk(j2)..
-    v70_total_lvstk(j2) =e= vm_prod_rum(j2,"livst_rum","pasture") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_beef"));
+q70_total_lsus(j2)..
+    v70_total_lsus(j2) =g= (vm_prod_rum(j2,"livst_rum","pasture") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_beef")) +
+                            vm_prod_rum(j2,"livst_milk","pasture") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_dairy")))/
+                            sum((i_to_iso(i,iso),ct), f70_livestock_conversion(ct,iso, "Large");
 
 *development
 q70_dem_past(j2)..

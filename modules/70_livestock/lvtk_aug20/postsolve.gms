@@ -6,8 +6,8 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 
-p70_lsu_limit(ct,j) = v70_total_lvstk.l(j);
-p70_lviestock_reg(i) = sum(cell(i,j),v70_total_lvstk.l(j))
+p70_lsu_limit(ct,j) = v70_total_lsus.l(j);
+p70_lviestock_reg(i) = sum(cell(i,j),v70_total_lsus.l(j))
 display p70_lviestock_reg;
 display  fm_attributes;
 display vm_land.l;

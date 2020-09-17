@@ -38,8 +38,8 @@ cat("\nStarting output generation\n")
 variables <-
   c(
     "ov_rlsu",
-    "ov70_total_lvstk",
-    "ov14_total_lvstk",
+    "ov70_total_lsus",
+    "ov14_total_lsus",
     "ov14_past_yld",
     "ov_yld",
     "past",
@@ -51,7 +51,7 @@ variables <-
   )
 # gdx <-
 #   "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
-# variable <- "ov70_total_lvstk1"
+# variable <- "ov70_total_lsus1"
 # outputdirs <-
 #   list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
 #     recursive = FALSE
@@ -103,7 +103,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk", "ov70_dem_past")) {
+      if (variable %in% c("ov70_total_lsus", "ov14_total_lsus", "ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if(!is.null(x)){
@@ -221,7 +221,7 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
-      if (variable %in% c("ov70_total_lvstk", "ov14_total_lvstk", "ov70_dem_past")) {
+      if (variable %in% c("ov70_total_lsus", "ov14_total_lsus", "ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if(!is.null(x)){
@@ -304,10 +304,10 @@ for (i in 1:length(outputdirs)) {
     y <- production(gdx)[, , c("livst_milk", "livst_rum")]
     y <- collapseNames(y)
     x <-
-      readGDX(gdx, "ov70_total_lvstk", select = list(type = "level"))
+      readGDX(gdx, "ov70_total_lsus", select = list(type = "level"))
 
     if (is.null(x)) {
-      stop("This run do not have ov70_total_lvstk")
+      stop("This run do not have ov70_total_lsus")
     }
 
     if (!is.null(x)) {
