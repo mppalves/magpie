@@ -58,7 +58,6 @@ $offtext
 q70_total_lvstk(j2)..
     v70_total_lvstk(j2) =e= vm_prod_rum(j2,"livst_rum","pasture") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_beef"));
 
-display  fm_attributes,vm_land,vm_rlsu;
 *development
 q70_dem_past(j2)..
  v70_dem_past(j2) =e= sum((cell(i2,j2),kli), vm_dem_feed(i2,kli,"pasture"));
