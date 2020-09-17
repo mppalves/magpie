@@ -8,7 +8,7 @@
 
 p70_lsu_limit(ct,j) = v70_total_lvstk.l(j);
 p70_lviestock_reg(i) = sum(cell(i,j),v70_total_lvstk.l(j))
-display p70_lviestock_reg.l;
+display p70_lviestock_reg;
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################
  ov_dem_feed(t,i,kap,kall,"marginal")    = vm_dem_feed.m(i,kap,kall);
