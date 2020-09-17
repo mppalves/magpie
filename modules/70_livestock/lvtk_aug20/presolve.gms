@@ -43,6 +43,6 @@ else
  	 p70_lsu_limit(t,j) = p70_lsu_limit(t-1,j);
   );
 
-display v70_total_lvstk;
+
 
 *' @stop
