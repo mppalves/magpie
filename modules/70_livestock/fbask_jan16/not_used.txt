@@ -10,5 +10,4 @@ vm_rlsu, input, not used
 vm_land, input, not used
 im_urb_ratio, input, not used
 im_gdp_pc_ppp, input, not used
-vm_dem_food, variable, not used
 vm_prod_rum, input, not used

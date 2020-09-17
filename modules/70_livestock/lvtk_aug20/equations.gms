@@ -51,7 +51,7 @@ q70_lsu_range_min(j2)..
 $offtext
 
 q70_total_lvstk(j2)..
-  v70_total_lvstk(j2) =e= vm_prod_rum(j2,"livst_rum","pasture") * fm_attributes("wm","livst_rum") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_beef"))
+  v70_total_lvstk(j2) =e= vm_prod_rum(j2,"livst_rum","pasture") * fm_attributes("wm","livst_rum") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_beef"));
 
 *development
 q70_dem_past(j2)..
