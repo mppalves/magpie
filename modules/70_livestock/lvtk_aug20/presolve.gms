@@ -52,6 +52,6 @@ else
  	 p70_lsu_limit(t,j) = p70_lsu_limit(t-1,j);
   );
 
-
+display p70_cattle_stock_proxy;
 
 *' @stop
