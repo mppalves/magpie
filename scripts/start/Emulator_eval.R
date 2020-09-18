@@ -46,8 +46,9 @@ variables <-
     "pasture",
     "livst_milk",
     "livst_rum",
-    # "pm_past_mngmnt_factor",
-    "ov70_dem_past"
+    "pm_past_mngmnt_factor",
+    "ov70_dem_past",
+    "p70_cattle_stock_proxy"
   )
 # gdx <-
 #   "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
@@ -114,7 +115,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("pm_past_mngmnt_factor")) {
+      if (variable %in% c("pm_past_mngmnt_factor", "p70_cattle_stock_proxy")) {
         try({
           x <- gdx::readGDX(gdx, variable)
           x <- collapseNames(x)
@@ -246,7 +247,7 @@ for (i in 1:length(outputdirs)) {
       }
 
 
-      if (variable %in% c("pm_past_mngmnt_factor")) {
+      if (variable %in% c("pm_past_mngmnt_factor", "p70_cattle_stock_proxy")) {
         try({
           x <- gdx::readGDX(gdx, variable)
           x <- collapseNames(x)
