@@ -56,7 +56,7 @@ $offtext
 
 q70_total_lsus_production(j2)..
     v70_total_lsus(j2) =g= (vm_prod_rum(j2,"livst_rum","pasture") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_beef")) +
-                            vm_prod_rum(j2,"livst_milk","pasture") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_dairy")))/
+                            vm_prod_rum(j2,"livst_milk","pasture") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_dairy")))*
                             sum((i_to_iso(i,iso),ct), f70_livestock_conversion(ct,iso, "Large"));
 
 *development
