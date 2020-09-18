@@ -37,7 +37,7 @@ p70_cattle_stock_proxy2(t,i) = ( ((sum(ct,im_pop(t,i) * p15_kcal_pc_calibrated(t
 																* sum((ct,kli_rum),im_feed_baskets(ct,i,"livst_milk","pasture")) ) /
 																((4000 * 2.25/1e6) * 365);
 
-p70_past_fraction(i) =e= (sum((ct,kli_rum),im_feed_baskets(ct,i,kli_rum,"pasture")) /
+p70_past_fraction(i) = (sum((ct,kli_rum),im_feed_baskets(ct,i,kli_rum,"pasture")) /
 													sum((ct,kli_rum,kall),im_feed_baskets(ct,i,kli_rum,kall)));
 
 p70_cattle_stock_proxy_calib(t,i) =	p70_cattle_stock_proxy(t,i) * f70_livestock_balanace_flow(i) * p70_past_fraction(i);
