@@ -17,6 +17,7 @@ parameter
  p70_lsu_limit_reg(t,i) development
  p70_lviestock_reg(i) development
  p70_cattle_stock_proxy_calib(t,i) development
+ p70_cattle_stock_proxy_calib2(t,i) development
  p70_past_fraction(i) development
  p70_cattle_stock_proxy2(t,i) development
 ;
