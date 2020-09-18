@@ -15,7 +15,7 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-test <- c(1,2,3,4,5,6,7,8,9,10)
+test <- c(1)
 
 
 for(i in 1:length(test)){
@@ -23,7 +23,7 @@ for(i in 1:length(test)){
   cfg$gms$s14_corr_fact <- as.character(test[i])
   cfg$output <- c("rds_report","validation","disaggregation","lsu_evaluation")
   cfg$gms$livestock <- "lvtk_aug20"                  # def = fbask_jan16, lvtk_aug20
-  cfg$gms$s31_fac_req_past  <- 1
+  cfg$gms$s31_fac_req_past  <- 0
   cfg$gms$land <- "feb15"          # def = landmatrix_dec18
 #  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=F)
