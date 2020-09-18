@@ -25,7 +25,7 @@ equations
  q70_total_lsus(j)               development
 *q70_lsu_range_max(j)             development
 *q70_lsu_range_min(j)             development
-q70_total_lsus_production(j)       development
+*q70_total_lsus_production(j)       development
 q70_dem_past(j)                  development
 ;
 
