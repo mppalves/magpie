@@ -27,6 +27,7 @@ p70_cattle_stock_proxy(t,i) = ((sum(ct,im_pop(t,i) * p15_kcal_pc_calibrated(t,i,
 																/i70_livestock_productivity(t,i,"sys_dairy");
 
 p70_cattle_stock_proxy_calib(t,i) =	p70_cattle_stock_proxy(t,i);
+display p70_cattle_stock_proxy_calib;
 * f70_livestock_balanace_flow(i);
 
 $ontext
