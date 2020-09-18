@@ -13,6 +13,13 @@ scalars
   s70_pyld_intercept     Intercept of linear relationship determining pasture intensification (1)        / 0.24 /
 ;
 
+parameter f70_livestock_balanace_flow(i) Calibration factor for total livestock numbers (development)
+/
+$ondelim
+$include "./modules/70_livestock/lvtk_aug20/input/f70_livestock_balanace_flow.csv"
+$offdelim
+/
+;
 
 table f70_livestock_conversion(t_all,iso, species70) Feed baskets in tDM per tDM livestock product (1)
 $ondelim
