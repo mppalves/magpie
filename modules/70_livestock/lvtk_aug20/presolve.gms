@@ -21,9 +21,18 @@
 
 p70_cattle_stock_proxy(t,i) = ((sum(ct,im_pop(t,i) * p15_kcal_pc_calibrated(t,i,"livst_rum")) * 365)
 																/ (sum(ct,f15_nutrition_attributes(ct,"livst_rum","kcal")) * 1e6)) * fm_attributes("wm","livst_rum")
-									    					/i70_livestock_productivity(t,i,"sys_beef");
+									    					/i70_livestock_productivity(t,i,"sys_beef") +
+																((sum(ct,im_pop(t,i) * p15_kcal_pc_calibrated(t,i,"livst_milk")) * 365)
+																/ (sum(ct,f15_nutrition_attributes(ct,"livst_milk","kcal")) * 1e6)) * fm_attributes("wm","livst_milk")
+																/i70_livestock_productivity(t,i,"sys_dairy");
 
-p70_cattle_stock_proxy_calib(t,i) =	(p70_cattle_stock_proxy(t,i) * f70_livestock_balanace_flow(i)) ;
+p70_cattle_stock_proxy_calib(t,i) =	p70_cattle_stock_proxy(t,i);
+* f70_livestock_balanace_flow(i);
+
+$ontext
+v17_past_fraction(i2) =e= (sum((ct,kli_rum),im_feed_baskets(ct,i2,kli_rum,"pasture")) /
+                         sum((ct,kli_rum,kall),im_feed_baskets(ct,i2,kli_rum,kall)));
+$offtext
 
 $ontext
 v70_total_lsus(j2) =g= (vm_prod_rum(j2,"livst_rum","pasture") / sum((cell(i2,j2),ct), i70_livestock_productivity(ct,i2,"sys_beef")) +

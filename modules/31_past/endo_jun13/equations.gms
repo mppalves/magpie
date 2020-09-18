@@ -31,6 +31,7 @@ q31_carbon(j2,ag_pools) ..
 
 q31_cost_prod_past(i2) ..
  vm_cost_prod(i2,"pasture") =e= vm_prod_reg(i2,"pasture")
+   								* s31_fac_req_past
   								;
 
 $ontext
