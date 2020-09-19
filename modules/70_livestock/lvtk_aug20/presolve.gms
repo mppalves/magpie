@@ -43,7 +43,9 @@ else
 
  if (sum(sameas(t_past,t),1) <> 1,
  	 p70_lsus_dist(t,j) = p70_lsus_dist(t-1,j);
+	 p70_lsus_dist_reg(t,i) =  sum(cell(i,j),p70_lsus_dist(t,j));
+	 p70_lsus_dist_weight(t,j)$(p70_lsus_dist(t,j) > 0) = p70_lsus_dist(t,j) / sum(cell(i,j),p70_lsus_dist_reg(t,i));
   );
-	
+
 *############################## DEVELOPMENT ####################################
 *' @stop

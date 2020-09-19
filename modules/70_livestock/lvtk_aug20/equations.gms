@@ -45,12 +45,16 @@ q70_lsus(j2)..
 q70_lsus_reg(i2)..
   v70_lsus_reg(i2) =e= sum(kap, vm_dem_feed(i2,kap,"pasture")) / ((4000 * 2.25/1e6) * 365);
 
+$ontext
 q70_lsu_constraint(i2)..
   v70_lsus_reg(i2) =l= sum(cell(i2,j2), v70_lsus(j2));
-
+$offtext
 
 q70_dem_past(j2)..
  v70_dem_past(j2) =e= sum((cell(i2,j2),kli), vm_dem_feed(i2,kli,"pasture"));
+
+ q70_lsus_distr(j2)..
+   v70_lsus(j2) =g= sum(ct, v70_lsus_reg(i2) * p70_lsus_dist_weight(ct,j2));
 
 $ontext
 q70_lsu_range_max(j2)..

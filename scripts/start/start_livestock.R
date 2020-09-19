@@ -15,11 +15,11 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-test <- c(1,2,3,4,5,6,7,8,9,10)
+test <- c(1)
 
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("try3_",test[i])
+  cfg$title <- paste0("try4_",test[i])
   cfg$gms$s14_corr_fact <- as.character(test[i])
   cfg$output <- c("rds_report","validation","disaggregation","lsu_evaluation")
   #cfg$output <- c("lsu_evaluation")
