@@ -15,3 +15,11 @@ loop(t_all,
   im_feed_baskets(t_all,i,kap,kall) = f70_feed_baskets(t_all,i,kap,kall,"%c70_feed_scen%");
  );
 );
+
+
+
+*################################# DEVELOPMENT #################################
+p70_lsu_limit(t_all,j) = f70_livestock_cell(t_all,j);
+p70_livestock_conversion(t_all,i) = sum(i_to_iso(i,iso), f70_livestock_conversion(t_all,iso, "Large"))/sum(i_to_iso(i,iso),1);
+*p70_livestock_conversion(t_all,j) = sum(cell(i,j), sum(i_to_iso(i,iso), f70_livestock_conversion(t_all,iso, "Large"))/sum(i_to_iso(i,iso),1));
+*################################# DEVELOPMENT #################################
