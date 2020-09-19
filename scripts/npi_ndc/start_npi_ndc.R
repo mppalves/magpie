@@ -20,7 +20,6 @@ calc_NPI_NDC <- function(policyregions = "iso",
 
   require(magclass)
   require(luscale)
-  require(lucode)
   require(madrat)
 
   # load the cell mapping policy
@@ -143,7 +142,7 @@ calc_NPI_NDC <- function(policyregions = "iso",
   ad_aolc_pol <- mbind(none_ad_aolc_pol,npi_ad,npi_aolc,ndc_ad,ndc_aolc)
 
   adfiles <- paste0(outfolder_ad_aolc, out_ad_file)
-  write.magpie(ad_aolc_pol, adfiles[1])
+  write.magpie(floor(ad_aolc_pol*1e6)/1e6, adfiles[1])
   if(length(adfiles >1)) for(i in 2:length(adfiles)) file.copy(adfiles[1],adfiles[i], overwrite=TRUE)
   cat(paste0(" (time elapsed: ",format(proc.time()["elapsed"]-ptm,width=6,nsmall=2,digits=2),"s)\n"))
 
@@ -186,7 +185,7 @@ calc_NPI_NDC <- function(policyregions = "iso",
   getNames(none_aff_pol) <- "none"
   aff_pol <- mbind(none_aff_pol,npi_aff,ndc_aff)
   afffiles <- paste0(outfolder_aff, out_aff_file)
-  write.magpie(aff_pol, afffiles[1])
+  write.magpie(floor(aff_pol*1e6)/1e6, afffiles[1])
   if(length(afffiles >1)) for(i in 2:length(afffiles)) file.copy(afffiles[1],afffiles[i], overwrite=TRUE)
 
   cat(paste0(" (time elapsed: ",format(proc.time()["elapsed"]-ptm,width=6,nsmall=2,digits=2),"s)\n"))
@@ -215,7 +214,6 @@ calc_policy <- function(policy, stock, pol_type="aff", pol_mapping=pol_mapping,
   ## pol_type = {"aff","ad"}
 
   require(luscale)
-  require(lucode)
   require(madrat)
 
   #extent stock beyond last observed value with constant values from the last year
@@ -231,10 +229,10 @@ calc_policy <- function(policy, stock, pol_type="aff", pol_mapping=pol_mapping,
   #select and filter countries that exist in the chosen policy mapping
   policy_countries <- intersect(policy$dummy,unique(pol_mapping))
   policy <- policy[policy$dummy %in% policy_countries,]
-  
+
   #create key to distinguish different cases of baseyear, targetyear combinations
   policy$key <- paste(policy$baseyear,policy$targetyear)
-  
+
 
   #set stock to zero or Inf for countries without policies
   # (representing no constraint for min and max constraints)
