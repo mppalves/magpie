@@ -10,6 +10,7 @@ positive variables
  vm_dem_feed(i,kap,kall)          Regional feed demand including byproducts (mio. tDM per yr)
  v70_total_lsus(j)               development
  v70_dem_past(j)                  development
+v70_total_lsus_reg(i2)            development
 ;
 
 parameter
@@ -27,6 +28,7 @@ equations
  q70_cost_prod_liv(i,kall)        Regional factor input costs for livestock production
  q70_cost_prod_fish(i)            Regional factor input costs for fish production
  q70_total_lsus(j)               development
+ q70_total_lsus_reg(i)               development
 *q70_lsu_range_max(j)             development
 *q70_lsu_range_min(j)             development
 *q70_total_lsus_production(j)       development

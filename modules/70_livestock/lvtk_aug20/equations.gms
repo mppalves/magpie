@@ -42,6 +42,11 @@ q70_cost_prod_fish(i2) ..
 q70_total_lsus(j2)..
   v70_total_lsus(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
 
+q70_total_lsus_reg(i2)..
+ v70_total_lsus_reg(i2) =e= sum(kap, vm_dem_feed(i2,kap,"pasture")) / ((4000 * 2.25/1e6) * 365)
+
+display v70_total_lsus_reg;
+
 $ontext
 q70_lsu_range_max(j2)..
   v70_total_lsus(j2) =l= 1.1 * sum(ct, p70_lsu_limit(ct,j2));
