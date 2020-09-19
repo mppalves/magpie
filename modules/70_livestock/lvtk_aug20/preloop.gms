@@ -22,6 +22,6 @@ loop(t_all,
 p70_lsus_dist(t_all,j) = f70_livestock_GLW3(t_all,j);
 p70_livestock_conversion(t_all,i) = sum(i_to_iso(i,iso), f70_livestock_conversion(t_all,iso, "Large"))/sum(i_to_iso(i,iso),1);
 p70_lsus_dist_reg(t_all,i) =  sum(cell(i,j),p70_lsus_dist(t_all,j));
-p70_lsus_dist_weight(t_all,j) = p70_lsus_dist(t_all,j) / sum(cell(i,j),p70_lsus_dist_reg(t_all,i));
+p70_lsus_dist_weight(t_all,j)$(p70_lsus_dist(t_all,j) > 0) = p70_lsus_dist(t_all,j) / sum(cell(i,j),p70_lsus_dist_reg(t_all,i));
 *p70_livestock_conversion(t_all,j) = sum(cell(i,j), sum(i_to_iso(i,iso), f70_livestock_conversion(t_all,iso, "Large"))/sum(i_to_iso(i,iso),1));
 *################################# DEVELOPMENT #################################
