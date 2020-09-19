@@ -44,7 +44,7 @@ q70_dem_past(j)                  development
 variables
 v70_total_lsus(j)               development
 v70_dem_past(j)                  development
-v70_total_lsus_reg(i2)            development
+v70_total_lsus_reg(i)            development
 ;
 
 *###################################### DEVELOPMENT #############################
