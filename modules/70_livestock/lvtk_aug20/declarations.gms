@@ -28,8 +28,10 @@ parameters
 *###################################### DEVELOPMENT #############################
 parameters
 p70_lsus_dist(t_all,j)                               development
-p70_livestock_conversion(t_all,i)                development
-p70_livestock_reg(i) development
+p70_livestock_conversion(t_all,i)                    development
+p70_livestock_reg(i)                                 development
+p70_lsus_dist_reg(t_all,i)                           development
+p70_lsus_dist_weight(t_all,j)                        development
 ;
 
 equations
