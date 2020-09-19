@@ -10,7 +10,7 @@ positive variables
  vm_dem_feed(i,kap,kall)          Regional feed demand including byproducts (mio. tDM per yr)
  v70_total_lsus(j)               development
  v70_dem_past(j)                  development
-v70_total_lsus_reg(i2)            development
+v70_total_lsus_reg(i)            development
 ;
 
 parameter
