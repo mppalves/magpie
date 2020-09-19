@@ -6,3 +6,11 @@
 # |  Contact: magpie@pik-potsdam.de
 
 name,type,reason
+vm_rlsu, input, not used
+vm_land, input, not used
+im_urb_ratio, input, not used
+im_gdp_pc_ppp, input, not used
+vm_prod_rum, input, not used
+fm_attributes, development,development
+vm_land, development, development
+vm_rlsu, development, development

@@ -15,6 +15,10 @@ $setglobal c09_gdp_scenario  SSP2
 *              SDP: "SDP"
 *             SRES: "a1", "a2", "b1", "b2"
 
+table f09_urban_pop_iso(t_all,iso,urb_pop_scen09) Development (urban population )
+$ondelim
+$include "./modules/09_drivers/input/f09_urban_pop_iso.csv"
+$offdelim;
 
 table f09_gdp_ppp_iso(t_all,iso,gdp_scen09) Income in purchasing power parity (mio. USD05PPP per yr)
 $ondelim

@@ -6,6 +6,5 @@
 # |  Contact: magpie@pik-potsdam.de
 
 name,type,reason
-vm_prod, input, not needed
-vm_yld, input, not needed
-vm_prod_reg, input, not needed
+vm_land, development, development
+vm_rlsu, development, development
