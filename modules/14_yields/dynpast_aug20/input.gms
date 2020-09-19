@@ -8,7 +8,11 @@
 $setglobal c14_yields_scenario  nocc
 *   options:   cc  (climate change)
 *             nocc (no climate change)
-
+*################################# DEVELOPMENT #################################
+scalars
+s14_corr_fact correction factor (1) / 1 /
+;
+*################################# DEVELOPMENT #################################
 scalars
   s14_timber_plantation_yield Plantation yield switch (0=natveg yields 1=plantation yields) (1) / 1 /
   s14_carbon_fraction Carbon fraction for conversion of biomass to dry matter (1) / 0.5/
@@ -47,7 +51,7 @@ $include "./modules/14_yields/input/f14_aboveground_fraction.csv"
 $offdelim
 /
 ;
-
+*################################# DEVELOPMENT #################################
 * model hash ID 5860897949b623d66f6d6ec7afc6a537638a96da
 table f14_nn_input(t_all,j,in_env_p) aggregated environmental cell values
 $ondelim
@@ -142,3 +146,4 @@ $ondelim
 $include "./modules/14_yields/input/586089_p_bias_8.csv"
 $offdelim
 /;
+*################################# DEVELOPMENT #################################
