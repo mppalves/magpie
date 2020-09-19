@@ -13,6 +13,7 @@ library(magpie4)
 library(lucode)
 library(luplot)
 library(ggplot2)
+library(luscale)
 
 options("magclass.verbosity" = 1)
 
@@ -50,7 +51,10 @@ variables <-
     "pm_past_mngmnt_factor",
     "ov_past_area",
     "vm_dem_feed",
-    "ov_yld"
+    "ov_yld",
+    "ov70_lsus",
+    "ov70_dem_past",
+    
   )
 var_names <-
   c(
