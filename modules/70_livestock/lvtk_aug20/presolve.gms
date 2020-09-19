@@ -42,7 +42,7 @@ else
 *############################## DEVELOPMENT ####################################
 
  if (sum(sameas(t_past,t),1) <> 1,
- 	 p70_lsu_limit(t,j) = p70_lsu_limit(t-1,j);
+ 	 p70_lsus_dist(t,j) = p70_lsus_dist(t-1,j);
   );
 	
 *############################## DEVELOPMENT ####################################

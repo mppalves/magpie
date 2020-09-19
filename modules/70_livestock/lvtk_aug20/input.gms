@@ -50,7 +50,7 @@ $offdelim
 /;
 
 *###################################### DEVELOPMENT #############################
-parameter f70_livestock_cell(t_all,j) livestock numbers per cell
+parameter f70_livestock_GLW3(t_all,j) livestock numbers per cell
 /
 $ondelim
 $include "./modules/70_livestock/lvtk_aug20/input/f70_livstkDist.csv"
