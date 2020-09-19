@@ -15,7 +15,7 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-test <- c(1)
+test <- c(1,2,3,4,5,6,7,8,9,10)
 
 
 for(i in 1:length(test)){
