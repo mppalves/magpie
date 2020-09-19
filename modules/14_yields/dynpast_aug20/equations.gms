@@ -40,10 +40,10 @@ q14_yield_crop(j2,kcr,w) ..
     vm_yld(j2,"pasture","rainfed") =g= v14_past_yld(j2) * (10000 * 2.25/1e6) * s14_corr_fact;
 
 
- $ontext
+$ontext
  vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.25/1e6) * correction_factor(regional) * Calibration(regional);
     sum(lsu in the clusters) =l= sum(regional LSU)
 
     vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.25/1e6) * s14_corr_fact;
     vm_yld.up(j2,"pasture","rainfed") = 100;
- $offtext
+$offtext

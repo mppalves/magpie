@@ -43,9 +43,7 @@ q70_total_lsus(j2)..
   v70_total_lsus(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
 
 q70_total_lsus_reg(i2)..
- v70_total_lsus_reg(i2) =e= sum(kap, vm_dem_feed(i2,kap,"pasture")) / ((4000 * 2.25/1e6) * 365)
-
-display v70_total_lsus_reg;
+ v70_total_lsus_reg(i2) =e= sum(kap, vm_dem_feed(i2,kap,"pasture")) / ((4000 * 2.25/1e6) * 365);
 
 q70_dem_past(j2)..
  v70_dem_past(j2) =e= sum((cell(i2,j2),kli), vm_dem_feed(i2,kli,"pasture"));

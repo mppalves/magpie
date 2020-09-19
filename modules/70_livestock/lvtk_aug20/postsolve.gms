@@ -7,7 +7,9 @@
 
 *################################# DEVELOPMENT #################################
 p70_lsu_limit(ct,j) = v70_total_lsus.l(j);
-p70_livestock_reg(i) = sum(cell(i,j),v70_total_lsus.l(j))
+p70_livestock_reg(i) = sum(cell(i,j),v70_total_lsus.l(j));
+
+display v70_total_lsus_reg.l;
 *################################# DEVELOPMENT #################################
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################
