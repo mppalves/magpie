@@ -67,6 +67,7 @@ q14_a6(j,lnp6) activation equation
 q14_z7(j,lnp7) layer equation
 q14_a7(j,lnp7) activation equation
 *q14_lsus(j) development
+q14_feed_constr(j) development
 ;
 
 positive variables

@@ -53,9 +53,9 @@ variables <-
     "vm_dem_feed",
     "ov_yld",
     "ov70_lsus",
-    "ov70_dem_past",
-    
+    "ov70_dem_past"
   )
+
 var_names <-
   c(
     "pasture",
@@ -115,6 +115,7 @@ plotvariables <- function(variables,
             y[, j, names[i]],
             file = paste0(variable, "_", names[i], "_", j, ".png"),
             legend_range = c(0, quantile(y[, j, names[i]], quant)),
+            # legend_range = c(0, max(y)),
             lowcol = "grey95",
             midcol = "white",
             highcol = "darkred",
