@@ -31,10 +31,6 @@ q14_yld_lsu(j,w) DEVELOPMENT
 positive variables
 vm_rlsu(t,j) Lsu
 ;
-
-variables
-v14_relax(j) development
-;
 *######################## DEVELOPMENT ##########################################
 
 
