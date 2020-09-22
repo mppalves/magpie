@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-*' @description In the dynamic_aug18 realization, the crop yield calculations
+*' @description In the dynamic_aug20 realization, the crop yield calculations
 *' are identical as in the above described realization (biocorrect).
 *' Additionally, this realization also calculates the growing stocks in commercial
 *' plantations and natural vegetation using LPJmL Carbon stocks.
@@ -16,13 +16,13 @@
 
 
 *####################### R SECTION START (PHASES) ##############################
-$Ifi "%phase%" == "sets" $include "./modules/14_yields/dynamic_aug18/sets.gms"
-$Ifi "%phase%" == "declarations" $include "./modules/14_yields/dynamic_aug18/declarations.gms"
-$Ifi "%phase%" == "input" $include "./modules/14_yields/dynamic_aug18/input.gms"
-$Ifi "%phase%" == "equations" $include "./modules/14_yields/dynamic_aug18/equations.gms"
-$Ifi "%phase%" == "preloop" $include "./modules/14_yields/dynamic_aug18/preloop.gms"
-$Ifi "%phase%" == "presolve" $include "./modules/14_yields/dynamic_aug18/presolve.gms"
-$Ifi "%phase%" == "postsolve" $include "./modules/14_yields/dynamic_aug18/postsolve.gms"
-$Ifi "%phase%" == "nl_fix" $include "./modules/14_yields/dynamic_aug18/nl_fix.gms"
-$Ifi "%phase%" == "nl_release" $include "./modules/14_yields/dynamic_aug18/nl_release.gms"
+$Ifi "%phase%" == "sets" $include "./modules/14_yields/dynamic_aug20/sets.gms"
+$Ifi "%phase%" == "declarations" $include "./modules/14_yields/dynamic_aug20/declarations.gms"
+$Ifi "%phase%" == "input" $include "./modules/14_yields/dynamic_aug20/input.gms"
+$Ifi "%phase%" == "equations" $include "./modules/14_yields/dynamic_aug20/equations.gms"
+$Ifi "%phase%" == "preloop" $include "./modules/14_yields/dynamic_aug20/preloop.gms"
+$Ifi "%phase%" == "presolve" $include "./modules/14_yields/dynamic_aug20/presolve.gms"
+$Ifi "%phase%" == "postsolve" $include "./modules/14_yields/dynamic_aug20/postsolve.gms"
+$Ifi "%phase%" == "nl_fix" $include "./modules/14_yields/dynamic_aug20/nl_fix.gms"
+$Ifi "%phase%" == "nl_release" $include "./modules/14_yields/dynamic_aug20/nl_release.gms"
 *######################## R SECTION END (PHASES) ###############################

@@ -25,7 +25,7 @@ equations
 
 *######################## DEVELOPMENT ##########################################
 equations
-q14_yld_lsu(j2,w) DEVELOPMENT
+q14_yld_lsu(j,w) DEVELOPMENT
 ;
 
 positive variables
