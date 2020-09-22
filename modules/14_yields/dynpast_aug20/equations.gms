@@ -40,7 +40,7 @@ q14_yield_crop(j2,kcr,w) ..
     vm_yld(j2,"pasture","rainfed") =l= v14_past_yld(j2) * (10000 * 2.25/1e6) * s14_corr_fact;
 
   q14_feed_constr(j2)..
-    v14_past_yld(j2)/(10000 * 2.25/1e6) =g= sum(ct, vm_rlsu(ct,j2)) * ((4000 * 2.25/1e6) * 365);
+    vm_yld(j2,"pasture","rainfed") =g= sum(ct, vm_rlsu(ct,j2)) * ((4000 * 2.25/1e6) * 365);
 
 $ontext
  vm_yld(j2,"pasture","rainfed") =e= v14_past_yld(j2) * (10000 * 2.25/1e6) * correction_factor(regional) * Calibration(regional);
