@@ -22,4 +22,4 @@ q14_yield_past(j2,w) ..
  *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));
 
 q14_yld_lsu(j2,w) ..
-vm_yld(j2,"pasture","rainfed") =g= sum(ct, vm_rlsu(ct,j2)) * ((4000 * 2.25/1e6) * 365);
+ vm_yld(j2,"pasture","rainfed") =g= sum(ct, vm_rlsu(ct,j2)) * ((4000 * 2.25/1e6) * 365);
