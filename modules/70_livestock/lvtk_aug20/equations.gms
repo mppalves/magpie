@@ -43,11 +43,11 @@ q70_lsus(j2)..
   v70_lsus(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
 
 q70_lsus_reg(i2)..
-  v70_lsus_reg(i2) =e= sum(kap, vm_dem_feed(i2,kap,"pasture")) / ((4000 * 2.25/1e6) * 365);
+  v70_lsus_reg(i2) =e= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
 
 * adding this part and remiving the weight multiplication the model solves really fast and with interesting results. see try2
 q70_lsu_constraint(i2)..
-  v70_lsus_reg(i2) =l= sum(cell(i2,j2), v70_lsus(j2));
+  v70_lsus_reg(i2) =e= sum(cell(i2,j2), v70_lsus(j2));
 
 $ontext
  q70_lsus_distr(j2)..
