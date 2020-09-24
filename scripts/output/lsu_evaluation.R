@@ -25,7 +25,7 @@ if (!exists("source_include")) {
 load(paste0(outputdir, "/config.Rdata"))
 file <- paste0(outputdir, "/fulldata.gdx")
 folder <-
-  file.path(outputdir, paste0(cfg$title, "_livestock_evaluation"))
+  path(outputdir, paste0(cfg$title, "_livestock_evaluation"))
 dir <- outputdir
 
 variables <-
@@ -54,7 +54,8 @@ variables <-
     "ov_yld",
     "ov70_lsus",
     "ov70_dem_past",
-    "ov14_relax"
+    "ov14_relax",
+    "p70_lsus_dist_weight"
   )
 
 var_names <-
@@ -67,7 +68,8 @@ var_names <-
     "pasture.rainfed.level",
     "livst_rum.level",
     "livst_milk.level",
-    "past.soilc.level"
+    "past.soilc.level",
+    "Value"
   )
 
 
