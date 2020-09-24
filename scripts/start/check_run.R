@@ -104,7 +104,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("ov70_lsus", "ov14_lsus", "ov70_dem_past")) {
+      if (variable %in% c("ov70_lsus", "ov14_lsus")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if(!is.null(x)){
@@ -115,7 +115,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("pm_past_mngmnt_factor", "p70_cattle_stock_proxy")) {
+      if (variable %in% c("pm_past_mngmnt_factor", "p70_cattle_stock_proxy","ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable)
           x <- collapseNames(x)

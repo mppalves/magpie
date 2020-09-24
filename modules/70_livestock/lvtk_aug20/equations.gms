@@ -53,8 +53,8 @@ $ontext
  q70_lsus_distr(j2)..
    v70_lsus(j2) =g= sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
 $offtext
- q70_dem_past(j2)..
-  v70_dem_past(j2) =e= sum((cell(i2,j2),kli), vm_dem_feed(i2,kli,"pasture"));
+ q70_dem_past(i2)..
+  v70_dem_past(i2) =e= sum(kli, vm_dem_feed(i2,kli,"pasture"));
 $ontext
 q70_lsu_range_max(j2)..
   v70_lsus(j2) =l= 1.1 * sum(ct, p70_lsus_dist(ct,j2));
