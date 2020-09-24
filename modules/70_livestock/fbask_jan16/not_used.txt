@@ -9,3 +9,4 @@ name,type,reason
 vm_land, development, development
 vm_rlsu, development, development
 vm_supply, development, development
+vm_yld, development, development

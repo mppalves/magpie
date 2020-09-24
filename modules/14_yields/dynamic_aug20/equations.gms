@@ -21,5 +21,18 @@ q14_yield_past(j2,w) ..
  sum(ct,(i14_yields(ct,j2,"pasture",w)
  *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));
 
+*############################### DEVELOPMENT ###################################
+$ontext
 q14_yld_lsu(j2,w) ..
  vm_yld(j2,"pasture","rainfed") =e= sum(ct, vm_rlsu(ct,j2)) * ((4000 * 2.25/1e6) * 365);
+
+ q14_lsus(j2)..
+   v14_lsus(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
+
+ q14_lsus_reg(i2)..
+   v14_lsus_reg(i2) =e= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
+
+ q14_lsu_constraint(i2)..
+   v14_lsus_reg(i2) =e= sum(cell(i2,j2), v14_lsus(j2));
+$offtext
+*############################### DEVELOPMENT ###################################

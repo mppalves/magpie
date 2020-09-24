@@ -23,16 +23,22 @@ equations
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
 ;
 
+$ontext
 *######################## DEVELOPMENT ##########################################
 equations
 q14_yld_lsu(j,w) DEVELOPMENT
+q14_lsus(j) development
+q14_lsus_reg(i) development
+q14_lsu_constraint(i)
 ;
 
 positive variables
 vm_rlsu(t,j) Lsu
 ;
-*######################## DEVELOPMENT ##########################################
 
+
+*######################## DEVELOPMENT ##########################################
+$offtext
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters

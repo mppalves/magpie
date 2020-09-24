@@ -25,7 +25,7 @@ if (!exists("source_include")) {
 load(paste0(outputdir, "/config.Rdata"))
 file <- paste0(outputdir, "/fulldata.gdx")
 folder <-
-  path(outputdir, paste0(cfg$title, "_livestock_evaluation"))
+  file.path(outputdir, paste0(cfg$title, "_livestock_evaluation"))
 dir <- outputdir
 
 variables <-
