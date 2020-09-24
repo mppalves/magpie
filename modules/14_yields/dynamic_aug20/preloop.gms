@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 i14_yields(t,j,kve,w) = f14_yields(t,j,kve,w);
-i14_yields(t,j,"pasture","rainfed") = f14_max_grass_harvest(t,j);
+i14_yields(t,j,"pasture","rainfed") = f14_max_grass_harvest(t,j) * (10000 * 2.21 / 1e6);
 ***YIELD CORRECTION FOR 2ND GENERATION BIOENERGY CROPS*************************************
 i14_yields(t,j,"begr",w) = i14_yields(t,j,"begr",w)*sum(cell(i,j),fm_tau1995(i))/smax(i,fm_tau1995(i));
 i14_yields(t,j,"betr",w) = i14_yields(t,j,"betr",w)*sum(cell(i,j),fm_tau1995(i))/smax(i,fm_tau1995(i));
