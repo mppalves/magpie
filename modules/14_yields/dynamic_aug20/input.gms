@@ -47,3 +47,12 @@ $include "./modules/14_yields/input/f14_aboveground_fraction.csv"
 $offdelim
 /
 ;
+
+*########################### DEVELOPMENT #######################################
+
+table f14_max_grass_harvest(t_all,j) development
+$ondelim
+$include "./modules/14_yields/input/f14_max_grass_harvest.csv"
+$offdelim;
+
+*########################### DEVELOPMENT #######################################
