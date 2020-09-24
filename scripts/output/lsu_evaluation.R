@@ -87,11 +87,11 @@ plotvariables <- function(variables,
     setwd("..")
     try(x <- gdx::readGDX(file, variable))
     y <- NULL
-    
+
     if(is.null(unlist(dimnames(x)[3]))){
-      dimnames(x)[3] <- "Value"
+      try(dimnames(x)[3] <- "Value")
     }
-    
+
     names <- var_names[!is.na(match(var_names, unlist(dimnames(x)[3])))]
     print(variable)
     for (i in 1:length(names)) {
