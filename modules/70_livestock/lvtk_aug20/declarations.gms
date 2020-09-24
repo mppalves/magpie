@@ -54,7 +54,7 @@ v70_lsus_reg(i)            development
 ;
 
 positive variable
-vm_rlsu(j)  development
+vm_rlsu(t,j)  development
 ;
 
 *###################################### DEVELOPMENT #############################
