@@ -44,8 +44,10 @@ q70_cost_prod_fish(i2) ..
 q70_yld_lsu(j2,w) ..
  vm_yld(j2,"pasture","rainfed") =e= sum(ct, vm_rlsu(ct,j2)) * ((4000 * 2.25/1e6) * 365);
 
+$ontext
 q70_lsus(j2)..
   v70_lsus(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
+$offtext
 
 q70_lsus_reg(i2)..
   v70_lsus_reg(i2) =e= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
@@ -53,10 +55,11 @@ q70_lsus_reg(i2)..
 q70_lsu_constraint(i2)..
   v70_lsus_reg(i2) =e= sum(cell(i2,j2), v70_lsus(j2));
 
-$ontext
-next implementation
  q70_lsus_distr(j2)..
    v70_lsus(j2) =g= sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
+
+$ontext
+ next implementation
 
  q70_dem_past(j2)..
     v70_dem_past(j2) =e= sum((cell(i2,j2),kli), vm_dem_feed(i2,kli,"pasture"));

@@ -19,7 +19,7 @@ test <- c(1)
 
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("try65_",test[i])
+  cfg$title <- paste0("try67_",test[i])
   cfg$gms$s14_corr_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   #cfg$output <- c("lsu_evaluation")
