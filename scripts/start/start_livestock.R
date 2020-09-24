@@ -28,5 +28,5 @@ for(i in 1:length(test)){
   cfg$gms$s31_fac_req_past  <- 0
   cfg$gms$c_timesteps <- "coup2100"                 # "coup2100"
 #  cfg$recalibrate <- "TRUE"
-  start_run(cfg=cfg,codeCheck=T)
+  start_run(cfg=cfg,codeCheck=F)
 }
