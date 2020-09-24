@@ -26,7 +26,7 @@ load(paste0(outputdir, "/config.Rdata"))
 file <- paste0(outputdir, "/fulldata.gdx")
 folder <-
   file.path(outputdir, paste0(cfg$title, "_livestock_evaluation"))
-dir <- outputdir
+
 
 variables <-
   c(
@@ -87,6 +87,11 @@ plotvariables <- function(variables,
     setwd("..")
     try(x <- gdx::readGDX(file, variable))
     y <- NULL
+    
+    if(is.null(unlist(dimnames(x)[3]))){
+      dimnames(x)[3] <- "Value"
+    }
+    
     names <- var_names[!is.na(match(var_names, unlist(dimnames(x)[3])))]
     print(variable)
     for (i in 1:length(names)) {
