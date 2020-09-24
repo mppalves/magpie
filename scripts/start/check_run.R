@@ -87,7 +87,7 @@ for (variable in variables) {
           title <- paste0("Production", " | ", variable)
         })
       }
-      if (variable %in% c("ov_rlsu", "ov14_past_yld")) {
+      if (variable %in% c("ov_rlsu", "ov14_past_yld", "ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if (!is.null(x)) {
