@@ -39,16 +39,11 @@ variables <-
   c(
     "ov_rlsu",
     "ov70_lsus",
-    "ov14_lsus",
-    "ov14_past_yld",
     "ov_yld",
     "past",
     "pasture",
     "livst_milk",
-    "livst_rum",
-    "pm_past_mngmnt_factor",
-    "ov70_dem_past",
-    "p70_cattle_stock_proxy"
+    "livst_rum"
   )
 # gdx <-
 #   "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase/run5/fulldata.gdx"
