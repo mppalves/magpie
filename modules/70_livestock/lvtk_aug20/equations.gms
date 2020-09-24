@@ -44,10 +44,8 @@ q70_cost_prod_fish(i2) ..
 q70_yld_lsu(j2,w) ..
  vm_yld(j2,"pasture","rainfed") =e= sum(ct, vm_rlsu(ct,j2)) * ((4000 * 2.25/1e6) * 365);
 
-$ontext
 q70_lsus(j2)..
   v70_lsus(j2) =e= sum(ct,vm_rlsu(ct,j2)) * vm_land(j2,"past");
-$offtext
 
 q70_lsus_reg(i2)..
   v70_lsus_reg(i2) =e= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
