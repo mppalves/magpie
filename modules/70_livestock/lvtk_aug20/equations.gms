@@ -59,7 +59,7 @@ q70_lsu_constraint(i2)..
 *   sum(kpm, v70_lsus(j2,kpm)) =g= sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
 
  q70_lsus_distr(j2)..
-   lsu_disagg(j2) =g= sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
+   lsu_disagg(j2) =e= sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
 
 
 $ontext
