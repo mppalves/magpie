@@ -46,7 +46,7 @@ q70_yld_lsu(j2,w) ..
 q70_lsus(j2)..
   v70_lsus(j2, "pasture") =e= sum(ct,vm_lsu_ha(ct,j2)) * vm_past_area(j2,"pasture","rainfed");
 
-q70_lsus_mowing(j2)..
+q70_lsus_mowing(j2, kpm)..
   v70_lsus(j2, "mowing") =e=  (vm_yld(j2, "mowing", "rainfed") * vm_past_area(j2,"mowing","rainfed")) / ((4000 * 2.25/1e6) * 365);
 
 q70_lsus_reg(i2)..
@@ -56,7 +56,7 @@ q70_lsu_constraint(i2)..
   v70_lsus_reg(i2) =e= sum((cell(i2,j2), kpm), v70_lsus(j2, kpm));
 
  q70_lsus_distr(j2)..
-   sum(kpm, v70_lsus(j2,kmp)) =g= sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
+   sum(kpm, v70_lsus(j2,kpm)) =g= sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
 
 $ontext
  next implementation
