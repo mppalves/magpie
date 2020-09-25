@@ -18,7 +18,6 @@ vm_past_area(j,kpm,w) development
 
 equations
 q31_pasture_areas(j) development
-q31_prod_type(j, kpm) development
 ;
 *############################# DEVELOPMENT #####################################
 
