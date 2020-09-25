@@ -43,6 +43,8 @@ q70_cost_prod_fish(i2) ..
 q70_yld_lsu(j2,w) ..
   vm_yld(j2,"pasture","rainfed") =e= sum(ct, vm_lsu_ha(ct,j2)) * ((4000 * 2.25/1e6) * 365);
 
+vm_lsu_ha.up(ct,j2) = 2.5;
+
 q70_lsus_past(j2)..
   v70_lsus(j2, "pasture") =e= sum(ct,vm_lsu_ha(ct,j2)) * vm_past_area(j2,"pasture","rainfed");
 
