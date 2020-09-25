@@ -36,7 +36,8 @@ p70_lsus_dist_weight(t,j)                        development
 
 
 equations
-q70_lsus(j)               development
+q70_lsus_past(j)               development
+q70_lsus_mowing(j)             development
 q70_lsus_reg(i)               development
 *q70_lsu_range_max(j)             development
 *q70_lsu_range_min(j)             development
