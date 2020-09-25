@@ -65,7 +65,7 @@ var_names <-
     "past_mowing.level",
     "pasture.level",
     "past.level",
-    "mowing.level"
+    "mowing.level",
     "pasture.rainfed.level",
     "livst_rum.level",
     "livst_milk.level",

@@ -18,6 +18,9 @@
 q31_prod(j2) ..
   vm_prod(j2,"pasture") =e= sum(kpm, vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed"));
 
+q31_prod_type(j2, kpm) ..
+    vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
+
 q31_pasture_areas(j2)  ..
   sum(kpm, vm_past_area(j2,kpm,"rainfed")) =e= vm_land(j2,"past");
 

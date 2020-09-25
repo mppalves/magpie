@@ -12,12 +12,13 @@ equations
  q31_cost_prod_past(i)    Costs for putting animals on pastures (mio. USD05MER per yr)
 ;
 *############################# DEVELOPMENT #####################################
-variables
+positive variables
 vm_past_area(j,kpm,w) development
 ;
 
 equations
 q31_pasture_areas(j) development
+q31_prod_type(j, kpm) development
 ;
 *############################# DEVELOPMENT #####################################
 
