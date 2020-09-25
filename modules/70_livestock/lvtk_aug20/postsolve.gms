@@ -11,7 +11,7 @@ p70_livestock_reg(i) = sum((cell(i,j), ct), p70_lsus_dist(ct,j));
 
 display v70_lsus_reg.l;
 display p70_lsus_dist;
-display lsu_disagg.l;
+display v70_lsus.l;
 
 *################################# DEVELOPMENT #################################
 
