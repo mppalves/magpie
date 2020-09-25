@@ -15,12 +15,12 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-test <- c(1)
+test <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
 
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("mow7_",test[i])
-  cfg$gms$s14_corr_fact <- as.character(test[i])
+  cfg$title <- paste0("mow8_",test[i])
+  cfg$gms$s70_dist_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
