@@ -50,11 +50,10 @@ $offdelim
 
 *########################### DEVELOPMENT #######################################
 
-parameter f14_past_yields(t_all,j, kpm) development
-/
+table f14_past_yields(t_all,j, kpm) development
 $ondelim
 $include "./modules/14_yields/input/f14_past_yields.csv"
 $offdelim
-/;
+;
 
 *########################### DEVELOPMENT #######################################
