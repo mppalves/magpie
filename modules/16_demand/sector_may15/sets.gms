@@ -39,11 +39,13 @@ sets
        / tece, maiz, trce, rice_pro, soybean, rapeseed, groundnut, sunflower,
          oilpalm, puls_pro, potato, cassav_sp, sugr_cane, sugr_beet, others,
          foddr, cottn_pro, begr, betr /
+
+*############################ DEVELOPMENT ######################################
+   kpm(kve) (development) grass producing activities (pasture management)
+        / pasture, mowing /
+* new set for pasture management activities
+*all Kall derived sets have been extended with a new activity mowing
+*####################### DEVELOPMENT ############################################
  ;
 
 alias(kap,kap4);
-
-
-*####################### DEVELOPMENT ############################################
-*all Kall derived sets have been extended with a new activity mowing
-*####################### DEVELOPMENT ############################################

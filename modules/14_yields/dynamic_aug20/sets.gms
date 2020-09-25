@@ -9,9 +9,4 @@ sets
   ltype14 calibration land types
        / crop, past /
 
-*############################ DEVELOPMENT ######################################
-  kpm(kve) (development) grass producing activities (pasture management)
-       / pasture, mowing /
-* new set for pasture management activities
-*############################ DEVELOPMENT ######################################
 ;
