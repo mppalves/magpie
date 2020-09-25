@@ -13,7 +13,7 @@ equations
 ;
 *############################# DEVELOPMENT #####################################
 variables
-vm_past_area(j,kpm,"rainfed") development
+vm_past_area(j,kpm,w) development
 ;
 
 equations
