@@ -52,15 +52,13 @@ q70_lsus_mowing(j2)..
 q70_lsus_reg(i2)..
   v70_lsus_reg(i2) =e= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
 
-q70_lsu_constraint(i2)..
-  v70_lsus_reg(i2) =e= sum((cell(i2,j2), kpm), v70_lsus(j2, kpm));
-
  q70_lsus_distr(j2)..
    sum(kpm, v70_lsus(j2,kpm)) =e= sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
 
 * q70_lsus_distr(j2)..
 *   lsu_disagg(j2) =e= sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
-
+*q70_lsu_constraint(i2)..
+*  v70_lsus_reg(i2) =e= sum((cell(i2,j2), kpm), v70_lsus(j2, kpm));
 
 $ontext
 
