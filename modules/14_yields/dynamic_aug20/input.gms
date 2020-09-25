@@ -50,10 +50,10 @@ $offdelim
 
 *########################### DEVELOPMENT #######################################
 
-parameter f14_max_grass_harvest(t_all,j) development
+parameter f14_past_yields(t_all,j, kpm) development
 /
 $ondelim
-$include "./modules/14_yields/input/f14_max_grass_harvest.csv"
+$include "./modules/14_yields/input/f14_past_yields.csv"
 $offdelim
 /;
 

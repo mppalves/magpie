@@ -37,7 +37,7 @@ cat("\nStarting output generation\n")
 
 variables <-
   c(
-    "ov_rlsu",
+    "ov_lsu_ha",
     "ov70_lsus",
     "ov_yld",
     "past",
@@ -82,7 +82,7 @@ for (variable in variables) {
           title <- paste0("Production", " | ", variable)
         })
       }
-      if (variable %in% c("ov_rlsu", "ov14_past_yld", "ov70_dem_past")) {
+      if (variable %in% c("ov_lsu_ha", "ov14_past_yld", "ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if (!is.null(x)) {
@@ -200,7 +200,7 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
-      if (variable %in% c("ov_rlsu", "ov14_past_yld")) {
+      if (variable %in% c("ov_lsu_ha", "ov14_past_yld")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if (!is.null(x)) {

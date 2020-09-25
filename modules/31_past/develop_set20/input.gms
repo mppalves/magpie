@@ -5,13 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-sets
-  ltype14 calibration land types
-       / crop, past /
 
-*############################ DEVELOPMENT ######################################
-  kpm(kve) (development) grass producing activities (pasture management)
-       / pasture, mowing /
-* new set for pasture management activities
-*############################ DEVELOPMENT ######################################
+scalars
+  s31_fac_req_past  Factor requirements (USD05MER per tDM)          / 1 /
 ;

@@ -31,7 +31,7 @@ dir <- outputdir
 variables <-
   c(
     "ov70_total_lsus",
-    "ov_rlsu",
+    "ov_lsu_ha",
     "oq70_livestock",
     "ov_land",
     "ov_prod",
@@ -65,6 +65,7 @@ var_names <-
     "past_mowing.level",
     "pasture.level",
     "past.level",
+    "mowing.level"
     "pasture.rainfed.level",
     "livst_rum.level",
     "livst_milk.level",
@@ -100,7 +101,7 @@ plotvariables <- function(variables,
         temp <- list()
         regions <- getRegions(x)
         for (r in getRegions(x)) {
-          if (variable %in% c("ov_rlsu", "ov14_past_yld")) {
+          if (variable %in% c("ov_lsu_ha", "ov14_past_yld")) {
             temp[[r]] <- colSums(x[r, , names[i]]) / dim(x[r, , names[i]])[1]
           } else {
             temp[[r]] <- colSums(x[r, , names[i]])

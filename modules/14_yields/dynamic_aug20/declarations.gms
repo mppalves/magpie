@@ -23,6 +23,15 @@ equations
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
 ;
 
+*##################### DEVELOPMENT #############################################
+i14_past_yields(t,j,kve,w)        development
+*##################### DEVELOPMENT #############################################
+
+
+
+
+
+
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
  ov_yld(t,j,kve,w,type)          Yields (variable because of technical change) (tDM per ha per yr)
