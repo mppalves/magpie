@@ -47,7 +47,7 @@ q70_lsus_past(j2)..
   v70_lsus(j2, "pasture") =e= sum(ct,vm_lsu_ha(ct,j2)) * vm_past_area(j2,"pasture","rainfed");
 
 q70_lsus_mowing(j2)..
-  v70_lsus(j2, "mowing") =e=  (vm_yld(j2, "mowing", "rainfed") * vm_past_area(j2,"mowing","rainfed")) / ((4000 * 2.25/1e6) * 365);
+  v70_lsus(j2, "mowing") =l=  (vm_yld(j2, "mowing", "rainfed") * vm_past_area(j2,"mowing","rainfed")) / ((4000 * 2.25/1e6) * 365);
 
 q70_lsus_reg(i2)..
   v70_lsus_reg(i2) =e= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
