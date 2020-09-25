@@ -58,6 +58,9 @@ positive variable
 vm_lsu_ha(t,j)  development
 ;
 
+variable
+lsu_disagg(j) teste
+;
 *###################################### DEVELOPMENT #############################
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
