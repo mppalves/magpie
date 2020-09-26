@@ -130,7 +130,7 @@ for (variable in variables) {
       }
 
       if (!is.null(x)) {
-        getNames(x) <- paste0(scen)
+        getNames(x) <- paste0(scen, getNames(x), sep = "_")
         try(magpie <- mbind(magpie, x))
       } else {
         print(paste("==>", variable, "not processed"))
@@ -251,7 +251,7 @@ for (i in 1:length(outputdirs)) {
       }
 
       if (!is.null(x)) {
-        getNames(x) <- variable
+        getNames(x) <-  paste0(variable, getNames(x), sep = "_")
         x <- (x - min(x)) / (max(x) - min(x))
         try(magpie <- mbind(magpie, x))
       } else {
