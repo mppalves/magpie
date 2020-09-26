@@ -82,9 +82,26 @@ for (variable in variables) {
           title <- paste0("Production", " | ", variable)
         })
       }
-      if (variable %in% c("ov_lsu_ha", "ov14_past_yld", "ov70_dem_past")) {
+      if (variable %in% c("ov14_past_yld", "ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
+          if (!is.null(x)) {
+            regions <- getRegions(x)
+            temp <- list()
+            title <- paste0("Average", " | ", variable)
+            for (r in regions) {
+              temp[[r]] <- colSums(x[r, , ]) / dim(x[r, , ])[1]
+            }
+            x <- do.call(mbind, temp)
+            x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
+            getCells(x) <- regions
+          }
+        })
+      }
+
+      if (variable %in% c("ov_lsu_ha")) {
+        try({
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kpm = c("pasture", "mowing")))
           if (!is.null(x)) {
             regions <- getRegions(x)
             temp <- list()
