@@ -43,7 +43,7 @@ q70_lsus_reg(i)               development
 *q70_lsu_range_min(j)             development
 *q70_lsus_production(j)       development
 *q70_dem_past(j)                  development
-*q70_lsu_constraint(i) development
+q70_lsu_constraint(i) development
 q70_lsus_distr(j)              development
 q70_yld_lsu(j,w) development
 ;
