@@ -8,7 +8,7 @@ $ontext
  Usar a demanda que sai do food module para caulcular o numero de lsus e calcular
  o fator de correcao para o mowing, depois fixar a area de pasto historica e deixar o modelo
  livre para escolher somente entre os tipos de pasto e o yield de cada um.
- $offtext
+$offtext
 
 i14_yields(t,j,kve,w) = f14_yields(t,j,kve,w);
 
