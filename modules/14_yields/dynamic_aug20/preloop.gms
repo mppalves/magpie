@@ -15,11 +15,6 @@ i14_yields(t,j,kve,w) = f14_yields(t,j,kve,w);
 *################################# DEVELOPMENT #################################
 i14_past_yields(t,j,kpm,"rainfed") = f14_past_yields(t,j, kpm) * (10000 * 2.21 / 1e6);
 * Mind that preloop adjustments are made only on continous mowing for now.
-
-p14_total_pasture_demand(i) = sum(kap, (sum(t,im_pop(t,i) * p15_kcal_pc_calibrated(t,i,kap)) * 365) /
-								sum(t,(f15_nutrition_attributes(t,kap,"kcal") * 10**6)) - sum(t, f15_household_balanceflow(t,i,kap,"dm")))
-                ;
-
 * p70_lsus_dist_weight(t,j)
 *sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2))
 
