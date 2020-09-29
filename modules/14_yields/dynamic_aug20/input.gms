@@ -55,13 +55,4 @@ $ondelim
 $include "./modules/14_yields/input/f14_past_yields.csv"
 $offdelim
 ;
-
-parameter f14_pasture_lsu_hist(t_all,i) development
-/
-$ondelim
-$include "./modules/14_yields/input/f14_pasture_lsu_hist.csv"
-$offdelim
-/
-;
-
 *########################### DEVELOPMENT #######################################
