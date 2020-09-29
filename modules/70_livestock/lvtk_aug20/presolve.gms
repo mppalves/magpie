@@ -46,7 +46,12 @@ else
 	 p70_lsus_dist_reg(t,i) =  sum(cell(i,j),p70_lsus_dist(t,j));
 	 p70_lsus_dist_weight(t,j)$(p70_lsus_dist(t,j) > 0) = p70_lsus_dist(t,j) / sum(cell(i,j),p70_lsus_dist_reg(t,i));
   );
-	
+
 vm_lsu_ha.up(ct,j2) = 2.5;
+
+p14_total_pasture_demand(i) =  (sum(kfo_ap, im_pop(t,i) *  p15_kcal_pc_calibrated(t,i,kfo_ap)) * 365) /
+								(f15_nutrition_attributes(t,kfo_ap,"kcal") * 10**6) -  f15_household_balanceflow(t,i,kfo_ap,"dm")
+                ;
+
 *############################## DEVELOPMENT ####################################
 *' @stop
