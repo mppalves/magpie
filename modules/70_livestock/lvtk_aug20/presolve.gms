@@ -57,6 +57,6 @@ p70_mow_yld_corr(t,j) = im_past_yields(t,j,"mowing","rainfed")/(sum(cell(i,j),p7
                 ;
 
 display p70_total_pasture_demand;
-display p70_mow_yld_corr(t,j);
+display p70_mow_yld_corr;
 *############################## DEVELOPMENT ####################################
 *' @stop
