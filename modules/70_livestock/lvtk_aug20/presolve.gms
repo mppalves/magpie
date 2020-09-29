@@ -49,9 +49,7 @@ else
 
 vm_lsu_ha.up(ct,j2) = 2.5;
 
-p14_total_pasture_demand(i) =  (sum(kfo_ap, im_pop(t,i) *  p15_kcal_pc_calibrated(t,i,kfo_ap)) * 365) /
-								(f15_nutrition_attributes(t,kfo_ap,"kcal") * 10**6) -  f15_household_balanceflow(t,i,kfo_ap,"dm")
-                ;
+
 
 *############################## DEVELOPMENT ####################################
 *' @stop
