@@ -61,6 +61,11 @@ vm_lsu_ha(t,j)  development
 *variable
 *lsu_disagg(j) teste
 *;
+
+*###############################################################################
+parameter
+p70_total_pasture_demand(i)                       development
+;
 *###################################### DEVELOPMENT #############################
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

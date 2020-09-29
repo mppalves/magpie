@@ -12,10 +12,6 @@ $offtext
 
 i14_yields(t,j,kve,w) = f14_yields(t,j,kve,w);
 
-p14_total_pasture_demand(i) = sum(k, vm_dem_food(i,k) * sum(t,im_feed_baskets(t,i,k,"pasture")));
-* p70_lsus_dist_weight(t,j)
-*sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2))
-
 *################################# DEVELOPMENT #################################
 i14_past_yields(t,j,kpm,"rainfed") = f14_past_yields(t,j, kpm) * (10000 * 2.21 / 1e6);
 * Mind that preloop adjustments are made only on continous mowing for now.
