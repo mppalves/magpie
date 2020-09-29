@@ -3,9 +3,18 @@
 *** |  of MAgPIE and licensed under AGPL-3.0-or-later. Under Section 7 of
 *** |  AGPL-3.0, you are granted additional permissions described in the
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
-*** |  Contact: magpie@pik-potsdam.de
+*** |  Contact: magpie@pik-potsdam.devm_dem_feed
+$ontext
+ Usar a demanda que sai do food module para caulcular o numero de lsus e calcular
+ o fator de correcao para o mowing, depois fixar a area de pasto historica e deixar o modelo
+ livre para escolher somente entre os tipos de pasto e o yield de cada um.
+ $offtext
 
 i14_yields(t,j,kve,w) = f14_yields(t,j,kve,w);
+
+total_pasture_demand(i,kap) = sum(kap, vm_dem_food(i,kap) * sum(t,im_feed_baskets(t,i,kap,"pasture")))
+* p70_lsus_dist_weight(t,j)
+*sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2))
 
 *################################# DEVELOPMENT #################################
 i14_past_yields(t,j,kpm,"rainfed") = f14_past_yields(t,j, kpm) * (10000 * 2.21 / 1e6);
