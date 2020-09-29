@@ -12,7 +12,7 @@ $ontext
 
 i14_yields(t,j,kve,w) = f14_yields(t,j,kve,w);
 
-total_pasture_demand(i,kap) = sum(kap, vm_dem_food(i,kap) * sum(t,im_feed_baskets(t,i,kap,"pasture")))
+p14_total_pasture_demand(i,kap) = sum(kap, vm_dem_food(i,kap) * sum(t,im_feed_baskets(t,i,kap,"pasture")));
 * p70_lsus_dist_weight(t,j)
 *sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2))
 
