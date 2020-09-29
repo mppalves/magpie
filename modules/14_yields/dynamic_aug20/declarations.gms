@@ -26,7 +26,7 @@ equations
 *##################### DEVELOPMENT #############################################
 parameter
 i14_past_yields(t,j,kve,w)        development
-p70_total_pasture_demand(i)                       development
+p14_total_pasture_demand(i)                       development
 ;
 *##################### DEVELOPMENT #############################################
 

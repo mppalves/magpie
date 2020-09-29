@@ -56,3 +56,14 @@ pm_timber_yield(t,j,ac,"forestry")$(s14_timber_plantation_yield = 0) = pm_timber
 p14_growing_stock_report(t,j,ac,"forestry")$(s14_timber_plantation_yield = 1) = p14_growing_stock(t,j,ac,"forestry","plantations");
 p14_growing_stock_report(t,j,ac,land_natveg) = p14_growing_stock(t,j,ac,land_natveg,"natveg");
 p14_growing_stock_report(t,j,ac,"forestry")$(s14_timber_plantation_yield = 0) = p14_growing_stock_report(t,j,ac,"secdforest");
+
+
+*################################# DEVELOPMENT #################################
+
+p14_total_pasture_demand(i) = sum(kap, (sum(t,im_pop(t,i) * p15_kcal_pc_calibrated(t,i,kap)) * 365) /
+								sum(t,(f15_nutrition_attributes(t,kap,"kcal") * 10**6)) - sum(t, f15_household_balanceflow(t,i,kap,"dm")))
+                ;
+* p70_lsus_dist_weight(t,j)
+*sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2))
+
+*################################# DEVELOPMENT #################################
