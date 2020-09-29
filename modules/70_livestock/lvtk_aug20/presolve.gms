@@ -53,9 +53,9 @@ p70_total_pasture_demand(t,i) =  sum(kfo_ap, (im_pop(t,i) *  p15_kcal_pc_calibra
 								(f15_nutrition_attributes(t,kfo_ap,"kcal") * 10**6) -  f15_household_balanceflow(t,i,kfo_ap,"dm"))
                 ;
 
-p70_mow_yld_corr(t,j) = im_past_yields(t,j,"mowing","rainfed")/(sum(cell(i,j),p70_total_pasture_demand(t,i)) * p70_lsus_dist_weight(t,j))$(sum(cell(i,j),p70_total_pasture_demand(t,i)) * p70_lsus_dist_weight(t,j) > 0) +
-												1$(sum(cell(i,j),p70_total_pasture_demand(t,i)) * p70_lsus_dist_weight(t,j) =< 0)
-                ;
+*p70_mow_yld_corr(t,j) = im_past_yields(t,j,"mowing","rainfed")/(sum(cell(i,j),p70_total_pasture_demand(t,i)) * p70_lsus_dist_weight(t,j))
+p70_mow_yld_corr(t,j) = sum(cell(i,j), p70_total_pasture_demand(t,i)) * p70_lsus_dist_weight(t,j)
+								;
 
 display p70_total_pasture_demand;
 display p70_mow_yld_corr;
