@@ -33,6 +33,7 @@ p70_livestock_reg(i)                                 development
 p70_lsus_dist_reg(t,i)                           development
 p70_lsus_dist_weight(t,j)                        development
 p70_total_pasture_demand(t,i)                       development
+p70_mow_yld_corr(t,j)                           development
 ;
 
 

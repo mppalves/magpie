@@ -25,7 +25,7 @@ equations
 
 *##################### DEVELOPMENT #############################################
 parameter
-i14_past_yields(t,j,kve,w)        development
+im_past_yields(t,j,kve,w)        development
 ;
 *##################### DEVELOPMENT #############################################
 
