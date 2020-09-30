@@ -34,6 +34,7 @@ p70_lsus_dist_reg(t,i)                           development
 p70_lsus_dist_weight(t,j)                        development
 p70_total_ap_food_demand(t,i,kfo_ap)                       development
 p70_mow_yld_corr(t,j)                           development
+p70_total_feed_demand(t,i)                      development
 ;
 
 
