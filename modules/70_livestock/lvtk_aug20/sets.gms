@@ -29,7 +29,9 @@ sets
    sys_hen . livst_egg
    sys_dairy .livst_milk
    /
-   
+
    species70 ruminant species
    / Large, Small /
 ;
+
+Alias (kap, kfo_ap) ;
