@@ -49,16 +49,18 @@ else
 
 vm_lsu_ha.up(ct,j2) = 2.5;
 
-p70_total_pasture_demand(t,i) =  sum(kfo_ap, (im_pop(t,i) *  p15_kcal_pc_calibrated(t,i,kfo_ap) * 365) /
-								(f15_nutrition_attributes(t,kfo_ap,"kcal") * 10**6) -  f15_household_balanceflow(t,i,kfo_ap,"dm"))
+p70_total_ap_food_demand(t,i,kfo_ap) =  (im_pop(t,i) *  p15_kcal_pc_calibrated(t,i,kfo_ap) * 365) /
+								(f15_nutrition_attributes(t,kfo_ap,"kcal") * 10**6)
                 ;
 
-p70_mow_yld_corr(t,j) = im_past_yields(t,j,"mowing","rainfed")/((sum(cell(i,j),p70_total_pasture_demand(t,i)) * p70_lsus_dist_weight(t,j)) + 1e6)
-*p70_mow_yld_corr(t,j) = sum(cell(i,j), p70_total_pasture_demand(t,i)) * p70_lsus_dist_weight(t,j)
+*p70_total_feed_demand = p70_total_ap_food_demand(t,i,kfo_ap) * sum((ct,cell(i2,j2),kforage2),im_feed_baskets(ct,i2,kli_rum,kforage2))
+
+*p70_mow_yld_corr(t,j) = im_past_yields(t,j,"mowing","rainfed")/((sum(cell(i,j),p70_total_ap_food_demand(t,i,kfo_ap)) * p70_lsus_dist_weight(t,j)) + 1e6)
+*p70_mow_yld_corr(t,j) = sum(cell(i,j), p70_total_ap_food_demand(t,i,kfo_ap)) * p70_lsus_dist_weight(t,j)
 								;
 display im_past_yields;
 display p70_lsus_dist_weight;
-display p70_total_pasture_demand;
+display p70_total_ap_food_demand;
 display p70_mow_yld_corr;
 
 *############################## DEVELOPMENT ####################################
