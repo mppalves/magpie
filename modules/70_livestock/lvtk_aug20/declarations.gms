@@ -53,7 +53,7 @@ q70_yld_lsu(j,w) development
 ;
 
 variables
-v70_lsus(j, kpm)               development
+*v70_lsus(j, kpm)               development
 *v70_dem_past(j)                  development
 *v70_lsus_reg(i)            development
 ;

@@ -6,7 +6,8 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 *################################# DEVELOPMENT #################################
-p70_lsus_dist(ct,j) = sum(kpm, v70_lsus.l(j,kpm));
+*p70_lsus_dist(ct,j) = sum(kpm, v70_lsus.l(j,kpm));
+p70_lsus_dist(ct,j) = vm_prod.l(j2,"pasture") / ((4000 * 2.25/1e6) * 365);
 p70_livestock_reg(i) = sum((cell(i,j), ct), p70_lsus_dist(ct,j));
 
 *display v70_lsus_reg.l;
