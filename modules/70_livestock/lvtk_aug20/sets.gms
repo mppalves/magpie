@@ -33,5 +33,3 @@ sets
    species70 ruminant species
    / Large, Small /
 ;
-
-Alias (kap, kfo_ap) ;
