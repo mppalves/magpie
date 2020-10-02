@@ -20,7 +20,7 @@ test <- c(1)
 
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("mow19.2_",test[i])
+  cfg$title <- paste0("mow19.3_",test[i])
   cfg$gms$s70_dist_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
