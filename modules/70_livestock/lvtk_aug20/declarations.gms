@@ -41,21 +41,21 @@ im_feed_baskets2(t_all,i,kfo_ap,kall)                Feed baskets in tDM per tDM
 
 equations
 q70_lsus_past(j)               development
-q70_lsus_mowing(j)             development
-q70_lsus_reg(i)               development
+*q70_lsus_mowing(j)             development
+*q70_lsus_reg(i)               development
 *q70_lsu_range_max(j)             development
 *q70_lsu_range_min(j)             development
 *q70_lsus_production(j)       development
 *q70_dem_past(j)                  development
-q70_lsu_constraint(i) development
-q70_lsus_distr(j)              development
+*q70_lsu_constraint(i) development
+*q70_lsus_distr(j)              development
 q70_yld_lsu(j,w) development
 ;
 
 variables
 v70_lsus(j, kpm)               development
 *v70_dem_past(j)                  development
-v70_lsus_reg(i)            development
+*v70_lsus_reg(i)            development
 ;
 
 positive variable

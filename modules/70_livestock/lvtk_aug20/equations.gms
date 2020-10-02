@@ -44,23 +44,23 @@ q70_yld_lsu(j2,w) ..
   vm_yld(j2,"pasture","rainfed") =e= sum(ct, vm_lsu_ha(ct,j2)) * ((4000 * 2.25/1e6) * 365);
 
 q70_lsus_past(j2)..
-  v70_lsus(j2, "pasture") =e= sum(ct,vm_lsu_ha(ct,j2)) * vm_past_area(j2,"pasture","rainfed");
+  v70_lsus(j2, "pasture") =e= sum(ct, vm_lsu_ha(ct,j2)) * vm_past_area(j2,"pasture","rainfed");
 
-q70_lsus_mowing(j2)..
-  v70_lsus(j2, "mowing") =l=  (vm_yld(j2, "mowing", "rainfed") * vm_past_area(j2,"mowing","rainfed")) / ((4000 * 2.25/1e6) * 365);
+*q70_lsus_mowing(j2)..
+*  v70_lsus(j2, "mowing") =l=  (vm_yld(j2, "mowing", "rainfed") * vm_past_area(j2,"mowing","rainfed")) / ((4000 * 2.25/1e6) * 365);
 
-q70_lsus_reg(i2)..
-  v70_lsus_reg(i2) =g= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
+*q70_lsus_reg(i2)..
+*  v70_lsus_reg(i2) =g= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
 
-q70_lsus_distr(j2)..
+*q70_lsus_distr(j2)..
 *  sum(kpm, v70_lsus(j2,kpm)) =g=  sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
-   v70_lsus(j2,"mowing") =g=  sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
+
 
 * q70_lsus_distr(j2)..
 *   lsu_disagg(j2) =g= s70_dist_fact * sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
 
-q70_lsu_constraint(i2)..
-  v70_lsus_reg(i2) =l= sum((cell(i2,j2), kpm), v70_lsus(j2, kpm));
+*q70_lsu_constraint(i2)..
+*  v70_lsus_reg(i2) =l= sum((cell(i2,j2), kpm), v70_lsus(j2, kpm));
 
 $ontext
 
