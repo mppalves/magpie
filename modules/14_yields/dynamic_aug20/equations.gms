@@ -18,5 +18,5 @@ q14_yield_crop(j2,kcr,w) ..
 
 q14_yield_past(j2,kpm,w) ..
  vm_yld(j2,kpm,w) =l=
- sum(ct,(im_past_yields(ct,j2,kpm,w)))  *
- sum((cell(i2,j2),ct),pm_past_mngmnt_factor(ct,i2));
+ sum(ct,(im_past_yields(ct,j2,kpm,w)));
+* *sum((cell(i2,j2),ct),pm_past_mngmnt_factor(ct,i2));
