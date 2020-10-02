@@ -40,7 +40,7 @@ im_feed_baskets2(t_all,i,kfo_ap,kall)                Feed baskets in tDM per tDM
 
 
 equations
-q70_lsus_past(j)               development
+*q70_lsus_past(j)               development
 *q70_lsus_mowing(j)             development
 *q70_lsus_reg(i)               development
 *q70_lsu_range_max(j)             development
