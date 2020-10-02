@@ -14,6 +14,10 @@ equations
  q17_prod_reg(i,k)               Regional production (mio. tDM per yr)
 ;
 
+*############################### DEVELOPMENT ####################################
+q17_prod_distr(j)
+*############################### DEVELOPMENT ####################################
+
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
  ov_prod(t,j,k,type)        Production in each cell (mio. tDM per yr)
@@ -21,4 +25,3 @@ parameters
  oq17_prod_reg(t,i,k,type)  Regional production (mio. tDM per yr)
 ;
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################
-
