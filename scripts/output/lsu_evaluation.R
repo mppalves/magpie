@@ -56,7 +56,8 @@ variables <-
     "ov70_dem_past",
     "ov14_relax",
     "p70_lsus_dist_weight",
-    "lsu_disagg"
+    "lsu_disagg",
+    "ov_past_area"
   )
 
 var_names <-
