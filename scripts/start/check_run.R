@@ -46,8 +46,8 @@ variables <-
     "livst_rum"
   )
 # gdx <-
-#   "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata.gdx"
-# variable <- "ov70_lsus1"
+#   "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata_mow19.3.gdx"
+# variable <- "ov_yld"
 # outputdirs <-
 #   list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
 #     recursive = FALSE
@@ -119,7 +119,7 @@ for (variable in variables) {
 
       if (variable %in% c("ov_yld")) {
         try({
-          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kve=c("livst_milk","livst_rum", "pasture"),w = "rainfed"))
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kve=c("pasture", "mowing"),w = "rainfed"))
           # x <- dimSums(x[,,c(1,2)])
           title <- paste0("Total", " | ", variable)
           weight <- as.magpie(rep(1,200),spatial =1)
@@ -130,7 +130,7 @@ for (variable in variables) {
       }
 
       if (!is.null(x)) {
-        getNames(x) <- paste0(scen, getNames(x), sep = "_")
+        getNames(x) <- paste(scen, getNames(x))
         try(magpie <- mbind(magpie, x))
       } else {
         print(paste("==>", variable, "not processed"))
