@@ -40,10 +40,7 @@ variables <-
     "ov_lsu_ha",
     "ov70_lsus",
     "ov_yld",
-    "past",
-    "pasture",
-    "livst_milk",
-    "livst_rum"
+    "past"
   )
 # gdx <-
 #   "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata_mow19.3.gdx"
