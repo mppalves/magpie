@@ -6,9 +6,9 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 sets
-*sets should be in sync with default trade realisation; currently selfsuff_reduced 
+*sets should be in sync with default trade realisation; currently selfsuff_reduced
    k_notrade(kall) Production activities of non-tradable commodites
-       / oilpalm, foddr, pasture, res_cereals, res_fibrous, res_nonfibrous, begr,betr, mowing/
+       / oilpalm, foddr, pasture, res_cereals, res_fibrous, res_nonfibrous, begr,betr, mowing, cont_grazing/
 * oilpalm not traded, only its oil and oilcake due to FAOSTAT complications, and as trade is little
 * foddr is not traded as too bulky
 * pasture it not traded as too bulky
