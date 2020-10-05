@@ -32,5 +32,3 @@ parameters
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################
 
 *** EOF declarations.gms ***
-q31_prod_kpm(j, kpm)
-q31_prod_pasture(j2)
