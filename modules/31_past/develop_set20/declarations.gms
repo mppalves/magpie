@@ -14,13 +14,19 @@ equations
 *############################# DEVELOPMENT #####################################
 positive variables
 vm_past_area(j,kpm,w) development
+vm_grazing_prod(j2)
+vm_mowing_prod(j2)
 ;
 
 equations
 q31_pasture_areas(j) development
 *q31_prod_kpm(j, kpm) development
 *q31_prod_pasture(j) development
+q31_grazing_prod(j) development
+q31_mowing_prod(j) development
 ;
+
+
 *############################# DEVELOPMENT #####################################
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

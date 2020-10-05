@@ -17,6 +17,11 @@
 q31_prod(j2) ..
   vm_prod(j2,"pasture") =e= sum(kpm, vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed"));
 
+q31_grazing_prod(j2)..
+     vm_grazing_prod(j2) =e= vm_past_area(j2,"cont_grazing","rainfed") * vm_yld(j2,"cont_grazing","rainfed");
+q31_mowing_prod(j2)..
+     vm_mowing_prod(j2) =e= vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed");
+
 *q31_prod_kpm(j2, kpm) ..
 *  vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
 
