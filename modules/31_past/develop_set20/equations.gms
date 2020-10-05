@@ -14,12 +14,14 @@
 *' `vm_yld` which are delivered by the module [14_yields]:
 
 *################################ DEVELOPMENT ##################################
+q31_prod(j2) ..
+  vm_prod(j2,"pasture") =e= sum(kpm, vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed"));
 
-q31_prod_kpm(j2, kpm) ..
-  vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
+*q31_prod_kpm(j2, kpm) ..
+*  vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
 
-q31_prod_pasture(j2)..
-  vm_prod(j2,"pasture") =e= sum(kpm, vm_prod(j2,kpm));
+*q31_prod_pasture(j2)..
+*  vm_prod(j2,"pasture") =e= sum(kpm, vm_prod(j2,kpm));
 
 q31_pasture_areas(j2)..
   sum(kpm, vm_past_area(j2,kpm,"rainfed")) =e= vm_land(j2,"past");
@@ -46,7 +48,7 @@ q31_carbon(j2,ag_pools) ..
 * 								* s31_fac_req_past;
 
 q31_cost_prod_past(i2) ..
- vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed")) * 2;
+ vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed"));
 
 
 

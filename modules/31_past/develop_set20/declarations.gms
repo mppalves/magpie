@@ -7,7 +7,7 @@
 
 
 equations
-* q31_prod(j)              Cellular pasture production constraint (mio. tDM per yr)
+ q31_prod(j)              Cellular pasture production constraint (mio. tDM per yr)
  q31_carbon(j,ag_pools)   Above ground carbon content calculation for pasture (mio tC)
  q31_cost_prod_past(i)    Costs for putting animals on pastures (mio. USD05MER per yr)
 ;
@@ -18,8 +18,8 @@ vm_past_area(j,kpm,w) development
 
 equations
 q31_pasture_areas(j) development
-q31_prod_kpm(j, kpm) development
-q31_prod_pasture(j) development
+*q31_prod_kpm(j, kpm) development
+*q31_prod_pasture(j) development
 ;
 *############################# DEVELOPMENT #####################################
 
