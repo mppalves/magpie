@@ -22,10 +22,6 @@ $ondelim
 $include "./modules/70_livestock/lvtk_aug20/input/f70_feed_baskets.cs3"
 $offdelim;
 
-table f70_feed_baskets2(t_all,i,kfo_ap,kall,feed_scen70) Feed baskets in tDM per tDM livestock product (1)
-$ondelim
-$include "./modules/70_livestock/lvtk_aug20/input/f70_feed_baskets.cs3"
-$offdelim;
 
 table fm_feed_balanceflow(t_all,i,kap,kall) Balanceflow balance difference between estimated feed baskets and FAO (mio. tDM)
 $ondelim
@@ -71,4 +67,10 @@ table f70_livestock_conversion(t_all,iso, species70) Feed baskets in tDM per tDM
 $ondelim
 $include "./modules/70_livestock/lvtk_aug20/input/f70_livestock_conversion.csv"
 $offdelim;
+
+table f70_feed_baskets2(t_all,i,kfo_ap,kall,feed_scen70) Feed baskets in tDM per tDM livestock product (1)
+$ondelim
+$include "./modules/70_livestock/lvtk_aug20/input/f70_feed_baskets.cs3"
+$offdelim;
+
 *###################################### DEVELOPMENT #############################
