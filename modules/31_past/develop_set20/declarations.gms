@@ -14,8 +14,8 @@ equations
 *############################# DEVELOPMENT #####################################
 positive variables
 vm_past_area(j,kpm,w) development
-vm_grazing_prod(j2)
-vm_mowing_prod(j2)
+vm_grazing_prod(j)
+vm_mowing_prod(j)
 ;
 
 equations
