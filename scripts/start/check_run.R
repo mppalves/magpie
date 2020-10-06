@@ -17,7 +17,7 @@ library(magpie4)
 library(ggplot2)
 library(gdx)
 
-options(error = function() traceback(2))
+# options(error = function() traceback(2))
 
 ############################# BASIC CONFIGURATION #############################
 
