@@ -41,6 +41,9 @@ variables <-
     "ov70_lsus",
     "ov_yld",
     "past",
+    "pasture", 
+    "livst_milk", 
+    "livst_rum",
     "ov_grazing_prod",
     "ov_mowing_prod"
   )
@@ -69,15 +72,15 @@ for (variable in variables) {
       # read-in reporting file
       if (variable %in% c("past")) {
         try({
-          x <- land(gdx)[, , variable]
-          x <- collapseNames(x)
+          x <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,variable]
+          x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
           title <- paste0("Land", " | ", variable)
         })
       }
       if (variable %in% c("pasture", "livst_milk", "livst_rum")) {
         try({
-          x <- production(gdx)[, , variable]
-          x <- collapseNames(x)
+          x <- gdx::readGDX(gdx, "ov_prod")[,,"level"][,,variable]
+          x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
           title <- paste0("Production", " | ", variable)
         })
       }
@@ -185,7 +188,8 @@ for (i in 1:length(outputdirs)) {
 
       if (variable %in% c("past")) {
         try({
-          x <- land(gdx)[, , variable]
+          x <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,variable]
+          x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
           # x <- collapseNames(x)
           title <- paste0("Land", " | ", variable)
         })
@@ -193,7 +197,8 @@ for (i in 1:length(outputdirs)) {
 
       if (variable %in% c("pasture", "livst_milk", "livst_rum")) {
         try({
-          x <- production(gdx)[, , variable]
+          x <- gdx::readGDX(gdx, "ov_prod")[,,"level"][,,variable]
+          x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
           # x <- collapseNames(x)
           title <- paste0("Production", " | ", variable)
         })
