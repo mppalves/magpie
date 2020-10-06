@@ -40,15 +40,17 @@ variables <-
     "ov_lsu_ha",
     "ov70_lsus",
     "ov_yld",
-    "past"
+    "past",
+    "ov_grazing_prod",
+    "ov_mowing_prod"
   )
-# gdx <-
-#   "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata_mow19.3.gdx"
-# variable <- "ov_yld"
-# outputdirs <-
-#   list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
-#     recursive = FALSE
-#   )
+gdx <-
+  "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata.gdx"
+variable <- "ov_yld"
+outputdirs <-
+  list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
+    recursive = FALSE
+  )
 
 
 for (variable in variables) {
@@ -79,10 +81,10 @@ for (variable in variables) {
           title <- paste0("Production", " | ", variable)
         })
       }
-      if (variable %in% c("ov_lsu_ha", "ov14_past_yld", "ov70_dem_past")) {
+      if (variable %in% c("ov_lsu_ha", "ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-          if (!is.null(x)) {
+          if (is.magpie(x)) {
             regions <- getRegions(x)
             temp <- list()
             title <- paste0("Average", " | ", variable)
@@ -99,7 +101,7 @@ for (variable in variables) {
       if (variable %in% c("ov70_lsus", "ov14_lsus")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-          if(!is.null(x)){
+          if(is.magpie(x)){
             x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
             title <- paste0("Total", " | ", variable, dimnames(x)[3])
             x <- collapseNames(x)
@@ -126,7 +128,7 @@ for (variable in variables) {
         })
       }
 
-      if (!is.null(x)) {
+      if (is.magpie(x)) {
         getNames(x) <- paste(scen, getNames(x))
         try(magpie <- mbind(magpie, x))
       } else {
@@ -184,7 +186,7 @@ for (i in 1:length(outputdirs)) {
       if (variable %in% c("past")) {
         try({
           x <- land(gdx)[, , variable]
-          x <- collapseNames(x)
+          # x <- collapseNames(x)
           title <- paste0("Land", " | ", variable)
         })
       }
@@ -192,15 +194,15 @@ for (i in 1:length(outputdirs)) {
       if (variable %in% c("pasture", "livst_milk", "livst_rum")) {
         try({
           x <- production(gdx)[, , variable]
-          x <- collapseNames(x)
+          # x <- collapseNames(x)
           title <- paste0("Production", " | ", variable)
         })
       }
 
-      if (variable %in% c("ov_lsu_ha", "ov14_past_yld")) {
+      if (variable %in% c("ov_lsu_ha", "ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-          if (!is.null(x)) {
+          if (is.magpie(x)) {
             regions <- getRegions(x)
             temp <- list()
             title <- paste0("Average", " | ", variable)
@@ -217,7 +219,7 @@ for (i in 1:length(outputdirs)) {
       if (variable %in% c("ov70_lsus", "ov14_lsus", "ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-          if(!is.null(x)){
+          if(is.magpie(x)){
             x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
             title <- paste0("Total", " | ", variable)
             x <- collapseNames(x)
@@ -228,12 +230,12 @@ for (i in 1:length(outputdirs)) {
 
       if (variable %in% c("ov_yld")) {
         try({
-          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kve=c("livst_milk","livst_rum", "pasture"),w = "rainfed"))
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level", kve=c("cont_grazing", "mowing"),w = "rainfed"))
           # x <- dimSums(x[,,c(1,2)])
           title <- paste0("Total", " | ", variable)
           weight <- as.magpie(rep(1,200),spatial =1)
           x <- gdxAggregate(gdx, x, to = "reg", absolute = F, weight = weight)
-          x <- collapseNames(x)
+          # x <- collapseNames(x)
 
         })
       }
@@ -247,8 +249,8 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
-      if (!is.null(x)) {
-        getNames(x) <-  paste0(variable, getNames(x), sep = "_")
+      if (is.magpie(x)) {
+        getNames(x) <-  paste0(variable, "_", getNames(x))
         x <- (x - min(x)) / (max(x) - min(x))
         try(magpie <- mbind(magpie, x))
       } else {
@@ -266,7 +268,7 @@ for (i in 1:length(outputdirs)) {
   }
 
   if (!is.null(magpie)) {
-    magpie <- (magpie - min(magpie)) / (max(magpie) - min(magpie))
+    # magpie <- (magpie - min(magpie)) / (max(magpie) - min(magpie))
     p <-
       magpie2ggplot2(
         magpie,
@@ -303,7 +305,7 @@ for (i in 1:length(outputdirs)) {
       stop("This run do not have ov70_lsus")
     }
 
-    if (!is.null(x)) {
+    if (is.magpie(x)) {
       regions <- getRegions(x)
       temp <- list()
       for (r in regions) {
