@@ -44,13 +44,13 @@ variables <-
     "ov_grazing_prod",
     "ov_mowing_prod"
   )
-gdx <-
-  "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata.gdx"
-variable <- "ov_yld"
-outputdirs <-
-  list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
-    recursive = FALSE
-  )
+# gdx <-
+#   "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata.gdx"
+# variable <- "ov_yld"
+# outputdirs <-
+#   list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
+#     recursive = FALSE
+#   )
 
 
 for (variable in variables) {
@@ -300,6 +300,7 @@ for (i in 1:length(outputdirs)) {
     y <- collapseNames(y)
     x <-
       readGDX(gdx, "ov70_lsus", select = list(type = "level"))
+    x <- dimSums(x[,,1:dim(x)[3]])
 
     if (is.null(x)) {
       stop("This run do not have ov70_lsus")
