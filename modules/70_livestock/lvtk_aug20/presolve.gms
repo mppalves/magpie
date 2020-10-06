@@ -65,7 +65,7 @@ else
  	);
 
 
-im_past_yields(t,j,"mowing","rainfed") = im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr("2010",j);
+im_past_yields(t,j,"mowing","rainfed") = im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr("y2010",j);
 vm_lsu_ha.up(ct,j2) = 2.5;
 
 *display im_past_yields;
