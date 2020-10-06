@@ -87,7 +87,7 @@ for (variable in variables) {
       if (variable %in% c("ov_lsu_ha", "ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-          if (is.magpie(x)) {
+          if (is.magpie(x) && !all(x==0)) {
             regions <- getRegions(x)
             temp <- list()
             title <- paste0("Average", " | ", variable)
@@ -104,10 +104,10 @@ for (variable in variables) {
       if (variable %in% c("ov70_lsus", "ov14_lsus")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-          if(is.magpie(x)){
+          if(is.magpie(x) && !all(x==0)){
             x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
             title <- paste0("Total", " | ", variable, dimnames(x)[3])
-            x <- collapseNames(x)
+            # x <- collapseNames(x)
           }
         })
       }
@@ -115,7 +115,7 @@ for (variable in variables) {
       if (variable %in% c("pm_past_mngmnt_factor", "p70_cattle_stock_proxy")) {
         try({
           x <- gdx::readGDX(gdx, variable)
-          x <- collapseNames(x)
+          # x <- collapseNames(x)
         })
       }
 
@@ -126,12 +126,12 @@ for (variable in variables) {
           title <- paste0("Total", " | ", variable)
           weight <- as.magpie(rep(1,200),spatial =1)
           x <- gdxAggregate(gdx, x, to = "reg", absolute = F, weight = weight)
-          x <- collapseNames(x)
+          # x <- collapseNames(x)
 
         })
       }
 
-      if (is.magpie(x)) {
+      if (is.magpie(x) && !all(x==0)) {
         getNames(x) <- paste(scen, getNames(x))
         try(magpie <- mbind(magpie, x))
       } else {
@@ -227,7 +227,7 @@ for (i in 1:length(outputdirs)) {
           if(is.magpie(x)){
             x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
             title <- paste0("Total", " | ", variable)
-            x <- collapseNames(x)
+            # x <- collapseNames(x)
           }
         })
       }
@@ -249,7 +249,7 @@ for (i in 1:length(outputdirs)) {
       if (variable %in% c("pm_past_mngmnt_factor", "p70_cattle_stock_proxy")) {
         try({
           x <- gdx::readGDX(gdx, variable)
-          x <- collapseNames(x)
+          # x <- collapseNames(x)
           title <- paste0("Factor", " | ", variable)
         })
       }
@@ -302,7 +302,7 @@ for (i in 1:length(outputdirs)) {
     scen <- cfg$title
 
     y <- production(gdx)[, , c("livst_milk", "livst_rum")]
-    y <- collapseNames(y)
+    # y <- collapseNames(y)
     x <-
       readGDX(gdx, "ov70_lsus", select = list(type = "level"))
     x <- dimSums(x[,,1:dim(x)[3]])
