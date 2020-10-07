@@ -22,10 +22,10 @@ q31_grazing_prod(j2)..
 q31_mowing_prod(j2)..
      vm_mowing_prod(j2) =e= vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed");
 
-$ontext
+
 q31_pasture_areas(j2)..
   sum(kpm, vm_past_area(j2,kpm,"rainfed")) =e= vm_land(j2,"past");
-
+$ontext
 q31_prod_kpm(j2, kpm) ..
   vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
 
