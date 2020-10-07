@@ -48,8 +48,6 @@ else
 	);
 
 
-	if (sum(sameas(t_past,t),1) = 1,
-
 	p70_total_ap_food_demand(t,i,kfo_ap) =  (im_pop(t,i) *  p15_kcal_pc_calibrated(t,i,kfo_ap) * 365) /
 																				 (f15_nutrition_attributes(t,kfo_ap,"kcal") * 10**6) -
 																				 sum(ct, f15_household_balanceflow(ct,i,kfo_ap,"dm"));
@@ -60,14 +58,12 @@ else
 	p70_mow_yld_corr(t,j) = 1;
 	p70_mow_yld_corr(t,j)$((im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past")) > 0) =
 											 (sum(cell(i,j),p70_total_past_demand(t,i)) * p70_lsus_dist_weight(t,j)) /
-											 (im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past"));
-  im_past_yields(t,j,"mowing","rainfed") = im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t,j);
+											 (im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past"))$(sum(sameas(t_past,t),1) = 1) +
+											 (sum(cell(i,j),p70_total_past_demand(t_past,i)) * p70_lsus_dist_weight(t_past,j)) /
+											(im_past_yields(t_past,j,"mowing","rainfed") * pm_land_start(j,"past"))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);;
 
- 	);
+*im_past_yields(t,j,"mowing","rainfed") = im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t,j);
 
-  if (sum(sameas(t_past,t),1) <> 1,
-  im_past_yields(t,j,"mowing","rainfed") = im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr("y2010",j);
-  );
 
 vm_lsu_ha.up(ct,j2) = 2.5;
 

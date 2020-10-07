@@ -22,18 +22,20 @@ q31_grazing_prod(j2)..
 q31_mowing_prod(j2)..
      vm_mowing_prod(j2) =e= vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed");
 
-*q31_prod_kpm(j2, kpm) ..
-*  vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
-
-*q31_prod_pasture(j2)..
-*  vm_prod(j2,"pasture") =e= sum(kpm, vm_prod(j2,kpm));
-
+$ontext
 q31_pasture_areas(j2)..
   sum(kpm, vm_past_area(j2,kpm,"rainfed")) =e= vm_land(j2,"past");
 
-*q30_suitability(j2)  ..
-*    vm_land(j2,"crop") + vm_past_area(j2,"mowing","rainfed") =l= f30_land_si(j2,"si0");
-* check if that constraint makes sense
+q31_prod_kpm(j2, kpm) ..
+  vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
+
+q31_prod_pasture(j2)..
+  vm_prod(j2,"pasture") =e= sum(kpm, vm_prod(j2,kpm));
+
+q30_suitability(j2)  ..
+    vm_land(j2,"crop") + vm_past_area(j2,"mowing","rainfed") =l= f30_land_si(j2,"si0");
+ check if that constraint makes sense
+$offtext
 
 *################################ DEVELOPMENT ##################################
 
@@ -53,7 +55,7 @@ q31_carbon(j2,ag_pools) ..
 * 								* s31_fac_req_past;
 
 q31_cost_prod_past(i2) ..
- vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed"));
+ vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed")) * 10000;
 
 
 
