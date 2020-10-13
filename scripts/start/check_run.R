@@ -41,13 +41,13 @@ variables <-
     "ov70_lsus",
     "ov_yld",
     "past",
-    "pasture"
+    "pasture",
     "livst_milk",
     "livst_rum",
     "ov_grazing_prod",
     "ov_mowing_prod"
   )
-  
+
 #gdx <-
 #  "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata.gdx"
 #variable <- "ov_yld"
