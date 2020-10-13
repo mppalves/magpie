@@ -43,7 +43,7 @@ variables <-
     "past",
     "pasture",
     "livst_milk",
-    "livst_rum",
+    "livst_rum"
     #"ov_grazing_prod",
     #"ov_mowing_prod"
   )
