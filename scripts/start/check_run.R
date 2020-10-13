@@ -39,13 +39,13 @@ variables <-
   c(
     "ov_lsu_ha",
     #"ov70_lsus",
-    "ov_yld",
+    #"ov_yld",
     "past",
     "pasture",
     "livst_milk",
-    "livst_rum"
-    #"ov_grazing_prod",
-    #"ov_mowing_prod"
+    "livst_rum",
+    "ov_grazing_prod",
+    "ov_mowing_prod"
   )
 
 #gdx <-
