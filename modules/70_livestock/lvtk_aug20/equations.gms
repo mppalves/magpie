@@ -45,6 +45,7 @@ q70_yld_lsu(j2,w) ..
 
 q70_lsus(j2,kpm)..
   v70_lsus(j2, kpm) =e=  vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed") / ((4000 * 2.25/1e6) * 365);
+
 $ontext
 q70_lsus_past(j2)..
   v70_lsus(j2, kpm) =e= sum(ct, vm_lsu_ha(ct,j2)) * vm_past_area(j2,"pasture","rainfed");

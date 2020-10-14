@@ -29,7 +29,7 @@ parameters
 parameters
 p70_lsus_dist(t,j)                               development
 *p70_livestock_conversion(t,i)                    development
-p70_livestock_reg(i)                                 development
+*p70_livestock_reg(i)                                 development
 p70_lsus_dist_reg(t,i)                           development
 p70_lsus_dist_weight(t,j)                        development
 p70_total_ap_food_demand(t,i,kfo_ap)                       development

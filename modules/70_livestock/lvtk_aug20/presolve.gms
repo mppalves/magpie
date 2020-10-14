@@ -48,11 +48,11 @@ $ontext
 	);
 $offtext
 
-	p70_total_ap_food_demand(t,i,kfo_ap) =  (im_pop(t,i) *  p15_kcal_pc_calibrated(t,i,kfo_ap) * 365) /
+p70_total_ap_food_demand(t,i,kfo_ap) =  (im_pop(t,i) *  p15_kcal_pc_calibrated(t,i,kfo_ap) * 365) /
 																				 (f15_nutrition_attributes(t,kfo_ap,"kcal") * 10**6) -
 																				 sum(ct, f15_household_balanceflow(ct,i,kfo_ap,"dm"));
 
-	p70_total_past_demand(t,i) = sum(kfo_ap, p70_total_ap_food_demand(t,i,kfo_ap) *
+p70_total_past_demand(t,i) = sum(kfo_ap, p70_total_ap_food_demand(t,i,kfo_ap) *
 																	im_feed_baskets2(t,i,kfo_ap,"pasture"));
 
 if (sum(sameas(t_past,t),1) = 1,
@@ -62,8 +62,8 @@ if (sum(sameas(t_past,t),1) = 1,
 											 (im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past"));
  	);
 
-  im_past_yields(t,j,"mowing","rainfed") = (im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t,j))$(sum(sameas(t_past,t),1) = 1) +
-	sum(t_past,(im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t_past,j))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
+im_past_yields(t,j,"mowing","rainfed") = (im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t,j))$(sum(sameas(t_past,t),1) = 1) +
+sum(t_past,(im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t_past,j))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
 
 $ontext
  if (sum(sameas(t_past,t),1) <> 1,
