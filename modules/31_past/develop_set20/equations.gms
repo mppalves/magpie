@@ -19,7 +19,7 @@ q31_prod(j2) ..
 
 *sum(kpm, vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed"));
 
-q31_prod_pm(j2) ..
+q31_prod_pm(j2, kpm) ..
  vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
 
 q31_pasture_areas(j2)..
