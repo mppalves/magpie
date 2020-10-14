@@ -15,9 +15,9 @@ equations
 ;
 
 *############################### DEVELOPMENT ####################################
-equation
-q17_prod_distr(j)
-;
+*equation
+*q17_prod_distr(j)
+*;
 *############################### DEVELOPMENT ####################################
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

@@ -11,9 +11,9 @@ q17_prod_reg(i2,k) ..
 vm_prod_reg(i2,k) =e= sum(cell(i2,j2), vm_prod(j2,k));
 
 *############################### DEVELOPMENT ###################################
-q17_prod_distr(j2) ..
+*q17_prod_distr(j2) ..
 *     sum(kpm, vm_prod(j2,kpm)) =e=  sum((cell(i2,j2),kpm),vm_prod_reg(i2,kpm)) * sum(ct, p70_lsus_dist_weight(ct,j2));
-       vm_prod(j2,"pasture") =g=  sum((cell(i2,j2),ct), p70_total_past_demand(ct,i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
+*       vm_prod(j2,"pasture") =g=  sum((cell(i2,j2),ct), p70_total_past_demand(ct,i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
 *############################### DEVELOPMENT ###################################
 
 *' The equation above describes regional production of a MAgPIE plant commodity
