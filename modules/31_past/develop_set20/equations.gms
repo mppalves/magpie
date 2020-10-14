@@ -17,8 +17,6 @@
 q31_prod(j2) ..
   vm_prod(j2,"pasture") =e= sum(kpm, vm_prod(j2,kpm));
 
-*sum(kpm, vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed"));
-
 q31_prod_pm(j2, kpm) ..
  vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
 
@@ -29,21 +27,6 @@ q31_grazing_prod(j2)..
      vm_grazing_prod(j2) =e= vm_past_area(j2,"cont_grazing","rainfed") * vm_yld(j2,"cont_grazing","rainfed");
 q31_mowing_prod(j2)..
      vm_mowing_prod(j2) =e= vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed");
-
-
-
-$ontext
-q31_prod_kpm(j2, kpm) ..
-  vm_prod(j2,kpm) =e= vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed");
-
-q31_prod_pasture(j2)..
-  vm_prod(j2,"pasture") =e= sum(kpm, vm_prod(j2,kpm));
-
-q30_suitability(j2)  ..
-    vm_land(j2,"crop") + vm_past_area(j2,"mowing","rainfed") =l= f30_land_si(j2,"si0");
- check if that constraint makes sense
-$offtext
-
 *################################ DEVELOPMENT ##################################
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
