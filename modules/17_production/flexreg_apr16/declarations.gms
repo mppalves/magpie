@@ -14,11 +14,13 @@ equations
  q17_prod_reg(i,k)               Regional production (mio. tDM per yr)
 ;
 
+$ontext
 *############################### DEVELOPMENT ####################################
 equation
 q17_prod_distr(j)
 ;
 *############################### DEVELOPMENT ####################################
+$offtext
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters

@@ -22,7 +22,7 @@ loop(t_all,
 
 *################################# DEVELOPMENT #################################
 p70_lsus_dist(t,j) = f70_livestock_GLW3(t,j);
-p70_livestock_conversion(t,i) = sum(i_to_iso(i,iso), f70_livestock_conversion(t,iso, "Large"))/sum(i_to_iso(i,iso),1);
+*p70_livestock_conversion(t,i) = sum(i_to_iso(i,iso), f70_livestock_conversion(t,iso, "Large"))/sum(i_to_iso(i,iso),1);
 p70_lsus_dist_reg(t,i) =  sum(cell(i,j),p70_lsus_dist(t,j));
 p70_lsus_dist_weight(t,j)$(p70_lsus_dist(t,j) > 0) = p70_lsus_dist(t,j) / sum(cell(i,j),p70_lsus_dist_reg(t,i));
 

@@ -40,15 +40,13 @@ else
  );
 
 *############################## DEVELOPMENT ####################################
-
+$ontext
  if (sum(sameas(t_past,t),1) <> 1,
  	 p70_lsus_dist(t,j) = p70_lsus_dist(t-1,j);
 	 p70_lsus_dist_reg(t,i) =  sum(cell(i,j),p70_lsus_dist(t,j));
 	 p70_lsus_dist_weight(t,j)$(p70_lsus_dist(t,j) > 0) = p70_lsus_dist(t,j) / sum(cell(i,j),p70_lsus_dist_reg(t,i));
 	);
-
-
-
+$offtext
 
 	p70_total_ap_food_demand(t,i,kfo_ap) =  (im_pop(t,i) *  p15_kcal_pc_calibrated(t,i,kfo_ap) * 365) /
 																				 (f15_nutrition_attributes(t,kfo_ap,"kcal") * 10**6) -

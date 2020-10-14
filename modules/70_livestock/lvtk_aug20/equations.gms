@@ -43,28 +43,23 @@ q70_cost_prod_fish(i2) ..
 q70_yld_lsu(j2,w) ..
   vm_yld(j2,"cont_grazing","rainfed") =e= sum(ct, vm_lsu_ha(ct,j2)) * ((4000 * 2.25/1e6) * 365);
 
-*q70_lsus_past(j2)..
-*  v70_lsus(j2, kpm) =e= sum(ct, vm_lsu_ha(ct,j2)) * vm_past_area(j2,"pasture","rainfed");
-
 q70_lsus(j2,kpm)..
   v70_lsus(j2, kpm) =e=  vm_past_area(j2,kpm,"rainfed") * vm_yld(j2,kpm,"rainfed") / ((4000 * 2.25/1e6) * 365);
-
-*q70_lsus_reg(i2)..
-*  v70_lsus_reg(i2) =g= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
-
-*q70_lsus_distr(j2)..
-*  sum(kpm, v70_lsus(j2,kpm)) =g=  sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
-
-
-* q70_lsus_distr(j2)..
-*   lsu_disagg(j2) =g= s70_dist_fact * sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
-
-*q70_lsu_constraint(i2)..
-*  v70_lsus_reg(i2) =l= sum((cell(i2,j2), kpm), v70_lsus(j2, kpm));
-
 $ontext
+q70_lsus_past(j2)..
+  v70_lsus(j2, kpm) =e= sum(ct, vm_lsu_ha(ct,j2)) * vm_past_area(j2,"pasture","rainfed");
 
- next implementation
+q70_lsus_reg(i2)..
+  v70_lsus_reg(i2) =g= vm_supply(i2,"pasture") / ((4000 * 2.25/1e6) * 365);
+
+q70_lsus_distr(j2)..
+  sum(kpm, v70_lsus(j2,kpm)) =g=  sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
+
+q70_lsus_distr(j2)..
+   lsu_disagg(j2) =g= s70_dist_fact * sum(cell(i2,j2),v70_lsus_reg(i2)) * sum(ct, p70_lsus_dist_weight(ct,j2));
+
+q70_lsu_constraint(i2)..
+  v70_lsus_reg(i2) =l= sum((cell(i2,j2), kpm), v70_lsus(j2, kpm));
 
  q70_dem_past(j2)..
     v70_dem_past(j2) =e= sum((cell(i2,j2),kli), vm_dem_feed(i2,kli,"pasture"));
