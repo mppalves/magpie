@@ -20,16 +20,16 @@ test <- c(1)
 
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("mow21.5_calib_",test[i])
+  cfg$title <- paste0("mow23.0_calib_",test[i])
   cfg$gms$s70_dist_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
-  #cfg$gms$disagg_lvst <- "off"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
   cfg$gms$past <- "develop_set20"             # def = endo_jun13
-  cfg$gms$s31_fac_req_past  <- 0
   cfg$gms$c_timesteps <- "coup2100"           # "coup2100"
+# cfg$gms$disagg_lvst <- "off"           # def = fbask_jan16, lvtk_aug20
+#  cfg$gms$s31_fac_req_past  <- 0
 #  cfg$gms$trade <- "free_apr16"             # def = selfsuff_reduced
-  cfg$recalibrate <- "TRUE"
+#  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=F)
 }
