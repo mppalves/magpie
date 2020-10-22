@@ -20,8 +20,6 @@ vm_mowing_prod(j)
 
 equations
 q31_pasture_areas(j) development
-*q31_prod_kpm(j, kpm) development
-*q31_prod_pasture(j) development
 q31_grazing_prod(j) development
 q31_mowing_prod(j) development
 q31_prod_pm(j, kpm) development

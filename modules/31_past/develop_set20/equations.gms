@@ -27,6 +27,10 @@ q31_grazing_prod(j2)..
      vm_grazing_prod(j2) =e= vm_past_area(j2,"cont_grazing","rainfed") * vm_yld(j2,"cont_grazing","rainfed");
 q31_mowing_prod(j2)..
      vm_mowing_prod(j2) =e= vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed");
+
+q31_cost_prod_past(i2) ..
+    vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed")) * 1;
+
 *################################ DEVELOPMENT ##################################
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
@@ -40,14 +44,11 @@ q31_carbon(j2,ag_pools) ..
 *' small costs are attributed to the production of pasture biomass in order to
 *' avoid overproduction of pasture in the model:
 
-*q31_cost_prod_past(i2) ..
-* vm_cost_prod(i2,"pasture") =e= vm_prod_reg(i2,"pasture")
-* 								* s31_fac_req_past;
-
+$ontext
 q31_cost_prod_past(i2) ..
- vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed")) * 1;
-
-
+ vm_cost_prod(i2,"pasture") =e= vm_prod_reg(i2,"pasture")
+ 								* s31_fac_req_past;
+$offtext
 
 *' For all following time steps, factor requriements `s31_fac_req_past` are set
 *' to zero.
