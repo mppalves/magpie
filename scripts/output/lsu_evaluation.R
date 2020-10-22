@@ -22,12 +22,20 @@ options("magclass.verbosity" = 1)
 #  outputdir <- "."
 #}
 
-load(paste0(outputdir, "/config.Rdata"))
-file <- paste0(outputdir, "/fulldata.gdx")
+#load(paste0(outputdir, "/config.Rdata"))
+#file <- paste0(outputdir, "/fulldata.gdx")
+#folder <-
+#  file.path(outputdir, paste0(cfg$title, "_livestock_evaluation"))
+#folder <- gsub("//", "/", folder)
+#dir <- outputdir
+
+load(paste0("/config.Rdata"))
+file <- paste0("/fulldata.gdx")
 folder <-
-  file.path(outputdir, paste0(cfg$title, "_livestock_evaluation"))
-folder <- gsub("//", "/", folder)
-dir <- outputdir
+  file.path(paste0(cfg$title, "_livestock_evaluation"))
+
+
+
 variables <-
   c(
     "ov70_total_lsus",
@@ -83,7 +91,7 @@ plotvariables <- function(variables,
                           dir,
                           folder,
                           quant = 0.95) {
-  setwd(dir)
+#  setwd(dir)
   dir.create(folder)
   setwd(folder)
   for (variable in variables) {
