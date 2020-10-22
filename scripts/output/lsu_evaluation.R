@@ -29,8 +29,8 @@ options("magclass.verbosity" = 1)
 #folder <- gsub("//", "/", folder)
 #dir <- outputdir
 
-load(paste0("/config.Rdata"))
-file <- paste0("/fulldata.gdx")
+load(paste0("config.Rdata"))
+file <- paste0("fulldata.gdx")
 folder <-
   file.path(paste0(cfg$title, "_livestock_evaluation"))
 
