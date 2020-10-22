@@ -18,9 +18,9 @@ library(luscale)
 options("magclass.verbosity" = 1)
 
 ############################# BASIC CONFIGURATION #############################
-if (!exists("source_include")) {
-  outputdir <- "."
-}
+#if (!exists("source_include")) {
+#  outputdir <- "."
+#}
 
 load(paste0(outputdir, "/config.Rdata"))
 file <- paste0(outputdir, "/fulldata.gdx")
