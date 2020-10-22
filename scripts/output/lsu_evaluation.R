@@ -68,6 +68,7 @@ var_names <-
     "pasture.level",
     "past.level",
     "mowing.level",
+    "cont_grazing.level",
     "pasture.rainfed.level",
     "livst_rum.level",
     "livst_milk.level",
@@ -75,7 +76,7 @@ var_names <-
     "Value"
   )
 
-
+cont_grazing
 
 plotvariables <- function(variables,
                           file,
