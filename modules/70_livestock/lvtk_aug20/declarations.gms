@@ -28,8 +28,6 @@ parameters
 *###################################### DEVELOPMENT #############################
 parameters
 p70_lsus_dist(t,j)                               development
-*p70_livestock_conversion(t,i)                    development
-*p70_livestock_reg(i)                                 development
 p70_lsus_dist_reg(t,i)                           development
 p70_lsus_dist_weight(t,j)                        development
 p70_total_ap_food_demand(t,i,kfo_ap)                       development
@@ -38,35 +36,18 @@ p70_total_past_demand(t,i)                      development
 im_feed_baskets2(t_all,i,kfo_ap,kall)                Feed baskets in tDM per tDM livestock product (1)
 ;
 
-
 equations
-*q70_lsus_past(j)               development
 q70_lsus(j,kpm)             development
-*q70_lsus_reg(i)               development
-*q70_lsu_range_max(j)             development
-*q70_lsu_range_min(j)             development
-*q70_lsus_production(j)       development
-*q70_dem_past(j)                  development
-*q70_lsu_constraint(i) development
-*q70_lsus_distr(j)              development
 q70_yld_lsu(j,w) development
 ;
 
 variables
 v70_lsus(j, kpm)               development
-*v70_dem_past(j)                  development
-*v70_lsus_reg(i)            development
 ;
 
 positive variable
 vm_lsu_ha(t,j)  development
 ;
-
-*variable
-*lsu_disagg(j) teste
-*;
-
-
 *###################################### DEVELOPMENT #############################
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

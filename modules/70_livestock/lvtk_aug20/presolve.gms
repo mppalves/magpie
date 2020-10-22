@@ -40,13 +40,6 @@ else
  );
 
 *############################## DEVELOPMENT ####################################
-$ontext
- if (sum(sameas(t_past,t),1) <> 1,
- 	 p70_lsus_dist(t,j) = p70_lsus_dist(t-1,j);
-	 p70_lsus_dist_reg(t,i) =  sum(cell(i,j),p70_lsus_dist(t,j));
-	 p70_lsus_dist_weight(t,j)$(p70_lsus_dist(t,j) > 0) = p70_lsus_dist(t,j) / sum(cell(i,j),p70_lsus_dist_reg(t,i));
-	);
-$offtext
 
 p70_total_ap_food_demand(t,i,kfo_ap) =  (im_pop(t,i) *  p15_kcal_pc_calibrated(t,i,kfo_ap) * 365) /
 																				 (f15_nutrition_attributes(t,kfo_ap,"kcal") * 10**6) -
@@ -65,19 +58,13 @@ if (sum(sameas(t_past,t),1) = 1,
 im_past_yields(t,j,"mowing","rainfed") = (im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t,j))$(sum(sameas(t_past,t),1) = 1) +
 sum(t_past,(im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t_past,j))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
 
-$ontext
- if (sum(sameas(t_past,t),1) <> 1,
- im_past_yields(t,j,"mowing","rainfed") = im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr("y2010",j);
- );
-$offtext
-
 vm_lsu_ha.up(ct,j2) = 2.5;
 
-display im_past_yields;
 display pm_land_start;
 display p70_lsus_dist_weight;
 display p70_total_past_demand;
 display p70_mow_yld_corr;
+display im_past_yields;
 
 *############################## DEVELOPMENT ####################################
 *' @stop
