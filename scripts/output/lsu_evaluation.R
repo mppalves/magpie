@@ -76,7 +76,6 @@ var_names <-
     "Value"
   )
 
-cont_grazing
 
 plotvariables <- function(variables,
                           file,
