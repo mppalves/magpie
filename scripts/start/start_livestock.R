@@ -22,7 +22,6 @@ test <- c(1, 2, 3, 5, 10, 50, 100, 1000)
 for(i in 1:length(test)){
 
   cfg$title <- paste0("2_pmgmt_sticky_pcost.",test[i])
-  cfg$gms$s70_dist_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
@@ -36,7 +35,6 @@ for(i in 1:length(test)){
   start_run(cfg=cfg,codeCheck=F)
 
   cfg$title <- paste0("2_pmgmt_mixed_pcost.",test[i])
-  cfg$gms$s70_dist_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
