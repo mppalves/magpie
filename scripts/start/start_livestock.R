@@ -20,7 +20,7 @@ test <- c(1)
 
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("2_pmgmt_sticky")
+  cfg$title <- paste0("2_pmgmt_sticky_expn")
   cfg$gms$s70_dist_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
@@ -34,7 +34,7 @@ for(i in 1:length(test)){
 #  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=F)
 
-  cfg$title <- paste0("2_pmgmt_mixed")
+  cfg$title <- paste0("2_pmgmt_mixed_expn")
   cfg$gms$s70_dist_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
