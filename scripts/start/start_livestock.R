@@ -16,11 +16,12 @@ source("config/default.cfg")
 
 
 #test <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
-test <- c(1)
+test <- c(1, 2, 3, 5, 10, 50, 100, 1000)
 
 
 for(i in 1:length(test)){
-  cfg$title <- paste0("2_pmgmt_sticky_expn")
+
+  cfg$title <- paste0("2_pmgmt_sticky_pcost.",test[i])
   cfg$gms$s70_dist_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
@@ -29,12 +30,12 @@ for(i in 1:length(test)){
   cfg$gms$c_timesteps <- "coup2100"           # "coup2100"
   cfg$gms$factor_costs <- "sticky_feb18"
 # cfg$gms$disagg_lvst <- "off"           # def = fbask_jan16, lvtk_aug20
-#  cfg$gms$s31_fac_req_past  <- 0
+  cfg$gms$s31_fac_req_past  <- as.character(test[i])
 #  cfg$gms$trade <- "free_apr16"             # def = selfsuff_reduced
 #  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=F)
 
-  cfg$title <- paste0("2_pmgmt_mixed_expn")
+  cfg$title <- paste0("2_pmgmt_mixed_pcost.",test[i])
   cfg$gms$s70_dist_fact <- as.character(test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
@@ -43,7 +44,7 @@ for(i in 1:length(test)){
   cfg$gms$c_timesteps <- "coup2100"           # "coup2100"
   cfg$gms$factor_costs <- "mixed_feb17"
 # cfg$gms$disagg_lvst <- "off"           # def = fbask_jan16, lvtk_aug20
-#  cfg$gms$s31_fac_req_past  <- 0
+  cfg$gms$s31_fac_req_past  <- as.character(test[i])
 #  cfg$gms$trade <- "free_apr16"             # def = selfsuff_reduced
 #  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=F)
