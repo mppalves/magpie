@@ -46,8 +46,7 @@ variables <-
     "livst_rum",
     "ov_grazing_prod",
     "ov_mowing_prod",
-    "total_lsu1",
-    "total_lsu2"
+    "total_lsu_ha"
   )
 
 #gdx <-
@@ -88,17 +87,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("total_lsu1")) {
-        try({
-          area <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,"past"]
-          area <- gdxAggregate(gdx, area, to = "reg", absolute = T)
-          lsus <- gdx::readGDX(gdx, "ov_prod_reg")[,,"level"][,,"pasture"]/((4000 * 2.25/1e6) * 365)
-          x <- lsus/area
-#          x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
-          title <- paste0("LSU/ha", " | ", variable)
-        })
-      }
-      if (variable %in% c("total_lsu2")) {
+      if (variable %in% c("total_lsu_ha")) {
         try({
           area <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,"past"]
           lsus <- gdx::readGDX(gdx, "ov_prod")[,,"level"][,,"pasture"]/((4000 * 2.25/1e6) * 365)
@@ -225,6 +214,16 @@ for (i in 1:length(outputdirs)) {
           x <- gdxAggregate(gdx, x, to = "reg", absolute = T)
           # x <- collapseNames(x)
           title <- paste0("Production", " | ", variable)
+        })
+      }
+
+      if (variable %in% c("total_lsu_ha")) {
+        try({
+          area <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,"past"]
+          lsus <- gdx::readGDX(gdx, "ov_prod")[,,"level"][,,"pasture"]/((4000 * 2.25/1e6) * 365)
+          x <- lsus/area
+          x <- gdxAggregate(gdx, x, to = "reg", absolute = F, weight=area)
+          title <- paste0("LSU/ha", " | ", variable)
         })
       }
 
