@@ -19,4 +19,4 @@ q14_yield_crop(j2,kcr,w) ..
 q14_yield_past(j2,w) ..
  vm_yld(j2,"pasture",w) =e=
  sum(ct,(i14_yields(ct,j2,"pasture",w);
-* *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));
+ *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));

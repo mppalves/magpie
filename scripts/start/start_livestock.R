@@ -16,11 +16,16 @@ source("config/default.cfg")
 
 
 #test <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
-test <- c(1, 2, 3, 5, 10, 50, 100, 1000)
+test <- c(1)
 
 
 for(i in 1:length(test)){
 
+  cfg$input <- c("isimip_rcp-HadGEM2_ES-rcp8p5-co2_rev48_c200_690d3718e151be1b450b394c1064b1c5.tgz",
+           "rev4.52_h12_magpie.tgz",
+           "rev4.52_h12_validation.tgz",
+           "calibration_H12_c200_26Feb20.tgz",
+           "additional_data_rev3.86.tgz")
   cfg$title <- paste0("2_pmgmt_sticky_pcost_",test[i])
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
@@ -34,16 +39,22 @@ for(i in 1:length(test)){
 #  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=F)
 
-  cfg$title <- paste0("2_pmgmt_mixed_pcost_",test[i])
-  cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
-  cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
-  cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
-  cfg$gms$past <- "develop_set20"             # def = endo_jun13
-  cfg$gms$c_timesteps <- "coup2100"           # "coup2100"
-  cfg$gms$factor_costs <- "mixed_feb17"
+#  cfg$input <- c("isimip_rcp-HadGEM2_ES-rcp8p5-co2_rev48_c200_690d3718e151be1b450b394c1064b1c5.tgz",
+#           "rev4.52_h12_magpie.tgz",
+#           "rev4.52_h12_validation.tgz",
+#           "calibration_H12_c200_26Feb20.tgz",
+#           "additional_data_rev3.86.tgz")
+
+#  cfg$title <- paste0("2_pmgmt_mixed_pcost_",test[i])
+#  cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
+#  cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
+#  cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
+#  cfg$gms$past <- "develop_set20"             # def = endo_jun13
+#  cfg$gms$c_timesteps <- "coup2100"           # "coup2100"
+#  cfg$gms$factor_costs <- "mixed_feb17"
 # cfg$gms$disagg_lvst <- "off"           # def = fbask_jan16, lvtk_aug20
-  cfg$gms$s31_fac_req_past  <- as.character(test[i])
+#  cfg$gms$s31_fac_req_past  <- as.character(test[i])
 #  cfg$gms$trade <- "free_apr16"             # def = selfsuff_reduced
 #  cfg$recalibrate <- "TRUE"
-  start_run(cfg=cfg,codeCheck=F)
+#  start_run(cfg=cfg,codeCheck=F)
 }
