@@ -26,13 +26,14 @@ for(i in 1:length(test)){
            "rev4.52_h12_validation.tgz",
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
-  cfg$title <- paste0("2_pmgmt_sticky_pcost_",test[i])
+  cfg$force_download <- TRUE
+  cfg$title <- paste0("2_pmgmt_hdgem2_8p5")
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
   cfg$gms$past <- "develop_set20"             # def = endo_jun13
   cfg$gms$c_timesteps <- "coup2100"           # "coup2100"
-  cfg$gms$factor_costs <- "sticky_feb18"
+#  cfg$gms$factor_costs <- "sticky_feb18"
 # cfg$gms$disagg_lvst <- "off"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$s31_fac_req_past  <- as.character(test[i])
 #  cfg$gms$trade <- "free_apr16"             # def = selfsuff_reduced
