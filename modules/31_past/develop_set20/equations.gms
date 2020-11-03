@@ -29,7 +29,7 @@ q31_mowing_prod(j2)..
      vm_mowing_prod(j2) =e= vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed");
 
 q31_cost_prod_past(i2) ..
-    vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed")) * s31_fac_req_past;
+    vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed") + sum(ct, vm_lsu_ha(ct,j2))) * s31_fac_req_past;
 
 *################################ DEVELOPMENT ##################################
 

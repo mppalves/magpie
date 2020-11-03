@@ -26,8 +26,8 @@ for(i in 1:length(test)){
            "rev4.52_h12_validation.tgz",
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
-  cfg$force_download <- TRUE
-  cfg$title <- paste0("2_pmgmt_hdgem2_8p5_cc")
+  cfg$force_download <- FALSE
+  cfg$title <- paste0("2pmgmt_hdgem2_8p5_cc_1")
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
