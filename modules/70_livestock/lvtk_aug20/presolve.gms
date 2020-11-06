@@ -56,7 +56,7 @@ if (sum(sameas(t_past,t),1) = 1,
 	p70_mow_yld_corr(t,j)$(p70_mow_yld_corr(t,j) < 1)  = 1;
  	);
 
-im_past_yields(t,j,"mowing","rainfed")$(p70_mow_yld_corr(t,j) > 1) = (im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t,j))$(sum(sameas(t_past,t),1) = 1) +
+im_past_yields(t,j,"mowing","rainfed") = (im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t,j))$(sum(sameas(t_past,t),1) = 1) +
 sum(t_past,(im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t_past,j))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
 
 vm_lsu_ha.up(ct,j2) = 2.5;
