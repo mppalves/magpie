@@ -27,8 +27,8 @@ for(i in 1:length(test)){
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
   cfg$force_download <- FALSE
-  cfg$title <- paste0("2pmgmt_hdgem2_8p5_cc_3")
-  cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
+  #cfg$title <- paste0("2pmgmt_hdgem2_8p5_cc_3")
+  #cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
   cfg$gms$past <- "develop_set20"             # def = endo_jun13
@@ -41,22 +41,13 @@ for(i in 1:length(test)){
 #  cfg$recalibrate <- "TRUE"
   start_run(cfg=cfg,codeCheck=F)
 
-#  cfg$input <- c("isimip_rcp-HadGEM2_ES-rcp8p5-co2_rev48_c200_690d3718e151be1b450b394c1064b1c5.tgz",
-#           "rev4.52_h12_magpie.tgz",
-#           "rev4.52_h12_validation.tgz",
-#           "calibration_H12_c200_26Feb20.tgz",
-#           "additional_data_rev3.86.tgz")
+  cfg$results_folder <- "output/:title:"
+  cfg$recalibrate <- TRUE
+  cfg$title <- "calib_run"
+  cfg$gms$c_timesteps <- 1
+  cfg$output <- c("report")
+  cfg$sequential <- TRUE
+  start_run(cfg,codeCheck=FALSE)
+  magpie4::submitCalibration("H12")
 
-#  cfg$title <- paste0("2_pmgmt_mixed_pcost_",test[i])
-#  cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
-#  cfg$gms$livestock <- "lvtk_aug20"           # def = fbask_jan16, lvtk_aug20
-#  cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
-#  cfg$gms$past <- "develop_set20"             # def = endo_jun13
-#  cfg$gms$c_timesteps <- "coup2100"           # "coup2100"
-#  cfg$gms$factor_costs <- "mixed_feb17"
-# cfg$gms$disagg_lvst <- "off"           # def = fbask_jan16, lvtk_aug20
-#  cfg$gms$s31_fac_req_past  <- as.character(test[i])
-#  cfg$gms$trade <- "free_apr16"             # def = selfsuff_reduced
-#  cfg$recalibrate <- "TRUE"
-#  start_run(cfg=cfg,codeCheck=F)
 }
