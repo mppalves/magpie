@@ -39,7 +39,7 @@ for(i in 1:length(test)){
   cfg$gms$s31_fac_req_past  <- as.character(test[i])
 #  cfg$gms$trade <- "free_apr16"             # def = selfsuff_reduced
 #  cfg$recalibrate <- "TRUE"
-  start_run(cfg=cfg,codeCheck=F)
+#  start_run(cfg=cfg,codeCheck=F)
 
   cfg$results_folder <- "output/:title:"
   cfg$recalibrate <- TRUE
