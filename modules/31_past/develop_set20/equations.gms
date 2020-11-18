@@ -31,6 +31,8 @@ q31_mowing_prod(j2)..
 q31_cost_prod_past(i2) ..
     vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed") + sum(ct, vm_lsu_ha(ct,j2))) * s31_fac_req_past;
 
+q31_mowing_limit(j2)..
+    vm_past_area(j2,"mowing","rainfed") =l= f31_Intensifying_past_areas("y2010",j2);
 *################################ DEVELOPMENT ##################################
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:

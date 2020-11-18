@@ -9,3 +9,13 @@
 scalars
   s31_fac_req_past  Factor requirements (USD05MER per tDM)          / 1 /
 ;
+
+#################################DEVELOPMENT####################################
+parameter f31_Intensifying_past_areas(t,j) Intensifying pasture areas
+/
+$ondelim
+$include "./modules/31_past/develop_set20/input/f31_Intensifying_past_areas.csv"
+$offdelim
+/
+;
+#################################DEVELOPMENT####################################
