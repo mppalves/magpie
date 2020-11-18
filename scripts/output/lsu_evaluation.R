@@ -31,53 +31,53 @@ dir <- outputdir
 
 
 variables <-
-  c(
-    "ov70_total_lsus",
-    "ov_lsu_ha",
-    "oq70_livestock",
-    "ov_land",
-    "ov_prod",
-    "ov_mowing_yld",
-    "ov14_past_yld",
-    "ov71_cluster_lsu_past_productivity",
-    "ov71_past_prod_cluster",
-    "ov71_past_prod_reg,Parameter",
-    "ov71_regional_lsu_past_productivity",
-    "ov71_total_lsu_cluster",
-    "ov71_total_lsu_reg",
-    "ov_mowing_yld",
-    "ov31_past_fraction",
-    "ov_carbon_stock",
-    "ov71_total_prod_rum_cluster",
-    "ov71_total_prod_rum_reg",
-    "pm_past_mngmnt_factor",
-    "ov_past_area",
-    "vm_dem_feed",
-    "ov_yld",
-    "ov70_lsus",
-    "ov70_dem_past",
-    "ov14_relax",
-    "p70_lsus_dist_weight",
-    "lsu_disagg",
-    "ov_past_area"
-  )
+   c(
+      #"ov70_total_lsus",
+      "ov_lsu_ha",
+      #"oq70_livestock",
+      "ov_land",
+      "ov_prod",
+      #"ov_mowing_yld",
+      #"ov14_past_yld",
+      #"ov71_cluster_lsu_past_productivity",
+      #"ov71_past_prod_cluster",
+      #"ov71_past_prod_reg,Parameter",
+      #"ov71_regional_lsu_past_productivity",
+      #"ov71_total_lsu_cluster",
+      #"ov71_total_lsu_reg",
+      #"ov_mowing_yld",
+      #"ov31_past_fraction",
+      "ov_carbon_stock",
+      #"ov71_total_prod_rum_cluster",
+      #"ov71_total_prod_rum_reg",
+      #"pm_past_mngmnt_factor",
+      "ov_past_area",
+      "vm_dem_feed",
+      "ov_yld",
+      "ov70_lsus",
+      #"ov70_dem_past",
+      #"ov14_relax",
+      "p70_lsus_dist_weight"
+      #"lsu_disagg"
+   )
 
 var_names <-
-  c(
-    "pasture",
-    "level",
-    "past_mowing.level",
-    "pasture.level",
-    "past.level",
-    "mowing.level",
-    "cont_grazing.level",
-    "pasture.rainfed.level",
-    "livst_rum.level",
-    "livst_milk.level",
-    "past.soilc.level",
-    "Value"
-  )
-
+   c(
+      "pasture",
+      "level",
+      "past_mowing.level",
+      "pasture.level",
+      "past.level",
+      "mowing.level",
+      "cont_grazing.level",
+      "pasture.rainfed.level",
+      "livst_rum.level",
+      "livst_milk.level",
+      "past.soilc.level",
+      "mowing.rainfed.level",
+      "cont_grazing.rainfed.level",
+      "Value"
+   )
 
 plotvariables <- function(variables,
                           file,
@@ -88,11 +88,14 @@ plotvariables <- function(variables,
   setwd(dir)
   dir.create(folder)
   setwd(folder)
+  notused = NULL
   for (variable in variables) {
     setwd("..")
     try(x <- gdx::readGDX(file, variable))
     y <- NULL
-
+    if(is.null(x)){
+           notused <- append(notused, variable)
+        }
     if(is.null(unlist(dimnames(x)[3]))){
       try(dimnames(x)[3] <- "Value")
     }
@@ -127,7 +130,7 @@ plotvariables <- function(variables,
           luplot::plotmap2(
             y[, j, names[i]],
             file = paste0(variable, "_", names[i], "_", j, ".png"),
-            legend_range = c(0, quantile(y[, j, names[i]], quant)),
+            legend_range = c(0, quantile(y[, , names[i]], quant)),
             # legend_range = c(0, max(y)),
             lowcol = "grey95",
             midcol = "white",
@@ -138,6 +141,8 @@ plotvariables <- function(variables,
       })
     }
   }
+writeLines(notused, con = "notused.txt")
+return(notused)
 }
 
 plotvariables(variables, file, var_names, dir, folder, quant = 0.95)
