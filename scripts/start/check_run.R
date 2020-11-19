@@ -118,7 +118,7 @@ for (variable in variables) {
       if (variable %in% c("ov_lsu_ha")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-          try(y <- gdx::readGDX(gdx, "ov_past_area", select = list(type = "level", w="rainfed", kpm="cont_grazing")))
+          try(y <- gdx::readGDX(gdx, "ov_past_area")[,,"level"][,,"rainfed"][,,"cont_grazing"])
           z <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,"past"]
           
           if (is.magpie(x) && !all(x==0) && !is.null(y)) {
@@ -128,6 +128,7 @@ for (variable in variables) {
           if (is.magpie(x) && !all(x==0) && is.null(y)) {
             x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = z)
           }
+          dimnames(x)[[3]] <- "weighted.lsu_ha"
         })
       }
 
@@ -260,12 +261,10 @@ for (i in 1:length(outputdirs)) {
           }
         })
       }
-      
-      
       if (variable %in% c("ov_lsu_ha")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
-          try(y <- gdx::readGDX(gdx, "ov_past_area", select = list(type = "level", w="rainfed", kpm="cont_grazing")))
+          try(y <- gdx::readGDX(gdx, "ov_past_area")[,,"level"][,,"rainfed"][,,"cont_grazing"])
           z <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,"past"]
           
           if (is.magpie(x) && !all(x==0) && !is.null(y)) {
@@ -275,9 +274,9 @@ for (i in 1:length(outputdirs)) {
           if (is.magpie(x) && !all(x==0) && is.null(y)) {
             x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = z)
           }
+          dimnames(x)[[3]] <- "weighted.lsu_ha"
         })
       }
-
       if (variable %in% c("ov70_lsus", "ov14_lsus", "ov70_dem_past")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
