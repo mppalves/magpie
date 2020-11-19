@@ -97,7 +97,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("ov_lsu_ha", "ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod")) {
+      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if (is.magpie(x) && !all(x==0)) {
@@ -110,6 +110,23 @@ for (variable in variables) {
             x <- do.call(mbind, temp)
             x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
             getCells(x) <- regions
+          }
+        })
+      }
+      
+      
+      if (variable %in% c("ov_lsu_ha")) {
+        try({
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
+          try(y <- gdx::readGDX(gdx, "ov_past_area", select = list(type = "level", w="rainfed", kpm="cont_grazing")))
+          z <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,"past"]
+          
+          if (is.magpie(x) && !all(x==0) && !is.null(y)) {
+            x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = y)
+          }
+          
+          if (is.magpie(x) && !all(x==0) && is.null(y)) {
+            x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = z)
           }
         })
       }
@@ -227,7 +244,7 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
-      if (variable %in% c("ov_lsu_ha", "ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod")) {
+      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if (is.magpie(x)) {
@@ -240,6 +257,23 @@ for (i in 1:length(outputdirs)) {
             x <- do.call(mbind, temp)
             x <- as.magpie(aperm(x, c(3, 2, 1)), spatial = 1)
             getCells(x) <- regions
+          }
+        })
+      }
+      
+      
+      if (variable %in% c("ov_lsu_ha")) {
+        try({
+          x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
+          try(y <- gdx::readGDX(gdx, "ov_past_area", select = list(type = "level", w="rainfed", kpm="cont_grazing")))
+          z <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,"past"]
+          
+          if (is.magpie(x) && !all(x==0) && !is.null(y)) {
+            x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = y)
+          }
+          
+          if (is.magpie(x) && !all(x==0) && is.null(y)) {
+            x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = z)
           }
         })
       }
