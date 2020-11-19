@@ -49,14 +49,17 @@ variables <-
     "total_lsu_ha"
   )
 
-#gdx <-
-#  "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata.gdx"
-#variable <- "ov_yld"
-#outputdirs <-
-#  list.dirs("C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
+# gdx <-
+#  # "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata.gdx"
+# "/p/projects/landuse/users/pedrosa/magpie/output/2pmgmt_hdgem2_8p5_lm_1_2020-11-19_10.26.33/fulldata.gdx"
+# variables <- "ov_lsu_ha"
+# outputdirs <-
+#  list.dirs(
+#    # "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
+#    "/p/projects/landuse/users/pedrosa/magpie/output",
 #    recursive = FALSE
 #  )
-
+# outputdirs <- outputdirs[grep("2pmgmt_hdgem2_8p5_lm_1_2020-11-19_10.26.33", outputdirs)]
 
 for (variable in variables) {
   magpie <- NULL
@@ -128,7 +131,8 @@ for (variable in variables) {
           if (is.magpie(x) && !all(x==0) && is.null(y)) {
             x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = z)
           }
-          dimnames(x)[[3]] <- "weighted.lsu_ha"
+          dimnames(x)[[3]] <- "lsu_ha"
+          title <- paste0("Weighted average", " | ", variable)
         })
       }
 
@@ -274,7 +278,8 @@ for (i in 1:length(outputdirs)) {
           if (is.magpie(x) && !all(x==0) && is.null(y)) {
             x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = z)
           }
-          dimnames(x)[[3]] <- "weighted.lsu_ha"
+          dimnames(x)[[3]] <- "lsu_ha"
+          title <- paste0("Weighted average", " | ", variable)
         })
       }
       if (variable %in% c("ov70_lsus", "ov14_lsus", "ov70_dem_past")) {
