@@ -50,7 +50,7 @@ p70_total_past_demand(t,i) = sum(kfo_ap, p70_total_ap_food_demand(t,i,kfo_ap) *
 
 if (sum(sameas(t_past,t),1) = 1,
 	p70_mow_yld_corr(t,i) = 1;
-	p70_mow_yld_corr(t,i)$(sum(cell(i,i), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past")) > 0) =
+	p70_mow_yld_corr(t,i)$(sum(cell(i,j), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past")) > 0) =
 											p70_total_past_demand(t,i) / sum(cell(i,j), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past"));
 	p70_mow_yld_corr(t,i)$(p70_mow_yld_corr(t,i) < 1)  = 1;
  	);
