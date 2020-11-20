@@ -129,7 +129,7 @@ plotvariables <- function(variables,
           print(names[i])
           luplot::plotmap2(
             y[, j, names[i]],
-            file = paste0(variable, "_", names[i], "_", j, ".png"),
+            file = paste0(variable, "_", names[i], "_", sprintf("%03d", j), ".png"),
             legend_range = c(0, quantile(y[, , names[i]], quant)),
             # legend_range = c(0, max(y)),
             lowcol = "grey95",
