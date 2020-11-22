@@ -27,7 +27,7 @@ for(i in 1:length(test)){
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
   cfg$force_download <- FALSE
-  cfg$title <- paste0("experiment_4")
+  cfg$title <- paste0("experiment_5")
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
 
   cfg$gms$livestock <- "lvtk_nov20"           # def = fbask_jan16, lvtk_aug20
