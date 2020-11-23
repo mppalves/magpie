@@ -65,6 +65,6 @@ display p70_lsus_dist_weight;
 display p70_total_past_demand;
 display p70_mow_yld_corr;
 display im_past_yields;
-cont_grazing
+
 *############################## DEVELOPMENT ####################################
 *' @stop
