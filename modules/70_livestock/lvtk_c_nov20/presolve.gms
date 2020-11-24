@@ -49,21 +49,21 @@ p70_total_past_demand(t,i) = sum(kfo_ap, p70_total_ap_food_demand(t,i,kfo_ap) *
 																	im_feed_baskets2(t,i,kfo_ap,"pasture"));
 
 if (sum(sameas(t_past,t),1) = 1,
-	p70_mow_yld_corr(t,i) = 1;
-	p70_mow_yld_corr(t,i)$(sum(cell(i,j), im_past_yields(t,j,"cont_grazing","rainfed") * pm_land_start(j,"past")) > 0) =
+	p70_yld_corr(t,i) = 1;
+	p70_yld_corr(t,i)$(sum(cell(i,j), im_past_yields(t,j,"cont_grazing","rainfed") * pm_land_start(j,"past")) > 0) =
 											p70_total_past_demand(t,i) / sum(cell(i,j), im_past_yields(t,j,"cont_grazing","rainfed") * pm_land_start(j,"past"));
-	p70_mow_yld_corr(t,i)$(p70_mow_yld_corr(t,i) < 1)  = 1;
+	p70_yld_corr(t,i)$(p70_yld_corr(t,i) < 1)  = 1;
  	);
 
-im_past_yields(t,j,"cont_grazing","rainfed") = (im_past_yields(t,j,"cont_grazing","rainfed") * sum(cell(i,j), p70_mow_yld_corr(t,i)))$(sum(sameas(t_past,t),1) = 1) +
-sum(t_past,(im_past_yields(t,j,"cont_grazing","rainfed") * sum(cell(i,j),p70_mow_yld_corr(t_past,i)))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
+im_past_yields(t,j,"cont_grazing","rainfed") = (im_past_yields(t,j,"cont_grazing","rainfed") * sum(cell(i,j), p70_yld_corr(t,i)))$(sum(sameas(t_past,t),1) = 1) +
+sum(t_past,(im_past_yields(t,j,"cont_grazing","rainfed") * sum(cell(i,j),p70_yld_corr(t_past,i)))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
 
 vm_lsu_ha.up(ct,j2) = 2.5;
 
 display pm_land_start;
 display p70_lsus_dist_weight;
 display p70_total_past_demand;
-display p70_mow_yld_corr;
+display p70_yld_corr;
 display im_past_yields;
 
 *############################## DEVELOPMENT ####################################

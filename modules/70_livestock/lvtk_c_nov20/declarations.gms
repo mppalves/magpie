@@ -31,7 +31,7 @@ p70_lsus_dist(t,j)                               development
 p70_lsus_dist_reg(t,i)                           development
 p70_lsus_dist_weight(t,j)                        development
 p70_total_ap_food_demand(t,i,kfo_ap)                       development
-p70_mow_yld_corr(t_all,i)                           development
+p70_yld_corr(t_all,i)                           development
 p70_total_past_demand(t,i)                      development
 im_feed_baskets2(t_all,i,kfo_ap,kall)                Feed baskets in tDM per tDM livestock product (1)
 ;
