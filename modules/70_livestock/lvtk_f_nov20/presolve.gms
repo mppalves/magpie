@@ -48,11 +48,11 @@ p70_total_ap_food_demand(t,i,kfo_ap) =  (im_pop(t,i) *  p15_kcal_pc_calibrated(t
 p70_total_past_demand(t,i) = sum(kfo_ap, p70_total_ap_food_demand(t,i,kfo_ap) *
 																	im_feed_baskets2(t,i,kfo_ap,"pasture"));
 if(ord(t)=1,
-p70_mow_yld_corr(i) = 1;
-p70_mow_yld_corr(i)$((sum((cell(i,j),t), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past")) > 0) =
-											sum(t, p70_total_past_demand(t,i)) / sum((cell(i,j),t), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past"));
-p70_mow_yld_corr(i)$(p70_mow_yld_corr(i) < 1)  = 1;
-);
+	p70_mow_yld_corr(i) = 1;
+	p70_mow_yld_corr(i)$(sum(cell(i,j), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past")) > 0) =
+											p70_total_past_demand(t,i) / sum(cell(i,j), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past"));
+	p70_mow_yld_corr(i)$(p70_mow_yld_corr(i) < 1)  = 1;
+	);
 im_past_yields(t,j,"mowing","rainfed") = im_past_yields(t,j,"mowing","rainfed") * sum(cell(i,j), p70_mow_yld_corr(i));
 
 vm_lsu_ha.up(ct,j2) = 2.5;
