@@ -27,4 +27,5 @@ $Ifi "%livestock%" == "fbask_jan16" $include "./modules/70_livestock/fbask_jan16
 $Ifi "%livestock%" == "lvtk_aug20" $include "./modules/70_livestock/lvtk_aug20/realization.gms"
 $Ifi "%livestock%" == "lvtk_nov20" $include "./modules/70_livestock/lvtk_nov20/realization.gms"
 $Ifi "%livestock%" == "lvtk_nov20" $include "./modules/70_livestock/lvtk_c_nov20/realization.gms"
+$Ifi "%livestock%" == "lvtk_nov20" $include "./modules/70_livestock/lvtk_f_nov20/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################
