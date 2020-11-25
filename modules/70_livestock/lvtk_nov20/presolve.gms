@@ -52,7 +52,7 @@ if (sum(sameas(t_past,t),1) = 1,
 	p70_mow_yld_corr(t,i) = 1;
 	p70_mow_yld_corr(t,i)$(sum(cell(i,j), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past")) > 0) =
 											p70_total_past_demand(t,i) / sum(cell(i,j), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past"));
-*	p70_mow_yld_corr(t,i)$(p70_mow_yld_corr(t,i) < 1)  = 1;
+  p70_mow_yld_corr(t,i)$(p70_mow_yld_corr(t,i) < 1)  = 1;
  	);
 *p70_mow_yld_corr(t,"EUR") = 0.7;
 im_past_yields(t,j,"mowing","rainfed") = (im_past_yields(t,j,"mowing","rainfed") * sum(cell(i,j), p70_mow_yld_corr(t,i)))$(sum(sameas(t_past,t),1) = 1) +
