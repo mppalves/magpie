@@ -53,7 +53,7 @@ if(ord(t)=1,
 											p70_total_past_demand(t,i) / sum(cell(i,j), im_past_yields(t,j,"mowing","rainfed") * pm_land_start(j,"past"));
 	p70_mow_yld_corr(i)$(p70_mow_yld_corr(i) < 1)  = 1;
 	);
-	p70_mow_yld_corr("IND") = 	p70_mow_yld_corr("IND")*0.7465569;
+
 im_past_yields(t,j,"mowing","rainfed") = im_past_yields(t,j,"mowing","rainfed") * sum(cell(i,j), p70_mow_yld_corr(i));
 
 vm_lsu_ha.up(ct,j2) = 2.5;
