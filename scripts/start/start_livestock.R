@@ -16,7 +16,7 @@ source("config/default.cfg")
 
 
 #test <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
-test <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9)
+test <- 1
 
 
 for(i in 1:length(test)){
@@ -27,9 +27,10 @@ for(i in 1:length(test)){
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
   cfg$force_download <- FALSE
-  cfg$title <- paste0("experiment_11_mod_lpjm_", gsub("\\.","_",test[i]))
+  #cfg$title <- paste0("experiment_11_mod_lpjm_", gsub("\\.","_",test[i]))
+  cfg$title <- paste0("experiment_14")
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
-  cfg$gms$s31_fac_req_past  <- test[i]
+  #cfg$gms$s31_fac_req_past  <- test[i]
   cfg$gms$livestock <- "lvtk_g_nov20"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "dynamic_aug20"           # def = dynamic_aug18,dynamic_aug20
   cfg$gms$past <- "develop_nov20"             # def = endo_jun13
