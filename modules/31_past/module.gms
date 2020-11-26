@@ -19,6 +19,7 @@
 *###################### R SECTION START (MODULETYPES) ##########################
 $Ifi "%past%" == "endo_jun13" $include "./modules/31_past/endo_jun13/realization.gms"
 $Ifi "%past%" == "static" $include "./modules/31_past/static/realization.gms"
-$Ifi "%past%" == "static" $include "./modules/31_past/develop_set20/realization.gms"
-$Ifi "%past%" == "static" $include "./modules/31_past/develop_nov20/realization.gms" 
+$Ifi "%past%" == "develop_set20" $include "./modules/31_past/develop_set20/realization.gms"
+$Ifi "%past%" == "develop_nov20" $include "./modules/31_past/develop_nov20/realization.gms"
+$Ifi "%past%" == "develop_a_nov20" $include "./modules/31_past/develop_a_nov20/realization.gms" 
 *###################### R SECTION END (MODULETYPES) ############################
