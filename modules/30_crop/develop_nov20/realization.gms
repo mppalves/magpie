@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-*' @description The endo_jun13 realization calculates the crop specific
+*' @description The develop_nov20 realization calculates the crop specific
 *' agricultural land use endogenously based on yield data coming from the
 *' module [14_yields] and the rotational as well as suitability constrains
 *' stated in the input data of the module.
@@ -19,11 +19,11 @@
 *' @limitations There are currently no known limitations of this realization.
 
 *####################### R SECTION START (PHASES) ##############################
-$Ifi "%phase%" == "sets" $include "./modules/30_crop/endo_jun13/sets.gms"
-$Ifi "%phase%" == "declarations" $include "./modules/30_crop/endo_jun13/declarations.gms"
-$Ifi "%phase%" == "input" $include "./modules/30_crop/endo_jun13/input.gms"
-$Ifi "%phase%" == "equations" $include "./modules/30_crop/endo_jun13/equations.gms"
-$Ifi "%phase%" == "preloop" $include "./modules/30_crop/endo_jun13/preloop.gms"
-$Ifi "%phase%" == "presolve" $include "./modules/30_crop/endo_jun13/presolve.gms"
-$Ifi "%phase%" == "postsolve" $include "./modules/30_crop/endo_jun13/postsolve.gms"
+$Ifi "%phase%" == "sets" $include "./modules/30_crop/develop_nov20/sets.gms"
+$Ifi "%phase%" == "declarations" $include "./modules/30_crop/develop_nov20/declarations.gms"
+$Ifi "%phase%" == "input" $include "./modules/30_crop/develop_nov20/input.gms"
+$Ifi "%phase%" == "equations" $include "./modules/30_crop/develop_nov20/equations.gms"
+$Ifi "%phase%" == "preloop" $include "./modules/30_crop/develop_nov20/preloop.gms"
+$Ifi "%phase%" == "presolve" $include "./modules/30_crop/develop_nov20/presolve.gms"
+$Ifi "%phase%" == "postsolve" $include "./modules/30_crop/develop_nov20/postsolve.gms"
 *######################## R SECTION END (PHASES) ###############################
