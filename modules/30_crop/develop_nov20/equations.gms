@@ -16,10 +16,10 @@
 *' we use a suitability index (SI) map from @ramankutty_suitability_2002 to exclude areas
 *' from cropland production that have low suitability, e.g. due to strong slopes.
 *' The cultivated area therefore has to be smaller than the "si0" cropland area:
-
+*###################################DEVELOPMENT#################################
  q30_suitability(j2)  ..
-   vm_land(j2,"crop") =l= f30_land_si(j2,"si0");
-
+   vm_land(j2,"crop") + vm_past_area(j2,"mowing","rainfed") =l= f30_land_si(j2,"si0");
+*###################################DEVELOPMENT#################################
 *' As additional constraints minimum and maximum rotational constraints limit
 *' the placing of crops. On the one hand, these rotational constraints reflect
 *' crop rotations limiting the share a specific crop can cover of the total area
