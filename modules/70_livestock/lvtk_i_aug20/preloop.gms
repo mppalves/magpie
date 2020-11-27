@@ -24,5 +24,9 @@ loop(t_all,
 p70_lsus_dist(t,j) = f70_livestock_GLW3(t,j);
 p70_lsus_dist_reg(t,i) =  sum(cell(i,j),p70_lsus_dist(t,j));
 p70_lsus_dist_weight(t,j)$(p70_lsus_dist(t,j) > 0) = p70_lsus_dist(t,j) / sum(cell(i,j),p70_lsus_dist_reg(t,i));
-
+pm_land_hist("y1995",j) = f10_land("y1995",j,"past");
+pm_land_hist("y2000",j) = f10_land("y2000",j,"past");
+pm_land_hist("y2005",j) = f10_land("y2005",j,"past");
+pm_land_hist("y2010",j) = f10_land("y2010",j,"past");
+pm_land_hist("y2015",j) = f10_land("y2015",j,"past");
 *################################# DEVELOPMENT #################################
