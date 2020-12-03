@@ -33,7 +33,7 @@ for(i in 1:length(test)){
   #cfg$gms$s31_fac_req_past  <- test[i]
   cfg$gms$livestock <- "lvtk_i_aug20"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "nn_aug20"           # def = dynamic_aug18,dynamic_aug20
-  cfg$gms$past <- "develop_nov20"             # def = endo_jun13
+  cfg$gms$past <- "develop_dec20"             # def = endo_jun13
   cfg$gms$crop <- "develop_nov20"           # "coup2100"
   cfg$gms$c_timesteps <- "coup2100"           # "coup2100"
   cfg$gms$c14_yields_scenario  <- "nocc"   # def = "nocc"
