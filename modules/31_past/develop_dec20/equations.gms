@@ -31,12 +31,9 @@
 q31_cost_prod_past(i2) ..
     vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed") + sum(ct, vm_lsu_ha(ct,j2)));
 
-q31_lsu_scale(ct,j2) ..
-    vm_lsu(ct,j2) =e= (vm_lsu_ha(ct,j2) - s31_mean) / s31_std;
-
 
 * model hash ID 3ebe7baea7f6bcd3d6a0135a0bae0bdcd8f20242
-    q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum((in_lsu_s,ct), vm_lsu(ct,j2) * f31_w1(in_lsu_s,lns1));
+    q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, vm_lsu(j2) * f31_w1(in_lsu_s,lns1));
     q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum((in_env_s,ct), f31_nn_input(j2, ct, in_env_s) * f31_w1(in_env_s,lns1));
     q31_z1(j2,lns1)..  v31_z1(j2,lns1) =e= v31_inlsu(j2,lns1) + v31_inEnv(j2,lns1) + f31_b1(lns1);
     q31_a1(j2,lns1)..  v31_a1(j2,lns1) =e= log(1 + system.exp(v31_z1(j2,lns1)));
@@ -55,6 +52,24 @@ q31_lsu_scale(ct,j2) ..
     q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns7,lns8), v31_a7(j2,lns7) * f31_w8(lns7,lns8) + f31_b8(lns8));
 
 q31_avg_soil_carbon(j2) .. v31_avg_soil_carbon(j2) =e= v31_soilc_yld(j2) * vm_past_area(j2,"mowing","rainfed");
+
+vm_lsu.l(j2) = 0;
+v31_inlsu.l(j2,lns1) = sum(in_lsu_s, vm_lsu.l(j2) * f31_w1(in_lsu_s,lns1));
+v31_inEnv.l(j2,lns1) = sum(in_env_s, f31_nn_input(j2,in_env_s) * f31_w1(in_env_s,lns1));
+v31_z1.l(j2,lns1) = v31_inlsu.l(j2,lns1) + v31_inEnv.l(j2,lns1) + f31_b1(lns1);
+v31_a1.l(j2,lns1) = log(1 + system.exp(v31_z1.l(j2,lns1)));
+v31_z2.l(j2,lns2) = sum(lns1, v31_a1.l(j2,lns1) * f31_w2(lns1,lns2)) + f31_b2(lns2);
+v31_a2.l(j2,lns2) = log(1 + system.exp(v31_z2.l(j2,lns2)));
+v31_z3.l(j2,lns3) = sum(lns2, v31_a2.l(j2,lns2) * f31_w3(lns2,lns3)) + f31_b3(lns3);
+v31_a3.l(j2,lns3) = log(1 + system.exp(v31_z3.l(j2,lns3)));
+v31_z4.l(j2,lns4) = sum(lns3, v31_a3.l(j2,lns3) * f31_w4(lns3,lns4)) + f31_b4(lns4);
+v31_a4.l(j2,lns4) = log(1 + system.exp(v31_z4.l(j2,lns4)));
+v31_z5.l(j2,lns5) = sum(lns4, v31_a4.l(j2,lns4) * f31_w5(lns4,lns5)) + f31_b5(lns5);
+v31_a5.l(j2,lns5) = log(1 + system.exp(v31_z5.l(j2,lns5)));
+v31_z6.l(j2,lns6) = sum(lns5, v31_a5.l(j2,lns5) * f31_w6(lns5,lns6)) + f31_b6(lns6);
+v31_a6.l(j2,lns6) = log(1 + system.exp(v31_z6.l(j2,lns6)));
+v31_z7.l(j2,lns7) = sum(lns6, v31_a6.l(j2,lns6) * f31_w7(lns6,lns7)) + f31_b7(lns7);
+v31_a7.l(j2,lns7) = log(1 + system.exp(v31_z7.l(j2,lns7)));
 
 *################################ DEVELOPMENT ##################################
 
