@@ -16,7 +16,6 @@ positive variables
 vm_past_area(j,kpm,w) development
 vm_grazing_prod(j)
 vm_mowing_prod(j)
-v31_soilc_stck_recov(j) development
 v31_avg_soil_carbon(j) development
 ;
 
@@ -25,13 +24,13 @@ q31_pasture_areas(j) development
 q31_grazing_prod(j) development
 q31_mowing_prod(j) development
 q31_prod_pm(j, kpm) development
-q31_lsu_scale(j) development
+q31_lsu_scale(t,j) development
 q31_avg_soil_carbon(j) development
 ;
 
 * model hash ID 3ebe7baea7f6bcd3d6a0135a0bae0bdcd8f20242
 variables
-vm_lsu(j) LSU variable
+vm_lsu(t,j) LSU variable
 v31_inlsu(j,lns1) LSU input layer
 v31_inEnv(j,lns1) Environmental input layer
 v31_z1(j,lns1) layer neurons
