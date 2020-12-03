@@ -51,9 +51,6 @@ v31_a7(j,lns7) layer activation
 equations
 q31_inlsu(j,lns1) LSU input equation
 q31_inEnv(j,lns1) LSU input equation
-q31_rlsu(j) real lsu equation
-q31_maxlsu(j) max LSU
-q31_minlsu(j) min LSU
 q31_soilc_yld(j) output equation
 q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
