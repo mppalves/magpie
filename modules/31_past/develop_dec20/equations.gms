@@ -32,7 +32,7 @@ q31_cost_prod_past(i2) ..
     vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed") + sum(ct, vm_lsu_ha(ct,j2)));
 
 q31_lsu_scale(ct,j2) ..
-    vm_lsu(ct,j2) =e= (vm_lsu_ha(ct,j2) - s31_mean) / s31_std
+    vm_lsu(ct,j2) =e= (vm_lsu_ha(ct,j2) - s31_mean) / s31_std;
 
 
 * model hash ID 3ebe7baea7f6bcd3d6a0135a0bae0bdcd8f20242
@@ -54,7 +54,7 @@ q31_lsu_scale(ct,j2) ..
     q31_a7(j2,lns7)..  v31_a7(j2,lns7) =e= log(1 + system.exp(v31_z7(j2,lns7)));
     q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns7,lns8), v31_a7(j2,lns7) * f31_w8(lns7,lns8) + f31_b8(lns8));
 
-q31_avg_soil_carbon(j2) .. v31_avg_soil_carbon(j2) =e= v31_soilc_yld(j2) * vm_past_area(j2,"mowing","rainfed")
+q31_avg_soil_carbon(j2) .. v31_avg_soil_carbon(j2) =e= v31_soilc_yld(j2) * vm_past_area(j2,"mowing","rainfed");
 
 *################################ DEVELOPMENT ##################################
 
