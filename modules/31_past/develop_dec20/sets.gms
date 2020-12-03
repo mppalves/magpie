@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-* model hash ID da93c8fda334458a775896a289ae13d835350f34
+* model hash ID 3ebe7baea7f6bcd3d6a0135a0bae0bdcd8f20242
 sets
 in_types_s Neural net input features / temperature, precipitation, wetdays, lwnet, rsds, co2, Ks, Sf, w_pwp, w_fc, w_sat, hsg, lsu /
 in_lsu_s(in_types_s) LSU input type / LSU /

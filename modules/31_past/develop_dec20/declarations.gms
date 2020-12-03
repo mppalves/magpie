@@ -26,11 +26,10 @@ q31_grazing_prod(j) development
 q31_mowing_prod(j) development
 q31_prod_pm(j, kpm) development
 q31_lsu_scale(j) development
-q31_sc_recov(j) development
 q31_avg_soil_carbon(j) development
 ;
 
-* model hash ID da93c8fda334458a775896a289ae13d835350f34
+* model hash ID 3ebe7baea7f6bcd3d6a0135a0bae0bdcd8f20242
 variables
 vm_lsu(j) LSU variable
 v31_inlsu(j,lns1) LSU input layer
@@ -73,14 +72,13 @@ q31_z7(j,lns7) layer equation
 q31_a7(j,lns7) activation equation
 ;
 positive variables
-v31_soilc_stck(j) output variable
+v31_soilc_yld(j) output variable
 v31_rlsu(j) real LSU variable
 ;
 scalars
-s31_mean lsu conversion factor /0/
-s31_std lsu conversion factor /2.5/
+s31_mean lsu conversion factor /1.12482040765598/
+s31_std lsu conversion factor /0.733714157685237/
 ;
-
 
 *############################# DEVELOPMENT #####################################
 

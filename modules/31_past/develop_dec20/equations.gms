@@ -34,9 +34,9 @@ q31_cost_prod_past(i2) ..
 q31_lsu_scale(j2) ..
     vm_lsu(j2) =e= sum(ct, (vm_lsu_ha(ct,j2) - 0) / (2.5 - 0))
 
-* model hash ID da93c8fda334458a775896a289ae13d835350f34
+* model hash ID 3ebe7baea7f6bcd3d6a0135a0bae0bdcd8f20242
     q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, vm_lsu(j2) * f31_w1(in_lsu_s,lns1));
-    q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum(in_env_s, f31_nn_input(j2,in_env_s) * f31_w1(in_env_s,lns1));
+    q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum((in_env_s,ct), f31_nn_input(j2, ct, in_env_s) * f31_w1(in_env_s,lns1));
     q31_z1(j2,lns1)..  v31_z1(j2,lns1) =e= v31_inlsu(j2,lns1) + v31_inEnv(j2,lns1) + f31_b1(lns1);
     q31_a1(j2,lns1)..  v31_a1(j2,lns1) =e= log(1 + system.exp(v31_z1(j2,lns1)));
     q31_z2(j2,lns2)..  v31_z2(j2,lns2) =e= sum(lns1, v31_a1(j2,lns1) * f31_w2(lns1,lns2)) + f31_b2(lns2);
@@ -51,11 +51,10 @@ q31_lsu_scale(j2) ..
     q31_a6(j2,lns6)..  v31_a6(j2,lns6) =e= log(1 + system.exp(v31_z6(j2,lns6)));
     q31_z7(j2,lns7)..  v31_z7(j2,lns7) =e= sum(lns6, v31_a6(j2,lns6) * f31_w7(lns6,lns7)) + f31_b7(lns7);
     q31_a7(j2,lns7)..  v31_a7(j2,lns7) =e= log(1 + system.exp(v31_z7(j2,lns7)));
-    q31_soilc_yld(j2)..  v31_soilc_stck(j2) =e= sum((lns7,lns8), v31_a7(j2,lns7) * f31_w8(lns7,lns8) + f31_b8(lns8));
+    q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns7,lns8), v31_a7(j2,lns7) * f31_w8(lns7,lns8) + f31_b8(lns8));
 
-    q31_sc_recov(j2) .. v31_soilc_stck_recov(j2) =e= v31_soilc_stck(j2) * (62611.3383584 - 60.63580372) + 60.63580372
+q31_avg_soil_carbon(j2) .. v31_avg_soil_carbon(j2) =e= v31_soilc_stck_recov(j2) * vm_past_area(j2,"mowing","rainfed")
 
-    q31_avg_soil_carbon(j2) .. v31_avg_soil_carbon(j2) =e= v31_soilc_stck_recov(j2) * vm_past_area(j2,"mowing","rainfed")
 *################################ DEVELOPMENT ##################################
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:

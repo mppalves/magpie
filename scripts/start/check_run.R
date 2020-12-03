@@ -46,7 +46,8 @@ variables <-
     "livst_rum",
     "ov_grazing_prod",
     "ov_mowing_prod",
-    "total_lsu_ha"
+    "total_lsu_ha",
+    "ov31_avg_soil_carbon"
   )
 
 # gdx <-
@@ -100,7 +101,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod")) {
+      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod", "ov31_avg_soil_carbon")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if (is.magpie(x) && !all(x==0)) {
@@ -116,18 +117,18 @@ for (variable in variables) {
           }
         })
       }
-      
-      
+
+
       if (variable %in% c("ov_lsu_ha")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           try(y <- gdx::readGDX(gdx, "ov_past_area")[,,"level"][,,"rainfed"][,,"cont_grazing"])
           z <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,"past"]
-          
+
           if (is.magpie(x) && !all(x==0) && !is.null(y)) {
             x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = y)
           }
-          
+
           if (is.magpie(x) && !all(x==0) && is.null(y)) {
             x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = z)
           }
@@ -270,11 +271,11 @@ for (i in 1:length(outputdirs)) {
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           try(y <- gdx::readGDX(gdx, "ov_past_area")[,,"level"][,,"rainfed"][,,"cont_grazing"])
           z <- gdx::readGDX(gdx, "ov_land")[,,"level"][,,"past"]
-          
+
           if (is.magpie(x) && !all(x==0) && !is.null(y)) {
             x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = y)
           }
-          
+
           if (is.magpie(x) && !all(x==0) && is.null(y)) {
             x <- gdxAggregate(gdx, x, to = "reg", absolute = F , weight = z)
           }
