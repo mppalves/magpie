@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 
-* model hash ID 26146b1938df08f5ff1e669201662e04507b2f34
+* model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
 sets
 in_types_s Neural net input features / temperature, precipitation, wetdays, lwnet, rsds, co2, Ks, Sf, w_pwp, w_fc, w_sat, hsg, lsu /
 in_lsu_s(in_types_s) LSU input type / LSU /

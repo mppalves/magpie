@@ -19,7 +19,7 @@ $offdelim
 /
 
 
-* model hash ID 26146b1938df08f5ff1e669201662e04507b2f34
+* model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
 table f31_nn_input(j,in_env_s) aggregated environmental cell values
 $ondelim
 $include "./modules/31_past/input/environment_cell3.csv"
@@ -27,35 +27,35 @@ $offdelim
 ;
 table f31_w1(in_types_s,lns1) weight
 $ondelim
-$include "./modules/31_past/input/26146b_s_weights_1.csv"
+$include "./modules/31_past/input/65707b_s_weights_1.csv"
 $offdelim
 ;
 table f31_w2(lns1,lns2) weight
 $ondelim
-$include "./modules/31_past/input/26146b_s_weights_2.csv"
+$include "./modules/31_past/input/65707b_s_weights_2.csv"
 $offdelim
 ;
 table f31_w3(lns2,lns3) weight
 $ondelim
-$include "./modules/31_past/input/26146b_s_weights_3.csv"
+$include "./modules/31_past/input/65707b_s_weights_3.csv"
 $offdelim
 ;
 parameter f31_b1(lns1) bias
 /
 $ondelim
-$include "./modules/31_past/input/26146b_s_bias_1.csv"
+$include "./modules/31_past/input/65707b_s_bias_1.csv"
 $offdelim
 /;
 parameter f31_b2(lns2) bias
 /
 $ondelim
-$include "./modules/31_past/input/26146b_s_bias_2.csv"
+$include "./modules/31_past/input/65707b_s_bias_2.csv"
 $offdelim
 /;
 parameter f31_b3(lns3) bias
 /
 $ondelim
-$include "./modules/31_past/input/26146b_s_bias_3.csv"
+$include "./modules/31_past/input/65707b_s_bias_3.csv"
 $offdelim
 /;
 

@@ -26,7 +26,7 @@ q31_prod_pm(j, kpm) development
 q31_lsu_convert(j) development
 ;
 
-* model hash ID 26146b1938df08f5ff1e669201662e04507b2f34
+* model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
 variables
 vm_lsu(j) LSU variable
 v31_inlsu(j,lns1) LSU input layer
@@ -50,7 +50,7 @@ q31_a2(j,lns2) activation equation
 ;
 positive variables
 v31_soilc_yld(j) output variable
-*v31_rlsu(j) real LSU variable
+v31_rlsu(j) real LSU variable
 ;
 scalars
 s31_mean lsu conversion factor /1.12482040765598/
