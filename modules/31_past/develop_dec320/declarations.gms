@@ -50,7 +50,7 @@ q31_a2(j,lns2) activation equation
 ;
 positive variables
 v31_soilc_yld(j) output variable
-v31_rlsu(j) real LSU variable
+*v31_rlsu(j) real LSU variable
 ;
 scalars
 s31_mean lsu conversion factor /1.12482040765598/
