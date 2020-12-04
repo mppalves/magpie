@@ -28,7 +28,7 @@ q31_prod_pm(j, kpm) development
 * model hash ID c1937c768510d467b1e956befb15e5f6103366b4
 * model hash ID ba52f428dfac0f9d5be9f1127cccc8e75210b846
 variables
-vm_lsu(j) LSU variable
+vm_lsu(t,j) LSU variable
 v31_inlsu(j,lns1) LSU input layer
 v31_inEnv(j,lns1) Environmental input layer
 v31_z1(j,lns1) layer neurons
@@ -41,9 +41,8 @@ v31_a3(j,lns3) layer activation
 equations
 q31_inlsu(j,lns1) LSU input equation
 q31_inEnv(j,lns1) LSU input equation
-q31_rlsu(j) real lsu equation
-q31_maxlsu(j) max LSU
-q31_minlsu(j) min LSU
+q31_maxlsu(t,j) max LSU
+q31_minlsu(t,j) min LSU
 q31_soilc_yld(j) output equation
 q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
@@ -52,10 +51,11 @@ q31_a2(j,lns2) activation equation
 q31_z3(j,lns3) layer equation
 q31_a3(j,lns3) activation equation
 ;
+
 positive variables
 v31_soilc_yld(j) output variable
-v31_rlsu(j) real LSU variable
 ;
+
 scalars
 s31_mean lsu conversion factor /1.12482040765598/
 s31_std lsu conversion factor /0.733714157685237/
