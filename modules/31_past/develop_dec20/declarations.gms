@@ -23,11 +23,12 @@ q31_pasture_areas(j) development
 q31_grazing_prod(j) development
 q31_mowing_prod(j) development
 q31_prod_pm(j, kpm) development
+q31_lsu_convert(j) development
 ;
 
 * model hash ID ba52f428dfac0f9d5be9f1127cccc8e75210b846
 variables
-vm_lsu(t,j) LSU variable
+vm_lsu(j) LSU variable
 v31_inlsu(j,lns1) LSU input layer
 v31_inEnv(j,lns1) Environmental input layer
 v31_z1(j,lns1) layer neurons
@@ -40,8 +41,8 @@ v31_a3(j,lns3) layer activation
 equations
 q31_inlsu(j,lns1) LSU input equation
 q31_inEnv(j,lns1) LSU input equation
-q31_maxlsu(t,j) max LSU
-q31_minlsu(t,j) min LSU
+*q31_maxlsu(t,j) max LSU
+*q31_minlsu(t,j) min LSU
 q31_soilc_yld(j) output equation
 q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
