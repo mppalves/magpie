@@ -23,6 +23,7 @@ q31_pasture_areas(j) development
 q31_grazing_prod(j) development
 q31_mowing_prod(j) development
 q31_prod_pm(j, kpm) development
+q31_lsu_convert(j)..
 ;
 
 * model hash ID effcbc45798b83e60096ce09c5bc1727d588e4fd
