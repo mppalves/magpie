@@ -22,4 +22,5 @@ $Ifi "%phase%" == "declarations" $include "./modules/31_past/develop_dec220/decl
 $Ifi "%phase%" == "input" $include "./modules/31_past/develop_dec220/input.gms"
 $Ifi "%phase%" == "equations" $include "./modules/31_past/develop_dec220/equations.gms"
 $Ifi "%phase%" == "postsolve" $include "./modules/31_past/develop_dec220/postsolve.gms"
+$Ifi "%phase%" == "presolve" $include "./modules/31_past/develop_dec220/presolve.gms"
 *######################## R SECTION END (PHASES) ###############################
