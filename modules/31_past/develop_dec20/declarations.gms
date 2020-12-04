@@ -37,7 +37,6 @@ v31_z2(j,lns2) layer neurons
 v31_a2(j,lns2) layer activation
 v31_z3(j,lns3) layer neurons
 v31_a3(j,lns3) layer activation
-goal
 ;
 equations
 q31_inlsu(j,lns1) LSU input equation
@@ -52,7 +51,6 @@ q31_z2(j,lns2) layer equation
 q31_a2(j,lns2) activation equation
 q31_z3(j,lns3) layer equation
 q31_a3(j,lns3) activation equation
-goal_func
 ;
 positive variables
 v31_soilc_yld(j) output variable
