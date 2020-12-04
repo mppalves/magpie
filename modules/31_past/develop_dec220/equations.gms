@@ -31,6 +31,10 @@
 q31_cost_prod_past(i2) ..
     vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed") + sum(ct, vm_lsu_ha(ct,j2)));
 
+q31_lsu_convert(j2)..
+    vm_lsu(j2) =e= sum(ct, (vm_lsu_ha(ct,j2) - s31_mean) / s31_std);
+
+
 * model hash ID effcbc45798b83e60096ce09c5bc1727d588e4fd
     q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, vm_lsu(j2) * f31_w1(in_lsu_s,lns1));
     q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum(in_env_s, f31_nn_input(j2,in_env_s) * f31_w1(in_env_s,lns1));
