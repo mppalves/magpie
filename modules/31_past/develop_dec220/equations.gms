@@ -37,7 +37,7 @@ q31_lsu_convert(j2)..
 
 * model hash ID effcbc45798b83e60096ce09c5bc1727d588e4fd
     q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, vm_lsu(j2) * f31_w1(in_lsu_s,lns1));
-    q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum(in_env_s, f31_nn_input(j2,in_env_s) * f31_w1(in_env_s,lns1));
+    q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum((in_env_s,ct), f31_nn_input(j2,ct,in_env_s) * f31_w1(in_env_s,lns1));
     q31_z1(j2,lns1)..  v31_z1(j2,lns1) =e= v31_inlsu(j2,lns1) + v31_inEnv(j2,lns1) + f31_b1(lns1);
     q31_a1(j2,lns1)..  v31_a1(j2,lns1) =e= ((system.sqrt(power(v31_z1(j2,lns1),2) + 1) -1)/2)*v31_z1(j2,lns1);
     q31_z2(j2,lns2)..  v31_z2(j2,lns2) =e= sum(lns1, v31_a1(j2,lns1) * f31_w2(lns1,lns2)) + f31_b2(lns2);
