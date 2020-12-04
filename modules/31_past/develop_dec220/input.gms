@@ -21,9 +21,9 @@ $offdelim
 
 
 * model hash ID effcbc45798b83e60096ce09c5bc1727d588e4fd
-table f31_nn_input(j,t,in_env_s) aggregated environmental cell values
+table f31_nn_input(j,in_env_s) aggregated environmental cell values
 $ondelim
-$include "./modules/31_past/input/environment_cell.csv"
+$include "./modules/31_past/input/environment_cell3.csv"
 $offdelim
 ;
 table f31_w1(in_types_s,lns1) weight

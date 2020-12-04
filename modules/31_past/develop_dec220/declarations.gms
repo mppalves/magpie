@@ -23,7 +23,6 @@ q31_pasture_areas(j) development
 q31_grazing_prod(j) development
 q31_mowing_prod(j) development
 q31_prod_pm(j, kpm) development
-q31_lsu_convert(j)..
 ;
 
 * model hash ID effcbc45798b83e60096ce09c5bc1727d588e4fd
@@ -41,9 +40,9 @@ v31_a3(j,lns3) layer activation
 equations
 q31_inlsu(j,lns1) LSU input equation
 q31_inEnv(j,lns1) LSU input equation
-*q31_rlsu(j) real lsu equation
-*q31_maxlsu(j) max LSU
-*q31_minlsu(j) min LSU
+q31_rlsu(j) real lsu equation
+q31_maxlsu(j) max LSU
+q31_minlsu(j) min LSU
 q31_soilc_yld(j) output equation
 q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
@@ -54,7 +53,7 @@ q31_a3(j,lns3) activation equation
 ;
 positive variables
 v31_soilc_yld(j) output variable
-*v31_rlsu(j) real LSU variable
+v31_rlsu(j) real LSU variable
 ;
 scalars
 s31_mean lsu conversion factor /1.12482040765598/
