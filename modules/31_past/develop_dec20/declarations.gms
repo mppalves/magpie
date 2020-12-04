@@ -25,7 +25,6 @@ q31_mowing_prod(j) development
 q31_prod_pm(j, kpm) development
 ;
 
-* model hash ID c1937c768510d467b1e956befb15e5f6103366b4
 * model hash ID ba52f428dfac0f9d5be9f1127cccc8e75210b846
 variables
 vm_lsu(t,j) LSU variable
