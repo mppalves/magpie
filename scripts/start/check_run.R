@@ -47,7 +47,7 @@ variables <-
     "ov_grazing_prod",
     "ov_mowing_prod",
     "total_lsu_ha",
-    "ov31_avg_soil_carbon"
+    "ov31_soilc_yld"
   )
 
 # gdx <-
@@ -101,7 +101,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod", "ov31_avg_soil_carbon")) {
+      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod", "ov31_soilc_yld")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if (is.magpie(x) && !all(x==0)) {
