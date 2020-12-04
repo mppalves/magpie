@@ -23,5 +23,6 @@ $Ifi "%past%" == "develop_set20" $include "./modules/31_past/develop_set20/reali
 $Ifi "%past%" == "develop_nov20" $include "./modules/31_past/develop_nov20/realization.gms"
 $Ifi "%past%" == "develop_a_nov20" $include "./modules/31_past/develop_a_nov20/realization.gms"
 $Ifi "%past%" == "develop_dec20" $include "./modules/31_past/develop_dec20/realization.gms"
-$Ifi "%past%" == "develop_dec220" $include "./modules/31_past/develop_dec220/realization.gms" 
+$Ifi "%past%" == "develop_dec220" $include "./modules/31_past/develop_dec220/realization.gms"
+$Ifi "%past%" == "develop_dec320" $include "./modules/31_past/develop_dec220/realization.gms" 
 *###################### R SECTION END (MODULETYPES) ############################
