@@ -57,8 +57,9 @@ variables <-
       "ov70_lsus",
       #"ov70_dem_past",
       #"ov14_relax",
-      "p70_lsus_dist_weight"
+      "p70_lsus_dist_weight",
       #"lsu_disagg"
+      "ov31_soilc_yld"
    )
 
 var_names <-
