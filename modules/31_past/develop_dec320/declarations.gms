@@ -47,10 +47,12 @@ q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
 q31_z2(j,lns2) layer equation
 q31_a2(j,lns2) activation equation
+q31_soilc_convert(j)
 ;
 positive variables
 v31_soilc_yld(j) output variable
 *v31_rlsu(j) real LSU variable
+v31_real_soilc(j)
 ;
 scalars
 s31_mean lsu conversion factor /1.12482040765598/

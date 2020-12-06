@@ -59,7 +59,7 @@ variables <-
       #"ov14_relax",
       "p70_lsus_dist_weight",
       #"lsu_disagg"
-      "ov31_soilc_yld"
+      "ov31_real_soilc"
    )
 
 var_names <-
