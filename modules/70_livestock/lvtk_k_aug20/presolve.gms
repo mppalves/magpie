@@ -61,6 +61,7 @@ sum(t_past,(im_past_yields(t,j,"mowing","rainfed") * sum(cell(i,j), p70_mow_yld_
 
 vm_lsu_ha.up(ct,j2) = 2.5;
 
+display s31_test_scalar;
 display vm_land.l;
 display p70_mow_yld_corr;
 display f10_land;

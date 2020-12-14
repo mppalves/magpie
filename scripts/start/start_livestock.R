@@ -15,8 +15,8 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-#test <- c(1,2,3,4,5,6,7,8,9,10)
-test <- c(1)
+test <- c(10, 20, 30, 100, 1000)
+#test <- c(1)
 
 
 for(i in 1:length(test)){
@@ -27,8 +27,8 @@ for(i in 1:length(test)){
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
   cfg$force_download <- FALSE
-#  cfg$title <- paste0("soil_exp_9_mow_cost_", gsub("\\.","_",test[i]))
-  cfg$title <- paste0("soil_experiment_10")
+  cfg$title <- paste0("soil_exp_10_mow_cost_", gsub("\\.","_",test[i]))
+  #cfg$title <- paste0("soil_experiment_10")
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$s31_test_scalar <- test[i]
   cfg$gms$livestock <- "lvtk_k_aug20"           # def = fbask_jan16, lvtk_aug20
