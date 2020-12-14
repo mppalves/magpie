@@ -11,7 +11,7 @@ scalars
 ;
 
 *################################DEVELOPMENT####################################
-parameter f31_Intensifying_past_areas(t,j) Intensifying pasture areas
+parameter f31_Intensifying_past_areas(t_all,j) Intensifying pasture areas
 /
 $ondelim
 $include "./modules/31_past/input/f31_Intensifying_past_areas.csv"
