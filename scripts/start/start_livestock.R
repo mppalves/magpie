@@ -41,13 +41,13 @@ for(i in 1:length(test)){
   #start_run(cfg=cfg,codeCheck=F)
 
 # Calibration
-#  cfg$results_folder <- "output/:title:"
+  cfg$results_folder <- "output/:title:"
   cfg$recalibrate <- TRUE
-#  cfg$title <- "calib_run"
-#  cfg$gms$c_timesteps <- 1
-#  cfg$output <- c("report")
-#  cfg$sequential <- TRUE
+  cfg$title <- "calib_run"
+  cfg$gms$c_timesteps <- 1
+  cfg$output <- c("report")
+  cfg$sequential <- TRUE
   start_run(cfg,codeCheck=FALSE)
-#  magpie4::submitCalibration("H12")
+  magpie4::submitCalibration("H12")
 
 }
