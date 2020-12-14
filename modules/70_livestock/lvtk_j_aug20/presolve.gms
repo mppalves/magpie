@@ -62,7 +62,7 @@ sum(t_past,(im_past_yields(t,j,"mowing","rainfed") * p70_mow_yld_corr(t_past,j))
 
 vm_lsu_ha.up(ct,j2) = 2.5;
 
-display vm_land;
+display vm_land.l;
 display p70_mow_yld_corr;
 display f10_land;
 display p70_total_past_demand;
