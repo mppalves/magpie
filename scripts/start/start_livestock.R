@@ -25,8 +25,7 @@ for(i in 1:length(loop_value)){
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
   cfg$force_download <- FALSE
-  #cfg$title <- paste0("experiment_11_mod_lpjm_", gsub("\\.","_",loop_value[i]))
-  cfg$title <- paste0("soil_exp_9_mow_cost_",gsub("[.]","_",loop_value[i]))
+  cfg$title <- paste0("soil_exp_9_mow_cost_", gsub("\\.","_",loop_value[i]))
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$s31_test_scalar  <- loop_value[i]
   cfg$gms$livestock <- "lvtk_j_aug20"           # def = fbask_jan16, lvtk_aug20
