@@ -48,7 +48,7 @@ q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns2,lns3), v31_a2(j2,lns2) * f3
 *q31_rlsu(j2)..  v31_rlsu(j2) =e= vm_lsu(j2) * s31_std + s31_mean;
 
 q31_soilc_convert(j2)..
-     v31_real_soilc(j2) =e= v31_soilc_yld(j2) * 11000.11 + 10319.38;
+     v31_real_soilc(j2) =e= (v31_soilc_yld(j2) * 11000.11 + 10319.38) * vm_past_area(j2,"cont_grazing","rainfed");
 
 *################################ DEVELOPMENT ##################################
 
