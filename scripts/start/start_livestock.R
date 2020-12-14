@@ -15,8 +15,8 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-test <- c(10, 20, 30, 100, 1000)
-#test <- c(1)
+#test <- c(10, 20, 30, 100, 1000)
+test <- c(1)
 
 
 for(i in 1:length(test)){
@@ -27,7 +27,7 @@ for(i in 1:length(test)){
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
   cfg$force_download <- FALSE
-  cfg$title <- paste0("soil_exp_10_mow_cost_", gsub("\\.","_",test[i]))
+  #cfg$title <- paste0("soil_exp_10_mow_cost_", gsub("\\.","_",test[i]))
   #cfg$title <- paste0("soil_experiment_10")
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$s31_test_scalar <- test[i]
@@ -38,16 +38,16 @@ for(i in 1:length(test)){
   cfg$gms$c_timesteps <- "coup2100"           # "coup2100"
   cfg$gms$c14_yields_scenario  <- "nocc"   # def = "nocc"
 
-  start_run(cfg=cfg,codeCheck=F)
+  #start_run(cfg=cfg,codeCheck=F)
 
 # Calibration
 #  cfg$results_folder <- "output/:title:"
-#  cfg$recalibrate <- TRUE
+  cfg$recalibrate <- TRUE
 #  cfg$title <- "calib_run"
 #  cfg$gms$c_timesteps <- 1
 #  cfg$output <- c("report")
 #  cfg$sequential <- TRUE
-#  start_run(cfg,codeCheck=FALSE)
+  start_run(cfg,codeCheck=FALSE)
 #  magpie4::submitCalibration("H12")
 
 }
