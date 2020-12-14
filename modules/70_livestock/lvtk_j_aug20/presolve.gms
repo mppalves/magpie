@@ -67,7 +67,6 @@ display p70_mow_yld_corr;
 display f10_land;
 display p70_total_past_demand;
 display im_past_yields;
-display vm_land;
 
 *############################## DEVELOPMENT ####################################
 *' @stop
