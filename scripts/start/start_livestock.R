@@ -15,11 +15,9 @@ source("scripts/start_functions.R")
 source("config/default.cfg")
 
 
-#test <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1)
-test <- 1
+loop_value <- c(0,1,2,3,4,6,7,8,9,10)
 
-
-for(i in 1:length(test)){
+for(i in 1:length(loop_value)){
 
   cfg$input <- c("isimip_rcp-HadGEM2_ES-rcp8p5-co2_rev48_c200_690d3718e151be1b450b394c1064b1c5.tgz",
            "rev4.52_h12_magpie.tgz",
@@ -27,10 +25,10 @@ for(i in 1:length(test)){
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
   cfg$force_download <- FALSE
-  #cfg$title <- paste0("experiment_11_mod_lpjm_", gsub("\\.","_",test[i]))
-  cfg$title <- paste0("soil_experiment_9")
+  #cfg$title <- paste0("experiment_11_mod_lpjm_", gsub("\\.","_",loop_value[i]))
+  cfg$title <- paste0("soil_exp_9_mow_cost_",gsub("[.]","_",loop_value))
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
-  #cfg$gms$s31_fac_req_past  <- test[i]
+  cfg$gms$s31_test_scalar  <- loop_value[i]
   cfg$gms$livestock <- "lvtk_j_aug20"           # def = fbask_jan16, lvtk_aug20
   cfg$gms$yields <- "nn_aug20"           # def = dynamic_aug18,dynamic_aug20
   cfg$gms$past <- "develop_dec320"             # def = endo_jun13

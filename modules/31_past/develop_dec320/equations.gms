@@ -30,7 +30,7 @@
 
 q31_cost_prod_past(i2) ..
 *    vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed") + sum(ct, vm_lsu_ha(ct,j2)));
-    vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed"));
+    vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed")) * s31_test_scalar;
 
 q31_lsu_convert(j2)..
     vm_lsu(j2) =e= sum(ct, (vm_lsu_ha(ct,j2) - s31_mean) / s31_std);
@@ -66,10 +66,10 @@ q31_carbon(j2,ag_pools) ..
 $ontext
 q31_cost_prod_past(i2) ..
  vm_cost_prod(i2,"pasture") =e= vm_prod_reg(i2,"pasture")
- 								* s31_fac_req_past;
+ 								* s31_test_scalar;
 $offtext
 
-*' For all following time steps, factor requriements `s31_fac_req_past` are set
+*' For all following time steps, factor requriements `s31_test_scalar` are set
 *' to zero.
 
 *** EOF constraints.gms ***

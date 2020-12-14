@@ -30,9 +30,9 @@ q31_carbon(j2,ag_pools) ..
 
 q31_cost_prod_past(i2) ..
  vm_cost_prod(i2,"pasture") =e= vm_prod_reg(i2,"pasture")
- 								* s31_fac_req_past;
+ 								* s31_test_scalar;
 
-*' For all following time steps, factor requriements `s31_fac_req_past` are set
+*' For all following time steps, factor requriements `s31_test_scalar` are set
 *' to zero.
 
 *** EOF constraints.gms ***
