@@ -47,6 +47,7 @@ for(i in 1:length(test)){
   cfg$gms$c_timesteps <- 1
   cfg$output <- c("report")
   cfg$sequential <- TRUE
+  cfg$debug <- TRUE
   start_run(cfg,codeCheck=FALSE)
   magpie4::submitCalibration("H12")
 
