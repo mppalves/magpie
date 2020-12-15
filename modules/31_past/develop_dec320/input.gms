@@ -18,6 +18,21 @@ $include "./modules/31_past/input/f31_Intensifying_past_areas.csv"
 $offdelim
 /
 
+parameter mowing_costs(i) mowing costs
+/
+CAZ 300
+CHA 300
+EUR 300
+IND 300
+JPN 300
+LAM 300
+MEA 300
+NEU 300
+OAS 300
+REF 300
+SSA 300
+USA 300
+/
 
 * model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
 table f31_nn_input(j,in_env_s) aggregated environmental cell values

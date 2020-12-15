@@ -30,7 +30,7 @@
 
 q31_cost_prod_past(i2) ..
 *    vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed") + sum(ct, vm_lsu_ha(ct,j2)));
-    vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed")) * s31_test_scalar;
+    vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed")) * (mowing_costs(i2) * (1 - f14_yld_calib(i2,"past")) + mowing_costs(i2)) * s31_test_scalar;
 
 q31_lsu_convert(j2)..
     vm_lsu(j2) =e= sum(ct, (vm_lsu_ha(ct,j2) - s31_mean) / s31_std);
