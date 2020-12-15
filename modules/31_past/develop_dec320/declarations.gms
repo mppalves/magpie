@@ -59,6 +59,9 @@ s31_mean lsu conversion factor /1.12482040765598/
 s31_std lsu conversion factor /0.733714157685237/
 ;
 
+parameter
+im_mow_cost(i) development
+;
 
 *############################# DEVELOPMENT #####################################
 

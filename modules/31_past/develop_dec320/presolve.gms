@@ -14,3 +14,6 @@ v31_a1.l(j2,lns1) = 1/( 1 + system.exp(-v31_z1.l(j2,lns1)));
 v31_z2.l(j2,lns2) = sum(lns1, v31_a1.l(j2,lns1) * f31_w2(lns1,lns2)) + f31_b2(lns2);
 v31_a2.l(j2,lns2) = 1/( 1 + system.exp(-v31_z2.l(j2,lns2)));
 v31_soilc_yld.l(j2) = sum((lns2,lns3), v31_a2.l(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
+
+im_mow_cost(i) = (mowing_costs(i) * (1 - f14_yld_calib(i,"past")) + mowing_costs(i));
+im_mow_cost(i)$(im_mow_cost(i) < 0) = 0;
