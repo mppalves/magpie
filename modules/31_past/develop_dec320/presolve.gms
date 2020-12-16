@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 *** EOF presolve.gms ***
-vm_lsu.l(j2) = 0;
+vm_lsu.l(j2) = f31_lsu_starting_values(j2);
 v31_inlsu.l(j2,lns1) = sum(in_lsu_s, vm_lsu.l(j2) * f31_w1(in_lsu_s,lns1));
 v31_inEnv.l(j2,lns1) = sum(in_env_s, f31_nn_input(j2,in_env_s) * f31_w1(in_env_s,lns1));
 v31_z1.l(j2,lns1) = v31_inlsu.l(j2,lns1) + v31_inEnv.l(j2,lns1) + f31_b1(lns1);
