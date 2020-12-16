@@ -16,6 +16,10 @@ q14_yield_crop(j2,kcr,w) ..
 *' Pasture yields are not linked to yield increases in the crop sector, but to
 *' an exogenous pasture management factor `pm_past_mngmnt_factor`:
 
-q14_yield_past(j2,kpm,w) ..
- vm_yld(j2,kpm,w) =l=
- sum(ct,(im_past_yields(ct,j2,kpm,w)));
+q14_yield_cont(j2,"cont_grazing",w) ..
+ vm_yld(j2,"cont_grazing",w) =l=
+ sum(ct,(im_past_yields(ct,j2,"cont_grazing",w)));
+
+ q14_yield_mow(j2,"mowing",w) ..
+  vm_yld(j2,"mowing",w) =e=
+  sum(ct,(im_past_yields(ct,j2,"mowing",w)));

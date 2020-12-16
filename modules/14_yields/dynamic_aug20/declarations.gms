@@ -20,7 +20,8 @@ positive variables
 
 equations
  q14_yield_crop(j,kcr,w)             Crop yields (tDM per ha per yr)
- q14_yield_past(j,kpm,w)                 Pasture yields (tDM per ha per yr)
+ q14_yield_cont(j,kpm,w)                 Pasture yields (tDM per ha per yr)
+ q14_yield_mow(j,kpm,w)                 Pasture yields (tDM per ha per yr)
 ;
 
 *##################### DEVELOPMENT #############################################
