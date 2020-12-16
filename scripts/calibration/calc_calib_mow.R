@@ -46,7 +46,9 @@ get_areacalib <- function(gdx_file) {
   if(nregions(magpie)!=nregions(data) | !all(getRegions(magpie) %in% getRegions(data))) {
     stop("Regions in MAgPIE do not agree with regions in reference calibration area data set!")
   }
-  out <- magpie/data
+  out_crop <- magpie[,,"crop"]/data[,,"crop"]
+  out_past <- data[,,"past"]/magpie[,,"past"]
+  out <- mbind(out_crop,out_past)
   out[out==0] <- 1
   return(magpiesort(out))
 }
@@ -77,7 +79,7 @@ get_costcalib <- function(gdx_file) {
   require(gdx)
   calib_mow_cost <- readGDX(gdx_file,"im_mow_cost")
   sigmoid <- function(x) 1/(1+exp(-x))
-  calib_mow_cost <- sigmoid(calib_mow_cost-10)
+  calib_mow_cost <- sigmoid(calib_mow_cost+10)
   return(magpiesort(calib_mow_cost))
 }
 

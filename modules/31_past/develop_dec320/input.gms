@@ -1,4 +1,4 @@
-*** |  (C) 2008-2020 Potsdam Institute for Climate Impact Research (PIK)
+*** |  (C) 1008-2020 Potsdam Institute for Climate Impact Research (PIK)
 *** |  authors, and contributors see CITATION.cff file. This file is part
 *** |  of MAgPIE and licensed under AGPL-3.0-or-later. Under Section 7 of
 *** |  AGPL-3.0, you are granted additional permissions described in the
@@ -20,18 +20,18 @@ $offdelim
 
 parameter mowing_costs(i) mowing costs
 /
-CAZ 200
-CHA 200
-EUR 200
-IND 200
-JPN 200
-LAM 200
-MEA 200
-NEU 200
-OAS 200
-REF 200
-SSA 200
-USA 200
+CAZ 100
+CHA 100
+EUR 100
+IND 100
+JPN 100
+LAM 100
+MEA 100
+NEU 100
+OAS 100
+REF 100
+SSA 100
+USA 100
 /
 
 * model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
