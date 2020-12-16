@@ -17,5 +17,5 @@ q14_yield_crop(j2,kcr,w) ..
 *' an exogenous pasture management factor `pm_past_mngmnt_factor`:
 
 q14_yield_past(j2,kpm,w) ..
- vm_yld(j2,kpm,w) =e=
+ vm_yld(j2,kpm,w) =l=
  sum(ct,(im_past_yields(ct,j2,kpm,w)));
