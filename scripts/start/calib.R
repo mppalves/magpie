@@ -44,7 +44,7 @@ for(i in 1:length(test)){
   cfg$output <- c("report")
   cfg$sequential <- TRUE
   cfg$debug <- TRUE
-  cfg$damping_factor <- 0.5
+  cfg$damping_factor <- 1
   start_run(cfg,codeCheck=FALSE)
   magpie4::submitCalibration("H12")
 
