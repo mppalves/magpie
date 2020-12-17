@@ -37,7 +37,7 @@ for(i in 1:length(test)){
   cfg$gms$c14_yields_scenario  <- "nocc"   # def = "nocc"
 # Calibration
   cfg$results_folder <- "output/:title:"
-  cfg$calib_maxiter <- 100
+  cfg$calib_maxiter <- 300
   cfg$recalibrate <- TRUE
   cfg$title <- "calib_run"
   cfg$gms$c_timesteps <- 1
