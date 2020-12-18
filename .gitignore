@@ -30,4 +30,5 @@ magpie_calib.*
 /scripts/npi_ndc/npi_ndc_overview.txt
 Rplots.pdf
 
-desktop.ini
+#ignore GAMS license
+gamslice.txt
