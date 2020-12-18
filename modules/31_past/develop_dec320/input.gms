@@ -27,18 +27,18 @@ $offdelim
 
 parameter mowing_costs(i) mowing costs
 /
-CAZ 100
-CHA 100
-EUR 100
-IND 100
-JPN 100
-LAM 100
-MEA 100
-NEU 100
-OAS 100
-REF 100
-SSA 100
-USA 100
+CAZ 10
+CHA 10
+EUR 10
+IND 10
+JPN 10
+LAM 10
+MEA 10
+NEU 10
+OAS 10
+REF 10
+SSA 10
+USA 10
 /
 
 * model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
