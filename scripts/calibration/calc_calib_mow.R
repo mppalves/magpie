@@ -99,7 +99,9 @@ update_calib<-function(gdx_file, calib_accuracy=0.1, calibrate_pasture=TRUE,cali
   calib_divergence <- abs(calib_correction-1)
 
   old_calib        <- magpiesort(read.magpie(calib_file))
-  calib_factor     <- old_calib * (damping_factor*(calib_correction-1)*cost_factor + 1)
+  calib_factor_past     <- old_calib[,,"past"] * (damping_factor*(calib_correction[,,"past"]-1)*cost_factor + 1)
+  calib_factor_crop     <- old_calib[,,"crop"] * (damping_factor*(calib_correction[,,"crop"]-1) + 1)
+  calib_factor <- mbind(calib_factor_crop,calib_factor_past)
 
   if(!is.null(crop_max)) {
     above_limit <- (calib_factor[,,"crop"] > crop_max)
@@ -128,7 +130,7 @@ update_calib<-function(gdx_file, calib_accuracy=0.1, calibrate_pasture=TRUE,cali
 
   # in case of sufficient convergence, stop here (no additional update of
   # calibration factors!)
-  if(all(calib_divergence < calib_accuracy)) return(TRUE)
+  if(all(calib_divergence[,,"crop"] < calib_accuracy) && calib_divergence["EUR",,"past"] < 0.1) return(TRUE)
 
   comment <- c(" description: Regional yield calibration file",
                " unit: -",
