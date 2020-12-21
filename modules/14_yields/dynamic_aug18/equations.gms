@@ -20,3 +20,13 @@ q14_yield_past(j2,w) ..
  vm_yld(j2,"pasture",w) =e=
  sum(ct,(i14_yields(ct,j2,"pasture",w)
  *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));
+
+*marcos_develop
+q14_yield_past_management(j2,w) ..
+ vm_yld(j2,"cont_grazin",w) =l=
+ sum(ct,(i14_yields(ct,j2,"cont_grazin",w)));
+
+ q14_yield_past_management(j2,w) ..
+  vm_yld(j2,"mowing",w) =l=
+  sum(ct,(i14_yields(ct,j2,"mowing",w)));
+*marcos_develop

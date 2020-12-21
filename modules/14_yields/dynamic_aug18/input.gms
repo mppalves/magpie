@@ -22,7 +22,7 @@ $offdelim;
 
 table f14_yields(t_all,j,kve,w) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
 $ondelim
-$include "./modules/14_yields/input/lpj_yields.cs3"
+$include "./modules/14_yields/input/lpj_yields.csv"
 $offdelim
 ;
 * set values to 1995 if nocc scenario is used
