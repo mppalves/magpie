@@ -21,14 +21,16 @@ positive variables
 equations
  q14_yield_crop(j,kcr,w)             Crop yields (tDM per ha per yr)
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
- q14_yield_past_cont_grazing(j2,w) marcos_develop
-  q14_yield_past_mowing(j2,w) marcos_develop
+ q14_yield_past_cont_grazing(j,w) marcos_develop
+  q14_yield_past_mowing(j,w) marcos_develop
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
- ov_yld(t,j,kve,w,type)          Yields (variable because of technical change) (tDM per ha per yr)
- oq14_yield_crop(t,j,kcr,w,type) Crop yields (tDM per ha per yr)
- oq14_yield_past(t,j,w,type)     Pasture yields (tDM per ha per yr)
+ ov_yld(t,j,kve,w,type)                   Yields (variable because of technical change) (tDM per ha per yr)
+ oq14_yield_crop(t,j,kcr,w,type)          Crop yields (tDM per ha per yr)
+ oq14_yield_past(t,j,w,type)              Pasture yields (tDM per ha per yr)
+ oq14_yield_past_cont_grazing(t,j,w,type) marcos_develop
+ oq14_yield_past_mowing(t,j,w,type)       marcos_develop
 ;
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################
