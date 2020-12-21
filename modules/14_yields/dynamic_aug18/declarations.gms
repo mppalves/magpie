@@ -21,7 +21,8 @@ positive variables
 equations
  q14_yield_crop(j,kcr,w)             Crop yields (tDM per ha per yr)
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
- q14_yield_past_management(j2,w) marcos_develop
+ q14_yield_past_cont_grazing(j2,w) marcos_develop
+  q14_yield_past_mowing(j2,w) marcos_develop
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

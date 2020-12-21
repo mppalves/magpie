@@ -22,11 +22,11 @@ q14_yield_past(j2,w) ..
  *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));
 
 *marcos_develop
-q14_yield_past_management(j2,w) ..
- vm_yld(j2,"cont_grazin",w) =l=
- sum(ct,(i14_yields(ct,j2,"cont_grazin",w)));
+q14_yield_past_cont_grazing(j2,w) ..
+ vm_yld(j2,"cont_grazing",w) =l=
+ sum(ct,(i14_yields(ct,j2,"cont_grazing",w)));
 
- q14_yield_past_management(j2,w) ..
+q14_yield_past_mowing(j2,w) ..
   vm_yld(j2,"mowing",w) =l=
   sum(ct,(i14_yields(ct,j2,"mowing",w)));
 *marcos_develop
