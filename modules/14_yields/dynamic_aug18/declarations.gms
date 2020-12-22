@@ -12,6 +12,8 @@ parameters
  p14_growing_stock(t,j,ac,forest_land,forest_type)               Forest growing stock (m3 per ha per yr)
  pm_timber_yield(t,j,ac,forest_land)               Forest growing stock (m3 per ha per yr)
  p14_growing_stock_report(t,j,ac,forest_land)               Forest growing stock (m3 per ha per yr)
+ p14_myield_LPJ_reg(t_all,i) marcos_develop
+ p14_myield_corr(t,i) marcos_develop
  ;
 
 positive variables
@@ -22,7 +24,7 @@ equations
  q14_yield_crop(j,kcr,w)             Crop yields (tDM per ha per yr)
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
  q14_yield_past_cont_grazing(j,w) marcos_develop
-  q14_yield_past_mowing(j,w) marcos_develop
+ q14_yield_past_mowing(j,w) marcos_develop
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
