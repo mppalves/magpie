@@ -21,7 +21,7 @@ test <- c(1)
 
 for(i in 1:length(test)){
 
-  cfg$input <- c("isimip_rcp-HadGEM2_ES-rcp8p5-co2_rev48_c200_690d3718e151be1b450b394c1064b1c5.tgz",
+  cfg$input <- c("isimip_rcp-IPSL_CM5A_LR-rcp2p6-co2_rev48_c200_690d3718e151be1b450b394c1064b1c5.tgz",
            "rev4.52_h12_magpie.tgz",
            "rev4.52_h12_validation.tgz",
            "calibration_H12_c200_26Feb20.tgz",
