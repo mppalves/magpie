@@ -26,7 +26,7 @@ for(i in 1:length(test)){
            "rev4.52_h12_validation.tgz",
            "calibration_H12_c200_26Feb20.tgz",
            "additional_data_rev3.86.tgz")
-  cfg$force_download <- FALSE
+  cfg$force_download <- TRUE
   cfg$output <- c("rds_report","lsu_evaluation","validation","disaggregation")
   cfg$gms$s31_test_scalar <- test[i]
   cfg$gms$livestock <- "lvtk_k_aug20"           # def = fbask_jan16, lvtk_aug20
@@ -37,7 +37,7 @@ for(i in 1:length(test)){
   cfg$gms$c14_yields_scenario  <- "nocc"   # def = "nocc"
 # Calibration
   cfg$results_folder <- "output/:title:"
-  cfg$calib_maxiter <- 300
+  cfg$calib_maxiter <- 4
   cfg$recalibrate <- TRUE
   cfg$title <- "calib_run"
   cfg$gms$c_timesteps <- 1

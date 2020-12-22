@@ -29,15 +29,15 @@ parameter mowing_costs(i) mowing costs
 /
 CAZ 50
 CHA 50
-EUR 50
+EUR 100
 IND 50
 JPN 50
-LAM 200
+LAM 50
 MEA 50
 NEU 50
 OAS 50
 REF 50
-SSA 45
+SSA 50
 USA 50
 /
 
