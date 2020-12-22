@@ -130,8 +130,8 @@ update_calib<-function(gdx_file, calib_accuracy=0.1, calibrate_pasture=TRUE,cali
 
   # in case of sufficient convergence, stop here (no additional update of
   # calibration factors!)
-  if(all(calib_divergence[,,"crop"] < calib_accuracy) && calib_divergence["EUR",,"past"] < 0.1) return(TRUE)
-
+  # if(all(calib_divergence[,,"crop"] < calib_accuracy) && calib_divergence["EUR",,"past"] < 0.1) return(TRUE)
+  if(all(calib_divergence < calib_accuracy)) return(TRUE)
   comment <- c(" description: Regional yield calibration file",
                " unit: -",
                paste0(" note: Calibration step ",calibration_step),
