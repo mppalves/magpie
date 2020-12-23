@@ -37,15 +37,15 @@ cat("\nStarting output generation\n")
 
 variables <-
   c(
-    "ov_lsu_ha",
+    "ov31_lsu_ha",
     #"ov70_lsus",
     #"ov_yld",
     "past",
     "pasture",
     "livst_milk",
     "livst_rum",
-    "ov_grazing_prod",
-    "ov_mowing_prod",
+    "ov31_grazing_prod",
+    "ov31_mowing_prod",
     "total_lsu_ha",
     "ov31_soilc_yld"
   )
@@ -53,7 +53,7 @@ variables <-
 # gdx <-
 #  # "C:/Users/pedrosa/github/Models/MAgPIE Validation/fulldata.gdx"
 # "/p/projects/landuse/users/pedrosa/magpie/output/2pmgmt_hdgem2_8p5_lm_1_2020-11-19_10.26.33/fulldata.gdx"
-# variables <- "ov_lsu_ha"
+# variables <- "ov31_lsu_ha"
 # outputdirs <-
 #  list.dirs(
 #    # "C:/Users/pedrosa/github/Models/MAgPIE Validation/test_errase",
@@ -101,7 +101,7 @@ for (variable in variables) {
         })
       }
 
-      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod", "ov31_soilc_yld")) {
+      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov31_grazing_prod","ov31_mowing_prod", "ov31_soilc_yld")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if (is.magpie(x) && !all(x==0)) {
@@ -119,7 +119,7 @@ for (variable in variables) {
       }
 
 
-      if (variable %in% c("ov_lsu_ha")) {
+      if (variable %in% c("ov31_lsu_ha")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           try(y <- gdx::readGDX(gdx, "ov_past_area")[,,"level"][,,"rainfed"][,,"cont_grazing"])
@@ -250,7 +250,7 @@ for (i in 1:length(outputdirs)) {
         })
       }
 
-      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov_grazing_prod","ov_mowing_prod")) {
+      if (variable %in% c("ov14_past_yld", "ov70_dem_past","ov31_grazing_prod","ov31_mowing_prod")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           if (is.magpie(x)) {
@@ -266,7 +266,7 @@ for (i in 1:length(outputdirs)) {
           }
         })
       }
-      if (variable %in% c("ov_lsu_ha")) {
+      if (variable %in% c("ov31_lsu_ha")) {
         try({
           x <- gdx::readGDX(gdx, variable, select = list(type = "level"))
           try(y <- gdx::readGDX(gdx, "ov_past_area")[,,"level"][,,"rainfed"][,,"cont_grazing"])

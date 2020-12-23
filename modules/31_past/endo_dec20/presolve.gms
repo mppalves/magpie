@@ -16,3 +16,5 @@ v31_a2.l(j2,lns2) = 1/( 1 + system.exp(-v31_z2.l(j2,lns2)));
 v31_soilc_yld.l(j2) = sum((lns2,lns3), v31_a2.l(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
 
 i31_mow_cost(i) = p31_mowing_costs(i) * fm_yld_calib(i,"past");
+
+v31_lsu_ha.up(ct,j2) = 2.5;
