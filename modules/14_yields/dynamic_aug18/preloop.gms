@@ -6,8 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 i14_yields(t,j,kve,w) = f14_yields(t,j,kve,w);
-i14_yields(t,j,"mowing",w) = f14_yields(t,j,"mowing",w) *  (10000 * 2.21 / 1e6);
-i14_yields(t,j,"cont_grazing",w) = f14_yields(t,j,"cont_grazing",w) * (10000 * 2.21 / 1e6);
+i14_yields(t,j,kcm,w) = f14_yields(t,j,kcm,w) *  (10000 * 2.21 / 1e6);
 
 ***YIELD CORRECTION FOR 2ND GENERATION BIOENERGY CROPS*************************************
 i14_yields(t,j,"begr",w) = i14_yields(t,j,"begr",w)*sum(cell(i,j),fm_tau1995(i))/smax(i,fm_tau1995(i));
@@ -33,7 +32,7 @@ p14_myield_corr(t,i) = (f14_pyld_hist(t,i)/p14_myield_LPJ_reg(t,i))$(sum(sameas(
 				p14_myield_corr(t,i)$(p14_myield_corr(t,i) < 1)  = 1;
 i14_yields(t,j,"mowing",w) = i14_yields(t,j,"mowing",w)*sum(cell(i,j),p14_myield_corr(t,i));
 
-* 		The continuous grazing option is not corrected as MAgPIE can decide the its yields by managing
+* The continuous grazing option is not corrected as MAgPIE can decide its yield by managing
 * the livestock density.
 
 display p14_myield_corr;

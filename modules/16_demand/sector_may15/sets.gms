@@ -43,7 +43,11 @@ sets
 *marcos_develop
    kpm(kve) Pasture management options (grass productivity)
        / pasture, cont_grazing, mowing /
+
+    kcm(kpm) continous grazing and mowing options
+       / cont_grazing, mowing /
 ;
+
 * new set for pasture management activities
 *all Kall derived sets have been extended with a new activity mowing and cont_grazing
 *marcos_develop

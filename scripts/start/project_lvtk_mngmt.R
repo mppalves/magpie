@@ -22,6 +22,3 @@ source("config/default.cfg")
   cfg$gms$past <- "endo_dec20"               # def = endo_jun13
   cfg$title <- paste0("code_cleaning_1")
   start_run(cfg=cfg,codeCheck=F)
-
-
-}
