@@ -39,7 +39,7 @@ $offdelim
 
 ********* SUITABILITY CONSTRAINT *******************************************
 
-table f30_land_si(j,si) Land area suitable and non-suitable as cropland (mio. ha)
+table fm_land_si(j,si) Land area suitable and non-suitable as cropland (mio. ha)
 $ondelim
 $include "./modules/30_crop/endo_jun13/input/avl_land_si.cs3"
 $offdelim

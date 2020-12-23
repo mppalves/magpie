@@ -14,7 +14,7 @@ scalars
 ;
 
 ******* Calibration factor
-table f14_yld_calib(i,ltype14) Calibration factor for the LPJ yields (1)
+table fm_yld_calib(i,ltype14) Calibration factor for the LPJ yields (1)
 $ondelim
 $include "./modules/14_yields/input/f14_yld_calib.csv"
 $offdelim;

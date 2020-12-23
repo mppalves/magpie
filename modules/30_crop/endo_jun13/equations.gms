@@ -18,7 +18,7 @@
 *' The cultivated area therefore has to be smaller than the "si0" cropland area:
 
  q30_suitability(j2)  ..
-   vm_land(j2,"crop") =l= f30_land_si(j2,"si0");
+   vm_land(j2,"crop") =l= fm_land_si(j2,"si0");
 
 *' As additional constraints minimum and maximum rotational constraints limit
 *' the placing of crops. On the one hand, these rotational constraints reflect
