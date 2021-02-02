@@ -22,7 +22,7 @@ q14_yield_past(j2,w) ..
  *sum(cell(i2,j2),pm_past_mngmnt_factor(ct,i2))));
 
 *marcos_develop
-q14_yield_past_mngmt(j2,kcm,w)..
- vm_yld(j2,kcm,w) =l=
- sum(ct,(i14_yields(ct,j2,kcm,w)));
+q14_yield_past_mngmt(j2,past_mngt,w)..
+ vm_past_yld(j2,past_mngt,w) =l=
+ sum(ct,(i14_past_yields(ct,j2,past_mngt,w)));
 *marcos_develop

@@ -197,7 +197,7 @@ $title magpie
 * 
 * 
 * 
-* Last modification (input data): Mon Dec 21 16:02:51 2020
+* Last modification (input data): Mon Feb 01 09:55:16 2021
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -223,7 +223,7 @@ $offlisting
 
 $setglobal c_timesteps  coup2100
 $setglobal c_past  till_2010
-$setglobal c_title  default_dec20
+$setglobal c_title  code_cleaning_1
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -249,7 +249,7 @@ $setglobal processing  substitution_dec18
 $setglobal trade  selfsuff_reduced
 
 $setglobal crop  endo_jun13
-$setglobal past  endo_jun13
+$setglobal past  endo_dec20
 
 $setglobal forestry  dynamic_may20
 

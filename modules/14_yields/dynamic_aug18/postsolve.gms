@@ -9,21 +9,25 @@
 
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################
- ov_yld(t,j,kve,w,"marginal")                = vm_yld.m(j,kve,w);
- oq14_yield_crop(t,j,kcr,w,"marginal")       = q14_yield_crop.m(j,kcr,w);
- oq14_yield_past(t,j,w,"marginal")           = q14_yield_past.m(j,w);
- oq14_yield_past_mngmt(t,j,kcm,w,"marginal") = q14_yield_past_mngmt.m(j,kcm,w);
- ov_yld(t,j,kve,w,"level")                   = vm_yld.l(j,kve,w);
- oq14_yield_crop(t,j,kcr,w,"level")          = q14_yield_crop.l(j,kcr,w);
- oq14_yield_past(t,j,w,"level")              = q14_yield_past.l(j,w);
- oq14_yield_past_mngmt(t,j,kcm,w,"level")    = q14_yield_past_mngmt.l(j,kcm,w);
- ov_yld(t,j,kve,w,"upper")                   = vm_yld.up(j,kve,w);
- oq14_yield_crop(t,j,kcr,w,"upper")          = q14_yield_crop.up(j,kcr,w);
- oq14_yield_past(t,j,w,"upper")              = q14_yield_past.up(j,w);
- oq14_yield_past_mngmt(t,j,kcm,w,"upper")    = q14_yield_past_mngmt.up(j,kcm,w);
- ov_yld(t,j,kve,w,"lower")                   = vm_yld.lo(j,kve,w);
- oq14_yield_crop(t,j,kcr,w,"lower")          = q14_yield_crop.lo(j,kcr,w);
- oq14_yield_past(t,j,w,"lower")              = q14_yield_past.lo(j,w);
- oq14_yield_past_mngmt(t,j,kcm,w,"lower")    = q14_yield_past_mngmt.lo(j,kcm,w);
+ ov_yld(t,j,kve,w,"marginal")                      = vm_yld.m(j,kve,w);
+ ov_past_yld(t,j,past_mngt,w,"marginal")           = vm_past_yld.m(j,past_mngt,w);
+ oq14_yield_crop(t,j,kcr,w,"marginal")             = q14_yield_crop.m(j,kcr,w);
+ oq14_yield_past(t,j,w,"marginal")                 = q14_yield_past.m(j,w);
+ oq14_yield_past_mngmt(t,j,past_mngt,w,"marginal") = q14_yield_past_mngmt.m(j,past_mngt,w);
+ ov_yld(t,j,kve,w,"level")                         = vm_yld.l(j,kve,w);
+ ov_past_yld(t,j,past_mngt,w,"level")              = vm_past_yld.l(j,past_mngt,w);
+ oq14_yield_crop(t,j,kcr,w,"level")                = q14_yield_crop.l(j,kcr,w);
+ oq14_yield_past(t,j,w,"level")                    = q14_yield_past.l(j,w);
+ oq14_yield_past_mngmt(t,j,past_mngt,w,"level")    = q14_yield_past_mngmt.l(j,past_mngt,w);
+ ov_yld(t,j,kve,w,"upper")                         = vm_yld.up(j,kve,w);
+ ov_past_yld(t,j,past_mngt,w,"upper")              = vm_past_yld.up(j,past_mngt,w);
+ oq14_yield_crop(t,j,kcr,w,"upper")                = q14_yield_crop.up(j,kcr,w);
+ oq14_yield_past(t,j,w,"upper")                    = q14_yield_past.up(j,w);
+ oq14_yield_past_mngmt(t,j,past_mngt,w,"upper")    = q14_yield_past_mngmt.up(j,past_mngt,w);
+ ov_yld(t,j,kve,w,"lower")                         = vm_yld.lo(j,kve,w);
+ ov_past_yld(t,j,past_mngt,w,"lower")              = vm_past_yld.lo(j,past_mngt,w);
+ oq14_yield_crop(t,j,kcr,w,"lower")                = q14_yield_crop.lo(j,kcr,w);
+ oq14_yield_past(t,j,w,"lower")                    = q14_yield_past.lo(j,w);
+ oq14_yield_past_mngmt(t,j,past_mngt,w,"lower")    = q14_yield_past_mngmt.lo(j,past_mngt,w);
 *##################### R SECTION END (OUTPUT DEFINITIONS) ######################
 

@@ -47,3 +47,11 @@ $include "./modules/14_yields/input/f14_aboveground_fraction.csv"
 $offdelim
 /
 ;
+
+*marcos_develop
+table f14_past_yields(t_all,j,past_mngt,w) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
+$ondelim
+$include "./modules/14_yields/input/lpj_past_yields2.csv"
+$offdelim
+;
+*marcos_develop

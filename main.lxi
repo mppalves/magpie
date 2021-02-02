@@ -1,0 +1,20 @@
+B 3 C o m p i l a t i o n
+B 217 Include File Summary
+B 1533 E x e c u t i o n
+I 1533 p14_myield_corr
+I 1558 p14_pyield_corr
+I 1582 i15_milk_share_fadeout_india
+I 1588 ac_bph
+I 1594 p56_pollutant_prices_input
+I 1599 im_pollutant_prices
+I 1604 p56_c_price_aff
+I 1608 i57_mac_step_n2o
+I 1632 i57_mac_step_ch4
+I 1657 im_maccs_mitigation
+I 1662 p57_maccs_costs_integral
+I 1668 ct
+B 1678 Model Statistics    SOLVE m15_food_demand Using NLP From line 1094551
+B 1701 Solution Report     SOLVE m15_food_demand Using NLP From line 1094551
+B 1753 E x e c u t i o n
+I 1756 p15_modelstat
+B 1764 Model Statistics    SOLVE magpie Using NLP From line 1099658

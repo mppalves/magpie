@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 i14_yields(t,j,kve,w) = f14_yields(t,j,kve,w);
-i14_yields(t,j,kcm,w) = f14_yields(t,j,kcm,w) *  (10000 * 2.21 / 1e6);
+i14_past_yields(t,j,past_mngt,w) = f14_past_yields(t,j,past_mngt,w);
 
 ***YIELD CORRECTION FOR 2ND GENERATION BIOENERGY CROPS*************************************
 i14_yields(t,j,"begr",w) = i14_yields(t,j,"begr",w)*sum(cell(i,j),fm_tau1995(i))/smax(i,fm_tau1995(i));
@@ -25,14 +25,14 @@ i14_yields(t,j,"pasture",w) = i14_yields(t,j,"pasture",w)*sum(cell(i,j),fm_yld_c
 
 ***YIELD CORRECTION FOR MOWING ACCOUNTING FOR REGIONAL DIFFERENCES IN MANAGEMENT***
 *marcos_develop
-p14_myield_LPJ_reg(t,i) = (sum(cell(i,j),i14_yields(t,j,"mowing","rainfed")*pm_land_start(j,"past"))/sum(cell(i,j),pm_land_start(j,"past")));
+p14_myield_LPJ_reg(t,i) = (sum(cell(i,j),i14_past_yields(t,j,"mowing","rainfed")*pm_land_start(j,"past"))/sum(cell(i,j),pm_land_start(j,"past")));
 
 p14_myield_corr(t,i) = (f14_pyld_hist(t,i)/p14_myield_LPJ_reg(t,i))$(sum(sameas(t_past,t),1) = 1)
 			+ sum(t_past,(f14_pyld_hist(t_past,i)/(p14_myield_LPJ_reg(t_past,i)+0.000001))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
 				p14_myield_corr(t,i)$(p14_myield_corr(t,i) < 1)  = 1;
-i14_yields(t,j,"mowing",w) = i14_yields(t,j,"mowing",w)*sum(cell(i,j),p14_myield_corr(t,i));
+i14_past_yields(t,j,"mowing",w) = i14_past_yields(t,j,"mowing",w)*sum(cell(i,j),p14_myield_corr(t,i));
 
-* The continuous grazing option is not corrected as MAgPIE can decide its yield by managing
+* The continuous grazing option is not corrected as MAgPIE can decide its yields by managing
 * the livestock density.
 
 display p14_myield_corr;

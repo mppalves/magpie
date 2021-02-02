@@ -7,6 +7,7 @@
 
 parameters
  i14_yields(t,j,kve,w)                                          Biophysical input yields (excluding technological change) (tDM per ha per yr)
+ i14_past_yields(t,j,past_mngt,w)                               Biophysical input yields (excluding technological change) (tDM per ha per yr) *marcos_develop
  p14_pyield_LPJ_reg(t_all,i)                                    Regional average input yields aggregated from clusters with initial pasture area as weights (tDM per ha per yr)
  p14_pyield_corr(t,i)                                           Regional pasture management correction for historical time steps (1)
  p14_growing_stock(t,j,ac,forest_land,forest_type)               Forest growing stock (m3 per ha per yr)
@@ -18,19 +19,21 @@ parameters
 
 positive variables
  vm_yld(j,kve,w)                     Yields (variable because of technical change) (tDM per ha per yr)
+vm_past_yld(j,past_mngt,w)           Pasture Yields
 ;
 
 equations
  q14_yield_crop(j,kcr,w)             Crop yields (tDM per ha per yr)
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
- q14_yield_past_mngmt(j,kcm,w)    marcos_develop
+ q14_yield_past_mngmt(j,past_mngt,w)    marcos_develop
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
- ov_yld(t,j,kve,w,type)                Yields (variable because of technical change) (tDM per ha per yr)
- oq14_yield_crop(t,j,kcr,w,type)       Crop yields (tDM per ha per yr)
- oq14_yield_past(t,j,w,type)           Pasture yields (tDM per ha per yr)
- oq14_yield_past_mngmt(t,j,kcm,w,type) marcos_develop
+ ov_yld(t,j,kve,w,type)                      Yields (variable because of technical change) (tDM per ha per yr)
+ ov_past_yld(t,j,past_mngt,w,type)           Pasture Yields
+ oq14_yield_crop(t,j,kcr,w,type)             Crop yields (tDM per ha per yr)
+ oq14_yield_past(t,j,w,type)                 Pasture yields (tDM per ha per yr)
+ oq14_yield_past_mngmt(t,j,past_mngt,w,type) marcos_develop
 ;
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################

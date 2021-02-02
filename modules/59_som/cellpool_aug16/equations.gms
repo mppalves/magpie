@@ -16,6 +16,8 @@ q59_som_target_cropland(j2) ..
               ;
 *' as well as for all non cropland given by
 
+
+###### nonagriland, pasture,
 q59_som_target_noncropland(j2,noncropland59) ..
               v59_som_target(j2,noncropland59)
               =e= vm_land(j2,noncropland59) * sum(ct,f59_topsoilc_density(ct,j2))
@@ -45,7 +47,7 @@ q59_som_pool_cropland(j2) ..
               ;
 
 *' and
-
+####*Add an additional equations for pasture here
 q59_som_pool_noncropland(j2, noncropland59) ..
                v59_som_pool(j2, noncropland59)
                =e= sum(ct,i59_lossrate(ct))

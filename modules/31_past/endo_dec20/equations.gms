@@ -14,29 +14,29 @@
 *' `vm_yld` which are delivered by the module [14_yields]:
 
 *marcos_develop
-q31_prod(j2) ..
-  vm_prod(j2,"pasture") =e= sum(kcm, vm_prod(j2,kcm));
+*q31_prod(j2) ..
+*  vm_prod(j2,"pasture") =e= sum(kcm, vm_prod(j2,kcm));
 
-q31_prod_pm(j2, kcm) ..
-  vm_prod(j2,kcm) =e= v31_past_area(j2,kcm,"rainfed") * vm_yld(j2,kcm,"rainfed");
+q31_prod_pm(j2) ..
+  vm_prod(j2,"pasture") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
 
 q31_pasture_areas(j2)..
-  vm_land(j2,"past") =e= sum(kcm, v31_past_area(j2,kcm,"rainfed"));
+  vm_land(j2,"past") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed"));
 
-q31_grazing_prod(j2)..
-  v31_grazing_prod(j2) =e= v31_past_area(j2,"cont_grazing","rainfed") * vm_yld(j2,"cont_grazing","rainfed");
+*q31_grazing_prod(j2)..
+*  v31_grazing_prod(j2) =e= v31_past_area(j2,"cont_grazing","rainfed") * vm_past_yld(j2,"cont_grazing","rainfed");
 
-q31_mowing_prod(j2)..
-  v31_mowing_prod(j2) =e= v31_past_area(j2,"mowing","rainfed") * vm_yld(j2,"mowing","rainfed");
+*q31_mowing_prod(j2)..
+*  v31_mowing_prod(j2) =e= v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed");
 
 q31_cost_prod_past(i2) ..
-  vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_prod(j2,"mowing")) * i31_mow_cost(i2) + sum((cell(i2,j2),ct), v31_lsu_ha(ct,j2));
+  vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed")) * i31_mow_cost(i2) + sum((cell(i2,j2),ct), v31_lsu_ha(ct,j2));
 
 q31_lsu_convert(j2)..
   v31_lsu(j2) =e= sum(ct, (v31_lsu_ha(ct,j2) - s31_mean) / s31_std);
 
-q31_yld_lsu(j2,w) ..
-  vm_yld(j2,"cont_grazing","rainfed") =e= sum(ct, v31_lsu_ha(ct,j2)) * ((4000 * 2.25/1e6) * 365);
+q31_yld_lsu(j2,w)..
+  vm_past_yld(j2,"cont_grazing","rainfed") =e= sum(ct, v31_lsu_ha(ct,j2)) * ((4000 * 2.25/1e6) * 365);
 
 * model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
 q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, v31_lsu(j2) * f31_w1(in_lsu_s,lns1));
