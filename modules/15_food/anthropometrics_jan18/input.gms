@@ -22,12 +22,13 @@ $setglobal c15_rum_share  mixed
 *   options:   constant,
 *              lin_zero_10_50, lin_zero_20_50, lin_zero_20_30, lin_50pc_20_50, lin_50pc_20_50_extend65, lin_50pc_20_50_extend80,
 *              lin_50pc_10_50_extend90, lin_75pc_10_50_extend90, lin_80pc_20_50, lin_80pc_20_50_extend95, lin_90pc_20_50_extend95,
-*              lin_99-98-90pc_20_50-60-100
+*              lin_99-98-90pc_20_50-60-100, sigmoid_20pc_20_50
 $setglobal c15_rumscen  constant
 $setglobal c15_fishscen  constant
 $setglobal c15_alcscen  constant
 $setglobal c15_livescen  constant
 $setglobal c15_rumdairyscen  constant
+$setglobal c15_rumdairy_scp_scen  constant
 $setglobal c15_livescen_target  constant
 
 
@@ -77,9 +78,10 @@ scalar s15_elastic_demand  Elastic demand switch (1=elastic 0=exogenous) (1) / 1
 scalar s15_calibrate Calibration switch (1=calibrated 0=pure regression outcomes) (1) / 1 /;
 * only for per-capita calories, not for e.g. calibration of transformation parameters between per-capita calories in dm
 
-scalar s15_maxiter Scalar defining maximum number of iterations (1) / 5 /;
+scalar s15_maxiter Scalar defining maximum number of iterations (1) / 6 /;
 
-scalar s15_convergence Convergence criterion (1) / 0.005 /;
+scalar s15_convergence Convergence criterion (1) / 0.01 /;
+* maximum relative per-capita gdp difference within a region between two iteratios
 
 scalar s15_exo_waste Switch for transition towards exogenous food waste scenario (1)  / 0 /;
 
