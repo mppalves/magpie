@@ -51,8 +51,8 @@ q31_soilc_convert(j2)..
      v31_real_soilc(j2) =e= (v31_soilc_yld(j2) * 11000.11 + 10319.38) * v31_past_area(j2,"cont_grazing","rainfed");
 
 q31_suitability(j2)  ..
-        vm_land(j2,"crop") =l= fm_land_si(j2,"si0");
-*vm_land(j2,"crop") + v31_past_area(j2,"mowing","rainfed") =l= fm_land_si(j2,"si0");
+*        vm_land(j2,"crop") =l= fm_land_si(j2,"si0");
+vm_land(j2,"crop") + v31_past_area(j2,"mowing","rainfed") =l= fm_land_si(j2,"si0");
 *marcos_develop
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
