@@ -13,6 +13,6 @@ v31_z1.l(j2,lns1) = v31_inlsu.l(j2,lns1) + v31_inEnv.l(j2,lns1) + f31_b1(lns1);
 v31_a1.l(j2,lns1) = 1/( 1 + system.exp(-v31_z1.l(j2,lns1)));
 v31_z2.l(j2,lns2) = sum(lns1, v31_a1.l(j2,lns1) * f31_w2(lns1,lns2)) + f31_b2(lns2);
 v31_a2.l(j2,lns2) = 1/( 1 + system.exp(-v31_z2.l(j2,lns2)));
-v31_soilc_yld.l(j2) = sum((lns2,lns3), v31_a2.l(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
+v31_soilc.l(j2) = sum((lns2,lns3), v31_a2.l(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
 
 v31_lsu_ha.up(ct,j2) = 2.5;
