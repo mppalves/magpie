@@ -14,29 +14,20 @@
 *' `vm_yld` which are delivered by the module [14_yields]:
 
 *marcos_develop
-*q31_prod(j2) ..
-*  vm_prod(j2,"pasture") =e= sum(kcm, vm_prod(j2,kcm));
-
 q31_prod_pm(j2) ..
   vm_prod(j2,"pasture") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
 
 q31_pasture_areas(j2)..
   vm_land(j2,"past") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed"));
 
-*q31_grazing_prod(j2)..
-*  v31_grazing_prod(j2) =e= v31_past_area(j2,"cont_grazing","rainfed") * vm_past_yld(j2,"cont_grazing","rainfed");
-
-*q31_mowing_prod(j2)..
-*  v31_mowing_prod(j2) =e= v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed");
-
 q31_cost_prod_past(i2) ..
-  vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed")) * i31_mow_cost(i2) + sum((cell(i2,j2),ct), v31_lsu_ha(ct,j2));
+  vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed")) * im_mow_cost(i2) + sum((cell(i2,j2),ct), v31_lsu_ha(ct,j2));
 
 q31_lsu_convert(j2)..
   v31_lsu(j2) =e= sum(ct, (v31_lsu_ha(ct,j2) - s31_mean) / s31_std);
 
 q31_yld_lsu(j2,w)..
-  vm_past_yld(j2,"cont_grazing","rainfed") =e= sum(ct, v31_lsu_ha(ct,j2)) * ((4000 * 2.25/1e6) * 365);
+  vm_past_yld(j2,"cont_grazing","rainfed") =e= sum(ct, v31_lsu_ha(ct,j2)) * s31_lsu_yr_consumption;
 
 * model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
 q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, v31_lsu(j2) * f31_w1(in_lsu_s,lns1));
@@ -48,11 +39,10 @@ q31_a2(j2,lns2)..  v31_a2(j2,lns2) =e= 1/( 1 + system.exp(-v31_z2(j2,lns2)));
 q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns2,lns3), v31_a2(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
 
 q31_soilc_convert(j2)..
-     v31_real_soilc(j2) =e= (v31_soilc_yld(j2) * 11000.11 + 10319.38) * v31_past_area(j2,"cont_grazing","rainfed");
+    v31_real_soilc(j2) =e= (v31_soilc_yld(j2) * 11000.11 + 10319.38) * v31_past_area(j2,"cont_grazing","rainfed");
 
 q31_suitability(j2)  ..
-*        vm_land(j2,"crop") =l= fm_land_si(j2,"si0");
-vm_land(j2,"crop") + v31_past_area(j2,"mowing","rainfed") =l= fm_land_si(j2,"si0");
+    vm_land(j2,"crop") + v31_past_area(j2,"mowing","rainfed") =l= fm_land_si(j2,"si0");
 *marcos_develop
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
