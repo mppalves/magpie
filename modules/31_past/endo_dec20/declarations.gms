@@ -60,11 +60,15 @@ v31_real_soilc(j) marcos_develop
 scalars
 s31_mean lsu conversion factor /1.12482040765598/
 s31_std lsu conversion factor /0.733714157685237/
+* 4000 = Daily carbon consumption per LSU
+* 2.25 = from C to DM
+* 1e6 = from m2 to ha
+* 365 = days per year
+* ((4000 * 2.25/1e6) * 365) =  3.285 tDM/yr
+s31_lsu_yr_consumption LSU year DM consumption equivalent / 3.285 /
 ;
 
-parameter
-i31_mow_cost(i) development
-;
+
 *marcos_develop
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

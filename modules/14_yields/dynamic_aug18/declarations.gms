@@ -28,6 +28,9 @@ equations
  q14_yield_past_mngmt(j,past_mngt,w)    marcos_develop
 ;
 
+parameter
+im_mow_cost(i) marcos_develop
+;
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
  ov_yld(t,j,kve,w,type)                      Yields (variable because of technical change) (tDM per ha per yr)

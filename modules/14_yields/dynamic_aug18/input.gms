@@ -15,7 +15,7 @@ scalars
 ;
 
 ******* Calibration factor
-table fm_yld_calib(i,ltype14) Calibration factor for the LPJmL yields (1)
+table f14_yld_calib(i,ltype14) Calibration factor for the LPJmL yields (1)
 $ondelim
 $include "./modules/14_yields/input/f14_yld_calib.csv"
 $offdelim;
@@ -54,4 +54,12 @@ $ondelim
 $include "./modules/14_yields/input/lpj_past_yields2.csv"
 $offdelim
 ;
+
+parameter p14_mowing_costs(i) mowing costs
+/
+$ondelim
+$include "./modules/31_past/input/p14_mowing_costs.csv"
+$offdelim
+/;
+
 *marcos_develop

@@ -25,13 +25,6 @@ $include "./modules/31_past/input/f31_lsu_starting_values.csv"
 $offdelim
 /;
 
-parameter p31_mowing_costs(i) mowing costs
-/
-$ondelim
-$include "./modules/31_past/input/p31_mowing_costs.csv"
-$offdelim
-/;
-
 * model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
 table f31_nn_input(j,in_env_s) aggregated environmental cell values
 $ondelim

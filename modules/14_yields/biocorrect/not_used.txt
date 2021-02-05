@@ -12,3 +12,4 @@ pm_carbon_density_ac,input, not used
 pm_carbon_density_ac_forestry,input, not used
 pm_timber_yield, input, not used
 vm_past_yld, variable, not used
+im_mow_cost, input, not used
