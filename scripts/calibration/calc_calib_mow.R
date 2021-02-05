@@ -76,7 +76,7 @@ get_yieldcalib <- function(gdx_file) {
 get_costcalib <- function(gdx_file) {
   require(magclass)
   require(gdx)
-  calib_mow_cost <- readGDX(gdx_file, "i31_mow_cost")
+  calib_mow_cost <- readGDX(gdx_file, "im_mow_cost")
   # sigmoid <- function(x) 1/(1+exp(-x*0.1+4.5)) #1008
   sigmoid <- function(x) 1 / (1 + exp(-x * 0.9 + 5)) # 10
   calib_mow_cost <- sigmoid(calib_mow_cost + 10)
