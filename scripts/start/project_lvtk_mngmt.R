@@ -20,5 +20,5 @@ source("config/default.cfg")
 #           "calibration_H12_c200_26Feb20.tgz",
 #           "additional_data_rev3.86.tgz")
   cfg$gms$past <- "endo_dec20"               # def = endo_jun13
-  cfg$title <- paste0("cont_mow1")
+  cfg$title <- paste0("cont_mow3")
   start_run(cfg=cfg,codeCheck=F)
