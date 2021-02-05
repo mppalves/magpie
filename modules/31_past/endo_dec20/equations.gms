@@ -36,10 +36,10 @@ q31_z1(j2,lns1)..  v31_z1(j2,lns1) =e= v31_inlsu(j2,lns1) + v31_inEnv(j2,lns1) +
 q31_a1(j2,lns1)..  v31_a1(j2,lns1) =e= 1/( 1 + system.exp(-v31_z1(j2,lns1)));
 q31_z2(j2,lns2)..  v31_z2(j2,lns2) =e= sum(lns1, v31_a1(j2,lns1) * f31_w2(lns1,lns2)) + f31_b2(lns2);
 q31_a2(j2,lns2)..  v31_a2(j2,lns2) =e= 1/( 1 + system.exp(-v31_z2(j2,lns2)));
-q31_soilc_yld(j2)..  v31_soilc_yld(j2) =e= sum((lns2,lns3), v31_a2(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
+q31_soilc_yld(j2)..  v31_soilc(j2) =e= sum((lns2,lns3), v31_a2(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
 
 q31_soilc_convert(j2)..
-    v31_real_soilc(j2) =e= (v31_soilc_yld(j2) * 11000.11 + 10319.38) * v31_past_area(j2,"cont_grazing","rainfed");
+    v31_soilc_target(j2) =e= (v31_soilc(j2) * 11000.11 + 10319.38) * v31_past_area(j2,"cont_grazing","rainfed");
 
 q31_suitability(j2)  ..
     vm_land(j2,"crop") + v31_past_area(j2,"mowing","rainfed") =l= fm_land_si(j2,"si0");

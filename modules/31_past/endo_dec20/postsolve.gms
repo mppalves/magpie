@@ -17,8 +17,8 @@
  ov31_z2(t,j,lns2,"marginal")               = v31_z2.m(j,lns2);
  ov31_a2(t,j,lns2,"marginal")               = v31_a2.m(j,lns2);
  ov31_lsu_ha(t,j,"marginal")                = v31_lsu_ha.m(t,j);
- ov31_soilc_yld(t,j,"marginal")             = v31_soilc_yld.m(j);
- ov31_real_soilc(t,j,"marginal")            = v31_real_soilc.m(j);
+ ov31_soilc(t,j,"marginal")             = v31_soilc.m(j);
+ ov31_soilc_target(t,j,"marginal")            = v31_soilc_target.m(j);
  oq31_carbon(t,j,ag_pools,"marginal")       = q31_carbon.m(j,ag_pools);
  oq31_cost_prod_past(t,i,"marginal")        = q31_cost_prod_past.m(i);
  oq31_pasture_areas(t,j,"marginal")         = q31_pasture_areas.m(j);
@@ -43,8 +43,8 @@
  ov31_z2(t,j,lns2,"level")                  = v31_z2.l(j,lns2);
  ov31_a2(t,j,lns2,"level")                  = v31_a2.l(j,lns2);
  ov31_lsu_ha(t,j,"level")                   = v31_lsu_ha.l(t,j);
- ov31_soilc_yld(t,j,"level")                = v31_soilc_yld.l(j);
- ov31_real_soilc(t,j,"level")               = v31_real_soilc.l(j);
+ ov31_soilc(t,j,"level")                = v31_soilc.l(j);
+ ov31_soilc_target(t,j,"level")               = v31_soilc_target.l(j);
  oq31_carbon(t,j,ag_pools,"level")          = q31_carbon.l(j,ag_pools);
  oq31_cost_prod_past(t,i,"level")           = q31_cost_prod_past.l(i);
  oq31_pasture_areas(t,j,"level")            = q31_pasture_areas.l(j);
@@ -69,8 +69,8 @@
  ov31_z2(t,j,lns2,"upper")                  = v31_z2.up(j,lns2);
  ov31_a2(t,j,lns2,"upper")                  = v31_a2.up(j,lns2);
  ov31_lsu_ha(t,j,"upper")                   = v31_lsu_ha.up(t,j);
- ov31_soilc_yld(t,j,"upper")                = v31_soilc_yld.up(j);
- ov31_real_soilc(t,j,"upper")               = v31_real_soilc.up(j);
+ ov31_soilc(t,j,"upper")                = v31_soilc.up(j);
+ ov31_soilc_target(t,j,"upper")               = v31_soilc_target.up(j);
  oq31_carbon(t,j,ag_pools,"upper")          = q31_carbon.up(j,ag_pools);
  oq31_cost_prod_past(t,i,"upper")           = q31_cost_prod_past.up(i);
  oq31_pasture_areas(t,j,"upper")            = q31_pasture_areas.up(j);
@@ -95,8 +95,8 @@
  ov31_z2(t,j,lns2,"lower")                  = v31_z2.lo(j,lns2);
  ov31_a2(t,j,lns2,"lower")                  = v31_a2.lo(j,lns2);
  ov31_lsu_ha(t,j,"lower")                   = v31_lsu_ha.lo(t,j);
- ov31_soilc_yld(t,j,"lower")                = v31_soilc_yld.lo(j);
- ov31_real_soilc(t,j,"lower")               = v31_real_soilc.lo(j);
+ ov31_soilc(t,j,"lower")                = v31_soilc.lo(j);
+ ov31_soilc_target(t,j,"lower")               = v31_soilc_target.lo(j);
  oq31_carbon(t,j,ag_pools,"lower")          = q31_carbon.lo(j,ag_pools);
  oq31_cost_prod_past(t,i,"lower")           = q31_cost_prod_past.lo(i);
  oq31_pasture_areas(t,j,"lower")            = q31_pasture_areas.lo(j);
