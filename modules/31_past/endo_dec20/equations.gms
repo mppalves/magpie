@@ -23,6 +23,8 @@ q31_pasture_areas(j2)..
 q31_cost_prod_past(i2) ..
   vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed")) * im_mow_cost(i2) + sum((cell(i2,j2),ct), v31_lsu_ha(ct,j2));
 
+*' Soil carbon target calculation
+
 q31_lsu_convert(j2)..
   v31_lsu(j2) =e= sum(ct, (v31_lsu_ha(ct,j2) - s31_mean) / s31_std);
 
@@ -43,6 +45,7 @@ q31_soilc_convert(j2)..
 
 q31_suitability(j2)  ..
     vm_land(j2,"crop") + v31_past_area(j2,"mowing","rainfed") =l= fm_land_si(j2,"si0");
+
 *marcos_develop
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
