@@ -7,7 +7,7 @@
 
 sets
   ltype14 calibration land types
-       / crop, past /
+       / crop, past, cmow /
 
 *marcos_develop
    past_mngt pasture management options

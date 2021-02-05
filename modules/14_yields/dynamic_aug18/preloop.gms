@@ -45,6 +45,6 @@ i14_past_yields(t,j,"mowing",w) = i14_past_yields(t,j,"mowing",w)*sum(cell(i,j),
 *' A cost is associated with the mowing management option. This cost is calibrated
 *' to reflect historical pasture patterns.
 
-im_mow_cost(i) = p14_mowing_costs(i) * f14_yld_calib(i,"past");
+im_mow_cost(i) = p14_mowing_costs(i) * f14_yld_calib(i,"cmow");
 
 *marcos_develop
