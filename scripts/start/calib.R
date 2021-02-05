@@ -24,11 +24,9 @@ source("config/default.cfg")
   cfg$output <- c("report")
   cfg$sequential <- TRUE
   cfg$debug <- TRUE
-  cfg$damping_factor <- 0.3
+  cfg$damping_factor <- 0.5
   cfg$gms$past <- "endo_dec20"               # def = endo_jun13
   # cfg$gms$land <- "feb15"
-  cfg$gms$trade <- "free_apr16"
+  # cfg$gms$trade <- "free_apr16"
   start_run(cfg,codeCheck=FALSE)
   magpie4::submitCalibration("H12")
-
-
