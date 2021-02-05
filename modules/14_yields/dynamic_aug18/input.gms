@@ -58,7 +58,7 @@ $offdelim
 parameter p14_mowing_costs(i) mowing costs
 /
 $ondelim
-$include "./modules/31_past/input/p14_mowing_costs.csv"
+$include "./modules/14_yields/input/p14_mowing_costs.csv"
 $offdelim
 /;
 
