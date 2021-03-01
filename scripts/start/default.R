@@ -14,4 +14,4 @@
 source("scripts/start_functions.R")
 
 #start MAgPIE run
-start_run(cfg="default.cfg")
+start_run(cfg="default.cfg", codeCheck=F)

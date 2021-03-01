@@ -45,7 +45,7 @@ $offdelim;
 
 table f14_regions_yields(t_all,i,kcr) FAO yields per region (tDM per ha per yr)
 $ondelim
-$include "./modules/14_yields/managementcalib_aug19/input/f14_region_yields.cs3"
+$include "./modules/14_yields/management_mar21/input/f14_region_yields.cs3"
 $offdelim
 ;
 m_fillmissingyears(f14_regions_yields,"i,kcr");
