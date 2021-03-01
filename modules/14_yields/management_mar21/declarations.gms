@@ -38,8 +38,10 @@ im_mow_cost(i)                       marcos_develop
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
- ov_yld(t,j,kve,w,type)          Yields (variable because of technical change) (tDM per ha per yr)
- oq14_yield_crop(t,j,kcr,w,type) Crop yields (tDM per ha per yr)
- oq14_yield_past(t,j,w,type)     Pasture yields (tDM per ha per yr)
+ ov_yld(t,j,kve,w,type)                      Yields (variable because of technical change) (tDM per ha per yr)
+ ov_past_yld(t,j,past_mngt,w,type)           marcos_develop
+ oq14_yield_crop(t,j,kcr,w,type)             Crop yields (tDM per ha per yr)
+ oq14_yield_past(t,j,w,type)                 Pasture yields (tDM per ha per yr)
+ oq14_yield_past_mngmt(t,j,past_mngt,w,type) marcos_develop
 ;
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################

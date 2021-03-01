@@ -212,7 +212,7 @@ $offlisting
 
 $setglobal c_timesteps  coup2100
 $setglobal c_past  till_2010
-$setglobal c_title  LPJGGCMI_TCinPasture_sticky_feb18_rcp6p0_nocc
+$setglobal c_title  default
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -226,7 +226,7 @@ $setglobal land  landmatrix_dec18
 $setglobal costs  default
 $setglobal interest_rate  select_apr20
 $setglobal tc  endo_jun18
-$setglobal yields  managementcalib_aug19
+$setglobal yields  management_mar21
 
 $setglobal food  anthropometrics_jan18
 $setglobal demand  sector_may15
