@@ -86,5 +86,5 @@ i14_past_yields(t,j,"mowing",w) = i14_past_yields(t,j,"mowing",w)*sum(cell(i,j),
 *' to reflect historical pasture patterns.
 
 im_mow_cost(i) = p14_mowing_costs(i) * f14_yld_calib(i,"cmow");
-
+display p14_myield_corr;
 *marcos_develop
