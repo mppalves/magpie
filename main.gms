@@ -1,4 +1,4 @@
-*** |  (C) 2008-2020 Potsdam Institute for Climate Impact Research (PIK)
+*** |  (C) 2008-2021 Potsdam Institute for Climate Impact Research (PIK)
 *** |  authors, and contributors see CITATION.cff file. This file is part
 *** |  of MAgPIE and licensed under AGPL-3.0-or-later. Under Section 7 of
 *** |  AGPL-3.0, you are granted additional permissions described in the
@@ -146,20 +146,20 @@ $title magpie
 
 *##################### R SECTION START (VERSION INFO) ##########################
 * 
-* Used data set: rev4.52_h12_magpie.tgz
-* md5sum: ce9bbfce986710544de877569f8d0303
-* Repository: /p/projects/rd3mod/mirror/rse.pik-potsdam.de/data/magpie/public
-* 
-* Used data set: rev4.51+mrmagpie10_h12_validation_debug.tgz
-* md5sum: e906d52c6e1174adcba7bd8728ec3d96
+* Used data set: rev4.58_h12_validation.tgz
+* md5sum: ab0b7f801add92bd959184e6ba12bd56
 * Repository: /p/projects/rd3mod/inputdata/output
 * 
-* Used data set: additional_data_rev3.92.tgz
-* md5sum: 9b194899f6048f5ee955d021ae59c126
+* Used data set: additional_data_rev3.98.tgz
+* md5sum: 9c99aec425d4774a1ff7a853cd1ae495
 * Repository: /p/projects/landuse/data/input/archive
 * 
-* Used data set: rev4.51+mrmagpie11_h12_5a23c697b74f282b13acf0cdc4b8f06f_cellularmagpie_debug.tgz
-* md5sum: fd380226e4c439b90b08632bd6497e51
+* Used data set: rev4.58+mrmagpie_LPJmL_new_h12_ee4336a969c590c612a80f2a9db04bdc_cellularmagpie_debug.tgz
+* md5sum: ed48337c75e764cb67ed85b0b064a13a
+* Repository: /p/projects/rd3mod/inputdata/output
+* 
+* Used data set: rev4.58+mrmagpie_LPJmL_new_h12_magpie_debug.tgz
+* md5sum: 5de7e0b72f1dac60d82a67bad0d1f540
 * Repository: /p/projects/rd3mod/inputdata/output
 * 
 * Low resolution: c200
@@ -169,15 +169,15 @@ $title magpie
 * 
 * Number of cells per region:
 *   CAZ  CHA  EUR  IND  JPN  LAM  MEA  NEU  OAS  REF  SSA  USA
-*     8   21    7    9    1   27   33   11   19   14   38   12
+*     8   22    7    7    1   39   27    7   11   13   39   19
 * 
 * Regionscode: 690d3718e151be1b450b394c1064b1c5
 * 
-* Regions data revision: 4.52
+* Regions data revision: 4.58
 * 
 * lpj2magpie settings:
-* * LPJmL data: HadGEM2_ES:rcp6p0:co2
-* * Revision: 4.51
+* * LPJmL data: GFDL-ESM4:ssp370
+* * Revision: 4.58
 * 
 * aggregation settings:
 * * Input resolution: 0.5
@@ -186,7 +186,7 @@ $title magpie
 * * Call: do.call(functiononly, args)
 * 
 * 
-* Last modification (input data): Tue Jan 26 02:58:19 2021
+* Last modification (input data): Fri Mar  5 19:31:40 2021
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -237,15 +237,17 @@ $setglobal processing  substitution_dec18
 
 $setglobal trade  selfsuff_reduced
 
+$setglobal ageclass  feb21
+
 $setglobal crop  endo_jun13
 $setglobal past  endo_jun13
 
-$setglobal forestry  static_sep16
+$setglobal forestry  dynamic_feb21
 
 $setglobal urban  static
-$setglobal natveg  dynamic_may20
+$setglobal natveg  dynamic_feb21
 
-$setglobal factor_costs  sticky_feb18
+$setglobal factor_costs  mixed_feb17
 $setglobal landconversion  global_static_aug18
 
 $setglobal transport  gtap_nov12
@@ -271,7 +273,7 @@ $setglobal livestock  fbask_jan16
 
 $setglobal disagg_lvst  foragebased_aug18
 
-$setglobal timber  biomass_mar20
+$setglobal timber  default
 
 $setglobal optimization  nlp_apr17
 

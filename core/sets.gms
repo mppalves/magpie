@@ -1,4 +1,4 @@
-*** |  (C) 2008-2020 Potsdam Institute for Climate Impact Research (PIK)
+*** |  (C) 2008-2021 Potsdam Institute for Climate Impact Research (PIK)
 *** |  authors, and contributors see CITATION.cff file. This file is part
 *** |  of MAgPIE and licensed under AGPL-3.0-or-later. Under Section 7 of
 *** |  AGPL-3.0, you are granted additional permissions described in the
@@ -16,7 +16,8 @@
 
 sets
 
-   i all economic regions /CAZ,CHA,EUR,IND,JPN,LAM,MEA,NEU,OAS,REF,SSA,USA/
+   i all economic regions /
+       CAZ,CHA,EUR,IND,JPN,LAM,MEA,NEU,OAS,REF,SSA,USA /
 
    iso list of iso countries /
        ABW,AFG,AGO,AIA,ALA,ALB,AND,ARE,ARG,ARM,
@@ -47,36 +48,33 @@ sets
 
    j number of LPJ cells /
        CAZ_1*CAZ_8,
-       CHA_9*CHA_29,
-       EUR_30*EUR_36,
-       IND_37*IND_45,
-       JPN_46*JPN_46,
-       LAM_47*LAM_73,
-       MEA_74*MEA_106,
-       NEU_107*NEU_117,
-       OAS_118*OAS_136,
-       REF_137*REF_150,
-       SSA_151*SSA_188,
-       USA_189*USA_200/
+       CHA_9*CHA_30,
+       EUR_31*EUR_37,
+       IND_38*IND_44,
+       JPN_45*JPN_45,
+       LAM_46*LAM_84,
+       MEA_85*MEA_111,
+       NEU_112*NEU_118,
+       OAS_119*OAS_129,
+       REF_130*REF_142,
+       SSA_143*SSA_181,
+       USA_182*USA_200 /
 
-   cell(i,j) number of LPJ cells per region i
-      /
+   cell(i,j) number of LPJ cells per region i /
        CAZ . CAZ_1*CAZ_8
-       CHA . CHA_9*CHA_29
-       EUR . EUR_30*EUR_36
-       IND . IND_37*IND_45
-       JPN . JPN_46*JPN_46
-       LAM . LAM_47*LAM_73
-       MEA . MEA_74*MEA_106
-       NEU . NEU_107*NEU_117
-       OAS . OAS_118*OAS_136
-       REF . REF_137*REF_150
-       SSA . SSA_151*SSA_188
-       USA . USA_189*USA_200
-      /
+       CHA . CHA_9*CHA_30
+       EUR . EUR_31*EUR_37
+       IND . IND_38*IND_44
+       JPN . JPN_45*JPN_45
+       LAM . LAM_46*LAM_84
+       MEA . MEA_85*MEA_111
+       NEU . NEU_112*NEU_118
+       OAS . OAS_119*OAS_129
+       REF . REF_130*REF_142
+       SSA . SSA_143*SSA_181
+       USA . USA_182*USA_200 /
 
-   i_to_iso(i,iso) mapping regions to iso countries
-      /
+   i_to_iso(i,iso) mapping regions to iso countries /
        CAZ . (AUS,CAN,HMD,NZL,SPM)
        CHA . (CHN,HKG,MAC,TWN)
        EUR . (ALA,AUT,BEL,BGR,CYP,CZE,DEU,DNK,ESP,EST)
@@ -109,8 +107,8 @@ sets
        SSA . (MYT,NAM,NER,NGA,REU,RWA,SEN,SHN,SLE,SOM)
        SSA . (SSD,STP,SWZ,SYC,TCD,TGO,TZA,UGA,ZAF,ZMB)
        SSA . (ZWE)
-       USA . (USA)
-      /
+       USA . (USA) /
+
 ;
 *######################### R SECTION END (SETS) ################################
 *###############################################################################
