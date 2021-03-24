@@ -73,6 +73,7 @@ i14_yields_calib(t,j,"pasture",w) = i14_yields_calib(t,j,"pasture",w)*sum(cell(i
 *' Only the mowing management option is corrected to capture the divesitiy of mowing management schemes.
 *' Continuous Grazing is not correcte as MAgPIE can choose the yields by alocating LSUs to pasture, therefore linking
 *' yields to management directly.
+i14_past_yields(t,j,past_mngt,w) = f14_past_yields(t,j,past_mngt,w);
 
 p14_myield_LPJ_reg(t,i) = (sum(cell(i,j),i14_past_yields(t,j,"mowing","rainfed")*pm_land_start(j,"past"))/sum(cell(i,j),pm_land_start(j,"past")));
 
