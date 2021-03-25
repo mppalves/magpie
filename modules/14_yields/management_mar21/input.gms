@@ -67,7 +67,7 @@ $offdelim
 *marcos_develop
 table f14_past_yields(t_all,j,past_mngt,w) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
 $ondelim
-$include "./modules/14_yields/input/lpj_past_yields_new.cs3"
+$include "./modules/14_yields/input/lpj_past_yields_new.cs2"
 $offdelim
 ;
 
