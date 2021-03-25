@@ -1,4 +1,4 @@
-# |  (C) 2008-2021 Potsdam Institute for Climate Impact Research (PIK)
+# |  (C) 2008-2020 Potsdam Institute for Climate Impact Research (PIK)
 # |  authors, and contributors see CITATION.cff file. This file is part
 # |  of MAgPIE and licensed under AGPL-3.0-or-later. Under Section 7 of
 # |  AGPL-3.0, you are granted additional permissions described in the
@@ -6,9 +6,6 @@
 # |  Contact: magpie@pik-potsdam.de
 
 name,type,reason
-vm_prod, input, not needed
-vm_yld, input, not needed
-vm_prod_reg,input,questionnaire
-fm_land_si, input, not needed
-im_mow_cost, input, not needed
-vm_past_yld, variable, not used
+pcm_land, input, not needed
+vm_prod_reg, variable, not needed
+vm_yld,  variable, not needed

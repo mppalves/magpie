@@ -7,3 +7,6 @@
 
 name,type,reason
 pcm_land, input, not needed
+fm_land_si, input, not needed
+im_mow_cost, input, not needed
+vm_past_yld, variable, not used
