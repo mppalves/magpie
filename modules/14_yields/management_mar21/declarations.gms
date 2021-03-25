@@ -35,6 +35,7 @@ equations
 
 parameter
 im_mow_cost(i)                       marcos_develop
+i14_past_yields(t_all,j,past_mngt,w)     marcos_develop
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################

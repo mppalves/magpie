@@ -7,7 +7,7 @@
 
 sets
   ltype14 calibration land types
-       / crop, past /
+       / crop, past, cmow /
 
   k(kall) Primary products
        / tece, maiz, trce, rice_pro, soybean, rapeseed, groundnut, sunflower,
