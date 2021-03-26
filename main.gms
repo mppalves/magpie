@@ -146,21 +146,21 @@ $title magpie
 
 *##################### R SECTION START (VERSION INFO) ##########################
 * 
-* Used data set: rev4.58_h12_validation.tgz
-* md5sum: NA
-* Repository: https://rse.pik-potsdam.de/data/magpie/public
+* Used data set: rev4.58+mrmagpie_pasturetest_h12_validation_debug.tgz
+* md5sum: 79bea0d6c448b59b69e92109215babd7
+* Repository: /p/projects/rd3mod/inputdata/output
 * 
 * Used data set: additional_data_rev3.98.tgz
-* md5sum: 9d6c3e82e6d1d756ffec821b7db20cda
-* Repository: C:/magpie_inputdata/output
+* md5sum: 9c99aec425d4774a1ff7a853cd1ae495
+* Repository: /p/projects/landuse/data/input/archive
 * 
-* Used data set: rev4.58+mrmagpie_LPJmL_new_h12_ee4336a969c590c612a80f2a9db04bdc_cellularmagpie_debug.tgz
-* md5sum: 68443a2c12e8683dacaad93ede57847f
-* Repository: C:/magpie_inputdata/output
+* Used data set: rev4.58+mrmagpie_pasturetest_h12_ee4336a969c590c612a80f2a9db04bdc_cellularmagpie_debug.tgz
+* md5sum: ebfb21deb40298cffcd59776c750d049
+* Repository: /p/projects/rd3mod/inputdata/output
 * 
-* Used data set: rev4.58+mrmagpie_LPJmL_new_h12_magpie_debug.tgz
-* md5sum: 342a6b9b7383fe5d8033208cfb564b6a
-* Repository: C:/magpie_inputdata/output
+* Used data set: rev4.58+mrmagpie_pasturetest_h12_magpie_debug.tgz
+* md5sum: 2fd453b12a29f8d52ea05c7e41a767df
+* Repository: /p/projects/rd3mod/inputdata/output
 * 
 * Low resolution: c200
 * High resolution: 0.5
@@ -186,7 +186,7 @@ $title magpie
 * * Call: do.call(functiononly, args)
 * 
 * 
-* Last modification (input data): Thu Mar 25 10:13:39 2021
+* Last modification (input data): Fri Mar 26 09:28:10 2021
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -226,7 +226,7 @@ $setglobal land  landmatrix_dec18
 $setglobal costs  default
 $setglobal interest_rate  select_apr20
 $setglobal tc  endo_jun18
-$setglobal yields  managementcalib_aug19
+$setglobal yields  management_mar21
 
 $setglobal food  anthropometrics_jan18
 $setglobal demand  sector_may15
@@ -240,7 +240,7 @@ $setglobal trade  selfsuff_reduced
 $setglobal ageclass  feb21
 
 $setglobal crop  endo_jun13
-$setglobal past  endo_jun13
+$setglobal past  endo_dec20
 
 $setglobal forestry  dynamic_feb21
 

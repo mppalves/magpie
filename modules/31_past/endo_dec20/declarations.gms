@@ -79,8 +79,8 @@ parameters
  ov31_z2(t,j,lns2,type)               layer neurons
  ov31_a2(t,j,lns2,type)               layer activation
  ov31_lsu_ha(t,j,type)                marcos_develop
- ov31_soilc(t,j,type)             output variable
- ov31_soilc_target(t,j,type)            marcos_develop
+ ov31_soilc(t,j,type)                 output variable
+ ov31_soilc_target(t,j,type)          marcos_develop
  oq31_carbon(t,j,ag_pools,type)       Above ground carbon content calculation for pasture (mio tC)
  oq31_cost_prod_past(t,i,type)        Costs for putting animals on pastures (mio. USD05MER per yr)
  oq31_pasture_areas(t,j,type)         marcos_develop
