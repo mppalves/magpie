@@ -26,6 +26,8 @@ q31_suitability(j) marcos_develop
 q31_yld_lsu(j,w) marcos_develop
 ;
 
+
+
 * model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
 variables
 v31_lsu(j) LSU variable
