@@ -15,3 +15,7 @@ lns1 layer 1 / n1_1 * n1_10 /
 lns2 layer 2 / n2_1 * n2_5 /
 lns3 layer 3 / n3_1 /
 ;
+
+sets
+minmax / min, max /
+;

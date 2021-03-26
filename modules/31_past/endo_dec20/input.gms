@@ -52,5 +52,11 @@ $include "./modules/31_past/input/36986ed1_s_bias_3.csv"
 $offdelim
 /;
 
+parameter f31_scaling(minmax) scaling factors pasture soil carbon stocks 
+/
+$ondelim
+$include "./modules/31_past/input/SCScalingFactors.csv"
+$offdelim
+/;
 
 *################################DEVELOPMENT####################################
