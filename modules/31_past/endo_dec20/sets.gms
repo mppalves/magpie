@@ -6,11 +6,11 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 
-* model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
+* model hash ID 36986ed1
 sets
-in_types_s Neural net input features / temperature, precipitation, wetdays, lwnet, rsds, co2, Ks, Sf, w_pwp, w_fc, w_sat, hsg, lsu /
+in_types_s Neural net input features / lsu_ha, tas_IPSL_CM6A_LR_ssp126, pr_IPSL_CM6A_LR_ssp126, lwnet_IPSL_CM6A_LR_ssp126, rsds_IPSL_CM6A_LR_ssp126, CO2_ISIMIP3b_ssp126, Ks, Sf, w_pwp, w_fc, w_sat, hsg /
 in_lsu_s(in_types_s) LSU input type / LSU /
-in_env_s(in_types_s) Weather input types /temperature, precipitation, wetdays, lwnet, rsds, co2, Ks, Sf, w_pwp, w_fc, w_sat, hsg, lsu/
+in_env_s(in_types_s) Weather input types /lsu_ha, tas_IPSL_CM6A_LR_ssp126, pr_IPSL_CM6A_LR_ssp126, lwnet_IPSL_CM6A_LR_ssp126, rsds_IPSL_CM6A_LR_ssp126, CO2_ISIMIP3b_ssp126, Ks, Sf, w_pwp, w_fc, w_sat, hsg/
 lns1 layer 1 / n1_1 * n1_10 /
 lns2 layer 2 / n2_1 * n2_5 /
 lns3 layer 3 / n3_1 /
