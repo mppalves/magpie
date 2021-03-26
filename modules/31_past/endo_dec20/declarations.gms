@@ -38,6 +38,7 @@ v31_a1(j,lns1) layer activation
 v31_z2(j,lns2) layer neurons
 v31_a2(j,lns2) layer activation
 v31_lsu_ha(t,j) marcos_develop
+v31_soilc(j) output variable
 ;
 
 equations
@@ -52,7 +53,6 @@ q31_soilc_convert(j) marcos_develop
 ;
 
 positive variables
-v31_soilc(j) output variable
 v31_soilc_target(j) marcos_develop
 ;
 

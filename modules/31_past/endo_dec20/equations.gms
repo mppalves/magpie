@@ -27,13 +27,14 @@ q31_cost_prod_past(i2) ..
 
 q31_lsu_convert(j2)..
   v31_lsu(j2) =e= sum(ct, (v31_lsu_ha(ct,j2) - s31_mean) / s31_std);
+  v31_lsu(j2) =e= sum(ct, v31_lsu_ha(ct,j2));
 
 q31_yld_lsu(j2,w)..
   vm_past_yld(j2,"cont_grazing","rainfed") =e= sum(ct, v31_lsu_ha(ct,j2)) * s31_lsu_yr_consumption;
 
 * model hash ID 36986ed1
 q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, v31_lsu(j2) * f31_w1(in_lsu_s,lns1));
-q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum(in_env_s, f31_nn_input(j2,in_env_s) * f31_w1(in_env_s,lns1));
+q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum((in_env_s, ct), f31_nn_input(ct, j2,in_env_s) * f31_w1(in_env_s,lns1));
 q31_z1(j2,lns1)..  v31_z1(j2,lns1) =e= v31_inlsu(j2,lns1) + v31_inEnv(j2,lns1) + f31_b1(lns1);
 q31_a1(j2,lns1)..  v31_a1(j2,lns1) =e= 1/( 1 + system.exp(-v31_z1(j2,lns1)));
 q31_z2(j2,lns2)..  v31_z2(j2,lns2) =e= sum(lns1, v31_a1(j2,lns1) * f31_w2(lns1,lns2)) + f31_b2(lns2);

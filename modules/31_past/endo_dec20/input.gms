@@ -13,7 +13,7 @@ scalars
 *################################DEVELOPMENT####################################
 
 * model hash ID 36986ed1
-table f31_nn_input(j,in_env_s) aggregated environmental cell values
+table f31_nn_input(t_all,j,in_env_s) aggregated environmental cell values
 $ondelim
 $include "./modules/31_past/input/environment_scaled_new.cs3"
 $offdelim
