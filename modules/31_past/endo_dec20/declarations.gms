@@ -20,13 +20,11 @@ v31_past_area(j,past_mngt,w) marcos_develop
 equations
 q31_pasture_areas(j) marcos_develop
 
-q31_prod_pm(j) marcos_develop
+q31_prod_pm(j) Cellular pasture production constraint (mio. tDM per yr)
 q31_lsu_convert(j) marcos_develop
 q31_suitability(j) marcos_develop
 q31_yld_lsu(j,w) marcos_develop
 ;
-
-
 
 * model hash ID 65707bf8d0cfd62280f48b8ed49cd7cdd77fa702
 variables
@@ -52,13 +50,11 @@ q31_a2(j,lns2) activation equation
 q31_soilc_convert(j) marcos_develop
 ;
 
-positive variables
+Variable
 v31_soilc_target(j) marcos_develop
 ;
 
 scalars
-s31_mean lsu conversion factor /1.12482040765598/
-s31_std lsu conversion factor /0.733714157685237/
 * 4000 = Daily carbon consumption per LSU
 * 2.25 = from C to DM
 * 1e6 = from m2 to ha
