@@ -95,7 +95,7 @@ pm_timber_yield_initial(j,ac,land_natveg) = p14_growing_stock_initial(j,ac,land_
 *' Only the mowing management option is corrected to capture the divesitiy of mowing management schemes.
 *' Continuous Grazing is not correcte as MAgPIE can choose the yields by alocating LSUs to pasture, therefore linking
 *' yields to management directly.
-i14_past_yields(t,j,past_mngt,w) = f14_past_yields(t,j,past_mngt,w) * (10000 * 2.21 / 1e6);
+i14_past_yields(t,j,past_mngt,w) = f14_past_yields(t,j,past_mngt,w);
 
 p14_myield_LPJ_reg(t,i) = (sum(cell(i,j),i14_past_yields(t,j,"mowing","rainfed")*pm_land_start(j,"past"))/sum(cell(i,j),pm_land_start(j,"past")));
 
