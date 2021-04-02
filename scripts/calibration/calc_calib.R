@@ -268,7 +268,13 @@ calibrate_magpie <- function(n_maxcalib = 1,
     if (done) {
       if (calibrate_past_mngt_cost) {
         done <- FALSE
+        cat(paste("\nStarting mowing calibration iteration", i, "\n"))
         for (i in 1:n_maxcalib) {
+          calibration_run(
+            putfolder = putfolder,
+            calib_magpie_name = calib_magpie_name,
+            logoption = logoption
+          )
           done <-
             update_calib_cost_mowing(
               gdx_file = paste0(putfolder, "/fulldata.gdx"),
