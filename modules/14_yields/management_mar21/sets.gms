@@ -7,7 +7,10 @@
 
 sets
   ltype14 calibration land types
-       / crop, past, cmow /
+       / crop, past /
+
+  mow_cost mowing costs
+       / mow_cost /
 
   k(kall) Primary products
        / tece, maiz, trce, rice_pro, soybean, rapeseed, groundnut, sunflower,

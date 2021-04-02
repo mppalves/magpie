@@ -78,4 +78,10 @@ $include "./modules/14_yields/input/p14_mowing_costs.csv"
 $offdelim
 /;
 
+table f14_mow_cost_calib(i,mow_cost) Calibration factor for the mowing costs (1)
+$ondelim
+$include "./modules/14_yields/input/f14_mow_cost_calib.csv"
+$offdelim;
+
+
 *marcos_develop

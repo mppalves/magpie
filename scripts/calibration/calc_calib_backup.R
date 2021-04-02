@@ -72,16 +72,6 @@ get_yieldcalib <- function(gdx_file) {
   return(magpiesort(out))
 }
 
-get_costcalib <- function(gdx_file) {
-  require(magclass)
-  require(gdx)
-  calib_mow_cost <- readGDX(gdx_file, "im_mow_cost")
-  sigmoid <- function(x) 1/(1+exp(-x*0.1+5))
-  #sigmoid <- function(x) 1 / (1 + exp(-x * 0.9 + 5))
-  calib_mow_cost <- sigmoid(calib_mow_cost)
-  return(magpiesort(calib_mow_cost))
-}
-
 # Calculate the correction factor and save it
 update_calib<-function(gdx_file, calib_accuracy=0.1, calibrate_pasture=TRUE,calibrate_cropland=TRUE,damping_factor=0.8, calib_file, crop_max=2, calibration_step="",n_maxcalib=20){
   require(magclass)
@@ -93,7 +83,7 @@ update_calib<-function(gdx_file, calib_accuracy=0.1, calibrate_pasture=TRUE,cali
   calib_correction <- area_factor * tc_factor
   calib_divergence <- abs(calib_correction-1)
 
-  ###-> in case it is the first step, it forces the initial factors to be equal to 1
+###-> in case it is the first step, it forces the initial factors to be equal to 1
   old_calib        <- magpiesort(read.magpie(calib_file))
   #initial guess equal to 1
   if(calibration_step==1) old_calib[,,] <- 1
@@ -152,101 +142,30 @@ update_calib<-function(gdx_file, calib_accuracy=0.1, calibrate_pasture=TRUE,cali
     write.magpie(round(setYears(calib_best,NULL),2), calib_file, comment = comment)
 
     write_log(calib_best,     "calib_factor.cs3"     , "best")
-    ####
-    return(TRUE)
-  }else{
-    comment <- c(" description: Regional yield calibration file",
-                 " unit: -",
-                 paste0(" note: Calibration step ",calibration_step),
-                 " origin: scripts/calibration/calc_calib.R (path relative to model main directory)",
-                 paste0(" creation date: ",date()))
-    write.magpie(round(setYears(calib_factor,NULL),2), calib_file, comment = comment)
-    return(FALSE)
-  }
-
-
+####
+  return(TRUE)
+}else{
+  comment <- c(" description: Regional yield calibration file",
+               " unit: -",
+               paste0(" note: Calibration step ",calibration_step),
+               " origin: scripts/calibration/calc_calib.R (path relative to model main directory)",
+               paste0(" creation date: ",date()))
+  write.magpie(round(setYears(calib_factor,NULL),2), calib_file, comment = comment)
+  return(FALSE)
 }
 
 
-# Calculate the correction factor and save it
-update_calib_cost_mowing <- function(gdx_file,
-                                     calib_accuracy = 0.1,
-                                     mngmt_cost_file,
-                                     calibration_step = "",
-                                     n_maxcalib=20) {
-  require(magclass)
-  require(magpie4)
-  if (!(modelstat(gdx_file)[1, 1, 1] %in% c(1, 2, 7))) stop("Calibration run infeasible")
-
-  area_factor <- get_areacalib(gdx_file)[,, "past"]
-  cost_factor <- get_costcalib(gdx_file)
-  calib_divergence <- abs(area_factor - 1)
-
-  old_calib <- magpiesort(read.magpie(mngmt_cost_file))
-  calib_factor_mcost <- old_calib * ((1/area_factor - 1) * cost_factor + 1)
-  getNames(calib_factor_mcost) <- "mow_cost"
-
-  ### write down current calib factors (and area_factors) for tracking
-  write_log <- function(x, file, calibration_step) {
-    x <- add_dimension(x, dim = 3.1, add = "iteration", nm = calibration_step)
-    try(write.magpie(round(setYears(x, NULL), 2), file, append = (calibration_step != 1)))
-  }
-
-  write_log(calib_divergence, "calib_divergence_mc.cs3", calibration_step)
-  write_log(area_factor, "calib_area_factor_mc.cs3", calibration_step)
-  write_log(calib_factor_mcost, "calib_mow_cost.cs3"     , calibration_step)
-
-  # in case of sufficient convergence, stop here (no additional update of
-  # calibration factors!)
-
-
-  if(all(calib_divergence < calib_accuracy) |  calibration_step==n_maxcalib) {
-
-    calib_best<-new.magpie(cells_and_regions = getCells(calib_divergence),years = getYears(calib_divergence),names = c("mow_cost"))
-
-    divergence_data<-read.csv("calib_divergence_mc.cs3")
-    factors_data<-read.csv("calib_mow_cost.cs3")
-
-    for (i in getCells(calib_best)){
-      factors_data_sub<-subset(factors_data,dummy==i)
-      divergence_data_sub<-subset(divergence_data,dummy==i)
-
-      calib_best[i,NULL,"mow_cost"]<-factors_data_sub[which.min(divergence_data_sub$past),"mow_cost"]
-    }
-
-
-    comment <- c(" description: Regional past management cost calibration file",
-                 " unit: -",
-                 paste0(" note: Best calibration factor from the run"),
-                 " origin: scripts/calibration/calc_calib.R (path relative to model main directory)",
-                 paste0(" creation date: ",date()))
-    write.magpie(round(setYears(calib_best,NULL),2), mngmt_cost_file, comment = comment)
-
-    write_log(calib_best,     "calib_mow_cost.cs3"     , "best")
-    ####
-    return(TRUE)
-  }else{
-    comment <- c(" description: Regional yield calibration file",
-                 " unit: -",
-                 paste0(" note: Calibration step ",calibration_step),
-                 " origin: scripts/calibration/calc_calib.R (path relative to model main directory)",
-                 paste0(" creation date: ",date()))
-    write.magpie(round(setYears(calib_factor_mcost,NULL),2), mngmt_cost_file, comment = comment)
-    return(FALSE)
-  }
 }
 
 
 calibrate_magpie <- function(n_maxcalib = 1,
                              calib_accuracy = 0.1,
                              calibrate_pasture = FALSE,
-                             calibrate_past_mngt_cost = FALSE,
                              calibrate_cropland = TRUE,
                              crop_max =2,
                              calib_magpie_name = "magpie_calib",
                              damping_factor = 0.6,
                              calib_file = "modules/14_yields/input/f14_yld_calib.csv",
-                             mngmt_cost_file = "modules/14_yields/input/f14_mow_cost_calib.csv",
                              putfolder = "calib_run",
                              data_workspace = NULL,
                              logoption = 3,
@@ -254,41 +173,18 @@ calibrate_magpie <- function(n_maxcalib = 1,
 
   require(magclass)
 
-  for (i in 1:n_maxcalib) {
-    cat(paste("\nStarting calibration iteration", i, "\n"))
-    calibration_run(
-      putfolder = putfolder,
-      calib_magpie_name = calib_magpie_name,
-      logoption = logoption
-    )
-    if (debug)
-      file.copy(paste0(putfolder, "/fulldata.gdx"),
-                paste0("fulldata_calib", i, ".gdx"))
-    done <- update_calib(gdx_file = paste0(putfolder, "/fulldata.gdx"),calib_accuracy = calib_accuracy,calibrate_pasture = calibrate_pasture,calibrate_cropland = calibrate_cropland,crop_max = crop_max,damping_factor = damping_factor,calib_file = calib_file,calibration_step = i,n_maxcalib = n_maxcalib)
-    if (done) {
-      if (calibrate_past_mngt_cost) {
-        done <- FALSE
-        for (i in 1:n_maxcalib) {
-          done <-
-            update_calib_cost_mowing(
-              gdx_file = paste0(putfolder, "/fulldata.gdx"),
-              calib_accuracy = calib_accuracy,
-              mngmt_cost_file = mngmt_cost_file,
-              calibration_step = i,
-              n_maxcalib = n_maxcalib
-            )
-          if (done) {
-            break
-          }
-        }
-      } else {
-        break
-      }
+  for(i in 1:n_maxcalib){
+    cat(paste("\nStarting calibration iteration",i,"\n"))
+    calibration_run(putfolder=putfolder, calib_magpie_name=calib_magpie_name, logoption=logoption)
+    if(debug) file.copy(paste0(putfolder,"/fulldata.gdx"),paste0("fulldata_calib",i,".gdx"))
+    done <- update_calib(gdx_file=paste0(putfolder,"/fulldata.gdx"),calib_accuracy=calib_accuracy, calibrate_pasture=calibrate_pasture,calibrate_cropland=calibrate_cropland,crop_max=crop_max,damping_factor=damping_factor, calib_file=calib_file, calibration_step=i,n_maxcalib=n_maxcalib)
+    if(done){
+      break
     }
   }
 
   # delete calib_magpie_gms in the main folder
-  unlink(paste0(calib_magpie_name, ".*"))
+  unlink(paste0(calib_magpie_name,".*"))
   unlink("fulldata.gdx")
 
   cat("\ncalibration finished\n")
