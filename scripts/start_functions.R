@@ -393,7 +393,7 @@ start_run <- function(cfg,scenario=NULL,codeCheck=TRUE,
   }
   if(cfg$recalibrate){
     cat("Starting calibration factor calculation!\n")
-    source("scripts/calibration/calc_calib.R")
+    source("scripts/calibration/calc_calib_backup.R")
     calibrate_magpie(n_maxcalib = cfg$calib_maxiter,
                      calib_accuracy = cfg$calib_accuracy,
                      calibrate_pasture = (cfg$gms$past!="static"),
