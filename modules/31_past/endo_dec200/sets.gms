@@ -17,5 +17,5 @@ lns3 layer 3 / n3_1 /
 ;
 
 sets
-minmax / min, max /
+minmax min and max / min, max /
 ;
