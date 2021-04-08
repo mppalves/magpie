@@ -23,7 +23,7 @@ q31_pasture_areas(j2)..
 
 q31_cost_prod_past(i2) ..
 * vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed")) * im_mow_cost(i2) + sum((cell(i2,j2),ct), v31_lsu_ha(ct,j2));
- vm_cost_prod(i2,"pasture") =e= v31_past_area(j2,past_mngt,"rainfed");
+ vm_cost_prod(i2,"pasture") =e= sum(past_mngt,v31_past_area(j2,past_mngt,"rainfed"));
 * vm_cost_prod(i2,"pasture") =e= 0;
 
 *' Soil carbon target calculation
