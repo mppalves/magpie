@@ -26,7 +26,11 @@ q14_yield_past(j2,w) ..
 *' that can range from 0 (no spillover) to 1 (full spillover).
 
 *marcos_develop
-q14_yield_past_mngmt(j2,past_mngt,w)..
- vm_past_yld(j2,past_mngt,w) =l=
- sum(ct,(i14_past_yields(ct,j2,past_mngt,w)));
+q14_yield_past_contg(j2,past_mngt,w)..
+ vm_past_yld(j2,"cont_grazing",w) =l=
+ sum(ct,(i14_past_yields(ct,j2,"cont_grazing",w)));
+
+ q14_yield_past_mow(j2,past_mngt,w)..
+  vm_past_yld(j2,"mowing",w) =e=
+  sum(ct,(i14_past_yields(ct,j2,"mowing",w)));
 *marcos_develop
