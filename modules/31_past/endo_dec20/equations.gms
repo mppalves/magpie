@@ -15,7 +15,8 @@
 
 *marcos_develop
 q31_prod_pm(j2) ..
-  vm_prod(j2,"pasture") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
+*  vm_prod(j2,"pasture") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
+  vm_prod(j2,"pasture") =e= v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed");
 
 q31_pasture_areas(j2)..
   vm_land(j2,"past") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed"));
