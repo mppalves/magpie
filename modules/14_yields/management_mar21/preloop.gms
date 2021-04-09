@@ -105,9 +105,8 @@ p14_myield_LPJ_reg(t,i) = (sum(cell(i,j),i14_past_yields(t,j,"mowing","rainfed")
 *i14_past_yields(t,j,"mowing",w) = i14_past_yields(t,j,"mowing",w)*sum(cell(i,j),p14_myield_corr(t,i))*sum(cell(i,j),f14_yld_calib(i,"past"));
 
 p14_myield_corr(t,j) =
- 1 + sum(cell(i,j), f14_pyld_hist(t,i) - p14_myield_LPJ_reg(t,i)) / i14_past_yields(t,j,"mowing","rainfed") *
- (i14_past_yields(t,j,"mowing","rainfed") / (sum(cell(i,j), p14_myield_LPJ_reg(t,i)+10**(-8)));
-
+ 1 + sum(cell(i,j), f14_pyld_hist(t,i) - p14_myield_LPJ_reg(t,i)) / (i14_past_yields(t,j,"mowing","rainfed")+10**(-8)) *
+ i14_past_yields(t,j,"mowing","rainfed") / sum(cell(i,j), p14_myield_LPJ_reg(t,i)+10**(-8));
 i14_past_yields(t,j,"mowing",w) = i14_past_yields(t,j,"mowing",w)*p14_myield_corr(t,j)*sum(cell(i,j),f14_yld_calib(i,"past"));
 
 
