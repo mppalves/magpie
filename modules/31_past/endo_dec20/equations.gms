@@ -35,7 +35,7 @@ q31_lsu_convert(j2)..
 q31_yld_lsu(j2,w)..
   vm_past_yld(j2,"cont_grazing","rainfed") =e= sum(ct, v31_lsu_ha(ct,j2)) * s31_lsu_yr_consumption;
 
-* model hash ID 36986ed1
+* model hash ID 8b6df3c9
 q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, v31_lsu(j2) * f31_w1(in_lsu_s,lns1));
 q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum((in_env_s, ct), f31_nn_input(ct, j2,in_env_s) * f31_w1(in_env_s,lns1));
 q31_z1(j2,lns1)..  v31_z1(j2,lns1) =e= v31_inlsu(j2,lns1) + v31_inEnv(j2,lns1) + f31_b1(lns1);
