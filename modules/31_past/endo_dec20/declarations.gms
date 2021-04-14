@@ -47,11 +47,11 @@ q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
 q31_z2(j,lns2) layer equation
 q31_a2(j,lns2) activation equation
-q31_soilc_convert(j, past_mngt) marcos_develop
+q31_soilc_convert(j) marcos_develop
 ;
 
 Variable
-vm_soilc_target(j, past_mngt) marcos_develop
+vm_soilc_target(j) marcos_develop
 ;
 
 scalars
