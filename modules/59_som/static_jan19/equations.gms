@@ -16,3 +16,7 @@
  q59_soilcarbon_noncropland(j2,noncropland59) ..
  vm_carbon_stock(j2,noncropland59,"soilc") =e=
       sum(ct, vm_land(j2,noncropland59) * fm_carbon_density(ct,j2,noncropland59,"soilc"));
+
+q59_soilcarbon_pastland(j2,past_mngt) ..
+vm_carbon_stock(j2,"past","soilc") =e=
+      vm_past_area(j2,past_mngt,"rainfed") * vm_soilc_target(j2,past_mngt);

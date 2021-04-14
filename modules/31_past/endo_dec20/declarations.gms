@@ -14,7 +14,7 @@ equations
 
 *marcos_develop
 positive variables
-v31_past_area(j,past_mngt,w) marcos_develop
+vm_past_area(j,past_mngt,w) marcos_develop
 ;
 
 equations
@@ -47,11 +47,11 @@ q31_z1(j,lns1) layer equation
 q31_a1(j,lns1) activation equation
 q31_z2(j,lns2) layer equation
 q31_a2(j,lns2) activation equation
-q31_soilc_convert(j) marcos_develop
+q31_soilc_convert(j, past_mngt) marcos_develop
 ;
 
 Variable
-v31_soilc_target(j) marcos_develop
+vm_soilc_target(j, past_mngt) marcos_develop
 ;
 
 scalars
@@ -68,7 +68,7 @@ s31_lsu_yr_consumption LSU year DM consumption equivalent / 3.285 /
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
- ov31_past_area(t,j,past_mngt,w,type) marcos_develop
+ ovm_past_area(t,j,past_mngt,w,type) marcos_develop
  ov31_lsu(t,j,type)                   LSU variable
  ov31_inlsu(t,j,lns1,type)            LSU input layer
  ov31_inEnv(t,j,lns1,type)            Environmental input layer
@@ -78,7 +78,7 @@ parameters
  ov31_a2(t,j,lns2,type)               layer activation
  ov31_lsu_ha(t,j,type)                marcos_develop
  ov31_soilc(t,j,type)                 output variable
- ov31_soilc_target(t,j,type)          marcos_develop
+ ovm_soilc_target(t,j,type)          marcos_develop
  oq31_carbon(t,j,ag_pools,type)       Above ground carbon content calculation for pasture (mio tC)
  oq31_cost_prod_past(t,i,type)        Costs for putting animals on pastures (mio. USD05MER per yr)
  oq31_pasture_areas(t,j,type)         marcos_develop

@@ -15,15 +15,15 @@
 
 *marcos_develop
 q31_prod_pm(j2) ..
-  vm_prod(j2,"pasture") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
-*  vm_prod(j2,"pasture") =e= v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed");
+  vm_prod(j2,"pasture") =e= sum(past_mngt, vm_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
+*  vm_prod(j2,"pasture") =e= vm_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed");
 
 q31_pasture_areas(j2)..
-  vm_land(j2,"past") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed"));
+  vm_land(j2,"past") =e= sum(past_mngt, vm_past_area(j2,past_mngt,"rainfed"));
 
 q31_cost_prod_past(i2) ..
- vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), v31_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed")) * im_mow_cost(i2) + sum((cell(i2,j2),ct), v31_lsu_ha(ct,j2));
-* vm_cost_prod(i2,"pasture") =e= sum((cell(i2,j2),past_mngt),v31_past_area(j2,past_mngt,"rainfed"));
+ vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), vm_past_area(j2,"mowing","rainfed") * vm_past_yld(j2,"mowing","rainfed")) * im_mow_cost(i2) + sum((cell(i2,j2),ct), v31_lsu_ha(ct,j2));
+* vm_cost_prod(i2,"pasture") =e= sum((cell(i2,j2),past_mngt),vm_past_area(j2,past_mngt,"rainfed"));
 * vm_cost_prod(i2,"pasture") =e= 0;
 
 *' Soil carbon target calculation
@@ -44,11 +44,11 @@ q31_z2(j2,lns2)..  v31_z2(j2,lns2) =e= sum(lns1, v31_a1(j2,lns1) * f31_w2(lns1,l
 q31_a2(j2,lns2)..  v31_a2(j2,lns2) =e= 1/( 1 + system.exp(-v31_z2(j2,lns2)));
 q31_soilc_yld(j2)..  v31_soilc(j2) =e= sum((lns2,lns3), v31_a2(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
 
-q31_soilc_convert(j2)..
-    v31_soilc_target(j2) =e= (v31_soilc(j2) * (f31_scaling("max") - f31_scaling("min")) + f31_scaling("min"));
+q31_soilc_convert(j2, past_mngt)..
+    vm_soilc_target(j2, "cont_grazing") =e= (v31_soilc(j2) * (f31_scaling("max") - f31_scaling("min")) + f31_scaling("min"));
 
 q31_suitability(j2)  ..
-    vm_land(j2,"crop") + v31_past_area(j2,"mowing","rainfed") =l= fm_land_si(j2,"si0");
+    vm_land(j2,"crop") + vm_past_area(j2,"mowing","rainfed") =l= fm_land_si(j2,"si0");
 
 *marcos_develop
 
