@@ -26,7 +26,7 @@ q31_suitability(j) marcos_develop
 q31_yld_lsu(j,w) marcos_develop
 ;
 
-* model hash ID 8b6df3c9
+* model hash ID 444efe6d
 variables
 v31_lsu(j) LSU variable
 v31_inlsu(j,lns1) LSU input layer

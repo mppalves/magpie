@@ -35,7 +35,7 @@ q31_lsu_convert(j2)..
 q31_yld_lsu(j2,w)..
   vm_past_yld(j2,"cont_grazing","rainfed") =e= sum(ct, v31_lsu_ha(ct,j2)) * s31_lsu_yr_consumption;
 
-* model hash ID 8b6df3c9
+* model hash ID 444efe6d
 q31_inlsu(j2,lns1)..  v31_inlsu(j2,lns1) =e= sum(in_lsu_s, v31_lsu(j2) * f31_w1(in_lsu_s,lns1));
 q31_inEnv(j2,lns1)..  v31_inEnv(j2,lns1) =e= sum((in_env_s, ct), f31_nn_input(ct, j2,in_env_s) * f31_w1(in_env_s,lns1));
 q31_z1(j2,lns1)..  v31_z1(j2,lns1) =e= v31_inlsu(j2,lns1) + v31_inEnv(j2,lns1) + f31_b1(lns1);
@@ -45,7 +45,7 @@ q31_a2(j2,lns2)..  v31_a2(j2,lns2) =e= 1/( 1 + system.exp(-v31_z2(j2,lns2)));
 q31_soilc_yld(j2)..  v31_soilc(j2) =e= sum((lns2,lns3), v31_a2(j2,lns2) * f31_w3(lns2,lns3) + f31_b3(lns3));
 
 q31_soilc_convert(j2)..
-    vm_soilc_target(j2) =e= (v31_soilc(j2) * (s31_max - s31_min) + s31_min);
+    vm_soilc_target(j2) =e= (v31_soilc(j2) * (f31_scaling("max")  - f31_scaling("min") ) + f31_scaling("min"));
 
 q31_suitability(j2)  ..
     vm_land(j2,"crop") + vm_past_area(j2,"mowing","rainfed") =l= fm_land_si(j2,"si0");
