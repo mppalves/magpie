@@ -19,4 +19,4 @@
 
 q59_soilcarbon_pastland(j2) ..
 vm_carbon_stock(j2,"past","soilc") =e=
-      vm_past_area(j2,"cont_grazing","rainfed") * vm_soilc_target(j2) + vm_past_area(j2,"mowing","rainfed") * 1;
+      vm_past_area(j2,"cont_grazing","rainfed") * vm_soilc_target(j2) + vm_past_area(j2,"mowing","rainfed") * f59_soilc_mow(j2);

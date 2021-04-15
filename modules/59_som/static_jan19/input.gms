@@ -30,3 +30,12 @@ $include "./modules/59_som/static_jan19/input/cshare_released.cs2b"
 $offdelim
 /
 ;
+
+
+parameters f59_soilc_mow(j) soil carbon density for natural mowing (tC per ha)
+/
+$ondelim
+$include "./modules/59_som/static_jan19/input/soilc_stocks_mow.cs3"
+$offdelim
+/
+;
