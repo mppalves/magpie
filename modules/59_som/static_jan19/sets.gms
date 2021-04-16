@@ -7,7 +7,9 @@
 
 sets
 noncropland59(land) Soil carbon conserving landuse types
+/past, forestry, primforest, secdforest, other/
+
+noncroppastland59(noncropland59) Soil carbon conserving landuse types  minus pastures
 /forestry, primforest, secdforest, other/
-*/past, forestry, primforest, secdforest, other/
 
 ;
