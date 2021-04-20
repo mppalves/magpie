@@ -103,15 +103,38 @@ p14_myield_LPJ_reg(t,i) = (sum(cell(i,j),i14_past_yields(t,j,"mowing","rainfed")
 *			+ sum(t_past,(f14_pyld_hist(t_past,i)/(p14_myield_LPJ_reg(t_past,i)+0.000001))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
 *				p14_myield_corr(t,i)$(p14_myield_corr(t,i) < 1)  = 1;
 *i14_past_yields(t,j,"mowing",w) = i14_past_yields(t,j,"mowing",w)*sum(cell(i,j),p14_myield_corr(t,i))*sum(cell(i,j),f14_yld_calib(i,"past"));
+loop(t, if(sum(sameas(t,"y1995"),1)=1,
+if ((s14_limit_calib = 0),
+    i14_lambda_pyields(t,i) = 1;
+    Elseif (s14_limit_calib =1 ),
+    i14_lambda_pyields(t,i) = 1$(f14_pyld_hist(t,i) <= p14_myield_LPJ_reg(t,i))
+                                    + sqrt(p14_myield_LPJ_reg(t,i)/f14_pyld_hist(t,i))$
+                                       (f14_pyld_hist(t,i) > p14_myield_LPJ_reg(t,i));
+                        );
+    i14_myield_LPJ_reg(t,i) = p14_myield_LPJ_reg(t,i);
+
+Else
+    f14_pyld_hist(t,i) = f14_pyld_hist(t-1,i);
+    i14_myield_LPJ_reg(t,i)  = i14_myield_LPJ_reg(t-1,i);
+    i14_lambda_pyields(t,i)   = i14_lambda_pyields(t-1,i);
+   );
+);
+*p14_myield_corr(t,j) =
+* (1 + sum(cell(i,j), f14_pyld_hist(t,i) - i14_myield_LPJ_reg(t,i)) / (i14_past_yields(t,j,"mowing","rainfed")+10**(-8)) *
+*         i14_past_yields(t,j,"mowing","rainfed") / sum(cell(i,j), i14_myield_LPJ_reg(t,i)+10**(-8)))$(sum(sameas(t_past,t),1) = 1) +
+* sum(t_past, (1 + sum(cell(i,j), f14_pyld_hist(t_past,i) - i14_myield_LPJ_reg(t_past,i)) / (i14_past_yields(t_past,j,"mowing","rainfed")+10**(-8)) *
+*        i14_past_yields(t_past,j,"mowing","rainfed") / sum(cell(i,j), i14_myield_LPJ_reg(t_past,i)+10**(-8)))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
+*				p14_myield_corr(t,j)$(p14_myield_corr(t,j) < 1)  = 1;
 
 p14_myield_corr(t,j) =
- (1 + sum(cell(i,j), f14_pyld_hist(t,i) - p14_myield_LPJ_reg(t,i)) / (i14_past_yields(t,j,"mowing","rainfed")+10**(-8)) *
-         i14_past_yields(t,j,"mowing","rainfed") / sum(cell(i,j), p14_myield_LPJ_reg(t,i)+10**(-8)))$(sum(sameas(t_past,t),1) = 1) +
- sum(t_past, (1 + sum(cell(i,j), f14_pyld_hist(t_past,i) - p14_myield_LPJ_reg(t_past,i)) / (i14_past_yields(t_past,j,"mowing","rainfed")+10**(-8)) *
-        i14_past_yields(t_past,j,"mowing","rainfed") / sum(cell(i,j), p14_myield_LPJ_reg(t_past,i)+10**(-8)))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
-*				p14_myield_corr(t,j)$(p14_myield_corr(t,j) < 1)  = 1;
+   1 + (sum(cell(i,j), f14_pyld_hist(t,i) - i14_myield_LPJ_reg(t,i)) / i14_past_yields(t,j,"mowing","rainfed") *
+          (i14_past_yields(t,j,"mowing","rainfed") / (sum(cell(i,j), i14_myield_LPJ_reg(t,i))+10**(-8)))  **
+                                 sum(cell(i,j),i14_lambda_pyields(t,i)))$(i14_past_yields(t,j,"mowing","rainfed")>0);
+
 i14_past_yields(t,j,"mowing",w) = i14_past_yields(t,j,"mowing",w)*p14_myield_corr(t,j);
 i14_past_yields(t,j,past_mngt,w) = i14_past_yields(t,j,past_mngt,w)*sum(cell(i,j),f14_yld_calib(i,"past"));
+
+
 
 *' A cost is associated with the mowing management option. This cost is calibrated
 *' to reflect historical pasture patterns.
@@ -119,4 +142,5 @@ i14_past_yields(t,j,past_mngt,w) = i14_past_yields(t,j,past_mngt,w)*sum(cell(i,j
 im_mow_cost(i) = p14_mowing_costs(i) * f14_mow_cost_calib(i,"mow_cost");
 display p14_myield_corr;
 display im_mow_cost;
+display i14_managementcalib;
 *marcos_develop

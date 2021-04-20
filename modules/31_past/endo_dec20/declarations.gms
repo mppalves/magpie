@@ -73,32 +73,32 @@ s31_max output conversion factor /504.505218505859/
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
 parameters
- ovm_past_area(t,j,past_mngt,w,type) marcos_develop
- ov31_lsu(t,j,type)                   LSU variable
- ov31_inlsu(t,j,lns1,type)            LSU input layer
- ov31_inEnv(t,j,lns1,type)            Environmental input layer
- ov31_z1(t,j,lns1,type)               layer neurons
- ov31_a1(t,j,lns1,type)               layer activation
- ov31_z2(t,j,lns2,type)               layer neurons
- ov31_a2(t,j,lns2,type)               layer activation
- ov31_lsu_ha(t,j,type)                marcos_develop
- ov31_soilc(t,j,type)                 output variable
- ovm_soilc_target(t,j,type)          marcos_develop
- oq31_carbon(t,j,ag_pools,type)       Above ground carbon content calculation for pasture (mio tC)
- oq31_cost_prod_past(t,i,type)        Costs for putting animals on pastures (mio. USD05MER per yr)
- oq31_pasture_areas(t,j,type)         marcos_develop
- oq31_prod_pm(t,j,type)               marcos_develop
- oq31_lsu_convert(t,j,type)           marcos_develop
- oq31_suitability(t,j,type)           marcos_develop
- oq31_yld_lsu(t,j,w,type)             marcos_develop
- oq31_inlsu(t,j,lns1,type)            LSU input equation
- oq31_inEnv(t,j,lns1,type)            LSU input equation
- oq31_soilc_yld(t,j,type)             output equation
- oq31_z1(t,j,lns1,type)               layer equation
- oq31_a1(t,j,lns1,type)               activation equation
- oq31_z2(t,j,lns2,type)               layer equation
- oq31_a2(t,j,lns2,type)               activation equation
- oq31_soilc_convert(t,j,type)         marcos_develop
+ ov_past_area(t,j,past_mngt,w,type) marcos_develop
+ ov31_lsu(t,j,type)                 LSU variable
+ ov31_inlsu(t,j,lns1,type)          LSU input layer
+ ov31_inEnv(t,j,lns1,type)          Environmental input layer
+ ov31_z1(t,j,lns1,type)             layer neurons
+ ov31_a1(t,j,lns1,type)             layer activation
+ ov31_z2(t,j,lns2,type)             layer neurons
+ ov31_a2(t,j,lns2,type)             layer activation
+ ov31_lsu_ha(t,j,type)              marcos_develop
+ ov31_soilc(t,j,type)               output variable
+ ov_soilc_target(t,j,type)          marcos_develop
+ oq31_carbon(t,j,ag_pools,type)     Above ground carbon content calculation for pasture (mio tC)
+ oq31_cost_prod_past(t,i,type)      Costs for putting animals on pastures (mio. USD05MER per yr)
+ oq31_pasture_areas(t,j,type)       marcos_develop
+ oq31_prod_pm(t,j,type)             Cellular pasture production constraint (mio. tDM per yr)
+ oq31_lsu_convert(t,j,type)         marcos_develop
+ oq31_suitability(t,j,type)         marcos_develop
+ oq31_yld_lsu(t,j,w,type)           marcos_develop
+ oq31_inlsu(t,j,lns1,type)          LSU input equation
+ oq31_inEnv(t,j,lns1,type)          LSU input equation
+ oq31_soilc_yld(t,j,type)           output equation
+ oq31_z1(t,j,lns1,type)             layer equation
+ oq31_a1(t,j,lns1,type)             activation equation
+ oq31_z2(t,j,lns2,type)             layer equation
+ oq31_a2(t,j,lns2,type)             activation equation
+ oq31_soilc_convert(t,j,type)       marcos_develop
 ;
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################
 

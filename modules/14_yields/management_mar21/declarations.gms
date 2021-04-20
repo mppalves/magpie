@@ -13,6 +13,8 @@ i14_croparea_total(t_all,j)                            Cellular water type speci
 i14_lpj_yields_hist(t_all,i,kcr)                       Biophysical input yields average over region and water supply type at the historical reference year (tDM per ha per yr)
 i14_regions_yields(t,i,kcr)                            FAO yields per region (tDM per ha per yr)
 i14_lambda_yields(t,i,kcr)                             Scaling factor for non-linear management calibration (1)
+i14_lambda_pyields(t,i)                            marcos_develop
+i14_myield_LPJ_reg(t,i)                                marcos_develop
 i14_managementcalib(t,j,kcr,w)                         Regional management calibration factor accounting for FAO yield levels (1)
 p14_growing_stock(t,j,ac,forest_land,forest_type)      Forest growing stock (tDM per ha per yr)
 pm_timber_yield(t,j,ac,forest_land)                    Forest growing stock (tDM per ha per yr)
@@ -45,6 +47,7 @@ parameters
  ov_past_yld(t,j,past_mngt,w,type)           marcos_develop
  oq14_yield_crop(t,j,kcr,w,type)             Crop yields (tDM per ha per yr)
  oq14_yield_past(t,j,w,type)                 Pasture yields (tDM per ha per yr)
- oq14_yield_past_mngmt(t,j,past_mngt,w,type) marcos_develop
+ oq14_yield_past_contg(t,j,past_mngt,w,type) marcos_develop
+ oq14_yield_past_mow(t,j,past_mngt,w,type)   marcos_develop
 ;
 *##################### R SECTION END (OUTPUT DECLARATIONS) #####################

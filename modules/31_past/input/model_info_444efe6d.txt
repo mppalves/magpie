@@ -1,0 +1,48 @@
+$`Model Summary`
+ [1] "Model: \"sequential\""                                                           
+ [2] "________________________________________________________________________________"
+ [3] "Layer (type)                        Output Shape                    Param #     "
+ [4] "================================================================================"
+ [5] "dense_2 (Dense)                     (None, 20)                      260         "
+ [6] "________________________________________________________________________________"
+ [7] "dense_1 (Dense)                     (None, 20)                      420         "
+ [8] "________________________________________________________________________________"
+ [9] "dense (Dense)                       (None, 1)                       21          "
+[10] "================================================================================"
+[11] "Total params: 701"                                                               
+[12] "Trainable params: 701"                                                           
+[13] "Non-trainable params: 0"                                                         
+[14] "________________________________________________________________________________"
+
+$epochs
+[1] 100
+
+$batch_size
+[1] 1000
+
+$loss
+[1] "mean_absolute_error"
+
+$activation
+function (x) 
+{
+    keras$activations$softmax(x)
+}
+<bytecode: 0x2c24f0a0>
+<environment: namespace:keras>
+attr(,"py_function_name")
+[1] "sigmoid"
+
+$neurons
+[1] 20 20  1
+
+$optimizer
+<tensorflow.python.keras.optimizer_v2.nadam.Nadam>
+
+$metrics
+[1] "mean_absolute_error"
+
+$`dataset id`
+[1] "0e2237cf"
+
+model ID hash: 444efe6d

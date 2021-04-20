@@ -1,0 +1,32 @@
+* model hash ID 8b6df3c9
+variables
+v31_lsu(j) LSU variable
+v31_inlsu(j,lns1) LSU input layer
+v31_inEnv(j,lns1) Environmental input layer
+v31_z1(j,lns1) layer neurons
+v31_a1(j,lns1) layer activation
+v31_z2(j,lns2) layer neurons
+v31_a2(j,lns2) layer activation
+;
+equations
+q31_inlsu(j,lns1) LSU input equation
+q31_inEnv(j,lns1) LSU input equation
+q31_rlsu(j) real lsu equation
+q31_maxlsu(j) max LSU
+q31_minlsu(j) min LSU
+q31_soilc_yld(j) output equation
+q31_z1(j,lns1) layer equation
+q31_a1(j,lns1) activation equation
+q31_z2(j,lns2) layer equation
+q31_a2(j,lns2) activation equation
+;
+positive variables
+v31_soilc_yld(j) output variable
+v31_rlsu(j) real LSU variable
+;
+scalars
+s31_lsu_mean lsu conversion factor //
+s31_lsu_std lsu conversion factor //
+s31_out_mean output conversion factor //
+s31_out_std output conversion factor //
+;
