@@ -13,6 +13,10 @@
       vm_land(j2,"crop") * sum(ct, i59_topsoilc_density(ct,j2) + i59_subsoilc_density(ct,j2));
 
 *' The soil carbon content for all other land use types is calculated based on the full profile soil carbon density:
- q59_soilcarbon_noncropland(j2,noncropland59) ..
- vm_carbon_stock(j2,noncropland59,"soilc") =e=
-      sum(ct, vm_land(j2,noncropland59) * fm_carbon_density(ct,j2,noncropland59,"soilc"));
+ q59_soilcarbon_noncropland(j2,noncroppastland59) ..
+ vm_carbon_stock(j2,noncroppastland59,"soilc") =e=
+      sum(ct, vm_land(j2,noncroppastland59) * fm_carbon_density(ct,j2,noncroppastland59,"soilc"));
+
+q59_soilcarbon_pastland(j2) ..
+vm_carbon_stock(j2,"past","soilc") =e=
+      vm_past_area(j2,"cont_grazing","rainfed") * vm_soilc_target(j2) + vm_past_area(j2,"mowing","rainfed") * sum(ct, f59_soilc_mow(ct,j2));

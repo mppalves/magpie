@@ -5,8 +5,5 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-sets
-noncropland59(land) Soil carbon conserving landuse types
-/past, forestry, primforest, secdforest, other/
-
-;
+vm_nr_som.fx(j)=0;
+vm_nr_som_fertilizer.fx(j)=0;
