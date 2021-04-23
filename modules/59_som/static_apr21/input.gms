@@ -26,7 +26,7 @@ m_fillmissingyears(f59_topsoilc_density,"j");
 parameters f59_cshare_released(j) Share of soil carbon that is released on cropland compared to natural vegetation after 20 years (1)
 /
 $ondelim
-$include "./modules/59_som/static_jan19/input/cshare_released.cs2b"
+$include "./modules/59_som/static_apr21/input/cshare_released.cs2b"
 $offdelim
 /
 ;
@@ -35,7 +35,7 @@ $offdelim
 parameters f59_soilc_mow(t_all,j) soil carbon density for natural mowing (tC per ha)
 /
 $ondelim
-$include "./modules/59_som/static_jan19/input/soilc_stocks_mow.cs2b"
+$include "./modules/59_som/static_apr21/input/soilc_stocks_mow.cs2b"
 $offdelim
 /
 ;
