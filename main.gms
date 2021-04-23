@@ -148,19 +148,19 @@ $title magpie
 * 
 * Used data set: rev4.58+mrmagpie_pasturetest_limN_h12_validation_debug.tgz
 * md5sum: 017e3053cfc97ce815f42405d16c4ea7
-* Repository: C:/magpie_inputdata/output
+* Repository: /p/projects/rd3mod/inputdata/output
 * 
 * Used data set: additional_data_rev3.98.tgz
 * md5sum: 9c99aec425d4774a1ff7a853cd1ae495
-* Repository: C:/magpie_inputdata/output
+* Repository: /p/projects/landuse/data/input/archive
 * 
-* Used data set: rev4.58+mrmagpie_pasturetest_limN_h12_032168e8_cellularmagpie_debug.tgz
-* md5sum: db5eafa8c2ef96c324921508c7bdd3b0
-* Repository: C:/magpie_inputdata/output
+* Used data set: rev4.58+mrmagpie_pasturetest_limN_h12_83796d6b_cellularmagpie_debug.tgz
+* md5sum: da1e9a43a68fd42ccbfc354431fa89cd
+* Repository: /p/projects/rd3mod/inputdata/output
 * 
 * Used data set: rev4.58+mrmagpie_pasturetest_limN_h12_magpie_debug.tgz
-* md5sum: 0bdb4ff3bd3ad547daeba5ba538e03ed
-* Repository: C:/magpie_inputdata/output
+* md5sum: cfa67e52334cec6ca52b4c2ec24bc204
+* Repository: /p/projects/rd3mod/inputdata/output
 * 
 * Low resolution: c200
 * High resolution: 0.5
@@ -169,7 +169,7 @@ $title magpie
 * 
 * Number of cells per region:
 *   CAZ  CHA  EUR  IND  JPN  LAM  MEA  NEU  OAS  REF  SSA  USA
-*     8   22    7    7    1   39   27    7   11   13   39   19
+*     7   22    8    7    1   41   26    7   12   13   38   18
 * 
 * Regionscode: 62eff8f7
 * 
@@ -185,25 +185,8 @@ $title magpie
 * * Regionscode: 62eff8f7
 * * Call: do.call(functiononly, args)
 * 
-* Warning messages:
-* 1: In copy_input(x = file2destination, sourcepath = "input",  ... :
-*   File f12_interest_fader.csv seems to be missing!
-* 2: In copy_input(x = file2destination, sourcepath = "input",  ... :
-*   File f20_scp_conversionmatrix.csv seems to be missing!
-* 3: In copy_input(x = file2destination, sourcepath = "input",  ... :
-*   File f20_scp_type_shr.csv seems to be missing!
-* 4: In copy_input(x = file2destination, sourcepath = "input",  ... :
-*   File environment_scaled_new.cs3 seems to be missing!
-* 5: In copy_input(x = file2destination, sourcepath = "input",  ... :
-*   File f32_ac_dist.csv seems to be missing!
-* 6: In copy_input(x = file2destination, sourcepath = "input",  ... :
-*   File f35_protection_fader.csv seems to be missing!
-* 7: In copy_input(x = file2destination, sourcepath = "input",  ... :
-*   File f70_feed_substitution_fader.csv seems to be missing!
-* 8: In copy_input(x = file2destination, sourcepath = "input",  ... :
-*   File f73_demand_modifier.csv seems to be missing!
 * 
-* Last modification (input data): Tue Apr 20 09:05:43 2021
+* Last modification (input data): Fri Apr 23 08:23:41 2021
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -229,7 +212,7 @@ $offlisting
 
 $setglobal c_timesteps  coup2100
 $setglobal c_past  till_2010
-$setglobal c_title  kmagpie_25_limN
+$setglobal c_title  kmagpie_40_limN
 
 scalars
 s_use_gdx   use of gdx files                                       / 2 /
@@ -282,7 +265,7 @@ $setglobal awms  ipcc2006_aug16
 $setglobal ghg_policy  price_jan20
 $setglobal maccs  on_sep16
 $setglobal peatland  off
-$setglobal som  static_jan19
+$setglobal som  static_apr21
 
 $setglobal bioenergy  1stgen_priced_dec18
 $setglobal material  exo_flexreg_apr16
