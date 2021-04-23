@@ -6,7 +6,7 @@
 *** |  Contact: magpie@pik-potsdam.de
 
 
-* model hash ID db5b0bb0
+* model hash ID cfc50c82
 sets
 in_types_s Neural net input features / lsu_ha, tas_IPSL_CM6A_LR_ssp126, pr_IPSL_CM6A_LR_ssp126, lwnet_IPSL_CM6A_LR_ssp126, rsds_IPSL_CM6A_LR_ssp126, CO2_ISIMIP3b_ssp126, Ks, Sf, w_pwp, w_fc, w_sat, hsg /
 in_lsu_s(in_types_s) LSU input type / lsu_ha /

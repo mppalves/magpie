@@ -12,7 +12,7 @@ scalars
 
 *################################DEVELOPMENT####################################
 
-* model hash ID db5b0bb0
+* model hash ID cfc50c82
 table f31_nn_input(t_all, j,in_env_s) aggregated environmental cell values
 $ondelim
 $include "./modules/31_past/input/environment_scaled_new.cs3"
@@ -20,37 +20,38 @@ $offdelim
 ;
 table f31_w1(in_types_s,lns1) weight
 $ondelim
-$include "./modules/31_past/input/db5b0bb0_s_weights_1.csv"
+$include "./modules/31_past/input/cfc50c82_s_weights_1.csv"
 $offdelim
 ;
 table f31_w2(lns1,lns2) weight
 $ondelim
-$include "./modules/31_past/input/db5b0bb0_s_weights_2.csv"
+$include "./modules/31_past/input/cfc50c82_s_weights_2.csv"
 $offdelim
 ;
 table f31_w3(lns2,lns3) weight
 $ondelim
-$include "./modules/31_past/input/db5b0bb0_s_weights_3.csv"
+$include "./modules/31_past/input/cfc50c82_s_weights_3.csv"
 $offdelim
 ;
 parameter f31_b1(lns1) bias
 /
 $ondelim
-$include "./modules/31_past/input/db5b0bb0_s_bias_1.csv"
+$include "./modules/31_past/input/cfc50c82_s_bias_1.csv"
 $offdelim
 /;
 parameter f31_b2(lns2) bias
 /
 $ondelim
-$include "./modules/31_past/input/db5b0bb0_s_bias_2.csv"
+$include "./modules/31_past/input/cfc50c82_s_bias_2.csv"
 $offdelim
 /;
 parameter f31_b3(lns3) bias
 /
 $ondelim
-$include "./modules/31_past/input/db5b0bb0_s_bias_3.csv"
+$include "./modules/31_past/input/cfc50c82_s_bias_3.csv"
 $offdelim
 /;
+
 
 
 parameter f31_scaling(minmax) scaling factors pasture soil carbon stocks
