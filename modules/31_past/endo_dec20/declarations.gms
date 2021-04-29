@@ -63,11 +63,6 @@ scalars
 s31_lsu_yr_consumption LSU year DM consumption equivalent / 3.285 /
 ;
 
-scalars
-s31_min output conversion factor /4.86866188049316/
-s31_max output conversion factor /504.505218505859/
-;
-
 
 *marcos_develop
 
