@@ -4,4 +4,15 @@
 # |  AGPL-3.0, you are granted additional permissions described in the
 # |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 # |  Contact: magpie@pik-potsdam.de
-name,type,reason
+
+
+##########################################################
+#### Script to MAgPIE test runs ####
+##########################################################
+
+library(gms)
+source("scripts/start_functions.R")
+source("config/default.cfg")
+source("scripts/extra/lpjml_addon.R")
+start_run(cfg=cfg)
+

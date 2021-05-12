@@ -29,5 +29,6 @@
 $Ifi "%yields%" == "biocorrect" $include "./modules/14_yields/biocorrect/realization.gms"
 $Ifi "%yields%" == "dynamic_aug18" $include "./modules/14_yields/dynamic_aug18/realization.gms"
 $Ifi "%yields%" == "management_mar21" $include "./modules/14_yields/management_mar21/realization.gms"
+$Ifi "%yields%" == "cont_may210" $include "./modules/14_yields/cont_may210/realization.gms"
 $Ifi "%yields%" == "managementcalib_aug19" $include "./modules/14_yields/managementcalib_aug19/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################

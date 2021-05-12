@@ -150,9 +150,9 @@ $title magpie
 * md5sum: 017e3053cfc97ce815f42405d16c4ea7
 * Repository: /p/projects/rd3mod/inputdata/output
 * 
-* Used data set: additional_data_rev3.98.tgz
-* md5sum: 9c99aec425d4774a1ff7a853cd1ae495
-* Repository: /p/projects/landuse/data/input/archive
+* Used data set: calibration_H12_c200_23Feb21.tgz
+* md5sum: 8c013375008a959aaa0023030f53c2c2
+* Repository: /p/projects/rd3mod/mirror/rse.pik-potsdam.de/data/magpie/public
 * 
 * Used data set: rev4.58+mrmagpie_pasturetest_limN_h12_83796d6b_cellularmagpie_debug.tgz
 * md5sum: da1e9a43a68fd42ccbfc354431fa89cd
@@ -176,17 +176,23 @@ $title magpie
 * Regions data revision: 4.58
 * 
 * lpj2magpie settings:
-* * LPJmL data: GFDL-ESM4:ssp370
-* * Revision: 4.58
+* * LPJmL data folder: /p/projects/landuse/data/input/lpj_input/isimip_rcp/IPSL_CM5A_LR/rcp2p6/co2
+* * Additional input folder: /p/projects/landuse/data/input/other/rev52
+* * Revision: 52
+* * Call: lpj2magpie(input_folder = path(cfg$lpj_input_folder, gsub("-",     "/", cfg$input)), input2_folder = path(cfg$additional_input_folder,     paste("rev", floor(cfg$revision), sep = "")), output_file = lpj2magpie_file,     rev = cfg$revision)
 * 
 * aggregation settings:
 * * Input resolution: 0.5
 * * Output resolution: c200
 * * Regionscode: 62eff8f7
-* * Call: do.call(functiononly, args)
+* * (clustering) n-repeat: 5
+* * (clustering) n-redistribute: 0
+* * Call: aggregation(input_file = lpj2magpie_file, regionmapping = paste0("../",     cfg$regionmapping), output_file = aggregation_file, rev = cfg$revision,     res_high = cfg$high_res, res_low = cfg$low_res, hcells = cfg$highres_cells,     weight = cfg$cluster_weight, nrepeat = cfg$nrepeat, nredistribute = cfg$nredistribute,     sum_spam_file = cfg$spamfile, debug = FALSE, seed = cfg$seed)
 * 
 * 
 * Last modification (input data): Fri Apr 23 08:23:41 2021
+* 
+* Last modification (input data): Wed May  5 00:57:10 2021
 * 
 *###################### R SECTION END (VERSION INFO) ###########################
 
@@ -254,6 +260,7 @@ $setglobal transport  gtap_nov12
 $setglobal area_equipped_for_irrigation  endo_apr13
 $setglobal water_demand  agr_sector_aug13
 $setglobal water_availability  total_water_aug13
+$setglobal biodiversity  bv_btc_mar21
 $setglobal climate  static
 
 $setglobal nr_soil_budget  exoeff_aug16
