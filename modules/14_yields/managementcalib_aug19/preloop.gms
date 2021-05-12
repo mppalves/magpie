@@ -21,9 +21,25 @@ i14_yields_calib(t,j,"pasture",w) = i14_yields_calib(t,j,"pasture",w) * sum(cell
 
 
 ***YIELD MANAGEMENT CALIBRATION************************************************************
-*Total crop area is calculated
+
+* The following equations calibrate LPJmL yields ('i14_lpj_yields_hist') to match
+* FAO historical yields ('f14_regions_yields') by calculating a relative calibration
+* term 'i14_managementcalib'. However, when calculated over significantly higher
+* observed yields, the relative calibration terms can lead to unrealistically large
+* yields. To address this issue, 'i14_lambda_yields' determines the degree to which the
+* calibration factor is applied as an absolute or relative change.
+
+* For overestimated LPJmL yields, 'i14_lambda_yields' is 1, which is equivalent
+* to an entirely relative calibration. For underestimated yields, 'i14_lambda_yields'
+* is calculated as the squared root of the ratio between LPJmL yields and FAO historical
+* yields, and as 'i14_lambda_yields'  approaches 0, it reduces the applied relative change
+* resulting in a mean change increasingly similar to an additive term.
+* (Heinke el al, 2013)
+
 i14_croparea_total(t_all,j) = sum((kcr,w), fm_croparea(t_all,j,w,kcr));
-* regional historical crop yields are calculated.
+
+* Calculatin of Regional LPJmL historical crop yields.
+
 i14_lpj_yields_hist(t_past,i,knbe14) = (sum((cell(i,j),w), fm_croparea(t_past,j,w,knbe14) * f14_yields(t_past,j,knbe14,w)) /
                                              sum((cell(i,j),w), fm_croparea(t_past,j,w,knbe14)))$(sum((cell(i,j),w), fm_croparea(t_past,j,w,knbe14))>0) +
 																            (sum((cell(i,j),w), i14_croparea_total(t_past,j) * f14_yields(t_past,j,knbe14,w)) /
@@ -34,7 +50,9 @@ loop(t, if(sum(sameas(t,"y1995"),1)=1,
 			      i14_lambda_yields(t,i,knbe14) = 1;
 					Elseif (s14_limit_calib =1 ),
 
-* A lambda factor is calculated for the first historical timestep and copied for the following years
+* A lambda factor is calculated for the first historical timestep and applied to
+* subsequent years.
+
             i14_lambda_yields(t,i,knbe14) = 1$(f14_regions_yields(t,i,knbe14) <= i14_lpj_yields_hist(t,i,knbe14))
                                             + sqrt(i14_lpj_yields_hist(t,i,knbe14)/f14_regions_yields(t,i,knbe14))$
                                                (f14_regions_yields(t,i,knbe14) > i14_lpj_yields_hist(t,i,knbe14));
