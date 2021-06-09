@@ -89,4 +89,10 @@ $ondelim
 $include "./modules/14_yields/grass_mgnt_jun21/input/f14_past_suitability.cs3"
 $offdelim
 ;
+
+table f14_LUH2v2(t_all,j,f14_luh) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
+$ondelim
+$include "./modules/14_yields/grass_mgnt_jun21/input/f14_LUH2v2.cs3"
+$offdelim
+;
 *marcos_develop
