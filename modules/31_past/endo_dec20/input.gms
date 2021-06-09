@@ -9,12 +9,3 @@
 scalars
   s31_test_scalar  Factor requirements (USD05MER per tDM)          / 1 /
 ;
-
-parameter f31_scaling(minmax) scaling factors pasture soil carbon stocks
-/
-$ondelim
-$include "./modules/31_past/input/SCScalingFactors.csv"
-$offdelim
-/;
-
-*################################DEVELOPMENT####################################
