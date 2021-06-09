@@ -7,3 +7,5 @@
 
 name,type,reason
 pcm_land, input, not needed
+vm_past_yld, variable, not used
+im_mow_cost, parameter, not used
