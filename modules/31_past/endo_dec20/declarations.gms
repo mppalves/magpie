@@ -18,9 +18,13 @@ equations
 positive variables
 v31_past_area(j,past_mngt,w) marcos_develop
 ;
-
+parameters
+i31_manpast_suit(t_all,j) marcos_develop
+i31_ratio(j) marcos_develop
+;
 equations
 q31_pasture_areas(j) marcos_develop
+q31_manpast_suitability(j) marcos_develop
 q31_prod_pm(j) Cellular pasture production constraint (mio. tDM per yr)
 ;
 *marcos_develop
