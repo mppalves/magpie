@@ -35,5 +35,7 @@ sets
       / cont_grazing, mowing /
    mow_cost mowing costs
      / mow_cost /
+   ssp_past developement gambiarra
+    / ssp126, ssp230, ssp340, ssp460, ssp585 /
 *marcos_develop
 ;

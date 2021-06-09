@@ -83,4 +83,10 @@ table f14_mow_cost_calib(i,mow_cost) Calibration factor for the mowing costs (1)
 $ondelim
 $include "./modules/14_yields/input/f14_mow_cost_calib.csv"
 $offdelim;
+
+table f14_past_suitability(t_all,j,past_suit,ssp_past) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
+$ondelim
+$include "./modules/14_yields/grass_mgnt_jun21/input/f14_past_suitability.cs3"
+$offdelim
+;
 *marcos_develop
