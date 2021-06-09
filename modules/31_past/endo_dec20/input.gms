@@ -9,3 +9,15 @@
 scalars
   s31_test_scalar  Factor requirements (USD05MER per tDM)          / 1 /
 ;
+
+table f31_past_suitability(t_all,j,past_suit,ssp_past) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
+$ondelim
+$include "./modules/31_past/input/f31_past_suitability.cs3"
+$offdelim
+;
+
+table f31_LUH2v2(t_all,j,f14_luh) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
+$ondelim
+$include "./modules/31_past/input/f31_LUH2v2.cs3"
+$offdelim
+;
