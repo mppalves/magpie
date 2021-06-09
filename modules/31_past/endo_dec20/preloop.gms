@@ -5,4 +5,4 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 i31_manpast_suit(t_all,j) = f31_past_suitability(t_all,j,"past_suit","ssp126");
-i31_ratio(j) = f31_LUH2v2("y2010",j,"pastr") / f31_LUH2v2("y2010",j,"range");
+i31_ratio(j) = f31_LUH2v2("y2010",j,"pastr") / (f31_LUH2v2("y2010",j,"range")+1e-6);
