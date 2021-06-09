@@ -29,6 +29,17 @@ q31_carbon(j2,ag_pools) ..
  vm_carbon_stock(j2,"past",ag_pools) =e=
          sum(ct, vm_land(j2,"past")*fm_carbon_density(ct,j2,"past",ag_pools));
 
+
+*' By estimating the different area of managed pasture and rangeland via the luh2 side layers, the biodiversity value for pastures and rangeland is calculated in following:
+  q31_bv_manpast(j2,potnatveg) .. vm_bv(j2,"manpast",potnatveg)
+  					=e=
+					vm_land(j2,"past") * fm_luh2_side_layers(j2,"manpast") * fm_bii_coeff("manpast",potnatveg) * fm_luh2_side_layers(j2,potnatveg);
+
+  q31_bv_rangeland(j2,potnatveg) .. vm_bv(j2,"rangeland",potnatveg)
+  					=e=
+					vm_land(j2,"past") * fm_luh2_side_layers(j2,"rangeland") * fm_bii_coeff("rangeland",potnatveg) * fm_luh2_side_layers(j2,potnatveg);
+
+
 *' In the initial calibration time step, where the pasture calibration factor
 *' is calculated that brings pasture biomass demand and pasture area in balance,
 *' small costs are attributed to the production of pasture biomass in order to

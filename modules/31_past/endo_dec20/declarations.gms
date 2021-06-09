@@ -10,6 +10,8 @@ equations
 *q31_prod(j)              Cellular pasture production constraint (mio. tDM per yr)
  q31_carbon(j,ag_pools)   Above ground carbon content calculation for pasture (mio tC)
  q31_cost_prod_past(i)    Costs for putting animals on pastures (mio. USD05MER per yr)
+ q31_bv_manpast(j,potnatveg)    Biodiversity value for managed pastures (Mha)
+ q31_bv_rangeland(j,potnatveg)    Biodiversity value for rangeland (Mha)
 ;
 
 *marcos_develop
@@ -19,51 +21,8 @@ vm_past_area(j,past_mngt,w) marcos_develop
 
 equations
 q31_pasture_areas(j) marcos_develop
-
 q31_prod_pm(j) Cellular pasture production constraint (mio. tDM per yr)
-q31_lsu_convert(j) marcos_develop
-q31_suitability(j) marcos_develop
-q31_yld_lsu(j,w) marcos_develop
 ;
-
-* model hash ID 444efe6d
-variables
-v31_lsu(j) LSU variable
-v31_inlsu(j,lns1) LSU input layer
-v31_inEnv(j,lns1) Environmental input layer
-v31_z1(j,lns1) layer neurons
-v31_a1(j,lns1) layer activation
-v31_z2(j,lns2) layer neurons
-v31_a2(j,lns2) layer activation
-v31_lsu_ha(t,j) marcos_develop
-v31_soilc(j) output variable
-;
-
-equations
-q31_inlsu(j,lns1) LSU input equation
-q31_inEnv(j,lns1) LSU input equation
-q31_soilc_yld(j) output equation
-q31_z1(j,lns1) layer equation
-q31_a1(j,lns1) activation equation
-q31_z2(j,lns2) layer equation
-q31_a2(j,lns2) activation equation
-q31_soilc_convert(j) marcos_develop
-;
-
-Variable
-vm_soilc_target(j) marcos_develop
-;
-
-scalars
-* 4000 = Daily carbon consumption per LSU
-* 2.25 = from C to DM
-* 1e6 = from m2 to ha
-* 365 = days per year
-* ((4000 * 2.25/1e6) * 365) =  3.285 tDM/yr
-s31_lsu_yr_consumption LSU year DM consumption equivalent / 3.285 /
-;
-
-
 *marcos_develop
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
