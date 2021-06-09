@@ -197,5 +197,4 @@ i14_past_yields(t,j,past_mngt,w) = i14_past_yields(t,j,past_mngt,w)*sum(cell(i,j
 im_mow_cost(i) = p14_mowing_costs(i) * f14_mow_cost_calib(i,"mow_cost");
 display p14_myield_corr;
 display im_mow_cost;
-display i14_managementcalib;
 *marcos_develop
