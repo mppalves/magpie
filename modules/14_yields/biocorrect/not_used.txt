@@ -14,3 +14,5 @@ pm_timber_yield, input, not used
 fm_croparea,input,questionnaire
 pcm_tau, par, not used
 pm_timber_yield_initial, par, not used
+vm_past_yld, variable, not used
+im_mow_cost, parameter, not used

@@ -33,5 +33,7 @@ sets
 *marcos_develop
    past_mngt pasture management options
       / cont_grazing, mowing /
+   mow_cost mowing costs
+     / mow_cost /
 *marcos_develop
 ;
