@@ -22,6 +22,5 @@ $Ifi "%phase%" == "sets" $include "./modules/31_past/endo_dec20/sets.gms"
 $Ifi "%phase%" == "declarations" $include "./modules/31_past/endo_dec20/declarations.gms"
 $Ifi "%phase%" == "input" $include "./modules/31_past/endo_dec20/input.gms"
 $Ifi "%phase%" == "equations" $include "./modules/31_past/endo_dec20/equations.gms"
-$Ifi "%phase%" == "presolve" $include "./modules/31_past/endo_dec20/presolve.gms"
 $Ifi "%phase%" == "postsolve" $include "./modules/31_past/endo_dec20/postsolve.gms"
 *######################## R SECTION END (PHASES) ###############################
