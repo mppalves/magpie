@@ -12,6 +12,7 @@ equations
  q31_cost_prod_past(i)    Costs for putting animals on pastures (mio. USD05MER per yr)
  q31_bv_manpast(j,potnatveg)    Biodiversity value for managed pastures (Mha)
  q31_bv_rangeland(j,potnatveg)    Biodiversity value for rangeland (Mha)
+ q31_grassland_ratio(j) marcos_develop
 ;
 
 *marcos_develop
