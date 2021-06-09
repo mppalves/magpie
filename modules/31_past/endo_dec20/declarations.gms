@@ -16,7 +16,7 @@ equations
 
 *marcos_develop
 positive variables
-vm_past_area(j,past_mngt,w) marcos_develop
+v31_past_area(j,past_mngt,w) marcos_develop
 ;
 
 equations

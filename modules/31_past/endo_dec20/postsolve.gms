@@ -8,7 +8,7 @@
 *s31_test_scalar = 0;
 
 *#################### R SECTION START (OUTPUT DEFINITIONS) #####################
- ov_past_area(t,j,past_mngt,w,"marginal") = vm_past_area.m(j,past_mngt,w);
+ ov_past_area(t,j,past_mngt,w,"marginal") = v31_past_area.m(j,past_mngt,w);
  ov31_lsu(t,j,"marginal")                 = v31_lsu.m(j);
  ov31_inlsu(t,j,lns1,"marginal")          = v31_inlsu.m(j,lns1);
  ov31_inEnv(t,j,lns1,"marginal")          = v31_inEnv.m(j,lns1);
@@ -34,7 +34,7 @@
  oq31_z2(t,j,lns2,"marginal")             = q31_z2.m(j,lns2);
  oq31_a2(t,j,lns2,"marginal")             = q31_a2.m(j,lns2);
  oq31_soilc_convert(t,j,"marginal")       = q31_soilc_convert.m(j);
- ov_past_area(t,j,past_mngt,w,"level")    = vm_past_area.l(j,past_mngt,w);
+ ov_past_area(t,j,past_mngt,w,"level")    = v31_past_area.l(j,past_mngt,w);
  ov31_lsu(t,j,"level")                    = v31_lsu.l(j);
  ov31_inlsu(t,j,lns1,"level")             = v31_inlsu.l(j,lns1);
  ov31_inEnv(t,j,lns1,"level")             = v31_inEnv.l(j,lns1);
@@ -60,7 +60,7 @@
  oq31_z2(t,j,lns2,"level")                = q31_z2.l(j,lns2);
  oq31_a2(t,j,lns2,"level")                = q31_a2.l(j,lns2);
  oq31_soilc_convert(t,j,"level")          = q31_soilc_convert.l(j);
- ov_past_area(t,j,past_mngt,w,"upper")    = vm_past_area.up(j,past_mngt,w);
+ ov_past_area(t,j,past_mngt,w,"upper")    = v31_past_area.up(j,past_mngt,w);
  ov31_lsu(t,j,"upper")                    = v31_lsu.up(j);
  ov31_inlsu(t,j,lns1,"upper")             = v31_inlsu.up(j,lns1);
  ov31_inEnv(t,j,lns1,"upper")             = v31_inEnv.up(j,lns1);
@@ -86,7 +86,7 @@
  oq31_z2(t,j,lns2,"upper")                = q31_z2.up(j,lns2);
  oq31_a2(t,j,lns2,"upper")                = q31_a2.up(j,lns2);
  oq31_soilc_convert(t,j,"upper")          = q31_soilc_convert.up(j);
- ov_past_area(t,j,past_mngt,w,"lower")    = vm_past_area.lo(j,past_mngt,w);
+ ov_past_area(t,j,past_mngt,w,"lower")    = v31_past_area.lo(j,past_mngt,w);
  ov31_lsu(t,j,"lower")                    = v31_lsu.lo(j);
  ov31_inlsu(t,j,lns1,"lower")             = v31_inlsu.lo(j,lns1);
  ov31_inEnv(t,j,lns1,"lower")             = v31_inEnv.lo(j,lns1);
