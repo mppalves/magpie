@@ -15,7 +15,7 @@
 
 *marcos_develop
 q31_prod_pm(j2) ..
-  vm_prod(j2,"pasture") =l= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
+  vm_prod(j2,"pasture") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
 
 q31_pasture_areas(j2)..
   vm_land(j2,"past") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed"));
@@ -32,8 +32,8 @@ q31_carbon(j2,ag_pools) ..
 q31_manpast_suitability(j2)..
    v31_past_area(j2,"mowing","rainfed") =l= sum(ct,i31_manpast_suit(ct,j2));
 
-q31_grassland_ratio(j2)..
-   v31_past_area(j2,"mowing","rainfed")/(v31_past_area(j2,"cont_grazing","rainfed")+ 1e-6) =l= i31_ratio(j2);
+*q31_grassland_ratio(j2)..
+*   v31_past_area(j2,"mowing","rainfed")/(v31_past_area(j2,"cont_grazing","rainfed")+ 1e-6) =l= i31_ratio(j2);
 
 *' By estimating the different area of managed pasture and rangeland via the luh2 side layers, the biodiversity value for pastures and rangeland is calculated in following:
   q31_bv_manpast(j2,potnatveg) .. vm_bv(j2,"manpast",potnatveg)
