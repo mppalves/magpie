@@ -55,7 +55,7 @@ extend2luhv2 <- function(x, land = deparse(substitute(x))) {
   }
   
   if (land == "land_ini_hr") {
-    land_ini_LUH2v2 <- read.magpie("../modules/14_yields/input/f14_LUH2v2.mz")[, , c("pastr", "range")]
+    land_ini_LUH2v2 <- read.magpie("./modules/14_yields/input/f14_LUH2v2.mz")[, , c("pastr", "range")]
     "../modules/14_yields/input"
     land_ini_hr <- mbind(land_ini_hr, land_ini_LUH2v2[, 1995, ])
     drop_past <- !grepl("past$", getNames(land_ini_hr))
