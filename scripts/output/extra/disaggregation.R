@@ -40,8 +40,7 @@ if(length(map_file)>1) {
 }
 
 print(outputdir)
-cat(outputdir)
-getwd()
+print(getwd())
 
 extend2luhv2 <- function(x, land = deparse(substitute(x))) {
 
