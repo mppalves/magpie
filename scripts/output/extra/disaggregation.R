@@ -29,6 +29,7 @@ land_hr_share_out_file     <- file.path(outputdir,"cell.land_0.5_share.mz")
 croparea_hr_share_out_file <- file.path(outputdir,"cell.croparea_0.5_share.mz")
 land_hr_split_file         <- file.path(outputdir,"cell.land_split_0.5.mz")
 land_hr_shr_split_file     <- file.path(outputdir,"cell.land_split_0.5_share.mz")
+lsu_ha_file                <- file.path(outputdir,"lsu_ha.nc")
 
 load(paste0(outputdir, "/config.Rdata"))
 ################################################################################
@@ -185,3 +186,38 @@ area_shr_hr <- .dissagcrop(gdx, land_hr, map=map_file)
 }
 
 .cropsplit(area_shr_hr, land_hr, land_hr_split_file,land_hr_shr_split_file)
+
+.pastProd <- function(land_hr, map_file, gdx, lsu_ha_file){
+  
+  #calculating pasture production after optimization
+  grass_areas <- gdx::readGDX(gdx, "ov31_past_area")[, , "level"][,,"rainfed"]
+  grass_yields <- gdx::readGDX(gdx, "ov_past_yld")[, , "level"][,,"rainfed"]
+  grass_prod_lr <-  grass_areas * grass_yields #* 1e6 #tDM y-1
+  grass_prod_lr <-  collapseNames(grass_prod_lr)
+  grass_prod_lr <-  setNames(grass_prod_lr, getNames(grass_prod_lr) %<>% gsub("cont_grazing", "range",.) %>% gsub("mowing", "pastr", .))
+  
+  years <- getYears(grass_prod_lr)
+  
+  # Calculating potential yields before calibration
+  lpjml_yields <- read.magpie("./modules/14_yields/input/lpj_past_yields_new_hr.mz")[,,"rainfed"]
+  lpjml_yields <- setNames(collapseNames(lpjml_yields),c("range", "pastr"))
+  poten_prod <- lpjml_yields[,years,] * land_hr[,years,c("range","pastr")]
+  
+  #disaggregation weighted by potential yields
+  prod <- toolAggregate(grass_prod_lr, map_file, weight = poten_prod, from = "cluster", to = "cell")
+  
+  # calculating LSU densities
+  lsu_eq <- (8.9 * 365)/1000 # tDM y-1
+  lsus <- prod/lsu_eq
+  lsu_ha <- lsus/land_hr[,years,c("range","pastr")]
+  lsu_ha[is.nan(lsu_ha) | is.infinite(lsu_ha)] <- 0
+  lsu_ha[lsu_ha[,,"range"]>2.5] <-  2.5
+
+  .tmpwrite(lsu_ha, lsu_ha_file,
+            comment="unit: Lsu per ha",
+            message="Write Livestock density per cluster")
+
+
+}
+
+.pastProd(land_hr, map_file, gdx, lsu_ha_file)
