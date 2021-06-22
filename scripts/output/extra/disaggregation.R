@@ -117,7 +117,7 @@ if (cfg$gms$crop=="endo_apr21"){
   # Start interpolation (use interpolate from luscale)
   message("Disaggregation")
   land_hr <- luscale::interpolate2(x     = land_lr,
-                                   x_ini = land_ini,
+                                   x_ini = land_ini_hr,
                                    map   = map_file)
 }
 
