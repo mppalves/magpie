@@ -56,7 +56,6 @@ extend2luhv2 <- function(x, land = deparse(substitute(x))) {
   
   if (land == "land_ini_hr") {
     land_ini_LUH2v2 <- read.magpie("./modules/14_yields/input/f14_LUH2v2.mz")[, , c("pastr", "range")]
-    "../modules/14_yields/input"
     land_ini_hr <- mbind(x, land_ini_LUH2v2[, 1995, ])
     drop_past <- !grepl("past$", getNames(land_ini_hr))
     land_ini_hr <- land_ini_hr[, , drop_past]
@@ -102,12 +101,12 @@ if (cfg$gms$crop=="endo_apr21"){
 
   # Load input data
   land_lr   <- land(gdx,sum=FALSE,level="cell")
-  land_ini  <- setYears(read.magpie(land_hr_file)[,"y1995",],NULL)
-  land_ini  <- land_ini[,,getNames(land_lr)]
-  if(any(land_ini < 0)) {
+  land_ini_hr  <- setYears(read.magpie(land_hr_file)[,"y1995",],NULL)
+  land_ini_hr  <- land_ini_hr[,,getNames(land_lr)]
+  if(any(land_ini_hr < 0)) {
     warning(paste0("Negative values in inital high resolution dataset ",
                    "detected and set to 0. Check the file ",land_hr_file))
-    land_ini[which(land_ini < 0,arr.ind = T)] <- 0
+    land_ini_hr[which(land_ini_hr < 0,arr.ind = T)] <- 0
   }
   
   if (grepl("grass", cfg$gms$yields)) {
