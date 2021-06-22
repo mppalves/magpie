@@ -14,6 +14,7 @@ library(lucode2)
 library(magpie4)
 library(luscale)
 library(madrat)
+library(dplyr)
 
 ############################# BASIC CONFIGURATION ##############################
 if(!exists("source_include")) {
@@ -38,6 +39,30 @@ if(length(map_file)>1) {
   map_file <- map_file[1]
 }
 
+
+extend2luhv2 <- function(x, land = deparse(substitute(x))) {
+
+  if (land == "land_lr") {
+    grassland_areas <- readGDX(gdx, "ov31_past_area")[, , "rainfed.level"]
+    grassland_areas <- collapseNames(grassland_areas)
+    grassland_areas <- setNames(grassland_areas, getNames(grassland_areas) %<>% gsub("cont_grazing", "range", .) %>% gsub("mowing", "pastr", .))
+    land_lr <- mbind(land_lr, grassland_areas)
+    drop_past <- !grepl("past$", getNames(land_lr))
+    land_lr <- land_lr[, , drop_past]
+    return(land_lr)
+  }
+  
+  if (land == "land_ini_hr") {
+    land_ini_LUH2v2 <- read.magpie("../modules/14_yields/input/f14_LUH2v2.mz")[, , c("pastr", "range")]
+    "../modules/14_yields/input"
+    land_ini_hr <- mbind(land_ini_hr, land_ini_LUH2v2[, 1995, ])
+    drop_past <- !grepl("past$", getNames(land_ini_hr))
+    land_ini_hr <- land_ini_hr[, , drop_past]
+    getYears(land_ini_hr) <- NULL
+    return(land_ini_hr)
+  }
+}
+
 if (cfg$gms$crop=="endo_apr21"){
 
   # Load input data
@@ -54,7 +79,12 @@ if (cfg$gms$crop=="endo_apr21"){
   set_aside_shr <- cfg$gms$s30_set_aside_shr                      # set aside share (default: 0)
   target_year <- cfg$gms$c30_set_aside_target                     # target year of set aside policy (default: "none")
   set_aside_fader  <- readGDX(gdx,"f30_set_aside_fader", format="first_found")[,,target_year]
-
+  
+  if (grepl("grass", cfg$gms$yields)) {
+    land_lr <- extend2luhv2(land_lr)
+    land_ini_hr <-  extend2luhv2(land_ini_hr)
+  }
+  
   # Start interpolation (use interpolateAvlCroplandWeighted from luscale)
   print("Disaggregation")
   land_hr <- interpolateAvlCroplandWeighted(x          = land_lr,
@@ -77,7 +107,12 @@ if (cfg$gms$crop=="endo_apr21"){
                    "detected and set to 0. Check the file ",land_hr_file))
     land_ini[which(land_ini < 0,arr.ind = T)] <- 0
   }
-
+  
+  if (grepl("grass", cfg$gms$yields)) {
+    land_lr <- extend2luhv2(land_lr)
+    land_ini_hr <-  extend2luhv2(land_ini_hr)
+  }
+  
   # Start interpolation (use interpolate from luscale)
   message("Disaggregation")
   land_hr <- luscale::interpolate2(x     = land_lr,
