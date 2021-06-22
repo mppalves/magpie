@@ -48,7 +48,7 @@ extend2luhv2 <- function(x, land = deparse(substitute(x))) {
     grassland_areas <- readGDX(gdx, "ov31_past_area")[, , "rainfed.level"]
     grassland_areas <- collapseNames(grassland_areas)
     grassland_areas <- setNames(grassland_areas, getNames(grassland_areas) %<>% gsub("cont_grazing", "range", .) %>% gsub("mowing", "pastr", .))
-    land_lr <- mbind(land_lr, grassland_areas)
+    land_lr <- mbind(x, grassland_areas)
     drop_past <- !grepl("past$", getNames(land_lr))
     land_lr <- land_lr[, , drop_past]
     return(land_lr)
@@ -57,7 +57,7 @@ extend2luhv2 <- function(x, land = deparse(substitute(x))) {
   if (land == "land_ini_hr") {
     land_ini_LUH2v2 <- read.magpie("./modules/14_yields/input/f14_LUH2v2.mz")[, , c("pastr", "range")]
     "../modules/14_yields/input"
-    land_ini_hr <- mbind(land_ini_hr, land_ini_LUH2v2[, 1995, ])
+    land_ini_hr <- mbind(x, land_ini_LUH2v2[, 1995, ])
     drop_past <- !grepl("past$", getNames(land_ini_hr))
     land_ini_hr <- land_ini_hr[, , drop_past]
     getYears(land_ini_hr) <- NULL
