@@ -51,7 +51,7 @@ extend2luhv2 <- function(x, land = deparse(substitute(x))) {
     land_lr <- land_lr[, , drop_past]
     return(land_lr)
   }
-  
+
   if (land == "land_ini_hr") {
     land_ini_LUH2v2 <- read.magpie("./modules/14_yields/input/f14_LUH2v2.mz")[, , c("pastr", "range")]
     land_ini_hr <- mbind(x, land_ini_LUH2v2[, 1995, ])
@@ -78,12 +78,12 @@ if (cfg$gms$crop=="endo_apr21"){
   set_aside_shr <- cfg$gms$s30_set_aside_shr                      # set aside share (default: 0)
   target_year <- cfg$gms$c30_set_aside_target                     # target year of set aside policy (default: "none")
   set_aside_fader  <- readGDX(gdx,"f30_set_aside_fader", format="first_found")[,,target_year]
-  
+
   if (grepl("grass", cfg$gms$yields)) {
     land_lr <- extend2luhv2(land_lr)
     land_ini_hr <-  extend2luhv2(land_ini_hr)
   }
-  
+
   # Start interpolation (use interpolateAvlCroplandWeighted from luscale)
   print("Disaggregation")
   land_hr <- interpolateAvlCroplandWeighted(x          = land_lr,
@@ -106,12 +106,12 @@ if (cfg$gms$crop=="endo_apr21"){
                    "detected and set to 0. Check the file ",land_hr_file))
     land_ini_hr[which(land_ini_hr < 0,arr.ind = T)] <- 0
   }
-  
+
   if (grepl("grass", cfg$gms$yields)) {
     land_lr <- extend2luhv2(land_lr)
     land_ini_hr <-  extend2luhv2(land_ini_hr)
   }
-  
+
   # Start interpolation (use interpolate from luscale)
   message("Disaggregation")
   land_hr <- luscale::interpolate2(x     = land_lr,
@@ -188,24 +188,24 @@ area_shr_hr <- .dissagcrop(gdx, land_hr, map=map_file)
 .cropsplit(area_shr_hr, land_hr, land_hr_split_file,land_hr_shr_split_file)
 
 .pastProd <- function(land_hr, map_file, gdx, lsu_ha_file){
-  
+
   #calculating pasture production after optimization
   grass_areas <- gdx::readGDX(gdx, "ov31_past_area")[, , "level"][,,"rainfed"]
   grass_yields <- gdx::readGDX(gdx, "ov_past_yld")[, , "level"][,,"rainfed"]
   grass_prod_lr <-  grass_areas * grass_yields #* 1e6 #tDM y-1
   grass_prod_lr <-  collapseNames(grass_prod_lr)
   grass_prod_lr <-  setNames(grass_prod_lr, getNames(grass_prod_lr) %<>% gsub("cont_grazing", "range",.) %>% gsub("mowing", "pastr", .))
-  
+
   years <- getYears(grass_prod_lr)
-  
+
   # Calculating potential yields before calibration
-  lpjml_yields <- read.magpie("./modules/14_yields/input/lpj_past_yields_new_hr.mz")[,,"rainfed"]
+  lpjml_yields <- read.magpie("./modules/14_yields/input/lpj_past_yields_new.mz")[,,"rainfed"]
   lpjml_yields <- setNames(collapseNames(lpjml_yields),c("range", "pastr"))
   poten_prod <- lpjml_yields[,years,] * land_hr[,years,c("range","pastr")]
-  
+
   #disaggregation weighted by potential yields
   prod <- toolAggregate(grass_prod_lr, map_file, weight = poten_prod, from = "cluster", to = "cell")
-  
+
   # calculating LSU densities
   lsu_eq <- (8.9 * 365)/1000 # tDM y-1
   lsus <- prod/lsu_eq
@@ -220,4 +220,6 @@ area_shr_hr <- .dissagcrop(gdx, land_hr, map=map_file)
 
 }
 
-.pastProd(land_hr, map_file, gdx, lsu_ha_file)
+if (grepl("grass", cfg$gms$yields)) {
+  .pastProd(land_hr, map_file, gdx, lsu_ha_file)
+}
