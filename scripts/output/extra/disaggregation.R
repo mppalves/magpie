@@ -45,7 +45,7 @@ extend2luhv2 <- function(x, land = deparse(substitute(x))) {
   if (land == "land_lr") {
     grassland_areas <- readGDX(gdx, "ov31_past_area")[, , "rainfed.level"]
     grassland_areas <- collapseNames(grassland_areas)
-    grassland_areas <- setNames(grassland_areas, getNames(grassland_areas) %<>% gsub("cont_grazing", "range", .) %>% gsub("mowing", "pastr", .))
+    grassland_areas <- setNames(grassland_areas, getNames(grassland_areas) %<>% gsub("range", "range", .) %>% gsub("pastr", "pastr", .))
     land_lr <- mbind(x, grassland_areas)
     drop_past <- !grepl("past$", getNames(land_lr))
     land_lr <- land_lr[, , drop_past]
@@ -194,7 +194,7 @@ area_shr_hr <- .dissagcrop(gdx, land_hr, map=map_file)
   grass_yields <- gdx::readGDX(gdx, "ov_past_yld")[, , "level"][,,"rainfed"]
   grass_prod_lr <-  grass_areas * grass_yields #* 1e6 #tDM y-1
   grass_prod_lr <-  collapseNames(grass_prod_lr)
-  grass_prod_lr <-  setNames(grass_prod_lr, getNames(grass_prod_lr) %<>% gsub("cont_grazing", "range",.) %>% gsub("mowing", "pastr", .))
+  grass_prod_lr <-  setNames(grass_prod_lr, getNames(grass_prod_lr) %<>% gsub("range", "range",.) %>% gsub("pastr", "pastr", .))
 
   years <- getYears(grass_prod_lr)
 
