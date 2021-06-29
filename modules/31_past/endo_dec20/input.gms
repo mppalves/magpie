@@ -12,7 +12,7 @@ scalars
 
 table f31_past_suitability(t_all,j,past_suit,ssp_past) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
 $ondelim
-$include "./modules/31_past/input/f31_past_suitability.cs3"
+$include "./modules/31_past/input/f31_pastr_suitability.cs3"
 $offdelim
 ;
 
