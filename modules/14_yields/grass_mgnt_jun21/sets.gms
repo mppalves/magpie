@@ -31,8 +31,8 @@ sets
          foddr, cottn_pro /
 
 *marcos_develop
-   past_mngt pasture management options
-      / range, pastr /
+*   past_mngt pasture management options
+*      / range, pastr /
 
    mow_cost mowing costs
      / mow_cost /
