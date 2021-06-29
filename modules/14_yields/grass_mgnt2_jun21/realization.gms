@@ -5,7 +5,7 @@
 *** |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: magpie@pik-potsdam.de
 
-*' @description The grass_mgnt_jun21 realization reads in the LPJmL data and
+*' @description The grass_mgnt2_jun21 realization reads in the LPJmL data and
 *' performs several corrections. First, a bioenergy yield correction is performed.
 *' As there is currently no robust information on bioenergy yields available
 *' in [@FAOSTAT], it is assumed that the LPJmL yields for bioenergy correspond
@@ -28,13 +28,13 @@
 
 
 *####################### R SECTION START (PHASES) ##############################
-$Ifi "%phase%" == "sets" $include "./modules/14_yields/grass_mgnt_jun21/sets.gms"
-$Ifi "%phase%" == "declarations" $include "./modules/14_yields/grass_mgnt_jun21/declarations.gms"
-$Ifi "%phase%" == "input" $include "./modules/14_yields/grass_mgnt_jun21/input.gms"
-$Ifi "%phase%" == "equations" $include "./modules/14_yields/grass_mgnt_jun21/equations.gms"
-$Ifi "%phase%" == "preloop" $include "./modules/14_yields/grass_mgnt_jun21/preloop.gms"
-$Ifi "%phase%" == "presolve" $include "./modules/14_yields/grass_mgnt_jun21/presolve.gms"
-$Ifi "%phase%" == "postsolve" $include "./modules/14_yields/grass_mgnt_jun21/postsolve.gms"
-$Ifi "%phase%" == "nl_fix" $include "./modules/14_yields/grass_mgnt_jun21/nl_fix.gms"
-$Ifi "%phase%" == "nl_release" $include "./modules/14_yields/grass_mgnt_jun21/nl_release.gms"
+$Ifi "%phase%" == "sets" $include "./modules/14_yields/grass_mgnt2_jun21/sets.gms"
+$Ifi "%phase%" == "declarations" $include "./modules/14_yields/grass_mgnt2_jun21/declarations.gms"
+$Ifi "%phase%" == "input" $include "./modules/14_yields/grass_mgnt2_jun21/input.gms"
+$Ifi "%phase%" == "equations" $include "./modules/14_yields/grass_mgnt2_jun21/equations.gms"
+$Ifi "%phase%" == "preloop" $include "./modules/14_yields/grass_mgnt2_jun21/preloop.gms"
+$Ifi "%phase%" == "presolve" $include "./modules/14_yields/grass_mgnt2_jun21/presolve.gms"
+$Ifi "%phase%" == "postsolve" $include "./modules/14_yields/grass_mgnt2_jun21/postsolve.gms"
+$Ifi "%phase%" == "nl_fix" $include "./modules/14_yields/grass_mgnt2_jun21/nl_fix.gms"
+$Ifi "%phase%" == "nl_release" $include "./modules/14_yields/grass_mgnt2_jun21/nl_release.gms"
 *######################## R SECTION END (PHASES) ###############################
