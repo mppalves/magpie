@@ -164,34 +164,35 @@ pm_timber_yield_initial(j,ac,land_natveg) = p14_growing_stock_initial(j,ac,land_
 *' Only the mowing management option is corrected to capture the divesitiy of mowing management schemes.
 *' Continuous Grazing is not correcte as MAgPIE can choose the yields by alocating LSUs to pasture, therefore linking
 *' yields to management directly.
-i14_past_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
-p14_myield_LPJ_reg(t,i) = (sum(cell(i,j),i14_past_yields(t,j,"pastr","rainfed")*pm_land_start(j,"past"))/sum(cell(i,j),pm_land_start(j,"past")));
+
+i14_grassl_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
+p14_grass_yld_reg(t,j) = i14_grassl_yields(t,j,past_mngt,"rainfed");
 
 
 loop(t, if(sum(sameas(t,"y1995"),1)=1,
 if ((s14_limit_calib = 0),
-    i14_lambda_pyields(t,i) = 1;
+    i14_lambda_pyields(t,j) = 1;
       Elseif (s14_limit_calib =1),
-      i14_lambda_pyields(t,i) = 1$(f14_pyld_hist(t,i) <= p14_myield_LPJ_reg(t,i))
-                                    + sqrt(p14_myield_LPJ_reg(t,i)/f14_pyld_hist(t,i))$
-                                       (f14_pyld_hist(t,i) > p14_myield_LPJ_reg(t,i));
+      i14_lambda_pyields(t,j) = 1$(f14_grassl_yld_hist(t,j) <= f14_grassl_yld(t,j))
+                                    + sqrt(f14_grassl_yld(t,j)/f14_grassl_yld_hist(t,j))$
+                                       (f14_grassl_yld_hist(t,j) > f14_grassl_yld(t,j));
                                        );
-    i14_myield_LPJ_reg(t,i) = p14_myield_LPJ_reg(t,i);
+    i14_grassl_yld(t,j) = f14_grassl_yld(t,j);
 
 Else
-    f14_pyld_hist(t,i) = f14_pyld_hist(t-1,i);
-    i14_myield_LPJ_reg(t,i)  = i14_myield_LPJ_reg(t-1,i);
-    i14_lambda_pyields(t,i)   = i14_lambda_pyields(t-1,i);
+    f14_grassl_yld_hist(t,j) = f14_grassl_yld_hist(t-1,j);
+    i14_grassl_yld(t,j)  = i14_grassl_yld(t-1,j);
+    i14_lambda_pyields(t,j)   = i14_lambda_pyields(t-1,j);
    );
 );
 
 p14_myield_corr(t,j) =
-   1 + (sum(cell(i,j), f14_pyld_hist(t,i) - i14_myield_LPJ_reg(t,i)) / i14_past_yields(t,j,"pastr","rainfed") *
-          (i14_past_yields(t,j,"pastr","rainfed") / (sum(cell(i,j), i14_myield_LPJ_reg(t,i))+10**(-8)))  **
-                                 sum(cell(i,j),i14_lambda_pyields(t,i)))$(i14_past_yields(t,j,"pastr","rainfed")>0);
+   1 + ((f14_grassl_yld_hist(t,j) - i14_grassl_yld(t,j)) / f14_grassl_yld(t,j,"pastr","rainfed") *
+          (f14_grassl_yld(t,j,"pastr","rainfed") / (i14_grassl_yld(t,j))+10**(-8))) ** i14_lambda_pyields(t,j))$(f14_grassl_yld(t,j,"pastr","rainfed")>0);
+          
 p14_myield_corr(t,j)$(p14_myield_corr(t,j) < 1)  = 1;
-i14_past_yields(t,j,"pastr",w) = i14_past_yields(t,j,"pastr",w)*p14_myield_corr(t,j);
-i14_past_yields(t,j,past_mngt,w) = i14_past_yields(t,j,past_mngt,w)*sum(cell(i,j),f14_yld_calib(i,"past"));
+f14_grassl_yld(t,j,"pastr",w) = f14_grassl_yld(t,j,"pastr",w)*p14_myield_corr(t,j);
+f14_grassl_yld(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w)*sum(cell(i,j),f14_yld_calib(i,"past"));
 
 *' A cost is associated with the mowing management option. This cost is calibrated
 *' to reflect historical pasture patterns.

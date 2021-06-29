@@ -12,7 +12,10 @@ sets
  / ssp126, ssp230, ssp340, ssp460, ssp585 /
 
  f14_luh developement gambiarra
- /primf,primn,secdf,secdn,urban,c3ann,c4ann,c3per,c4per,c3nfx,pastr,range/
+ / primf,primn,secdf,secdn,urban,c3ann,c4ann,c3per,c4per,c3nfx,pastr,range /
+
+ past_mngt(f14_luh) pasture management options
+/ pastr,range /
 
  past_suit developement gambiarra
  /past_suit/
