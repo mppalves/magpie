@@ -21,8 +21,8 @@ parameters
  i14_lambda_pyields(t,i)                                 marcos_develop
  i14_myield_LPJ_reg(t,i)                                 marcos_develop
  p14_myield_LPJ_reg(t_all,i)                             marcos_develop
- p14_grassl_yld_hist_reg(t,i,past_mngt)
- p14_grassl_yld_reg(t,i,past_mngt)
+* p14_grassl_yld_hist_reg(t,i,past_mngt)
+* p14_grassl_yld_reg(t,i,past_mngt)
  ;
 
 positive variables
