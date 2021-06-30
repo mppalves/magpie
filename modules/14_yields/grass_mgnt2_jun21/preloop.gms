@@ -173,6 +173,8 @@ pm_timber_yield_initial(j,ac,land_natveg) = p14_growing_stock_initial(j,ac,land_
 *' Continuous Grazing is not correcte as MAgPIE can choose the yields by alocating LSUs to pasture, therefore linking
 *' yields to management directly.
 i14_grassl_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
+
+$ontext
 p14_myield_LPJ_reg(t,i) = (sum(cell(i,j),i14_grassl_yields(t,j,"pastr","rainfed")*pm_land_start(j,"past"))/sum(cell(i,j),pm_land_start(j,"past")));
 
 loop(t, if(sum(sameas(t,"y1995"),1)=1,
@@ -206,3 +208,4 @@ im_mow_cost(i) = p14_mowing_costs(i) * f14_mow_cost_calib(i,"mow_cost");
 display p14_grassl_yld_hist_reg;
 display p14_grassl_yld_reg;
 *marcos_develop
+$offtext
