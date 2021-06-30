@@ -166,25 +166,13 @@ pm_timber_yield_initial(j,ac,land_natveg) = p14_growing_stock_initial(j,ac,land_
 *' yields to management directly.
 
 i14_grass_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
-
-
-
-*p14_pyield_LPJ_reg(t,i) = (sum(cell(i,j),i14_yields_calib(t,j,"pasture","rainfed") * pm_land_start(j,"past")) /
-*                            sum(cell(i,j),pm_land_start(j,"past")) );
-
-*p14_pyield_corr(t,i) = (f14_pyld_hist(t,i)/p14_pyield_LPJ_reg(t,i))$(sum(sameas(t_past,t),1) = 1)
-*			+ sum(t_past,(f14_pyld_hist(t_past,i)/(p14_pyield_LPJ_reg(t_past,i)+0.000001))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
-
 p14_grass_yields(t,i,past_mngt) = (sum(cell(i,j),i14_grass_yields(t,j,past_mngt,"rainfed") * fm_LUH2v2(t,j,past_mngt)) /
                                    (sum(cell(i,j),fm_LUH2v2(t,j,past_mngt)) + 1e-9));
 
 p14_grass_corr(t,i,past_mngt) = (f14_grassl_yld_hist_reg(t,i,past_mngt)/(p14_grass_yields(t,i,past_mngt) + 1e-9))$(sum(sameas(t_past,t),1) = 1) +
                                 sum(t_past,(f14_grassl_yld_hist_reg(t_past,i,past_mngt)/(p14_grass_yields(t_past,i,past_mngt) + 1e-9))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
-
 *p14_grass_corr(t,j,past_mngt)$(p14_grass_corr(t,j,past_mngt) < 1) = 1;
-
 i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rainfed") * sum(cell(i,j),p14_grass_corr(t,i,past_mngt));
-
 
 *' A cost is associated with the mowing management option. This cost is calibrated
 *' to reflect historical pasture patterns.

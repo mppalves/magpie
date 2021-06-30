@@ -15,13 +15,13 @@
 
 *marcos_develop
 q31_prod_pm(j2) ..
-  vm_prod(j2,"pasture") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
+  vm_prod(j2,"pasture") =l= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed") * vm_past_yld(j2,past_mngt,"rainfed"));
 
 q31_pasture_areas(j2)..
   vm_land(j2,"past") =e= sum(past_mngt, v31_past_area(j2,past_mngt,"rainfed"));
 
 q31_cost_prod_past(i2) ..
- vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), v31_past_area(j2,"pastr","rainfed") * vm_past_yld(j2,"pastr","rainfed")) * im_mow_cost(i2);
+ vm_cost_prod(i2,"pasture") =e= sum(cell(i2,j2), v31_past_area(j2, past_mngt, "rainfed") * vm_past_yld(j2, past_mngt, "rainfed")) * grassland_costs(past_mngt);
 
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
 

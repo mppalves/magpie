@@ -21,3 +21,6 @@ $ondelim
 $include "./modules/31_past/input/f31_LUH2v2.cs3"
 $offdelim
 ;
+
+Parameter
+grassland_costs(past_mngt) "past costs" / pastr 1, range 1.5 /;
