@@ -199,7 +199,7 @@ area_shr_hr <- .dissagcrop(gdx, land_hr, map=map_file)
   years <- getYears(grass_prod_lr)
 
   # Calculating potential yields before calibration
-  lpjml_yields <- read.magpie("./modules/14_yields/input/lpj_past_yields_new.mz")[,,"rainfed"]
+  lpjml_yields <- read.magpie("./modules/14_yields/input/lpj_grasslands_yld.mz")[,,"rainfed"]
   lpjml_yields <- setNames(collapseNames(lpjml_yields),c("range", "pastr"))
   poten_prod <- lpjml_yields[,years,] * land_hr[,years,c("range","pastr")]
 

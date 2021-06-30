@@ -176,7 +176,7 @@ i14_grass_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
 *			+ sum(t_past,(f14_pyld_hist(t_past,i)/(p14_pyield_LPJ_reg(t_past,i)+0.000001))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
 
 p14_grass_yields(t,i,past_mngt) = (sum(cell(i,j),i14_grass_yields(t,j,past_mngt,"rainfed") * fm_LUH2v2(t,j,past_mngt)) /
-                                   sum(cell(i,j),fm_LUH2v2(t,j,past_mngt)))
+                                   sum(cell(i,j),fm_LUH2v2(t,j,past_mngt)));
 
 p14_grass_corr(t,j,past_mngt) = (f14_grassl_yld_hist_reg(t,i,past_mngt)/(p14_grass_yields(t,i,past_mngt) + 1e-9))$(sum(sameas(t_past,t),1) = 1) +
                                 sum(t_past,(f14_grassl_yld_hist_reg(t_past,,past_mngt)/(p14_grass_yields(t_past,i,past_mngt) + 1e-9))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
