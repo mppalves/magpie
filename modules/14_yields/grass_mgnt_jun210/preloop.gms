@@ -166,7 +166,7 @@ pm_timber_yield_initial(j,ac,land_natveg) = p14_growing_stock_initial(j,ac,land_
 *' yields to management directly.
 i14_grass_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
 
-i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rainfed") * f14_grassl_yld_hist(t,j,past_mngt)/i14_grass_yields(t,j,past_mngt,w)+10e-9;
+i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rainfed") * f14_grassl_yld_hist(t,j,past_mngt)/i14_grass_yields(t,j,past_mngt,"rainfed")+10e-9;
 
 
 *' A cost is associated with the mowing management option. This cost is calibrated
