@@ -18,6 +18,7 @@ parameters
  pm_timber_yield(t,j,ac,forest_land)                     Forest growing stock (tDM per ha per yr)
  p14_growing_stock_initial(j,ac,forest_land,forest_type) Initial Forest growing stock (tDM per ha per yr)
  pm_timber_yield_initial(j,ac,forest_land)               Initial Forest yield (tDM per ha per yr)
+ i14_grass_yields_reg(t,i,past_mngt) marcos
  ;
 
 positive variables
