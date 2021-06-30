@@ -4,9 +4,5 @@
 # |  AGPL-3.0, you are granted additional permissions described in the
 # |  MAgPIE License Exception, version 1.0 (see LICENSE file).
 # |  Contact: magpie@pik-potsdam.de
-
 name,type,reason
-pcm_land, input, not needed
-vm_past_yld, variable, not used
-im_mow_cost, parameter, not used
 fm_LUH2v2, input, not used

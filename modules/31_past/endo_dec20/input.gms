@@ -16,7 +16,7 @@ $include "./modules/31_past/input/f31_pastr_suitability.cs3"
 $offdelim
 ;
 
-table f31_LUH2v2(t_all,j,f14_luh) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
+table fm_LUH2v2(t_all,j,f14_luh) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
 $ondelim
 $include "./modules/31_past/input/f31_LUH2v2.cs3"
 $offdelim

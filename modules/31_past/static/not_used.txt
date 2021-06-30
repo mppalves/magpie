@@ -11,3 +11,4 @@ vm_yld, input, not needed
 vm_prod_reg,input,questionnaire
 vm_past_yld, variable, not used
 im_mow_cost, parameter, not used
+fm_LUH2v2, input, not used
