@@ -89,4 +89,9 @@ $ondelim
 $include "./modules/14_yields/input/f14_grassL_yld_hist.cs3"
 $offdelim;
 
+table f14_grassl_yld_hist_reg(t_all,i, past_mngt) Modelled regional pasture yields in the past celullar (tDM per ha per yr)
+$ondelim
+$include "./modules/14_yields/input/f14_grassL_yld_hist_reg.cs3"
+$offdelim;
+
 *marcos_develop
