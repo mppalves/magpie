@@ -166,7 +166,7 @@ pm_timber_yield_initial(j,ac,land_natveg) = p14_growing_stock_initial(j,ac,land_
 *' yields to management directly.
 
 *i14_mod_past_yields_hist(t,j,past_mngt) =
-*f14_grassl_yld(t,j,past_mngt,w);
+*f14_grassl_yld(t,j,past_mngt,w) * fm_LUH2v2(t_all,j,f14_luh) / ;
 
 
 loop(t,
@@ -193,7 +193,7 @@ Else
 p14_myield_corr(t,j,past_mngt) =
   1 + ((f14_grassl_yld_hist(t,j,past_mngt) - i14_grassl_yld(t,j,past_mngt)) /
       f14_grassl_yld(t,j,past_mngt,"rainfed") * (f14_grassl_yld(t,j,past_mngt,"rainfed") / i14_grassl_yld(t,j,past_mngt)+1e-9) **
-      i14_lambda_pyields(t,j))$(f14_grassl_yld(t,j,past_mngt,"rainfed")>0);
+      i14_lambda_pyields(t,j,past_mngt))$(f14_grassl_yld(t,j,past_mngt,"rainfed")>0);
 
 p14_myield_corr(t,j,past_mngt)$(p14_myield_corr(t,j,past_mngt) < 1)  = 1;
 f14_grassl_yld(t,j,past_mngt,"rainfed") = f14_grassl_yld(t,j,past_mngt,"rainfed")*p14_myield_corr(t,j,past_mngt);
