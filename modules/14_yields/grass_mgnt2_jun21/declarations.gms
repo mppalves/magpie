@@ -18,11 +18,10 @@ parameters
  pm_timber_yield(t,j,ac,forest_land)                     Forest growing stock (tDM per ha per yr)
  p14_growing_stock_initial(j,ac,forest_land,forest_type) Initial Forest growing stock (tDM per ha per yr)
  pm_timber_yield_initial(j,ac,forest_land)               Initial Forest yield (tDM per ha per yr)
-*i14_lambda_pyields(t,j,past_mngt)                                marcos_develop
- i14_grassl_yld(t,i,past_mngt)                                 marcos_develop
- p14_myield_corr(t,i,past_mngt)                                    marcos_develop
- p14_grassl_yld_hist_reg(t_all,i,past_mngt)                      marcos_develop
- p14_grassl_yld_reg(t_all,i,past_mngt)                          marcos_develop
+ i14_lambda_pyields(t,i)                                 marcos_develop
+ i14_myield_LPJ_reg(t,i)                                 marcos_develop
+ p14_myield_LPJ_reg(t_all,i)                             marcos_develop
+ p14_grassl_yld_hist_reg(t,i,past_mngt)
  ;
 
 positive variables
@@ -39,7 +38,7 @@ equations
 
 parameter
  im_mow_cost(i)                           marcos_develop
- i14_grassl_yields(t_all,j,past_mngt,w)     marcos_develop
+ i14_past_yields(t_all,j,past_mngt,w)     marcos_develop
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
