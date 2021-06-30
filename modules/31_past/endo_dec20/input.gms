@@ -18,6 +18,6 @@ $offdelim
 
 table fm_LUH2v2(t_all,j,f14_luh) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
 $ondelim
-$include "./modules/31_past/input/f31_LUH2v2.cs3"
+$include "./modules/31_past/input/fm_LUH2v2.cs3"
 $offdelim
 ;
