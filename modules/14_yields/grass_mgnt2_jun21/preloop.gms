@@ -168,10 +168,10 @@ pm_timber_yield_initial(j,ac,land_natveg) = p14_growing_stock_initial(j,ac,land_
 
 p14_grassl_yld_hist_reg(t,i,past_mngt) = sum(cell(i,j), f14_grassl_yld_hist(t,j,past_mngt) * fm_LUH2v2(t,j,past_mngt)) / sum(cell(i,j),fm_LUH2v2(t,j,past_mngt));
 
-p14_grassl_yld_reg(t,i,past_mngt) = sum(cell(i,j), f14_grassl_yld(t,j,past_mngt) * fm_LUH2v2(t,j,past_mngt)) / sum(cell(i,j),fm_LUH2v2(t,j,past_mngt));
+p14_grassl_yld_reg(t,i,past_mngt) = sum(cell(i,j), f14_grassl_yld(t,j,past_mngt, "rainfed") * fm_LUH2v2(t,j,past_mngt)) / sum(cell(i,j),fm_LUH2v2(t,j,past_mngt));
 
 p14_myield_corr(t,i,past_mngt) = (p14_grassl_yld_hist_reg(t,i,past_mngt) / p14_grassl_yld_reg(t,i,past_mngt))$(sum(sameas(t_past,t),1) = 1)
-                                 + sum(t_past, (p14_grassl_yld_hist_reg(t_past,i,past_mngt) / p14_grassl_yld_reg(t_all,i,past_mngt))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1)
+                                 + sum(t_past, (p14_grassl_yld_hist_reg(t_past,i,past_mngt) / p14_grassl_yld_reg(t_past,i,past_mngt))$(ord(t_past)=card(t_past)))$(sum(sameas(t_past,t),1) <> 1);
 
 
 *i14_mod_past_yields_hist(t,j,past_mngt) =
