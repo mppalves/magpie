@@ -165,18 +165,22 @@ pm_timber_yield_initial(j,ac,land_natveg) = p14_growing_stock_initial(j,ac,land_
 *' Continuous Grazing is not correcte as MAgPIE can choose the yields by alocating LSUs to pasture, therefore linking
 *' yields to management directly.
 
-i14_grassl_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
-p14_grass_yld_reg(t,j) = i14_grassl_yields(t,j,past_mngt,"rainfed");
+f14_grassl_yld(t,j,past_mngt,w);
 
-loop(t, if(sum(sameas(t,"y1995"),1)=1,
-if ((s14_limit_calib = 0),
-    i14_lambda_pyields(t,j,past_mngt) = 1;
+
+loop(t,
+    if(sum(sameas(t,"y1995"),1)=1,
+
+        if ((s14_limit_calib = 0),
+           i14_lambda_pyields(t,j,past_mngt) = 1;
+
       Elseif (s14_limit_calib =1),
-      i14_lambda_pyields(t,j,past_mngt) = 1$(f14_grassl_yld_hist(t,j,past_mngt) <= f14_grassl_yld(t,j,past_mngt,"rainfed"))
-                                    + sqrt(f14_grassl_yld(t,j,past_mngt,"rainfed")/f14_grassl_yld_hist(t,j,past_mngt))$
-                                       (f14_grassl_yld_hist(t,j,past_mngt) > f14_grassl_yld(t,j,past_mngt,"rainfed"));
+           i14_lambda_pyields(t,j,past_mngt) =
+               1$(f14_grassl_yld_hist(t,j,past_mngt) <= f14_grassl_yld(t,j,past_mngt,"rainfed"))
+               + sqrt(f14_grassl_yld(t,j,past_mngt,"rainfed")/f14_grassl_yld_hist(t,j,past_mngt))$
+               (f14_grassl_yld_hist(t,j,past_mngt) > f14_grassl_yld(t,j,past_mngt,"rainfed"));
                                        );
-    i14_grassl_yld(t,j,past_mngt) = f14_grassl_yld(t,j,past_mngt,"rainfed");
+    i14_grassl_yld(t,j,past_mngt) = f14_grassl_yld_hist(t,j,past_mngt);
 
 Else
     f14_grassl_yld_hist(t,j,past_mngt) = f14_grassl_yld_hist(t-1,j,past_mngt);
@@ -185,12 +189,13 @@ Else
    );
 );
 
-p14_myield_corr(t,j) =
-   1 + ((f14_grassl_yld_hist(t,j,past_mngt) - i14_grassl_yld(t,j)) / f14_grassl_yld(t,j,past_mngt,"rainfed") *
-          (f14_grassl_yld(t,j,past_mngt,"rainfed") / (i14_grassl_yld(t,j))+10**(-8))) ** i14_lambda_pyields(t,j))$(f14_grassl_yld(t,j,past_mngt,"rainfed")>0);
+p14_myield_corr(t,j,past_mngt) =
+  1 + ((f14_grassl_yld_hist(t,j,past_mngt) - i14_grassl_yld(t,j,past_mngt)) /
+      f14_grassl_yld(t,j,past_mngt,"rainfed") * (f14_grassl_yld(t,j,past_mngt,"rainfed") / i14_grassl_yld(t,j,past_mngt)+1e-9) **
+      i14_lambda_pyields(t,j))$(f14_grassl_yld(t,j,past_mngt,"rainfed")>0);
 
-p14_myield_corr(t,j)$(p14_myield_corr(t,j) < 1)  = 1;
-f14_grassl_yld(t,j,"pastr","rainfed") = f14_grassl_yld(t,j,"pastr","rainfed")*p14_myield_corr(t,j);
+p14_myield_corr(t,j,past_mngt)$(p14_myield_corr(t,j,past_mngt) < 1)  = 1;
+f14_grassl_yld(t,j,past_mngt,"rainfed") = f14_grassl_yld(t,j,past_mngt,"rainfed")*p14_myield_corr(t,j,past_mngt);
 f14_grassl_yld(t,j,past_mngt,"rainfed") = f14_grassl_yld(t,j,past_mngt,"rainfed")*sum(cell(i,j),f14_yld_calib(i,"past"));
 
 *' A cost is associated with the mowing management option. This cost is calibrated
