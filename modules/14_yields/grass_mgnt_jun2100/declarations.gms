@@ -38,8 +38,9 @@ equations
 
 parameter
  im_mow_cost(i)                           marcos_develop
- i14_grass_yields(t_all,j,past_mngt,w)     marcos_develop
+ i14_grass_yields(t_all,j,past_mngt,w)    marcos_develop
  i14_grassland_total(t_all,j)             marcos_develop
+ i14_lambda_grass(t,i,past_mngt)          marcos_develop
 ;
 
 *#################### R SECTION START (OUTPUT DECLARATIONS) ####################
