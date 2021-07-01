@@ -30,5 +30,6 @@ $Ifi "%yields%" == "biocorrect" $include "./modules/14_yields/biocorrect/realiza
 $Ifi "%yields%" == "dynamic_aug18" $include "./modules/14_yields/dynamic_aug18/realization.gms"
 $Ifi "%yields%" == "grass_mgnt_jun21" $include "./modules/14_yields/grass_mgnt_jun21/realization.gms"
 $Ifi "%yields%" == "grass_mgnt_jun210" $include "./modules/14_yields/grass_mgnt_jun210/realization.gms"
+$Ifi "%yields%" == "grass_mgnt_jun2100" $include "./modules/14_yields/grass_mgnt_jun2100/realization.gms"
 $Ifi "%yields%" == "managementcalib_aug19" $include "./modules/14_yields/managementcalib_aug19/realization.gms"
 *###################### R SECTION END (MODULETYPES) ############################
