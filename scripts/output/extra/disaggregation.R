@@ -204,7 +204,7 @@ area_shr_hr <- .dissagcrop(gdx, land_hr, map=map_file)
   poten_prod <- lpjml_yields[,years,] * land_hr[,years,c("range","pastr")]
 
   #disaggregation weighted by potential yields
-  prod <- toolAggregate(grass_prod_lr, map_file, weight = poten_prod, from = "cluster", to = "cell")
+  prod <- toolAggregate(grass_prod_lr, map_file, weight = land_hr, from = "cluster", to = "cell")
 
   # calculating LSU densities
   lsu_eq <- (8.9 * 365)/1000 # tDM y-1
