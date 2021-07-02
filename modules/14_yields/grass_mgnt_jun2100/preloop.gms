@@ -184,7 +184,6 @@ i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rain
 $offtext
 
 i14_grass_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
-i14_grass_yields(t,j,"pastr",w) = f14_grassl_yld(t,j,"range",w) * 3;
 i14_grassland_total(t_all,j) =  sum(past_mngt, fm_LUH2v2(t_all,j,past_mngt));
 
 p14_grass_yields(t_past,i,past_mngt)
@@ -226,7 +225,7 @@ p14_grass_corr(t,j,past_mngt) =
       (f14_grassl_yld(t,j,past_mngt,"rainfed") / (sum(cell(i,j),p14_grass_yields(t,i,past_mngt))+10**(-8))) **
                              sum(cell(i,j),i14_lambda_grass(t,i,past_mngt)))$(f14_grassl_yld(t,j,past_mngt,"rainfed")>0);
 
-p14_grass_corr(t,j,past_mngt)$(p14_grass_corr(t,j,past_mngt) < 1) = 1;
+p14_grass_corr(t,j,past_mngt)$(p14_grass_corr(t,j,past_mngt) < 0.5) = 0.5;
 i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rainfed") * p14_grass_corr(t,j,past_mngt);
 
 
