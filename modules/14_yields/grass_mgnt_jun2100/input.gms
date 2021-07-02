@@ -72,12 +72,12 @@ $include "./modules/14_yields/input/lpj_grasslands_yld.cs3"
 $offdelim
 ;
 
-parameter p14_mowing_costs(i) mowing costs
-/
-$ondelim
-$include "./modules/14_yields/input/p14_mowing_costs.csv"
-$offdelim
-/;
+*parameter p14_mowing_costs(i) mowing costs
+*/
+*$ondelim
+*$include "./modules/14_yields/input/p14_mowing_costs.csv"
+*$offdelim
+*/;
 
 table f14_mow_cost_calib(i,mow_cost) Calibration factor for the mowing costs (1)
 $ondelim

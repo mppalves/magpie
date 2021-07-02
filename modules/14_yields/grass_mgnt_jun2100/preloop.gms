@@ -228,7 +228,7 @@ p14_grass_corr(t,j,past_mngt) =
 p14_grass_corr(t,j,past_mngt)$(p14_grass_corr(t,j,past_mngt) < 1) = 1;
 i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rainfed") * p14_grass_corr(t,j,past_mngt);
 
-im_mow_cost(i) = p14_mowing_costs(i) * f14_mow_cost_calib(i,"mow_cost");
+im_mow_cost(i) = f14_mow_cost_calib(i,"mow_cost");
 *marcos_develop
 
 *' Note that the calculation is split into two parts for better readability.
