@@ -33,7 +33,8 @@ equations
  q14_yield_past(j,w)                 Pasture yields (tDM per ha per yr)
 * q14_yield_past_contg(j,past_mngt,w) marcos_develop
 * q14_yield_past_mow(j,past_mngt,w)   marcos_develop
- q14_yield_grassl(j,past_mngt,w) marcos_develop
+ q14_yield_grassl_range(j,past_mngt,w) marcos_develop
+ q14_yield_grassl_pastr(j,past_mngt,w) marcos_develop
 ;
 
 parameter
