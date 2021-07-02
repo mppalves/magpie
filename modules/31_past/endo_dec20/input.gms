@@ -23,4 +23,4 @@ $offdelim
 ;
 
 Parameter
-grassland_costs(past_mngt) "past costs" / pastr 1, range 1.5 /;
+grassland_costs(past_mngt) "past costs" / pastr 1.5, range 1 /;
