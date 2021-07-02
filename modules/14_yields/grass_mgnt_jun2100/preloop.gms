@@ -225,7 +225,7 @@ p14_grass_corr(t,j,past_mngt) =
       (f14_grassl_yld(t,j,past_mngt,"rainfed") / (sum(cell(i,j),p14_grass_yields(t,i,past_mngt))+10**(-8))) **
                              sum(cell(i,j),i14_lambda_grass(t,i,past_mngt)))$(f14_grassl_yld(t,j,past_mngt,"rainfed")>0);
 
-p14_grass_corr(t,j,past_mngt)$(p14_grass_corr(t,j,past_mngt) < 0.5) = 0.5;
+p14_grass_corr(t,j,past_mngt)$(p14_grass_corr(t,j,past_mngt) < 0.4) = 0.4;
 i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rainfed") * p14_grass_corr(t,j,past_mngt);
 
 
