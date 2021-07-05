@@ -22,7 +22,7 @@ q31_pasture_areas(j2)..
 
 q31_cost_prod_past(i2) ..
 * vm_cost_prod(i2,"pasture") =e= sum((cell(i2,j2), past_mngt), v31_past_area(j2, past_mngt, "rainfed") * vm_past_yld(j2, past_mngt, "rainfed") * grassland_costs(past_mngt));
- vm_cost_prod(i2,"pasture") =e= sum((cell(i2,j2), past_mngt), vm_past_yld(j2, past_mngt, "rainfed") * grassland_costs(past_mngt)) + sum(cell(i2,j2), pastr_cost(j2) * 30);
+ vm_cost_prod(i2,"pasture") =e= sum((cell(i2,j2), past_mngt), vm_past_yld(j2, past_mngt, "rainfed") * grassland_costs(past_mngt)) + sum(cell(i2,j2), pastr_cost(j2) * 10);
 *' On the basis of the required pasture area, cellular above ground carbon stocks are calculated:
 
 q31_carbon(j2,ag_pools) ..
