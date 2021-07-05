@@ -30,7 +30,7 @@ q31_carbon(j2,ag_pools) ..
          sum(ct, vm_land(j2,"past")*fm_carbon_density(ct,j2,"past",ag_pools));
 
 q31_manpast_suitability(j2)..
-   v31_past_area(j2,"pastr","rainfed") =l= sum(ct,i31_manpast_suit(ct,j2));
+   v31_past_area(j2,"pastr","rainfed") =l= sum(ct,i31_manpast_suit(ct,j2)) + pastr_cost(ct,j2) + pastr_cost(ct,j2) * 30;
 
 *q31_grassland_ratio(j2)..
 *   v31_past_area(j2,"pastr","rainfed")/(v31_past_area(j2,"range","rainfed")+ 1e-6) =l= i31_ratio(j2);
