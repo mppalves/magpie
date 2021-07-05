@@ -18,7 +18,7 @@ equations
 *marcos_develop
 positive variables
 v31_past_area(j,past_mngt,w) marcos_develop
- pastr_cost(t,j) marcos_develop
+pastr_cost(j) marcos_develop
 ;
 parameters
 i31_manpast_suit(t_all,j) marcos_develop
