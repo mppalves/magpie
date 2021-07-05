@@ -184,6 +184,7 @@ i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rain
 $offtext
 
 i14_grass_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
+i14_grass_yields(t,j,"pastr",w) = i14_grass_yields(t,j,"pastr",w) * 2;
 i14_grassland_total(t_all,j) =  sum(past_mngt, fm_LUH2v2(t_all,j,past_mngt));
 
 p14_grass_yields(t_past,i,past_mngt)
