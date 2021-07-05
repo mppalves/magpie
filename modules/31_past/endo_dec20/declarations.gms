@@ -23,7 +23,7 @@ pastr_cost(j) marcos_develop
 parameters
 i31_manpast_suit(t_all,j) marcos_develop
 i31_ratio(j) marcos_develop
-p31_past_suit_corr(j) marcos_develop
+p31_past_suit_corr(t,j) marcos_develop
 ;
 equations
 q31_pasture_areas(j) marcos_develop
