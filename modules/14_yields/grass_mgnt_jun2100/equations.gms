@@ -48,7 +48,7 @@ q14_yield_past(j2,w) ..
    sum(ct,(i14_grass_yields(ct,j2,"range",w)));
 
   q14_yield_grassl_pastr(j2,past_mngt,w)..
-   vm_past_yld(j2,"pastr",w) =e=
+   vm_past_yld(j2,"pastr",w) =l=
    sum(ct,(i14_grass_yields(ct,j2,"pastr",w)));
 
 *  q14_yield_past_mow(j2,past_mngt,w)..
