@@ -29,7 +29,7 @@ land_hr_share_out_file     <- file.path(outputdir,"cell.land_0.5_share.mz")
 croparea_hr_share_out_file <- file.path(outputdir,"cell.croparea_0.5_share.mz")
 land_hr_split_file         <- file.path(outputdir,"cell.land_split_0.5.mz")
 land_hr_shr_split_file     <- file.path(outputdir,"cell.land_split_0.5_share.mz")
-lsu_ha_file                <- file.path(outputdir,"lsu_ha.nc")
+lsu_ha_file                <- file.path(outputdir,"lsu_ha.mz")
 
 load(paste0(outputdir, "/config.Rdata"))
 ################################################################################
