@@ -165,6 +165,9 @@ pm_timber_yield_initial(j,ac,land_natveg) = p14_growing_stock_initial(j,ac,land_
 *' Continuous Grazing is not correcte as MAgPIE can choose the yields by alocating LSUs to pasture, therefore linking
 *' yields to management directly.
 
+i14_grass_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
+i14_grassland_total(t_all,j) =  sum(past_mngt, fm_LUH2v2(t_all,j,past_mngt));
+
 p14_grass_yields(t,i,past_mngt) = (sum(cell(i,j),i14_grass_yields(t,j,past_mngt,"rainfed") * fm_LUH2v2(t,j,past_mngt)) /
                                    (sum(cell(i,j),fm_LUH2v2(t,j,past_mngt)) + 1e-9));
 
@@ -176,12 +179,10 @@ i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rain
 *' A cost is associated with the mowing management option. This cost is calibrated
 *' to reflect historical pasture patterns.
 
+
+
+
 $ontext
-
-i14_grass_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
-i14_grass_yields(t,j,"pastr",w) = i14_grass_yields(t,j,"pastr",w) * 2;
-i14_grassland_total(t_all,j) =  sum(past_mngt, fm_LUH2v2(t_all,j,past_mngt));
-
 p14_grass_yields(t_past,i,past_mngt)
    = (sum(cell(i,j),i14_grass_yields(t_past,j,past_mngt,"rainfed") * fm_LUH2v2(t_past,j,past_mngt)) /
       sum(cell(i,j),fm_LUH2v2(t_past,j,past_mngt)))$(sum(cell(i,j), fm_LUH2v2(t_past,j,past_mngt))>0)
