@@ -170,7 +170,7 @@ i14_lambda_grass(t,i,past_mngt)
 i14_grassl_yld_hist_reg(t,i,past_mngt)
 ;
 
-$ontext
+
 p14_grass_yields(t,i,past_mngt) = (sum(cell(i,j),i14_grass_yields(t,j,past_mngt,"rainfed") * fm_LUH2v2(t,j,past_mngt)) /
                                    (sum(cell(i,j),fm_LUH2v2(t,j,past_mngt)) + 1e-9));
 
@@ -181,7 +181,8 @@ i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rain
 
 *' A cost is associated with the mowing management option. This cost is calibrated
 *' to reflect historical pasture patterns.
-$offtext
+
+$ontext
 
 i14_grass_yields(t,j,past_mngt,w) = f14_grassl_yld(t,j,past_mngt,w);
 i14_grass_yields(t,j,"pastr",w) = i14_grass_yields(t,j,"pastr",w) * 2;
@@ -228,7 +229,7 @@ p14_grass_corr(t,j,past_mngt) =
 
 *p14_grass_corr(t,j,past_mngt)$(p14_grass_corr(t,j,past_mngt) < 1) = 1;
 i14_grass_yields(t,j,past_mngt,"rainfed") = i14_grass_yields(t,j,past_mngt,"rainfed") * p14_grass_corr(t,j,past_mngt);
-
+$offtext
 
 *marcos_develop
 
