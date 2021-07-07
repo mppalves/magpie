@@ -25,11 +25,15 @@ if (!exists("source_include")) {
   readArgs("outputdir")
 }
 
-land_hr_out_file           <- try(read.magpie(file.path(outputdir, "cell.land_0.5.mz")), silent = T)
-lsu_ha_file                <- try(read.magpie(file.path(outputdir, "lsu_ha.mz")), silent = T)
-environment_data           <- try(read.magpie(file.path("./modules/31_past/input/environment_scaled_gramnt.mz")), silent = T)
-weights                    <- try(readRDS(Sys.glob(file.path(outputdir, "weights_*.rds"))))
-input_names                <- try(readRDS(Sys.glob(file.path(outputdir, "inputs_*.Rds"))))
+land_hr_out_file           <- read.magpie(file.path(outputdir, "cell.land_0.5.mz"))
+lsu_ha_file                <- read.magpie(file.path(outputdir, "lsu_ha.mz"))
+environment_data           <- read.magpie(file.path("./modules/31_past/input/environment_scaled_gramnt.mz"))
+weights                    <- readRDS(Sys.glob(file.path(outputdir, "weights_*.rds")))
+input_names                <- readRDS(Sys.glob(file.path(outputdir, "inputs_*.Rds")))
+
+soil_carbon_base_file      <- file.path(outputdir,"soil_carbon_base.mz")
+soil_pastr_file            <- file.path(outputdir,"soil_pastr.mz")
+
 load(paste0(outputdir, "/config.Rdata"))
 
 ################################################################################
@@ -70,11 +74,11 @@ soil_pastr <- land_hr_out_file[, years, "range"] * soil_carbon
   cat(message)
 }
 
-.tmpwrite(soil_carbon, "soil_carbon_base.mz", comment = "unit: grams of Carbon per squared meter (gCm)",
-  message = "Write outputs soil_carbon_base")
+.tmpwrite(soil_carbon, soil_carbon_base_file, comment = "unit: grams of Carbon per squared meter (gCm)",
+  message = "Write outputs soil_carbon_base \n")
 
-.tmpwrite(soil_pastr, "soil_pastr.mz", comment = "unit: grams of Carbon per squared meter (gCm)",
-  message = "Write outputs soil_pastr")
+.tmpwrite(soil_pastr, soil_pastr_file, comment = "unit: grams of Carbon per squared meter (gCm)",
+  message = "Write outputs soil_pastr \n")
 
 
 #####################################################################################################
