@@ -27,7 +27,7 @@ if (!exists("source_include")) {
 
 land_hr_out_file           <- try(read.magpie(file.path(outputdir, "cell.land_0.5.mz")), silent = T)
 lsu_ha_file                <- try(read.magpie(file.path(outputdir, "lsu_ha.mz")), silent = T)
-environment_data           <- try(read.magpie(file.path("./modules/31_past/input/environment_scaled_new.mz")), silent = T)
+environment_data           <- try(read.magpie(file.path("./modules/31_past/input/environment_scaled_gramnt.mz")), silent = T)
 environment_data           <- try(read.magpie(file.path(outputdir, "environment_scaled_new.mz")), silent = T)
 weights                    <- try(readRDS(Sys.glob(file.path(outputdir, "weights_*.rds"))))
 input_names                <- try(readRDS(Sys.glob(file.path(outputdir, "inputs_*.Rds"))))
@@ -47,7 +47,7 @@ if (attr(lsu_ha_file, "class") == "try-error") {
         was succesfully run before")
 }
 if (attr(environment_data, "class") == "try-error") {
-  stop("Failed to load environment_scaled_new.mz from module 31_past.")
+  stop("Failed to load environment_scaled_gramnt.mz from module 31_past.")
 }
 
 # Harmonizing magpie objects names and years
