@@ -11,17 +11,12 @@
 # autor: Marcos Alves
 # ---------------------------------------------------------------
 
-
-outputdir <- "C:/Development"
-
-library(lucode2)
 library(magpie4)
-library(luscale)
 library(madrat)
+library(lucode2)
 library(tidyr)
 library(magclass)
 library(mrmagpie)
-library(dplyr)
 
 ############################# BASIC CONFIGURATION ##############################
 
@@ -81,3 +76,10 @@ soil_pastr <- land_hr_out_file[, years, "range"] * soil_carbon
 
 .tmpwrite(soil_pastr, "soil_pastr.mz", comment = "unit: grams of Carbon per squared meter (gCm)",
   message = "Write outputs soil_pastr")
+
+
+#####################################################################################################
+#####################################################################################################
+# Write read anf cal function for the model weights out from the grassland emulator source folder!
+#####################################################################################################
+#####################################################################################################
