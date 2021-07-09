@@ -35,11 +35,13 @@ std_col                    <- readRDS(file.path("./modules/31_past/input/", "f31
 mean_lab                   <- readRDS(file.path("./modules/31_past/input/", "f31_mean_lab.rds"))
 std_lab                    <- readRDS(file.path("./modules/31_past/input/", "f31_stddevs_lab.rds"))
 
-# environment_data           <- read.magpie(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/environment_gramnt.mz"))
-# weights                    <- readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_weights.rds"))
-# input_names                <- as.vector(readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_inputs.rds")))
-# means                      <- readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_mean.rds"))
-# std                        <- readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_std.rds"))
+#  environment_data           <- read.magpie(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/environment_gramnt.mz"))
+#  weights                    <- readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_weights.rds"))
+#  input_names                <- as.vector(readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_inputs.rds")))
+#  means_col                      <- readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_mean_col.rds"))
+#  std_col                        <- readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_stddevs_col.rds"))
+#  mean_lab                      <- readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_mean_lab.rds"))
+#  std_lab                        <- readRDS(file.path("/p/projects/landuse/users/pedrosa/MAgPIE/magpie_2/modules/31_past/input/", "f31_stddevs_lab.rds"))
 
 
 soil_carbon_base_file      <- file.path(outputdir,"soil_carbon_base.mz")
@@ -75,7 +77,7 @@ input_df <- pivot_wider(input, names_from = Data1, values_from = Value)
 input_df_scaled <- scale(input_df[, input_names], center = means_col[input_names], scale = std_col[input_names])
 # Making predictions and saving files
 soil_carbon <- toolNeuralNet(input_df_scaled, weights, "softplus")
-soil_carbon <- scale(soil_carbon, center = mean_lab, scale = std_lab)
+soil_carbon <- soil_carbon * as.numeric(std_lab) + scale = as.numeric(mean_lab)
 soil_carbon <- cbind(input_df[, c("Cell", "Year")], soil_carbon)
 soil_carbon <- as.magpie(soil_carbon, spatial = 1)
 soil_carbon <- toolCell2isoCell(soil_carbon)
