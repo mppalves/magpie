@@ -2,7 +2,10 @@
 f31_LUH2v2.cs3
 f31_pastr_share.cs3
 f31_pastr_suitability.cs3
-environment_scaled_gramnt.mz
-SCScalingFactors_gramnt.mz
+environment_gramnt.mz
 soilc_stocks_gramnt.mz
 f31_LUH2v2.mz
+f31_weights.rds
+f31_mean.rds
+f31_std.rds
+f31_inputs.rds
