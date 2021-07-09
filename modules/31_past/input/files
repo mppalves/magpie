@@ -6,6 +6,8 @@ environment_gramnt.mz
 soilc_stocks_gramnt.mz
 f31_LUH2v2.mz
 f31_weights.rds
-f31_mean.rds
-f31_std.rds
+f31_mean_col.rds
+f31_stddevs_col.rds
 f31_inputs.rds
+f31_mean_lab.rds
+f31_stddevs_lab.rds
