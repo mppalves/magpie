@@ -77,7 +77,7 @@ input_df <- pivot_wider(input, names_from = Data1, values_from = Value)
 input_df_scaled <- scale(input_df[, input_names], center = means_col[input_names], scale = std_col[input_names])
 # Making predictions and saving files
 soil_carbon <- toolNeuralNet(input_df_scaled, weights, "softplus")
-soil_carbon <- soil_carbon * as.numeric(std_lab) + scale = as.numeric(mean_lab)
+soil_carbon <- soil_carbon * as.numeric(std_lab) + as.numeric(mean_lab)
 soil_carbon <- cbind(input_df[, c("Cell", "Year")], soil_carbon)
 soil_carbon <- as.magpie(soil_carbon, spatial = 1)
 soil_carbon <- toolCell2isoCell(soil_carbon)
