@@ -68,7 +68,7 @@ $offdelim
 *marcos_develop
 table f14_grassl_yld(t_all,j,past_mngt,w) LPJmL potential yields per cell (rainfed and irrigated) (tDM per ha per yr)
 $ondelim
-$include "./modules/14_yields/input/lpj_grasslands_yld.cs3"
+$include "./modules/14_yields/input/f14_grassl_yld.cs3"
 $offdelim
 ;
 
@@ -89,9 +89,9 @@ $ondelim
 $include "./modules/14_yields/input/f14_grassL_yld_hist.cs3"
 $offdelim;
 
-table f14_grassl_yld_hist_reg(t_all,i, past_mngt) Modelled regional pasture yields in the past celullar (tDM per ha per yr)
+table f14_grassl_yld_hist(t_all,i, past_mngt) Modelled regional pasture yields in the past celullar (tDM per ha per yr)
 $ondelim
-$include "./modules/14_yields/input/f14_grassL_yld_hist_land.cs3"
+$include "./modules/14_yields/input/f14_grassl_yld_hist.cs3"
 $offdelim;
 
 *marcos_develop

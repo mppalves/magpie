@@ -1,10 +1,9 @@
 * list of files that are required here
-f31_LUH2v2.cs3
-f31_pastr_share.cs3
+fm_LUH2v2.cs3
 f31_pastr_suitability.cs3
 environment_gramnt.mz
 soilc_stocks_gramnt.mz
-f31_LUH2v2.mz
+fm_LUH2v2.mz
 f31_weights.rds
 f31_mean_col.rds
 f31_stddevs_col.rds
