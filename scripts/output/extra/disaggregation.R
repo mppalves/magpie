@@ -30,6 +30,7 @@ croparea_hr_share_out_file <- file.path(outputdir,"cell.croparea_0.5_share.mz")
 land_hr_split_file         <- file.path(outputdir,"cell.land_split_0.5.mz")
 land_hr_shr_split_file     <- file.path(outputdir,"cell.land_split_0.5_share.mz")
 lsu_ha_file                <- file.path(outputdir,"lsu_ha.mz")
+lsus_file                  <- file.path(outputdir,"lsus.mz")
 
 load(paste0(outputdir, "/config.Rdata"))
 ################################################################################
@@ -216,6 +217,10 @@ area_shr_hr <- .dissagcrop(gdx, land_hr, map=map_file)
   .tmpwrite(lsu_ha, lsu_ha_file,
             comment="unit: Lsu per ha",
             message="Write Livestock density per cluster")
+
+  .tmpwrite(lsus, lsus_file,
+            comment="unit: Lsu per cell",
+            message="Write Livestock per cell")
 
 }
 
